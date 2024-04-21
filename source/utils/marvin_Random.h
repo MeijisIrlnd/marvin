@@ -1,0 +1,35 @@
+#ifndef SLMADSP_RANDOM_H
+#define SLMADSP_RANDOM_H
+#include <random>
+#include "audio/utils/marvin_Concepts.h"
+#include <enable_warnings.h>
+namespace Audio {
+    class Random final {
+    public:
+        template <NumericType T>
+        struct Range {
+            T min, max;
+        };
+
+        explicit Random(std::random_device& rd);
+
+        template <NumericType T>
+        [[nodiscard]] T generate(Range<T> range) noexcept {
+            Distribution<T> distribution{ range.min, range.max };
+            const auto res = distribution(m_rng);
+            return res;
+        }
+
+
+    private:
+        template <class T>
+        using Distribution = std::conditional_t<std::is_floating_point_v<T>,
+                                                std::uniform_real_distribution<T>,
+                                                std::uniform_int_distribution<T>>;
+        std::mt19937 m_rng;
+    };
+
+
+} // namespace Audio
+#include <disable_warnings.h>
+#endif
