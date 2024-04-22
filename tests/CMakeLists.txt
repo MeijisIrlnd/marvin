@@ -1,0 +1,13 @@
+set(MARVIN_TEST_SOURCE 
+    ${CMAKE_CURRENT_SOURCE_DIR}/audio_basics/marvin_AudioBufferTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLineTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APFTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPFTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_ConceptsTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_PropagateConstTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegratorTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_LinearSmoothedValueTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_RandomTests.cpp
+    PARENT_SCOPE
+)
+    
