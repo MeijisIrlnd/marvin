@@ -1,6 +1,5 @@
 #include "marvin_APF.h"
-#include "audio/utils/marvin_Concepts.h"
-#include <cassert>
+#include "library/enable_warnings.h"
 namespace Audio {
 
     template <FloatType SampleType>
@@ -44,3 +43,4 @@ namespace Audio {
     template class LatticeAPF<float>;
     template class LatticeAPF<double>;
 } // namespace Audio
+#include "library/disable_warnings.h"

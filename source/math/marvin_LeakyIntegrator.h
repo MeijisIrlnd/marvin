@@ -1,7 +1,7 @@
 #ifndef MARVIN_LEAKYINTEGRATOR_H
 #define MARVIN_LEAKYINTEGRATOR_H
-#include "audio/utils/marvin_Concepts.h"
-#include <enable_warnings.h>
+#include "library/marvin_Concepts.h"
+#include "library/enable_warnings.h"
 namespace Audio {
     template <FloatType SampleType>
     class LeakyIntegrator final {
@@ -12,5 +12,5 @@ namespace Audio {
         SampleType m_prev;
     };
 } // namespace Audio
-#include <disable_warnings.h>
+#include "library/disable_warnings.h"
 #endif

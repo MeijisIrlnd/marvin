@@ -1,8 +1,7 @@
 #ifndef SLMADSP_PROPAGATECONST_H
 #define SLMADSP_PROPAGATECONST_H
-#include "audio/utils/marvin_Concepts.h"
+#include "library/marvin_Concepts.h"
 #include <algorithm>
-#include <concepts>
 #include <cstddef>
 #include <memory>
 #include <type_traits>

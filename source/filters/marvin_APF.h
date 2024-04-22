@@ -1,10 +1,7 @@
 #ifndef MARVIN_APF_H
 #define MARVIN_APF_H
-#include "audio/utils/marvin_Concepts.h"
-#include "audio/utils/marvin_DelayLine.h"
-#include "audio/utils/marvin_PropagateConst.h"
-#include "enable_warnings.h"
-#include <type_traits>
+#include "dsp/marvin_DelayLine.h"
+#include "library/enable_warnings.h"
 namespace Audio {
     template <FloatType SampleType>
     class LatticeAPF final {
@@ -23,5 +20,5 @@ namespace Audio {
     };
 
 } // namespace Audio
-#include "disable_warnings.h"
+#include "library/disable_warnings.h"
 #endif

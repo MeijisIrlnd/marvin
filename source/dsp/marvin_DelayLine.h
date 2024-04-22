@@ -1,9 +1,9 @@
 #ifndef MARVIN_DELAYLINE_H
 #define MARVIN_DELAYLINE_H
-#include "audio/utils/marvin_Concepts.h"
+#include "library/marvin_Concepts.h"
 #include <vector>
 #include <type_traits>
-#include "enable_warnings.h"
+#include "library/enable_warnings.h"
 namespace Audio {
     namespace DelayLineInterpolationTypes {
         struct None {};
@@ -45,5 +45,5 @@ namespace Audio {
     };
 
 } // namespace Audio
-#include "disable_warnings.h"
+#include "library/disable_warnings.h"
 #endif
