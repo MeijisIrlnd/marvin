@@ -35,7 +35,7 @@ target_include_directories(marvin PUBLIC
 install(DIRECTORY "source/" # source directory
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/marvin/marvin" # target directory
     FILES_MATCHING # install only matched files
-     PATTERN "*.h" # select header files
+    PATTERN "*.h" # select header files
 )
 
 install(
@@ -69,6 +69,20 @@ cpack_add_component(
     marvin DISPLAY_NAME "Marvin Audio Helpers"
     DESCRIPTION "A pure C++ dsp helper library"
 )
+
+include(FetchContent)
+FetchContent_Declare(
+    Catch2
+    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+    GIT_TAG v3.0.1 # or a later release
+    GIT_SHALLOW ON
+    FIND_PACKAGE_ARGS 3.0.1 GLOBAL
+)
+FetchContent_MakeAvailable(Catch2)
+add_executable(marvin-tests ${MARVIN_TEST_SOURCE})
+target_include_directories(marvin-tests PRIVATE include)
+target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin)
+add_dependencies(marvin-tests marvin)
 
 
 
