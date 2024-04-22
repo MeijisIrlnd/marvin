@@ -15,7 +15,7 @@
 #include "marvin/math/marvin_LeakyIntegrator.h"
 #include "marvin/utils/marvin_Random.h"
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::oscillators {
     namespace BlepState {
         struct Off {};
         struct On {};
@@ -62,7 +62,7 @@ namespace Audio {
         [[nodiscard]] SampleType operator()(SampleType phase) noexcept override;
 
     private:
-        LeakyIntegrator<SampleType> m_integrator;
+        math::LeakyIntegrator<SampleType> m_integrator;
     };
 
     template <FloatType SampleType, BlepType Blep = BlepState::Off>
@@ -102,7 +102,7 @@ namespace Audio {
         [[nodiscard]] SampleType operator()(SampleType phase) noexcept override;
 
     private:
-        Random m_rng;
+        utils::Random m_rng;
     };
 
     template <FloatType SampleType, BlepType Blep = BlepState::Off>
@@ -140,6 +140,6 @@ namespace Audio {
         PulseOscillator<SampleType, Blep> m_pulse;
         NoiseOscillator<SampleType> m_noise;
     };
-} // namespace Audio
+} // namespace marvin::oscillators
 #include "marvin/library/disable_warnings.h"
 #endif

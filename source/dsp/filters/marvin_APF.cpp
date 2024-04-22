@@ -8,9 +8,9 @@
 //
 // ========================================================================================================
 
-#include "marvin/filters/marvin_APF.h"
+#include "marvin/dsp/filters/marvin_APF.h"
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::dsp::filters {
 
     template <FloatType SampleType>
     void LatticeAPF<SampleType>::initialise(double sampleRate) {
@@ -52,5 +52,5 @@ namespace Audio {
 
     template class LatticeAPF<float>;
     template class LatticeAPF<double>;
-} // namespace Audio
+} // namespace marvin::dsp::filters
 #include "marvin/library/disable_warnings.h"

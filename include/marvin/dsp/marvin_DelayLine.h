@@ -14,7 +14,7 @@
 #include <vector>
 #include <type_traits>
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::dsp {
     namespace DelayLineInterpolationTypes {
         struct None {};
         struct Linear {};
@@ -54,6 +54,6 @@ namespace Audio {
         int m_totalSize{ 4 };
     };
 
-} // namespace Audio
+} // namespace marvin::dsp
 #include "marvin/library/disable_warnings.h"
 #endif

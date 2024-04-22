@@ -12,7 +12,7 @@
 #define MARVIN_LINEARSMOOTHEDVALUE_H
 #include "marvin/library/marvin_Concepts.h"
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::utils {
     template <FloatType SampleType>
     class LinearSmoothedValue {
     public:
@@ -30,6 +30,6 @@ namespace Audio {
         SampleType m_targetValue{ static_cast<SampleType>(0.0) };
         SampleType m_slew{ static_cast<SampleType>(0.0) };
     };
-} // namespace Audio
+} // namespace marvin::utils
 #include "marvin/library/disable_warnings.h"
 #endif

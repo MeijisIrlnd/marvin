@@ -13,7 +13,7 @@
 #include "marvin/library/marvin_Concepts.h"
 #include <random>
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::utils {
     class Random final {
     public:
         template <NumericType T>
@@ -40,6 +40,6 @@ namespace Audio {
     };
 
 
-} // namespace Audio
+} // namespace marvin::utils
 #include "marvin/library/disable_warnings.h"
 #endif

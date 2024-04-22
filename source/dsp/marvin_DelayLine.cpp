@@ -12,7 +12,7 @@
 #include <algorithm>
 #include <cmath>
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::dsp {
     template <FloatType SampleType>
     [[nodiscard]] bool isPositiveAndNotGreaterThan(SampleType x, SampleType y) noexcept {
         return x >= 0 && x < y;
@@ -149,5 +149,5 @@ namespace Audio {
     template class DelayLine<double, DelayLineInterpolationTypes::Linear>;
     template class DelayLine<float, DelayLineInterpolationTypes::Lagrange3rd>;
     template class DelayLine<double, DelayLineInterpolationTypes::Lagrange3rd>;
-} // namespace Audio
+} // namespace marvin::dsp
 #include "marvin/library/disable_warnings.h"

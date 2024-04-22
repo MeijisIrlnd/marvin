@@ -11,7 +11,7 @@
 #ifndef MARVIN_BUFFER_H
 #define MARVIN_BUFFER_H
 #include "marvin/library/marvin_Concepts.h"
-namespace Audio {
+namespace marvin::audiobasics {
     template <FloatType SampleType>
     struct Buffer {
         SampleType** in;
@@ -19,5 +19,5 @@ namespace Audio {
         int numChannels;
         int numSamples;
     };
-} // namespace Audio
+} // namespace marvin::audiobasics
 #endif

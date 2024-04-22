@@ -12,7 +12,7 @@
 #define MARVIN_LEAKYINTEGRATOR_H
 #include "marvin/library/marvin_Concepts.h"
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::math {
     template <FloatType SampleType>
     class LeakyIntegrator final {
     public:
@@ -21,6 +21,6 @@ namespace Audio {
     private:
         SampleType m_prev;
     };
-} // namespace Audio
+} // namespace marvin::math
 #include "marvin/library/disable_warnings.h"
 #endif

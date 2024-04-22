@@ -16,7 +16,7 @@
 #include <memory>
 #include <type_traits>
 
-namespace Audio {
+namespace marvin {
     template <typename T>
     requires SmartPointerType<T> || std::is_pointer_v<T>
     class PropagateConst {
@@ -286,5 +286,5 @@ namespace Audio {
         return t >= pu.m_underlying;
     }
 
-} // namespace Audio
+} // namespace marvin
 #endif

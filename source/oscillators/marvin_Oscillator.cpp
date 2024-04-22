@@ -14,8 +14,7 @@
 #include <random>
 #include "marvin/library/enable_warnings.h"
 
-namespace Audio {
-
+namespace marvin::oscillators {
     template <FloatType SampleType>
     SampleType polyBlep(SampleType t, SampleType phaseIncrement) noexcept {
         const auto dt = phaseIncrement;
@@ -167,7 +166,7 @@ namespace Audio {
 
     template <FloatType SampleType>
     SampleType NoiseOscillator<SampleType>::operator()() noexcept {
-        const auto random = m_rng.generate(Random::Range<SampleType>{ static_cast<SampleType>(-1.0), static_cast<SampleType>(1.0) });
+        const auto random = m_rng.generate(utils::Random::Range<SampleType>{ static_cast<SampleType>(-1.0), static_cast<SampleType>(1.0) });
         return random;
     }
 
@@ -296,5 +295,5 @@ namespace Audio {
     template class NoiseOscillator<double>;
     template class MultiOscillator<float, BlepState::Off>;
     template class MultiOscillator<float, BlepState::On>;
-} // namespace Audio
+} // namespace marvin::oscillators
 #include "marvin/library/disable_warnings.h"

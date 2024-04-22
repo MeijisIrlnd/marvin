@@ -12,7 +12,7 @@
 #define MARVIN_LPF_H
 #include "marvin/library/marvin_Concepts.h"
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::dsp::filters {
     template <FloatType SampleType>
     class LPF {
     public:
@@ -24,6 +24,6 @@ namespace Audio {
         SampleType m_prev{ static_cast<SampleType>(0.0) };
         SampleType m_coeff{ static_cast<SampleType>(0.0) };
     };
-} // namespace Audio
+} // namespace marvin::dsp::filters
 #include "marvin/library/disable_warnings.h"
 #endif

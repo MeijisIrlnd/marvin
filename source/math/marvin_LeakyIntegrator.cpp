@@ -10,7 +10,7 @@
 
 #include "marvin/math/marvin_LeakyIntegrator.h"
 #include "marvin/library/enable_warnings.h"
-namespace Audio {
+namespace marvin::math {
     template <FloatType SampleType>
     SampleType LeakyIntegrator<SampleType>::operator()(SampleType x, SampleType a) noexcept {
         // y[n] = A * x[n] + (1 - A) * y[n-1]
@@ -21,5 +21,5 @@ namespace Audio {
 
     template class LeakyIntegrator<float>;
     template class LeakyIntegrator<double>;
-} // namespace Audio
+} // namespace marvin::math
 #include "marvin/library/disable_warnings.h"
