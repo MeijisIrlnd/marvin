@@ -1,3 +1,13 @@
+# ========================================================================================================
+#  _______ _______ ______ ___ ___ _______ _______
+# |   |   |   _   |   __ \   |   |_     _|    |  |
+# |       |       |      <   |   |_|   |_|       |
+# |__|_|__|___|___|___|__|\_____/|_______|__|____|
+#
+# This file is part of the Marvin open source library and is licensed under the terms of the MIT License.
+#
+# ========================================================================================================
+
 set(MARVIN_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLine.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/marvin_APF.cpp
