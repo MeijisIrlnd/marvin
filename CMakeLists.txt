@@ -32,7 +32,7 @@ target_include_directories(marvin PUBLIC
 )
 
 install(DIRECTORY "source/" # source directory
-    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/marvin" # target directory
+    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/marvin/marvin" # target directory
     FILES_MATCHING # install only matched files
      PATTERN "*.h" # select header files
 )
