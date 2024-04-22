@@ -1,5 +1,5 @@
-#include "marvin_LPF.h"
-#include "library/enable_warnings.h"
+#include "marvin/filters/marvin_LPF.h"
+#include "marvin/library/enable_warnings.h"
 namespace Audio {
     template <FloatType SampleType>
     void LPF<SampleType>::setCoeff(SampleType newCoeff) noexcept {
@@ -23,4 +23,4 @@ namespace Audio {
     template class LPF<float>;
     template class LPF<double>;
 } // namespace Audio
-#include "library/disable_warnings.h"
+#include "marvin/library/disable_warnings.h"

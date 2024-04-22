@@ -1,6 +1,6 @@
 #ifndef SLMADSP_PROPAGATECONST_H
 #define SLMADSP_PROPAGATECONST_H
-#include "library/marvin_Concepts.h"
+#include "marvin/library/marvin_Concepts.h"
 #include <algorithm>
 #include <cstddef>
 #include <memory>

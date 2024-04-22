@@ -1,6 +1,6 @@
 #ifndef MARVIN_BUFFER_H
 #define MARVIN_BUFFER_H
-#include "audio/utils/marvin_Concepts.h"
+#include "marvin/library/marvin_Concepts.h"
 namespace Audio {
     template <FloatType SampleType>
     struct Buffer {

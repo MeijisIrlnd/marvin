@@ -9,17 +9,3 @@ set(MARVIN_SOURCES
     PARENT_SCOPE
 )
 
-set(MARVIN_HEADERS 
-    ${CMAKE_CURRENT_SOURCE_DIR}/audio_basics/marvin_Buffer.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLine.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/filters/marvin_APF.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/filters/marvin_LPF.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_Concepts.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_PropagateConst.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegrator.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/oscillators/marvin_Oscillator.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_LinearSmoothedValue.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_Random.h
-    PARENT_SCOPE
-)
-

@@ -1,8 +1,8 @@
-#include "marvin_Oscillator.h"
+#include "marvin/oscillators/marvin_Oscillator.h"
 #include <numbers>
 #include <cmath>
 #include <random>
-#include "library/enable_warnings.h"
+#include "marvin/library/enable_warnings.h"
 
 namespace Audio {
 
@@ -287,4 +287,4 @@ namespace Audio {
     template class MultiOscillator<float, BlepState::Off>;
     template class MultiOscillator<float, BlepState::On>;
 } // namespace Audio
-#include "library/disable_warnings.h"
+#include "marvin/library/disable_warnings.h"

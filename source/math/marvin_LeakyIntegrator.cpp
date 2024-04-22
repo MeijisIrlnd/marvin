@@ -1,5 +1,5 @@
-#include "marvin_LeakyIntegrator.h"
-#include "library/enable_warnings.h"
+#include "marvin/math/marvin_LeakyIntegrator.h"
+#include "marvin/library/enable_warnings.h"
 namespace Audio {
     template <FloatType SampleType>
     SampleType LeakyIntegrator<SampleType>::operator()(SampleType x, SampleType a) noexcept {
@@ -12,4 +12,4 @@ namespace Audio {
     template class LeakyIntegrator<float>;
     template class LeakyIntegrator<double>;
 } // namespace Audio
-#include "library/disable_warnings.h"
+#include "marvin/library/disable_warnings.h"

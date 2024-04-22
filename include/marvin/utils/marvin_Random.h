@@ -1,8 +1,8 @@
 #ifndef SLMADSP_RANDOM_H
 #define SLMADSP_RANDOM_H
-#include "library/marvin_Concepts.h"
+#include "marvin/library/marvin_Concepts.h"
 #include <random>
-#include "library/enable_warnings.h"
+#include "marvin/library/enable_warnings.h"
 namespace Audio {
     class Random final {
     public:
@@ -31,5 +31,5 @@ namespace Audio {
 
 
 } // namespace Audio
-#include "library/disable_warnings.h"
+#include "marvin/library/disable_warnings.h"
 #endif

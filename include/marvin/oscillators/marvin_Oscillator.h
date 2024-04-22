@@ -1,10 +1,10 @@
 #ifndef MARVIN_OSCILLATOR_H
 #define MARVIN_OSCILLATOR_H
-#include "library/marvin_Concepts.h"
-#include "library/marvin_PropagateConst.h"
-#include "math/marvin_LeakyIntegrator.h"
-#include "utils/marvin_Random.h"
-#include "library/enable_warnings.h"
+#include "marvin/library/marvin_Concepts.h"
+#include "marvin/library/marvin_PropagateConst.h"
+#include "marvin/math/marvin_LeakyIntegrator.h"
+#include "marvin/utils/marvin_Random.h"
+#include "marvin/library/enable_warnings.h"
 namespace Audio {
     namespace BlepState {
         struct Off {};
@@ -131,5 +131,5 @@ namespace Audio {
         NoiseOscillator<SampleType> m_noise;
     };
 } // namespace Audio
-#include "library/disable_warnings.h"
+#include "marvin/library/disable_warnings.h"
 #endif

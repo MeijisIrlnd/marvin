@@ -1,5 +1,5 @@
-#include "marvin_LinearSmoothedValue.h"
-#include "library/enable_warnings.h"
+#include "marvin/utils/marvin_LinearSmoothedValue.h"
+#include "marvin/library/enable_warnings.h"
 namespace Audio {
     template <FloatType SampleType>
     void LinearSmoothedValue<SampleType>::reset(int steps) {
@@ -42,4 +42,4 @@ namespace Audio {
     template class LinearSmoothedValue<float>;
     template class LinearSmoothedValue<double>;
 } // namespace Audio
-#include "library/disable_warnings.h"
+#include "marvin/library/disable_warnings.h"
