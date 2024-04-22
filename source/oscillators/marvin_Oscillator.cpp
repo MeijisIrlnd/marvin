@@ -37,7 +37,11 @@ namespace marvin::oscillators {
 
     template <FloatType SampleType>
     void OscillatorBase<SampleType>::setFrequency(SampleType newFrequency) noexcept {
-        m_phaseIncrement = newFrequency / static_cast<SampleType>(m_sampleRate);
+        const auto period = static_cast<SampleType>(1.0f) / newFrequency;
+        const auto periodSamples = period * static_cast<SampleType>(m_sampleRate);
+        const auto incr = static_cast<SampleType>(1.0f) / periodSamples;
+        m_phaseIncrement = incr;
+        // m_phaseIncrement = newFrequency / static_cast<SampleType>(m_sampleRate);
     }
 
     template <FloatType SampleType>

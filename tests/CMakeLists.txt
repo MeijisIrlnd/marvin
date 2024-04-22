@@ -6,6 +6,7 @@ set(MARVIN_TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_ConceptsTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_PropagateConstTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegratorTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/oscillators/marvin_OscillatorTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_LinearSmoothedValueTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_RandomTests.cpp
     PARENT_SCOPE

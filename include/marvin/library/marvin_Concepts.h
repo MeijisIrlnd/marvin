@@ -17,6 +17,7 @@ namespace marvin {
         std::is_floating_point_v<T>;
     };
 
+
     template <class T>
     concept NumericType = requires {
         std::is_integral_v<T> ||
