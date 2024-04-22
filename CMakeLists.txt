@@ -28,7 +28,7 @@ add_library(marvin STATIC ${MARVIN_SOURCES})
 target_compile_features(marvin PUBLIC cxx_std_20)
 target_include_directories(marvin PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/source>
-    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/marvin>
+    $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
 install(DIRECTORY "source/" # source directory
