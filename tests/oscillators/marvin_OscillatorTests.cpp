@@ -14,47 +14,46 @@
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
 #include <numbers>
 #include <random>
+#include <iostream>
 namespace marvin::testing {
-    [[nodiscard]] float getPhaseIncrement(float frequency, double sampleRate) noexcept { 
+    [[nodiscard]] float getPhaseIncrement(float frequency, double sampleRate) noexcept {
         const auto period = 1.0f / frequency;
         const auto periodSamples = period * static_cast<float>(sampleRate);
-        return 1.0f / periodSamples;    
+        return 1.0f / periodSamples;
     }
 
-    [[nodiscard]] float naiveSine(float phase) { 
+    [[nodiscard]] float naiveSine(float phase) {
         static constexpr auto twoPi = std::numbers::pi_v<float> * 2.0f;
         const auto radianPhase = phase * twoPi;
         const auto sineOut = std::sin(radianPhase);
         return sineOut;
     }
 
-    [[nodiscard]] float naiveSaw(float phase) { 
-        auto x = (2.0f * phase) - 1.0f;
-        return x;
+    [[nodiscard]] float naiveSaw(float phase) {
+        // Shift this by 0.5
+        phase = std::fmod(phase + 0.5f, 1.0f);
+        return 2.0f * (phase - std::floor(phase + 0.5f));
     }
 
-    [[nodiscard]] float naiveTri(float phase) { 
-        auto x = -1.0f + (2.0f * phase);
-        x = 2.0f * (std::fabs(x) - 0.5f);
-        return x;
+    [[nodiscard]] float naiveTri(float phase) {
+        return 4.0f * std::abs(phase - std::floor(phase + 0.75f) + 0.25f) - 1.0f;
     }
 
-    [[nodiscard]] float naiveSquare(float phase) { 
-        const auto value = phase < 0.5f ? 1.0f : -1.0f;
-        return value;
+    [[nodiscard]] float naiveSquare(float phase) {
+        return phase < 0.5f ? 1.0f : -1.0f;
     }
 
-    [[nodiscard]] float naivePulse(float phase,float pulsewidth) { 
-        const auto value = phase < pulsewidth ? 1.0f : -1.0f;
-        return value;
+    [[nodiscard]] float naivePulse(float phase, float pulsewidth) {
+        return phase < pulsewidth ? 1.0f : -1.0f;
     }
 
-    void initialiseOsc(oscillators::OscillatorBase<float>* oscillator, float frequency, double sampleRate) { 
+
+    void initialiseOsc(oscillators::OscillatorBase<float>* oscillator, float frequency, double sampleRate) {
         oscillator->initialise(sampleRate);
         oscillator->setFrequency(frequency);
     }
 
-    void initialiseMultiOsc(oscillators::MultiOscillator<float>& osc, float frequency, float pulsewidth, double sampleRate) { 
+    void initialiseMultiOsc(oscillators::MultiOscillator<float>& osc, float frequency, float pulsewidth, double sampleRate) {
         osc.initialise(sampleRate);
         osc.setFrequency(frequency);
         osc.setPulsewidth(pulsewidth);
@@ -62,7 +61,7 @@ namespace marvin::testing {
 
     static auto rd = std::random_device();
 
-    TEST_CASE("Test Oscillators") { 
+    TEST_CASE("Test Oscillators") {
         using namespace oscillators;
         constexpr auto sampleRate{ 44100.0 };
         constexpr auto frequency{ 1.0f };
@@ -97,7 +96,7 @@ namespace marvin::testing {
 
         auto phase{ 0.0f };
         const auto phaseIncrement = getPhaseIncrement(frequency, sampleRate);
-        for(auto i = 0; i < numIterations; ++i) { 
+        for (auto i = 0; i < numIterations; ++i) {
             const auto sineInternalOut = sine();
             const auto sineExternalOut = sine(phase);
             const auto multiSineOut = multiSine();
@@ -136,9 +135,7 @@ namespace marvin::testing {
             const auto noiseOut = noise();
             REQUIRE((noiseOut >= -1.0f && noiseOut <= 1.0f));
 
-            phase += phaseIncrement; 
+            phase += phaseIncrement;
         }
-        
-        
     }
-}
+} // namespace marvin::testing

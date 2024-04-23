@@ -30,6 +30,20 @@ namespace marvin::oscillators {
     }
 
     template <FloatType SampleType>
+    [[nodiscard]] SampleType blamp(SampleType t, SampleType phaseIncrement) noexcept {
+        const auto dt = phaseIncrement;
+        if (t < dt) {
+            t = t / dt - static_cast<SampleType>(1.0);
+            return static_cast<SampleType>(1.0) / static_cast<SampleType>(3.0) * std::pow(t, static_cast<SampleType>(3.0));
+        } else if (t > static_cast<SampleType>(1.0) - dt) {
+            t = (t - static_cast<SampleType>(1.0)) / dt + static_cast<SampleType>(1.0);
+            return static_cast<SampleType>(1.0) / static_cast<SampleType>(3.0) * std::pow(t, static_cast<SampleType>(3.0));
+        } else {
+            return static_cast<SampleType>(0.0);
+        }
+    }
+
+    template <FloatType SampleType>
     void OscillatorBase<SampleType>::initialise(double sampleRate) {
         m_sampleRate = sampleRate;
         reset();
@@ -79,20 +93,15 @@ namespace marvin::oscillators {
 
     template <FloatType SampleType, BlepType Blep>
     SampleType TriOscillator<SampleType, Blep>::operator()(SampleType phase) noexcept {
-        SampleType x;
-        if constexpr (std::is_same_v<Blep, BlepState::Off>) {
-            x = static_cast<SampleType>(-1.0) + (static_cast<SampleType>(2.0) * phase);
-            x = static_cast<SampleType>(2.0) * (std::fabs(x) - static_cast<SampleType>(0.5));
-        } else {
-            // Leaky Integrated polyblepped Square
-            if (phase < static_cast<SampleType>(0.5)) {
-                x = static_cast<SampleType>(1.0);
-            } else {
-                x = static_cast<SampleType>(-1.0);
-            }
-            x += polyBlep(phase, this->m_phaseIncrement);
-            x -= polyBlep(std::fmod(phase + static_cast<SampleType>(0.5), static_cast<SampleType>(1.0)), this->m_phaseIncrement);
-            x = m_integrator(x, this->m_phaseIncrement);
+        auto x = static_cast<SampleType>(4.0) * std::abs(phase - std::floor(phase + static_cast<SampleType>(0.75)) + static_cast<SampleType>(0.25)) - static_cast<SampleType>(1.0);
+        if constexpr (std::is_same_v<Blep, BlepState::On>) {
+            const auto t1 = std::fmod(phase + static_cast<SampleType>(0.25), static_cast<SampleType>(1.0));
+            const auto t2 = std::fmod(phase + static_cast<SampleType>(0.75), static_cast<SampleType>(1.0));
+            const auto b1 = blamp(t1, this->m_phaseIncrement);
+            const auto b2 = blamp(t2, this->m_phaseIncrement);
+            const auto delta = b1 - b2;
+            const auto blamped = static_cast<SampleType>(4.0) * this->m_phaseIncrement * delta;
+            x += blamped;
         }
         return x;
     }
