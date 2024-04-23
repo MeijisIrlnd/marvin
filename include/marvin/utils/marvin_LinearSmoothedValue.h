@@ -11,7 +11,7 @@
 #ifndef MARVIN_LINEARSMOOTHEDVALUE_H
 #define MARVIN_LINEARSMOOTHEDVALUE_H
 #include "marvin/library/marvin_Concepts.h"
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::utils {
     template <FloatType SampleType>
     class LinearSmoothedValue {
@@ -31,5 +31,5 @@ namespace marvin::utils {
         SampleType m_slew{ static_cast<SampleType>(0.0) };
     };
 } // namespace marvin::utils
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"
 #endif

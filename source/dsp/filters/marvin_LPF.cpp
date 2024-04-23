@@ -9,7 +9,7 @@
 // ========================================================================================================
 
 #include "marvin/dsp/filters/marvin_LPF.h"
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
     template <FloatType SampleType>
     void LPF<SampleType>::setCoeff(SampleType newCoeff) noexcept {
@@ -33,4 +33,4 @@ namespace marvin::dsp::filters {
     template class LPF<float>;
     template class LPF<double>;
 } // namespace marvin::dsp::filters
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"

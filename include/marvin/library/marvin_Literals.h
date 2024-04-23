@@ -8,19 +8,14 @@
 //
 // ========================================================================================================
 
-#ifndef MARVIN_LEAKYINTEGRATOR_H
-#define MARVIN_LEAKYINTEGRATOR_H
-#include "marvin/library/marvin_Concepts.h"
-#include "marvin/library/marvin_EnableWarnings.h"
-namespace marvin::math {
-    template <FloatType SampleType>
-    class LeakyIntegrator final {
-    public:
-        [[nodiscard]] SampleType operator()(SampleType x, SampleType a) noexcept;
+#ifndef MARVIN_LITERALS_H
+#define MARVIN_LITERALS_H
 
-    private:
-        SampleType m_prev;
-    };
-} // namespace marvin::math
-#include "marvin/library/marvin_DisableWarnings.h"
+namespace marvin {
+    inline namespace literals {
+        constexpr size_t operator""_sz(size_t x) {
+            return x;
+        }
+    } // namespace literals
+} // namespace marvin
 #endif

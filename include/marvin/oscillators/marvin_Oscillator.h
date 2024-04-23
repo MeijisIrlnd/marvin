@@ -14,7 +14,7 @@
 #include "marvin/library/marvin_PropagateConst.h"
 #include "marvin/math/marvin_LeakyIntegrator.h"
 #include "marvin/utils/marvin_Random.h"
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::oscillators {
     namespace BlepState {
         struct Off {};
@@ -141,5 +141,5 @@ namespace marvin::oscillators {
         NoiseOscillator<SampleType> m_noise;
     };
 } // namespace marvin::oscillators
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"
 #endif

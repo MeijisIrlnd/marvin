@@ -8,19 +8,24 @@
 //
 // ========================================================================================================
 
-#ifndef MARVIN_LEAKYINTEGRATOR_H
-#define MARVIN_LEAKYINTEGRATOR_H
+#ifndef MARVIN_SMOOTHEDBIQUAD_COEFFICIENTS_H
+#define MARVIN_SMOOTHEDBIQUAD_COEFFICIENTS_H
+
 #include "marvin/library/marvin_Concepts.h"
+#include "marvin/dsp/filters/biquad/marvin_BiquadCoefficients.h"
 #include "marvin/library/marvin_EnableWarnings.h"
-namespace marvin::math {
+namespace marvin::dsp::filters {
     template <FloatType SampleType>
-    class LeakyIntegrator final {
+    class SmoothedBiquadCoefficients {
     public:
-        [[nodiscard]] SampleType operator()(SampleType x, SampleType a) noexcept;
+        void setCurrentAndTargetCoeffs(const BiquadCoefficients<SampleType>& target) noexcept;
+        void setTargetCoeffs(const BiquadCoefficients<SampleType>& target) noexcept;
+        [[nodiscard]] const BiquadCoefficients<SampleType>& current() const noexcept;
+        void interpolate() noexcept;
 
     private:
-        SampleType m_prev;
+        BiquadCoefficients<SampleType> m_current{}, m_target{};
     };
-} // namespace marvin::math
+} // namespace marvin::dsp::filters
 #include "marvin/library/marvin_DisableWarnings.h"
 #endif

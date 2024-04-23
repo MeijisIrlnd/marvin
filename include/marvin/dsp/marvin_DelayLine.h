@@ -13,7 +13,7 @@
 #include "marvin/library/marvin_Concepts.h"
 #include <vector>
 #include <type_traits>
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp {
     namespace DelayLineInterpolationTypes {
         struct None {};
@@ -55,5 +55,5 @@ namespace marvin::dsp {
     };
 
 } // namespace marvin::dsp
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"
 #endif

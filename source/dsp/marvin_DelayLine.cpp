@@ -11,7 +11,7 @@
 #include "marvin/dsp/marvin_DelayLine.h"
 #include <algorithm>
 #include <cmath>
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp {
     template <FloatType SampleType>
     [[nodiscard]] bool isPositiveAndNotGreaterThan(SampleType x, SampleType y) noexcept {
@@ -150,4 +150,4 @@ namespace marvin::dsp {
     template class DelayLine<float, DelayLineInterpolationTypes::Lagrange3rd>;
     template class DelayLine<double, DelayLineInterpolationTypes::Lagrange3rd>;
 } // namespace marvin::dsp
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"

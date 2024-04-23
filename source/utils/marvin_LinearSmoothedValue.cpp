@@ -9,7 +9,7 @@
 // ========================================================================================================
 
 #include "marvin/utils/marvin_LinearSmoothedValue.h"
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::utils {
     template <FloatType SampleType>
     void LinearSmoothedValue<SampleType>::reset(int steps) {
@@ -52,4 +52,4 @@ namespace marvin::utils {
     template class LinearSmoothedValue<float>;
     template class LinearSmoothedValue<double>;
 } // namespace marvin::utils
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"

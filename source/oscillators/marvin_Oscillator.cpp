@@ -12,7 +12,7 @@
 #include <numbers>
 #include <cmath>
 #include <random>
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 
 namespace marvin::oscillators {
     template <FloatType SampleType>
@@ -309,4 +309,4 @@ namespace marvin::oscillators {
     template class MultiOscillator<float, BlepState::Off>;
     template class MultiOscillator<float, BlepState::On>;
 } // namespace marvin::oscillators
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"

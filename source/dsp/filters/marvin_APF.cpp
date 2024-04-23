@@ -9,7 +9,7 @@
 // ========================================================================================================
 
 #include "marvin/dsp/filters/marvin_APF.h"
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
 
     template <FloatType SampleType>
@@ -53,4 +53,4 @@ namespace marvin::dsp::filters {
     template class LatticeAPF<float>;
     template class LatticeAPF<double>;
 } // namespace marvin::dsp::filters
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"

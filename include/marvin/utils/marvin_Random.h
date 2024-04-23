@@ -12,7 +12,7 @@
 #define SLMADSP_RANDOM_H
 #include "marvin/library/marvin_Concepts.h"
 #include <random>
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::utils {
     class Random final {
     public:
@@ -41,5 +41,5 @@ namespace marvin::utils {
 
 
 } // namespace marvin::utils
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"
 #endif

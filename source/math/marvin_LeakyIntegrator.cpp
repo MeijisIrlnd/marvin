@@ -9,7 +9,7 @@
 // ========================================================================================================
 
 #include "marvin/math/marvin_LeakyIntegrator.h"
-#include "marvin/library/enable_warnings.h"
+#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::math {
     template <FloatType SampleType>
     SampleType LeakyIntegrator<SampleType>::operator()(SampleType x, SampleType a) noexcept {
@@ -22,4 +22,4 @@ namespace marvin::math {
     template class LeakyIntegrator<float>;
     template class LeakyIntegrator<double>;
 } // namespace marvin::math
-#include "marvin/library/disable_warnings.h"
+#include "marvin/library/marvin_DisableWarnings.h"
