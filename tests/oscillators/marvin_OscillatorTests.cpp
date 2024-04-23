@@ -61,81 +61,114 @@ namespace marvin::testing {
 
     static auto rd = std::random_device();
 
-    TEST_CASE("Test Oscillators") {
+    TEST_CASE("Test oscillators") {
         using namespace oscillators;
         constexpr auto sampleRate{ 44100.0 };
         constexpr auto frequency{ 1.0f };
         constexpr auto numIterations{ 100 };
         constexpr auto pulsewidth{ 0.25f };
 
-        SineOscillator<float> sine;
-        TriOscillator<float, BlepState::Off> tri;
-        SawOscillator<float, BlepState::Off> saw;
-        SquareOscillator<float, BlepState::Off> square;
-        PulseOscillator<float, BlepState::Off> pulse;
-        NoiseOscillator<float> noise{ rd };
+        SECTION("Test oscillator waves") {
+            SineOscillator<float> sine;
+            TriOscillator<float, BlepState::Off> tri;
+            SawOscillator<float, BlepState::Off> saw;
+            SquareOscillator<float, BlepState::Off> square;
+            PulseOscillator<float, BlepState::Off> pulse;
+            NoiseOscillator<float> noise{ rd };
 
-        MultiOscillator<float, BlepState::Off> multiSine{ rd, MultiOscillator<float>::SHAPE::SINE };
-        MultiOscillator<float, BlepState::Off> multiTri{ rd, MultiOscillator<float>::SHAPE::TRIANGLE };
-        MultiOscillator<float, BlepState::Off> multiSaw{ rd, MultiOscillator<float>::SHAPE::SAW };
-        MultiOscillator<float, BlepState::Off> multiSquare{ rd, MultiOscillator<float>::SHAPE::SQUARE };
-        MultiOscillator<float, BlepState::Off> multiPulse{ rd, MultiOscillator<float>::SHAPE::PULSE };
+            MultiOscillator<float, BlepState::Off> multiSine{ rd, MultiOscillator<float>::SHAPE::SINE };
+            MultiOscillator<float, BlepState::Off> multiTri{ rd, MultiOscillator<float>::SHAPE::TRIANGLE };
+            MultiOscillator<float, BlepState::Off> multiSaw{ rd, MultiOscillator<float>::SHAPE::SAW };
+            MultiOscillator<float, BlepState::Off> multiSquare{ rd, MultiOscillator<float>::SHAPE::SQUARE };
+            MultiOscillator<float, BlepState::Off> multiPulse{ rd, MultiOscillator<float>::SHAPE::PULSE };
+            MultiOscillator<float, BlepState::Off> multiNoise{ rd, MultiOscillator<float>::SHAPE::NOISE };
 
-        initialiseOsc(&sine, frequency, sampleRate);
-        initialiseOsc(&tri, frequency, sampleRate);
-        initialiseOsc(&saw, frequency, sampleRate);
-        initialiseOsc(&square, frequency, sampleRate);
-        initialiseOsc(&pulse, frequency, sampleRate);
-        pulse.setPulsewidth(pulsewidth);
+            initialiseOsc(&sine, frequency, sampleRate);
+            initialiseOsc(&tri, frequency, sampleRate);
+            initialiseOsc(&saw, frequency, sampleRate);
+            initialiseOsc(&square, frequency, sampleRate);
+            initialiseOsc(&pulse, frequency, sampleRate);
+            pulse.setPulsewidth(pulsewidth);
 
-        initialiseMultiOsc(multiSine, frequency, pulsewidth, sampleRate);
-        initialiseMultiOsc(multiTri, frequency, pulsewidth, sampleRate);
-        initialiseMultiOsc(multiSaw, frequency, pulsewidth, sampleRate);
-        initialiseMultiOsc(multiSquare, frequency, pulsewidth, sampleRate);
-        initialiseMultiOsc(multiPulse, frequency, pulsewidth, sampleRate);
+            initialiseMultiOsc(multiSine, frequency, pulsewidth, sampleRate);
+            initialiseMultiOsc(multiTri, frequency, pulsewidth, sampleRate);
+            initialiseMultiOsc(multiSaw, frequency, pulsewidth, sampleRate);
+            initialiseMultiOsc(multiSquare, frequency, pulsewidth, sampleRate);
+            initialiseMultiOsc(multiPulse, frequency, pulsewidth, sampleRate);
 
-        auto phase{ 0.0f };
-        const auto phaseIncrement = getPhaseIncrement(frequency, sampleRate);
-        for (auto i = 0; i < numIterations; ++i) {
-            const auto sineInternalOut = sine();
-            const auto sineExternalOut = sine(phase);
-            const auto multiSineOut = multiSine();
-            const auto naiveSineOut = naiveSine(phase);
-            REQUIRE_THAT(sineInternalOut, Catch::Matchers::WithinRel(naiveSineOut));
-            REQUIRE_THAT(sineExternalOut, Catch::Matchers::WithinRel(naiveSineOut));
-            REQUIRE_THAT(multiSineOut, Catch::Matchers::WithinRel(sineInternalOut));
-            const auto triInternalOut = tri();
-            const auto triExternalOut = tri(phase);
-            const auto multiTriOut = multiTri();
-            const auto naiveTriOut = naiveTri(phase);
-            REQUIRE_THAT(triInternalOut, Catch::Matchers::WithinRel(naiveTriOut));
-            REQUIRE_THAT(triExternalOut, Catch::Matchers::WithinRel(naiveTriOut));
-            REQUIRE_THAT(multiTriOut, Catch::Matchers::WithinRel(triInternalOut));
-            const auto sawInternalOut = saw();
-            const auto sawExternalOut = saw(phase);
-            const auto multiSawOut = multiSaw();
-            const auto naiveSawOut = naiveSaw(phase);
-            REQUIRE_THAT(sawInternalOut, Catch::Matchers::WithinRel(naiveSawOut));
-            REQUIRE_THAT(sawExternalOut, Catch::Matchers::WithinRel(naiveSawOut));
-            REQUIRE_THAT(multiSawOut, Catch::Matchers::WithinRel(sawInternalOut));
-            const auto squareInternalOut = square();
-            const auto squareExternalOut = square(phase);
-            const auto multiSquareOut = multiSquare();
-            const auto naiveSquareOut = naiveSquare(phase);
-            REQUIRE_THAT(squareInternalOut, Catch::Matchers::WithinRel(naiveSquareOut));
-            REQUIRE_THAT(squareExternalOut, Catch::Matchers::WithinRel(naiveSquareOut));
-            REQUIRE_THAT(multiSquareOut, Catch::Matchers::WithinRel(squareInternalOut));
-            const auto pulseInternalOut = pulse();
-            const auto pulseExternalOut = pulse(phase);
-            const auto multiPulseOut = multiPulse();
-            const auto naivePulseOut = naivePulse(phase, pulsewidth);
-            REQUIRE_THAT(pulseInternalOut, Catch::Matchers::WithinRel(naivePulseOut));
-            REQUIRE_THAT(pulseExternalOut, Catch::Matchers::WithinRel(naivePulseOut));
-            REQUIRE_THAT(multiPulseOut, Catch::Matchers::WithinRel(pulseInternalOut));
-            const auto noiseOut = noise();
-            REQUIRE((noiseOut >= -1.0f && noiseOut <= 1.0f));
+            auto phase{ 0.0f };
+            const auto phaseIncrement = getPhaseIncrement(frequency, sampleRate);
+            for (auto i = 0; i < numIterations; ++i) {
+                const auto sineInternalOut = sine();
+                const auto sineExternalOut = sine(phase);
+                const auto multiSineOut = multiSine();
+                const auto naiveSineOut = naiveSine(phase);
+                REQUIRE_THAT(sineInternalOut, Catch::Matchers::WithinRel(naiveSineOut));
+                REQUIRE_THAT(sineExternalOut, Catch::Matchers::WithinRel(naiveSineOut));
+                REQUIRE_THAT(multiSineOut, Catch::Matchers::WithinRel(sineInternalOut));
+                const auto triInternalOut = tri();
+                const auto triExternalOut = tri(phase);
+                const auto multiTriOut = multiTri();
+                const auto naiveTriOut = naiveTri(phase);
+                REQUIRE_THAT(triInternalOut, Catch::Matchers::WithinRel(naiveTriOut));
+                REQUIRE_THAT(triExternalOut, Catch::Matchers::WithinRel(naiveTriOut));
+                REQUIRE_THAT(multiTriOut, Catch::Matchers::WithinRel(triInternalOut));
+                const auto sawInternalOut = saw();
+                const auto sawExternalOut = saw(phase);
+                const auto multiSawOut = multiSaw();
+                const auto naiveSawOut = naiveSaw(phase);
+                REQUIRE_THAT(sawInternalOut, Catch::Matchers::WithinRel(naiveSawOut));
+                REQUIRE_THAT(sawExternalOut, Catch::Matchers::WithinRel(naiveSawOut));
+                REQUIRE_THAT(multiSawOut, Catch::Matchers::WithinRel(sawInternalOut));
+                const auto squareInternalOut = square();
+                const auto squareExternalOut = square(phase);
+                const auto multiSquareOut = multiSquare();
+                const auto naiveSquareOut = naiveSquare(phase);
+                REQUIRE_THAT(squareInternalOut, Catch::Matchers::WithinRel(naiveSquareOut));
+                REQUIRE_THAT(squareExternalOut, Catch::Matchers::WithinRel(naiveSquareOut));
+                REQUIRE_THAT(multiSquareOut, Catch::Matchers::WithinRel(squareInternalOut));
+                const auto pulseInternalOut = pulse();
+                const auto pulseExternalOut = pulse(phase);
+                const auto multiPulseOut = multiPulse();
+                const auto naivePulseOut = naivePulse(phase, pulsewidth);
+                REQUIRE_THAT(pulseInternalOut, Catch::Matchers::WithinRel(naivePulseOut));
+                REQUIRE_THAT(pulseExternalOut, Catch::Matchers::WithinRel(naivePulseOut));
+                REQUIRE_THAT(multiPulseOut, Catch::Matchers::WithinRel(pulseInternalOut));
+                const auto noiseOut = noise();
+                REQUIRE((noiseOut >= -1.0f && noiseOut <= 1.0f));
 
-            phase += phaseIncrement;
+                phase += phaseIncrement;
+            }
+        }
+        SECTION("Test PolyBLEP Ranges") {
+            // I don't know enough about BLEP to test the actual functionality
+            TriOscillator<float, BlepState::On> triOsc;
+            SawOscillator<float, BlepState::On> sawOsc;
+            SquareOscillator<float, BlepState::On> squareOsc;
+            PulseOscillator<float, BlepState::On> pulseOsc;
+            initialiseOsc(&triOsc, frequency, sampleRate);
+            initialiseOsc(&sawOsc, frequency, sampleRate);
+            initialiseOsc(&squareOsc, frequency, sampleRate);
+            initialiseOsc(&pulseOsc, frequency, sampleRate);
+            pulseOsc.setPulsewidth(pulsewidth);
+            for (auto i = 0; i < numIterations; ++i) {
+                const auto triOut = triOsc();
+                REQUIRE(!std::isnan(triOut));
+                REQUIRE(!std::isinf(triOut));
+                REQUIRE(std::abs(triOut) <= 1.0f);
+                const auto sawOut = sawOsc();
+                REQUIRE(!std::isnan(sawOut));
+                REQUIRE(!std::isinf(sawOut));
+                REQUIRE(std::abs(sawOut) <= 1.0f);
+                const auto squareOut = squareOsc();
+                REQUIRE(!std::isnan(squareOut));
+                REQUIRE(!std::isinf(squareOut));
+                REQUIRE(std::abs(squareOut) <= 1.0f);
+                const auto pulseOut = pulseOsc();
+                REQUIRE(!std::isnan(pulseOut));
+                REQUIRE(!std::isinf(pulseOut));
+                REQUIRE(std::abs(pulseOut) <= 1.0f);
+            }
         }
     }
 } // namespace marvin::testing
