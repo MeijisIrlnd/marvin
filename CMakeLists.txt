@@ -26,7 +26,7 @@ add_subdirectory(include)
 add_subdirectory(tests)
 source_group(TREE source)
 add_library(marvin STATIC ${MARVIN_SOURCES})
-add_library(marvin ALIAS slma::marvin)
+add_library(slma::marvin ALIAS marvin)
 target_compile_features(marvin PUBLIC cxx_std_20)
 target_include_directories(marvin PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
