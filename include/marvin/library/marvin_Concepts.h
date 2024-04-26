@@ -31,5 +31,16 @@ namespace marvin {
         a.operator*();
         a.operator->();
     };
+
+    template <size_t N>
+    constexpr bool isPowerOfTwo() {
+        if constexpr (N == 1) {
+            return true;
+        } else if constexpr (N == 0 || N % 2 != 0) {
+            return false;
+        } else {
+            return isPowerOfTwo<N / 2>();
+        }
+    }
 } // namespace marvin
 #endif

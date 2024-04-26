@@ -18,8 +18,10 @@ namespace marvin::audiobasics {
         BufferView(SampleType** samples, size_t nChannels, size_t nSamples);
         [[nodiscard]] size_t getNumChannels() const noexcept;
         [[nodiscard]] size_t getNumSamples() const noexcept;
-        std::span<SampleType> operator[](size_t channel) noexcept;
-        std::span<const SampleType> operator[](size_t channel) const noexcept;
+        SampleType* const* getArrayOfReadPointers() const noexcept;
+        SampleType* const* getArrayOfWritePointers() noexcept;
+        [[nodiscard]] std::span<SampleType> operator[](size_t channel) noexcept;
+        [[nodiscard]] std::span<const SampleType> operator[](size_t channel) const noexcept;
 
     private:
         SampleType** m_samples;

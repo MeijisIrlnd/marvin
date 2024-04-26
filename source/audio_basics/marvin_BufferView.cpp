@@ -30,6 +30,16 @@ namespace marvin::audiobasics {
     }
 
     template <FloatType SampleType>
+    SampleType* const* BufferView<SampleType>::getArrayOfReadPointers() const noexcept {
+        return m_samples;
+    }
+
+    template <FloatType SampleType>
+    SampleType* const* BufferView<SampleType>::getArrayOfWritePointers() noexcept {
+        return m_samples;
+    }
+
+    template <FloatType SampleType>
     std::span<SampleType> BufferView<SampleType>::operator[](size_t channel) noexcept {
         assert(channel <= m_nChannels);
         return { m_samples[channel], m_nSamples };
