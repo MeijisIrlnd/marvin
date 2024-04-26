@@ -16,7 +16,7 @@ project(
     DESCRIPTION "Pure C++ audio helper library"
     HOMEPAGE_URL "https://github.com/MeijisIrlnd/marvin.git"
 )
-
+include(GNUInstallDirs)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(MARVIN_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
         CACHE STRING "Path where package files will be installed, relative to the install prefix"
@@ -33,7 +33,7 @@ target_include_directories(marvin PUBLIC
 )
 
 install(DIRECTORY "include/" # source directory
-    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/marvin/marvin" # target directory
+    DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}" # target directory
     FILES_MATCHING # install only matched files
     PATTERN "*.h" # select header files
 )
@@ -61,6 +61,12 @@ write_basic_package_version_file(marvin-config-version.cmake
 
 configure_package_config_file(cmake/marvin-config.in marvin-config.cmake
     INSTALL_DESTINATION "${MARVIN_INSTALL_DEST}" NO_SET_AND_CHECK_MACRO
+)
+
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/marvin-config-version.cmake" 
+    "${CMAKE_CURRENT_BINARY_DIR}/marvin-config.cmake"
+    DESTINATION "${MARVIN_INSTALL_DEST}" 
+    COMPONENT marvin
 )
 
 include(CPackComponent) 
