@@ -15,16 +15,16 @@
 namespace marvin::audiobasics {
     template <FloatType SampleType>
     struct BufferView final {
-        BufferView(SampleType** samples, int nChannels, int nSamples);
-        [[nodiscard]] int getNumChannels() const noexcept;
-        [[nodiscard]] int getNumSamples() const noexcept;
-        [[nodiscard]] SampleType* const* read() const noexcept;
-        [[nodiscard]] SampleType* const* write() noexcept;
+        BufferView(SampleType** samples, size_t nChannels, size_t nSamples);
+        [[nodiscard]] size_t getNumChannels() const noexcept;
+        [[nodiscard]] size_t getNumSamples() const noexcept;
+        std::span<SampleType> operator[](size_t channel) noexcept;
+        std::span<const SampleType> operator[](size_t channel) const noexcept;
 
     private:
         SampleType** m_samples;
-        int m_nChannels;
-        int m_nSamples;
+        size_t m_nChannels;
+        size_t m_nSamples;
     };
 } // namespace marvin::audiobasics
 #endif

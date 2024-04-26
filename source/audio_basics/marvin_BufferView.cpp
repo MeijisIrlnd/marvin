@@ -11,31 +11,34 @@
 
 #include "marvin/audio_basics/marvin_BufferView.h"
 #include "marvin/library/marvin_Concepts.h"
+#include <cassert>
 namespace marvin::audiobasics {
     template <FloatType SampleType>
-    BufferView<SampleType>::BufferView(SampleType** samples, int nChannels, int nSamples) : m_samples(samples),
-                                                                                            m_nChannels(nChannels),
-                                                                                            m_nSamples(nSamples) {
+    BufferView<SampleType>::BufferView(SampleType** samples, size_t nChannels, size_t nSamples) : m_samples(samples),
+                                                                                                  m_nChannels(nChannels),
+                                                                                                  m_nSamples(nSamples) {
     }
 
     template <FloatType SampleType>
-    int BufferView<SampleType>::getNumChannels() const noexcept {
+    size_t BufferView<SampleType>::getNumChannels() const noexcept {
         return m_nChannels;
     }
 
     template <FloatType SampleType>
-    int BufferView<SampleType>::getNumSamples() const noexcept {
+    size_t BufferView<SampleType>::getNumSamples() const noexcept {
         return m_nSamples;
     }
 
     template <FloatType SampleType>
-    SampleType* const* BufferView<SampleType>::read() const noexcept {
-        return m_samples;
+    std::span<SampleType> BufferView<SampleType>::operator[](size_t channel) noexcept {
+        assert(channel <= m_nChannels);
+        return { m_samples[channel], m_nSamples };
     }
 
     template <FloatType SampleType>
-    SampleType* const* BufferView<SampleType>::write() noexcept {
-        return m_samples;
+    std::span<const SampleType> BufferView<SampleType>::operator[](size_t channel) const noexcept {
+        assert(channel <= m_nChannels);
+        return { m_samples[channel], m_nSamples };
     }
 
     template class BufferView<float>;
