@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
-        uses: actions/checkout@v4.1.2
+      - uses: actions/checkout@v4.1.2
+      - uses: ssciwr/doxygen-install@v1
         
       - name: Configure
         uses: threeal/cmake-action@main
