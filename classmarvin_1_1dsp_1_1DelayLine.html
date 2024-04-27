@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A fractional delay line implementation, with configurable interpolation types.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="marvin__DelayLine_8h_source.html">marvin_DelayLine.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -108,7 +111,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9762b8fd07e022f7c1e279345da4e212" id="r_a9762b8fd07e022f7c1e279345da4e212"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9762b8fd07e022f7c1e279345da4e212">popSample</a> (SampleType delayInSamples=-1, bool updateReadPointer=true)</td></tr>
 <tr class="separator:a9762b8fd07e022f7c1e279345da4e212"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterpolationTypes::Linear&gt;<br />
+class marvin::dsp::DelayLine&lt; SampleType, InterpolationType &gt;</div><p>A fractional delay line implementation, with configurable interpolation types. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aca3f5bf8ca41e4696ec077db8153b7b5" name="aca3f5bf8ca41e4696ec077db8153b7b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca3f5bf8ca41e4696ec077db8153b7b5">&#9670;&#160;</a></span>DelayLine() <span class="overload">[1/2]</span></h2>
 
@@ -125,6 +131,7 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructs a <a class="el" href="classmarvin_1_1dsp_1_1DelayLine.html" title="A fractional delay line implementation, with configurable interpolation types.">DelayLine</a> without initialising the <code>maximumDelayInSamples</code> - make sure to call <code><a class="el" href="#a7c7c0811b5e71f1a67a8e2fd7c033013">setMaximumDelayInSamples()</a></code> before trying to use it! </p>
 
 </div>
 </div>
@@ -152,6 +159,12 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructs a <a class="el" href="classmarvin_1_1dsp_1_1DelayLine.html" title="A fractional delay line implementation, with configurable interpolation types.">DelayLine</a>, and initialises <code>maximumDelayInSamples</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maximumDelayInSamples</td><td>The max size of the internal buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -306,6 +319,12 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the delay time (in samples) to <code>newDelayInSamples</code>. Clamps to be in the range 0 to <code>maximumDelayInSamples</code>. Note that the internal <code>delay</code> variable this sets is <b>not</b> atomic, so ensure that this function is either called on the audio-thread, or called when the audio-thread is <b>not</b> running. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newDelayInSamples</td><td>The new delay to use, in samples. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
