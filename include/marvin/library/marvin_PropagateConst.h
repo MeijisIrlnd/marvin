@@ -17,6 +17,12 @@
 #include <type_traits>
 
 namespace marvin::library {
+    /**
+        \brief A compiler-support agnostic implementation of `std::propagate_const`
+
+        The *raison d'etre* being that certain popular compilers (*cough* Apple-Clang *cough*) are horrifically slow at implementing stdlib features, and `std::propagate_const` is pretty desirable for anything using a `PImpl` pattern.
+        <br>For more information about what `std::propagate_const` actually *does*, see here: https://en.cppreference.com/w/cpp/experimental/propagate_const
+    */
     template <typename T>
     requires SmartPointerType<T> || std::is_pointer_v<T>
     class PropagateConst {
@@ -31,31 +37,63 @@ namespace marvin::library {
         };
 
     public:
+        /**
+            Constructs a PropagateConst, default initialising the internal pointer variable.
+        */
         constexpr PropagateConst() = default;
+        /**
+            Explicitly defaulted move constructor that move constructs the internal pointer variable with `p`
+            \param p Another PropagateConst object to move from.
+        */
         constexpr PropagateConst(PropagateConst&& p) = default;
 
+        /**
+            Initialises the internal pointer variable as if from the expression `std::move(pu.t_)`. Implicit if `std::is_convertible_v<U, T>`
+            \param pu Another PropagateConst object of a different specialization to move from.
+        */
         template <class U>
         requires std::is_constructible<T, U>::value && std::is_convertible<U, T>::value
         constexpr PropagateConst(PropagateConst<U>&& pu) : m_underlying(std::move(pu)) {
         }
 
+        /**
+            Initialises the internal pointer variable as if from the expression `std::move(pu.t_)`. Explicit if `!std::is_convertible_v<U, T>`
+            \param pu Another PropagateConst object of a different specialization to move from.
+        */
         template <class U>
         requires std::is_constructible<T, U>::value && (!std::is_convertible<U, T>::value)
         explicit constexpr PropagateConst(PropagateConst<U>&& pu) : m_underlying(std::move(pu)) {
         }
 
+        /**
+            Initialises the internal pointer variable with the expression `std::forward<U>(u)`. Implicit if `std::is_convertible_v<U, T>`.
+            \param u Another object to initialise the internal pointer variable with.
+        */
         template <class U>
         requires std::is_constructible<T, U>::value && (!is_specialisation<std::decay_t<U>>::value)
         constexpr PropagateConst(U&& u) : m_underlying(std::forward<U>(u)) {
         }
 
+        /**
+            Initialises the internal pointer variable with the expression `std::forward<U>(u)`. Explicit if `!std::is_convertible_v<U, T>`.
+            \param u Another object to initialise the internal pointer variable with.
+        */
         template <class U>
         requires std::is_constructible<T, U>::value && (!is_specialisation<std::decay_t<U>>::value) && (!std::is_convertible<U, T>::value)
         explicit constexpr PropagateConst(U&& u) : m_underlying(std::forward<U>(u)) {
         }
 
+        /**
+            Explicitly defaulted move-assign that move-assigns the internal pointer variable from `other`'s internal pointer variable.
+        */
         constexpr PropagateConst& operator=(PropagateConst&&) = default;
 
+
+        /**
+            Assigns a `std::move` of `pu`'s internal pointer variable to this instance's internal pointer variable.
+            \param pu Another PropagateConst object of a different specialization to move from.
+            \return `*this`.
+        */
         template <class U>
         requires std::is_convertible<U, T>::value
         constexpr PropagateConst& operator=(PropagateConst<U>&& pu) {

@@ -18,6 +18,30 @@
 namespace marvin::dsp::filters {
     /**
         \brief A cascading direct form ii biquad filter.
+
+        Biquads have a tendency to "blow up" at high modulation frequencies, so keep in mind that a StateVariableFilter (coming soon) might be a better choice if that's the kind of thing you need.
+        <br>Usage example:
+        ```cpp
+        class Processor final {
+        public:
+            void initialise(double sampleRate) {
+                const auto coeffs = marvin::dsp::filters::rbj::lowpass<float>(sampleRate, 1000.0f, 0.5f);
+                m_lpf.setCoeffs(0, coeffs);
+            }
+
+            [[nodiscard]] float operator()(float x) noexcept {
+                const auto filtered = m_lpf(x);
+                return filtered;
+            }
+
+            void reset() noexcept {
+                m_lpf.reset();
+            }
+
+        private:
+            marvin::dsp::filters::Biquad<float, 1> m_lpf;
+        };
+        ```
     */
     template <FloatType SampleType, size_t NumStages>
     class Biquad final {
