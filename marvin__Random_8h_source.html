@@ -84,7 +84,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">marvin_Random.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
+<a href="marvin__Random_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  _______ _______ ______ ___ ___ _______ _______</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// |   |   |   _   |   __ \   |   |_     _|    |  |</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// |       |       |      &lt;   |   |_|   |_|       |</span></div>
@@ -96,28 +96,30 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef SLMADSP_RANDOM_H</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define SLMADSP_RANDOM_H</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;marvin/library/marvin_Concepts.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="marvin__Concepts_8h.html">marvin/library/marvin_Concepts.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;marvin/library/marvin_EnableWarnings.h&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span>marvin::utils {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1utils.html">marvin::utils</a> {</div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Random.html">   17</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmarvin_1_1utils_1_1Random.html">Random</a> final {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">template</span> &lt;NumericType T&gt;</div>
 <div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structmarvin_1_1utils_1_1Random_1_1Range.html">   20</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range</a> {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>            T min, max;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structmarvin_1_1utils_1_1Random_1_1Range.html#a76068fcea5b816c6463082f0a7a15bac">   21</a></span>            T <a class="code hl_variable" href="structmarvin_1_1utils_1_1Random_1_1Range.html#a19afa88d802fb522a095cf931c95bf90">min</a>, <a class="code hl_variable" href="structmarvin_1_1utils_1_1Random_1_1Range.html#a76068fcea5b816c6463082f0a7a15bac">max</a>;</div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        };</div>
 </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">explicit</span> <a class="code hl_class" href="classmarvin_1_1utils_1_1Random.html">Random</a>(std::random_device&amp; rd);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Random.html#ac936e9c54ec03042fd16469f5ce7df83">   24</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1Random.html#ac936e9c54ec03042fd16469f5ce7df83">Random</a>(std::random_device&amp; rd);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">template</span> &lt;NumericType T&gt;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        [[nodiscard]] T generate(<a class="code hl_struct" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range&lt;T&gt;</a> range) <span class="keyword">noexcept</span> {</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Random.html#ae64dd30118e742a805770b3cdba3b42f">   27</a></span>        [[nodiscard]] T <a class="code hl_function" href="classmarvin_1_1utils_1_1Random.html#ae64dd30118e742a805770b3cdba3b42f">generate</a>(<a class="code hl_struct" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range&lt;T&gt;</a> range) <span class="keyword">noexcept</span> {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            Distribution&lt;T&gt; distribution{ range.min, range.max };</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            <span class="keyword">const</span> <span class="keyword">auto</span> res = distribution(m_rng);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keywordflow">return</span> res;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
+</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">private</span>:</div>
@@ -134,7 +136,13 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#include &quot;marvin/library/marvin_DisableWarnings.h&quot;</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassmarvin_1_1utils_1_1Random_html"><div class="ttname"><a href="classmarvin_1_1utils_1_1Random.html">marvin::utils::Random</a></div><div class="ttdef"><b>Definition</b> marvin_Random.h:17</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1Random_html_ac936e9c54ec03042fd16469f5ce7df83"><div class="ttname"><a href="classmarvin_1_1utils_1_1Random.html#ac936e9c54ec03042fd16469f5ce7df83">marvin::utils::Random::Random</a></div><div class="ttdeci">Random(std::random_device &amp;rd)</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1Random_html_ae64dd30118e742a805770b3cdba3b42f"><div class="ttname"><a href="classmarvin_1_1utils_1_1Random.html#ae64dd30118e742a805770b3cdba3b42f">marvin::utils::Random::generate</a></div><div class="ttdeci">T generate(Range&lt; T &gt; range) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Random.h:27</div></div>
+<div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
+<div class="ttc" id="anamespacemarvin_1_1utils_html"><div class="ttname"><a href="namespacemarvin_1_1utils.html">marvin::utils</a></div><div class="ttdef"><b>Definition</b> marvin_LinearSmoothedValue.h:15</div></div>
 <div class="ttc" id="astructmarvin_1_1utils_1_1Random_1_1Range_html"><div class="ttname"><a href="structmarvin_1_1utils_1_1Random_1_1Range.html">marvin::utils::Random::Range</a></div><div class="ttdef"><b>Definition</b> marvin_Random.h:20</div></div>
+<div class="ttc" id="astructmarvin_1_1utils_1_1Random_1_1Range_html_a19afa88d802fb522a095cf931c95bf90"><div class="ttname"><a href="structmarvin_1_1utils_1_1Random_1_1Range.html#a19afa88d802fb522a095cf931c95bf90">marvin::utils::Random::Range::min</a></div><div class="ttdeci">T min</div><div class="ttdef"><b>Definition</b> marvin_Random.h:21</div></div>
+<div class="ttc" id="astructmarvin_1_1utils_1_1Random_1_1Range_html_a76068fcea5b816c6463082f0a7a15bac"><div class="ttname"><a href="structmarvin_1_1utils_1_1Random_1_1Range.html#a76068fcea5b816c6463082f0a7a15bac">marvin::utils::Random::Range::max</a></div><div class="ttdeci">T max</div><div class="ttdef"><b>Definition</b> marvin_Random.h:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

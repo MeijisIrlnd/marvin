@@ -84,7 +84,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">marvin_Concepts.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
+<a href="marvin__Concepts_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  _______ _______ ______ ___ ___ _______ _______</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// |   |   |   _   |   __ \   |   |_     _|    |  |</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// |       |       |      &lt;   |   |_|   |_|       |</span></div>
@@ -97,7 +97,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef MARVIN_CONCEPTS_H</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MARVIN_CONCEPTS_H</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span>marvin {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin.html">marvin</a> {</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="conceptmarvin_1_1FloatType.html">   16</a></span>    <span class="keyword">concept </span><a class="code hl_concept" href="conceptmarvin_1_1FloatType.html">FloatType</a> = <span class="keyword">requires</span> {</div>
@@ -125,20 +125,24 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">template</span> &lt;<span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> isPowerOfTwo() {</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacemarvin.html#aef211161dc3b68ddd015a4b477d815c1">   36</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacemarvin.html#aef211161dc3b68ddd015a4b477d815c1">isPowerOfTwo</a>() {</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (N == 1) {</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (N == 0 || N % 2 != 0) {</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">return</span> isPowerOfTwo&lt;N / 2&gt;();</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="namespacemarvin.html#aef211161dc3b68ddd015a4b477d815c1">isPowerOfTwo</a>&lt;N / 2&gt;();</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>} <span class="comment">// namespace marvin</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aconceptmarvin_1_1FloatType_html"><div class="ttname"><a href="conceptmarvin_1_1FloatType.html">marvin::FloatType</a></div><div class="ttdef"><b>Definition</b> marvin_Concepts.h:16</div></div>
 <div class="ttc" id="aconceptmarvin_1_1NumericType_html"><div class="ttname"><a href="conceptmarvin_1_1NumericType.html">marvin::NumericType</a></div><div class="ttdef"><b>Definition</b> marvin_Concepts.h:22</div></div>
 <div class="ttc" id="aconceptmarvin_1_1SmartPointerType_html"><div class="ttname"><a href="conceptmarvin_1_1SmartPointerType.html">marvin::SmartPointerType</a></div><div class="ttdef"><b>Definition</b> marvin_Concepts.h:28</div></div>
+<div class="ttc" id="anamespacemarvin_html"><div class="ttname"><a href="namespacemarvin.html">marvin</a></div><div class="ttdef"><b>Definition</b> marvin_BufferView.h:15</div></div>
+<div class="ttc" id="anamespacemarvin_html_aef211161dc3b68ddd015a4b477d815c1"><div class="ttname"><a href="namespacemarvin.html#aef211161dc3b68ddd015a4b477d815c1">marvin::isPowerOfTwo</a></div><div class="ttdeci">constexpr bool isPowerOfTwo()</div><div class="ttdef"><b>Definition</b> marvin_Concepts.h:36</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

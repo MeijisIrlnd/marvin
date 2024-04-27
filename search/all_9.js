@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['random_0',['Random',['../classmarvin_1_1utils_1_1Random.html',1,'marvin::utils']]],
-  ['range_1',['Range',['../structmarvin_1_1utils_1_1Random_1_1Range.html',1,'marvin::utils::Random']]],
-  ['reset_2',['reset',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#af0270fa42a878a6494b61174f3198876',1,'marvin::dsp::filters::LatticeAPF::reset()'],['../classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a00ce39b408ec679ba34e49beb519dcd4',1,'marvin::dsp::filters::Biquad::reset()'],['../classmarvin_1_1oscillators_1_1OscillatorBase.html#aba3c0f588cc223f2c39d9674edecd571',1,'marvin::oscillators::OscillatorBase::reset()'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#af612d512cf2ac1606e7f696e3d98bb6a',1,'marvin::oscillators::MultiOscillator::reset()']]]
+  ['noise_0',['NOISE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa2a8eb3b0974dc3508ba003d3f7a37e52',1,'marvin::oscillators::MultiOscillator']]],
+  ['noiseoscillator_1',['NoiseOscillator',['../classmarvin_1_1oscillators_1_1NoiseOscillator.html',1,'marvin::oscillators::NoiseOscillator&lt; SampleType &gt;'],['../classmarvin_1_1oscillators_1_1NoiseOscillator.html#acac5f6dbb4dddd2aa47d390ea06f20e0',1,'marvin::oscillators::NoiseOscillator::NoiseOscillator()']]],
+  ['none_2',['None',['../structmarvin_1_1dsp_1_1DelayLineInterpolationTypes_1_1None.html',1,'marvin::dsp::DelayLineInterpolationTypes']]],
+  ['notch_3',['notch',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#ab231eb44b64ea9c2583b076d3ff61949',1,'marvin::dsp::filters::rbj']]]
 ];

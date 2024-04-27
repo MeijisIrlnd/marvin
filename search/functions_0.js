@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bufferview_0',['BufferView',['../structmarvin_1_1audiobasics_1_1BufferView.html#aa8ca01af04f3486013a3dcf08d809ae0',1,'marvin::audiobasics::BufferView']]]
+  ['allpass_0',['allpass',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#a018d81b21c5e991bb6d6778a2b604fe0',1,'marvin::dsp::filters::rbj']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['multioscillator_0',['MultiOscillator',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a4f9c3102ec7981558417c7484bbd0456',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd)'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#acacb4f48e364cba21eecb6fbc985cb86',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd, SHAPE shape)']]]
+  ['delayline_0',['DelayLine',['../classmarvin_1_1dsp_1_1DelayLine.html#aca3f5bf8ca41e4696ec077db8153b7b5',1,'marvin::dsp::DelayLine::DelayLine()'],['../classmarvin_1_1dsp_1_1DelayLine.html#aa63fe83f9af4981f4e69266f8a77d51c',1,'marvin::dsp::DelayLine::DelayLine(int maximumDelayInSamples)']]]
 ];

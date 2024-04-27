@@ -72,7 +72,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>marvin</b></li><li class="navelem"><b>library</b></li><li class="navelem"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacemarvin.html">marvin</a></li><li class="navelem"><a class="el" href="namespacemarvin_1_1library.html">library</a></li><li class="navelem"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -83,166 +83,1408 @@ $(function() {
   <div class="headertitle"><div class="title">marvin::library::PropagateConst&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="marvin__PropagateConst_8h_source.html">marvin_PropagateConst.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aecde95272c8260e229f7e0c2536aa209" id="r_aecde95272c8260e229f7e0c2536aa209"><td class="memItemLeft" align="right" valign="top"><a id="aecde95272c8260e229f7e0c2536aa209" name="aecde95272c8260e229f7e0c2536aa209"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>PropagateConst</b> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&amp;p)=default</td></tr>
+<tr class="memitem:ade81b340ea2482ec4c20b79aa1d4330a" id="r_ade81b340ea2482ec4c20b79aa1d4330a"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade81b340ea2482ec4c20b79aa1d4330a">PropagateConst</a> ()=default</td></tr>
+<tr class="separator:ade81b340ea2482ec4c20b79aa1d4330a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecde95272c8260e229f7e0c2536aa209" id="r_aecde95272c8260e229f7e0c2536aa209"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecde95272c8260e229f7e0c2536aa209">PropagateConst</a> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&amp;p)=default</td></tr>
 <tr class="separator:aecde95272c8260e229f7e0c2536aa209"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0587d97694dbd85ac3ac1395a6ae7f65" id="r_a0587d97694dbd85ac3ac1395a6ae7f65"><td class="memTemplParams" colspan="2"><a id="a0587d97694dbd85ac3ac1395a6ae7f65" name="a0587d97694dbd85ac3ac1395a6ae7f65"></a>
-template&lt;class U &gt; <br />
+<tr class="memitem:a0587d97694dbd85ac3ac1395a6ae7f65" id="r_a0587d97694dbd85ac3ac1395a6ae7f65"><td class="memTemplParams" colspan="2">template&lt;class U &gt; <br />
 requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; std::is_convertible&lt;U, T&gt;::value</td></tr>
-<tr class="memitem:a0587d97694dbd85ac3ac1395a6ae7f65"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>PropagateConst</b> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;pu)</td></tr>
+<tr class="memitem:a0587d97694dbd85ac3ac1395a6ae7f65"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0587d97694dbd85ac3ac1395a6ae7f65">PropagateConst</a> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;pu)</td></tr>
 <tr class="separator:a0587d97694dbd85ac3ac1395a6ae7f65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad864c425a521a142d9c88a10e27016c2" id="r_ad864c425a521a142d9c88a10e27016c2"><td class="memTemplParams" colspan="2"><a id="ad864c425a521a142d9c88a10e27016c2" name="ad864c425a521a142d9c88a10e27016c2"></a>
-template&lt;class U &gt; <br />
+<tr class="memitem:ad864c425a521a142d9c88a10e27016c2" id="r_ad864c425a521a142d9c88a10e27016c2"><td class="memTemplParams" colspan="2">template&lt;class U &gt; <br />
 requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!std::is_convertible&lt;U, T&gt;::value)</td></tr>
-<tr class="memitem:ad864c425a521a142d9c88a10e27016c2"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>PropagateConst</b> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;pu)</td></tr>
+<tr class="memitem:ad864c425a521a142d9c88a10e27016c2"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad864c425a521a142d9c88a10e27016c2">PropagateConst</a> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;pu)</td></tr>
 <tr class="separator:ad864c425a521a142d9c88a10e27016c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e9a60e0cd8e2d540cc09d367ed8f65b" id="r_a4e9a60e0cd8e2d540cc09d367ed8f65b"><td class="memTemplParams" colspan="2"><a id="a4e9a60e0cd8e2d540cc09d367ed8f65b" name="a4e9a60e0cd8e2d540cc09d367ed8f65b"></a>
-template&lt;class U &gt; <br />
+<tr class="memitem:a4e9a60e0cd8e2d540cc09d367ed8f65b" id="r_a4e9a60e0cd8e2d540cc09d367ed8f65b"><td class="memTemplParams" colspan="2">template&lt;class U &gt; <br />
 requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!is_specialisation&lt;std::decay_t&lt;U&gt;&gt;::value)</td></tr>
-<tr class="memitem:a4e9a60e0cd8e2d540cc09d367ed8f65b"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>PropagateConst</b> (U &amp;&amp;u)</td></tr>
+<tr class="memitem:a4e9a60e0cd8e2d540cc09d367ed8f65b"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4e9a60e0cd8e2d540cc09d367ed8f65b">PropagateConst</a> (U &amp;&amp;u)</td></tr>
 <tr class="separator:a4e9a60e0cd8e2d540cc09d367ed8f65b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a530608e7f6f3b8eaa1b2bacf1b100e9c" id="r_a530608e7f6f3b8eaa1b2bacf1b100e9c"><td class="memTemplParams" colspan="2"><a id="a530608e7f6f3b8eaa1b2bacf1b100e9c" name="a530608e7f6f3b8eaa1b2bacf1b100e9c"></a>
-template&lt;class U &gt; <br />
+<tr class="memitem:a530608e7f6f3b8eaa1b2bacf1b100e9c" id="r_a530608e7f6f3b8eaa1b2bacf1b100e9c"><td class="memTemplParams" colspan="2">template&lt;class U &gt; <br />
 requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!is_specialisation&lt;std::decay_t&lt;U&gt;&gt;::value) &amp;&amp; (!std::is_convertible&lt;U, T&gt;::value)</td></tr>
-<tr class="memitem:a530608e7f6f3b8eaa1b2bacf1b100e9c"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><b>PropagateConst</b> (U &amp;&amp;u)</td></tr>
+<tr class="memitem:a530608e7f6f3b8eaa1b2bacf1b100e9c"><td class="memTemplItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a530608e7f6f3b8eaa1b2bacf1b100e9c">PropagateConst</a> (U &amp;&amp;u)</td></tr>
 <tr class="separator:a530608e7f6f3b8eaa1b2bacf1b100e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f2445add9d4a4e90bfab805962bf830" id="r_a7f2445add9d4a4e90bfab805962bf830"><td class="memItemLeft" align="right" valign="top"><a id="a7f2445add9d4a4e90bfab805962bf830" name="a7f2445add9d4a4e90bfab805962bf830"></a>
-constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&amp;)=default</td></tr>
+<tr class="memitem:a7f2445add9d4a4e90bfab805962bf830" id="r_a7f2445add9d4a4e90bfab805962bf830"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f2445add9d4a4e90bfab805962bf830">operator=</a> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&amp;)=default</td></tr>
 <tr class="separator:a7f2445add9d4a4e90bfab805962bf830"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a996253ee8b4c2b24593a55f7490a65e1" id="r_a996253ee8b4c2b24593a55f7490a65e1"><td class="memTemplParams" colspan="2"><a id="a996253ee8b4c2b24593a55f7490a65e1" name="a996253ee8b4c2b24593a55f7490a65e1"></a>
-template&lt;class U &gt; <br />
+<tr class="memitem:a996253ee8b4c2b24593a55f7490a65e1" id="r_a996253ee8b4c2b24593a55f7490a65e1"><td class="memTemplParams" colspan="2">template&lt;class U &gt; <br />
 requires std::is_convertible&lt;U, T&gt;::value</td></tr>
-<tr class="memitem:a996253ee8b4c2b24593a55f7490a65e1"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;pu)</td></tr>
+<tr class="memitem:a996253ee8b4c2b24593a55f7490a65e1"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a996253ee8b4c2b24593a55f7490a65e1">operator=</a> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;pu)</td></tr>
 <tr class="separator:a996253ee8b4c2b24593a55f7490a65e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26e2c03f0c2e00d1a8b7c5d6af7cd89f" id="r_a26e2c03f0c2e00d1a8b7c5d6af7cd89f"><td class="memTemplParams" colspan="2"><a id="a26e2c03f0c2e00d1a8b7c5d6af7cd89f" name="a26e2c03f0c2e00d1a8b7c5d6af7cd89f"></a>
-template&lt;class U &gt; <br />
+<tr class="memitem:a26e2c03f0c2e00d1a8b7c5d6af7cd89f" id="r_a26e2c03f0c2e00d1a8b7c5d6af7cd89f"><td class="memTemplParams" colspan="2">template&lt;class U &gt; <br />
 requires std::is_convertible&lt;U, T&gt;::value &amp;&amp; (!is_specialisation&lt;std::decay_t&lt;U&gt;&gt;::value)</td></tr>
-<tr class="memitem:a26e2c03f0c2e00d1a8b7c5d6af7cd89f"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator=</b> (U &amp;&amp;u)</td></tr>
+<tr class="memitem:a26e2c03f0c2e00d1a8b7c5d6af7cd89f"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a26e2c03f0c2e00d1a8b7c5d6af7cd89f">operator=</a> (U &amp;&amp;u)</td></tr>
 <tr class="separator:a26e2c03f0c2e00d1a8b7c5d6af7cd89f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7250c342a61df730b21f5e435e68da8" id="r_ad7250c342a61df730b21f5e435e68da8"><td class="memItemLeft" align="right" valign="top"><a id="ad7250c342a61df730b21f5e435e68da8" name="ad7250c342a61df730b21f5e435e68da8"></a>
-<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;other)=delete</td></tr>
+<tr class="memitem:ad7250c342a61df730b21f5e435e68da8" id="r_ad7250c342a61df730b21f5e435e68da8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7250c342a61df730b21f5e435e68da8">operator=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;other)=delete</td></tr>
 <tr class="separator:ad7250c342a61df730b21f5e435e68da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebaa7200f12ded0e5e50acb6d0fbd577" id="r_aebaa7200f12ded0e5e50acb6d0fbd577"><td class="memItemLeft" align="right" valign="top"><a id="aebaa7200f12ded0e5e50acb6d0fbd577" name="aebaa7200f12ded0e5e50acb6d0fbd577"></a>
-constexpr void&#160;</td><td class="memItemRight" valign="bottom"><b>swap</b> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;pt) noexcept</td></tr>
+<tr class="memitem:aebaa7200f12ded0e5e50acb6d0fbd577" id="r_aebaa7200f12ded0e5e50acb6d0fbd577"><td class="memItemLeft" align="right" valign="top">constexpr void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebaa7200f12ded0e5e50acb6d0fbd577">swap</a> (<a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp;pt) noexcept</td></tr>
 <tr class="separator:aebaa7200f12ded0e5e50acb6d0fbd577"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb8104a4a6dbf10a979bd490e3fc99cc" id="r_acb8104a4a6dbf10a979bd490e3fc99cc"><td class="memItemLeft" align="right" valign="top"><a id="acb8104a4a6dbf10a979bd490e3fc99cc" name="acb8104a4a6dbf10a979bd490e3fc99cc"></a>
-constexpr element_type *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> ()</td></tr>
+<tr class="memitem:acb8104a4a6dbf10a979bd490e3fc99cc" id="r_acb8104a4a6dbf10a979bd490e3fc99cc"><td class="memItemLeft" align="right" valign="top">constexpr element_type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb8104a4a6dbf10a979bd490e3fc99cc">get</a> ()</td></tr>
 <tr class="separator:acb8104a4a6dbf10a979bd490e3fc99cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4bd97a733ab2d96a96a7971204ab4630" id="r_a4bd97a733ab2d96a96a7971204ab4630"><td class="memItemLeft" align="right" valign="top"><a id="a4bd97a733ab2d96a96a7971204ab4630" name="a4bd97a733ab2d96a96a7971204ab4630"></a>
-constexpr const element_type *&#160;</td><td class="memItemRight" valign="bottom"><b>get</b> () const</td></tr>
+<tr class="memitem:a4bd97a733ab2d96a96a7971204ab4630" id="r_a4bd97a733ab2d96a96a7971204ab4630"><td class="memItemLeft" align="right" valign="top">constexpr const element_type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bd97a733ab2d96a96a7971204ab4630">get</a> () const</td></tr>
 <tr class="separator:a4bd97a733ab2d96a96a7971204ab4630"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9516071b590da1bcfbe9e1b15f24c29" id="r_ad9516071b590da1bcfbe9e1b15f24c29"><td class="memItemLeft" align="right" valign="top"><a id="ad9516071b590da1bcfbe9e1b15f24c29" name="ad9516071b590da1bcfbe9e1b15f24c29"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator bool</b> () const</td></tr>
+<tr class="memitem:ad9516071b590da1bcfbe9e1b15f24c29" id="r_ad9516071b590da1bcfbe9e1b15f24c29"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad9516071b590da1bcfbe9e1b15f24c29">operator bool</a> () const</td></tr>
 <tr class="separator:ad9516071b590da1bcfbe9e1b15f24c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a236d743cff9217f2de24c29d5d16d9f9" id="r_a236d743cff9217f2de24c29d5d16d9f9"><td class="memItemLeft" align="right" valign="top"><a id="a236d743cff9217f2de24c29d5d16d9f9" name="a236d743cff9217f2de24c29d5d16d9f9"></a>
-constexpr element_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> ()</td></tr>
+<tr class="memitem:a236d743cff9217f2de24c29d5d16d9f9" id="r_a236d743cff9217f2de24c29d5d16d9f9"><td class="memItemLeft" align="right" valign="top">constexpr element_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a236d743cff9217f2de24c29d5d16d9f9">operator*</a> ()</td></tr>
 <tr class="separator:a236d743cff9217f2de24c29d5d16d9f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaf7233995b0ab1075cac309eddaecac9" id="r_aaf7233995b0ab1075cac309eddaecac9"><td class="memItemLeft" align="right" valign="top"><a id="aaf7233995b0ab1075cac309eddaecac9" name="aaf7233995b0ab1075cac309eddaecac9"></a>
-constexpr const element_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator*</b> () const</td></tr>
+<tr class="memitem:aaf7233995b0ab1075cac309eddaecac9" id="r_aaf7233995b0ab1075cac309eddaecac9"><td class="memItemLeft" align="right" valign="top">constexpr const element_type &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf7233995b0ab1075cac309eddaecac9">operator*</a> () const</td></tr>
 <tr class="separator:aaf7233995b0ab1075cac309eddaecac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad168bb416b8eeb705abea6455377413" id="r_aad168bb416b8eeb705abea6455377413"><td class="memItemLeft" align="right" valign="top"><a id="aad168bb416b8eeb705abea6455377413" name="aad168bb416b8eeb705abea6455377413"></a>
-constexpr element_type *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> ()</td></tr>
+<tr class="memitem:aad168bb416b8eeb705abea6455377413" id="r_aad168bb416b8eeb705abea6455377413"><td class="memItemLeft" align="right" valign="top">constexpr element_type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad168bb416b8eeb705abea6455377413">operator-&gt;</a> ()</td></tr>
 <tr class="separator:aad168bb416b8eeb705abea6455377413"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d7c5e5ca68941f6223f19e8f3e18934" id="r_a0d7c5e5ca68941f6223f19e8f3e18934"><td class="memItemLeft" align="right" valign="top"><a id="a0d7c5e5ca68941f6223f19e8f3e18934" name="a0d7c5e5ca68941f6223f19e8f3e18934"></a>
-constexpr const element_type *&#160;</td><td class="memItemRight" valign="bottom"><b>operator-&gt;</b> () const</td></tr>
+<tr class="memitem:a0d7c5e5ca68941f6223f19e8f3e18934" id="r_a0d7c5e5ca68941f6223f19e8f3e18934"><td class="memItemLeft" align="right" valign="top">constexpr const element_type *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d7c5e5ca68941f6223f19e8f3e18934">operator-&gt;</a> () const</td></tr>
 <tr class="separator:a0d7c5e5ca68941f6223f19e8f3e18934"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ad9a79bebf24dd56e4348c63175c02e" id="r_a0ad9a79bebf24dd56e4348c63175c02e"><td class="memItemLeft" align="right" valign="top"><a id="a0ad9a79bebf24dd56e4348c63175c02e" name="a0ad9a79bebf24dd56e4348c63175c02e"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator element_type *</b> ()</td></tr>
+<tr class="memitem:a0ad9a79bebf24dd56e4348c63175c02e" id="r_a0ad9a79bebf24dd56e4348c63175c02e"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ad9a79bebf24dd56e4348c63175c02e">operator element_type *</a> ()</td></tr>
 <tr class="separator:a0ad9a79bebf24dd56e4348c63175c02e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa837e387cc0e8cff9214e8966a02b9cd" id="r_aa837e387cc0e8cff9214e8966a02b9cd"><td class="memItemLeft" align="right" valign="top"><a id="aa837e387cc0e8cff9214e8966a02b9cd" name="aa837e387cc0e8cff9214e8966a02b9cd"></a>
-constexpr&#160;</td><td class="memItemRight" valign="bottom"><b>operator const element_type *</b> ()</td></tr>
+<tr class="memitem:aa837e387cc0e8cff9214e8966a02b9cd" id="r_aa837e387cc0e8cff9214e8966a02b9cd"><td class="memItemLeft" align="right" valign="top">constexpr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa837e387cc0e8cff9214e8966a02b9cd">operator const element_type *</a> ()</td></tr>
 <tr class="separator:aa837e387cc0e8cff9214e8966a02b9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a7c31becd9d427e7335ef5af39b405f88" id="r_a7c31becd9d427e7335ef5af39b405f88"><td class="memItemLeft" align="right" valign="top"><a id="a7c31becd9d427e7335ef5af39b405f88" name="a7c31becd9d427e7335ef5af39b405f88"></a>
-constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, std::nullptr_t)</td></tr>
+<tr class="memitem:a7c31becd9d427e7335ef5af39b405f88" id="r_a7c31becd9d427e7335ef5af39b405f88"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c31becd9d427e7335ef5af39b405f88">operator==</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, std::nullptr_t)</td></tr>
 <tr class="separator:a7c31becd9d427e7335ef5af39b405f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ee49b6e14fe8a05a8c2b132a2a688ab" id="r_a0ee49b6e14fe8a05a8c2b132a2a688ab"><td class="memItemLeft" align="right" valign="top"><a id="a0ee49b6e14fe8a05a8c2b132a2a688ab" name="a0ee49b6e14fe8a05a8c2b132a2a688ab"></a>
-constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (std::nullptr_t, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;)</td></tr>
+<tr class="memitem:a0ee49b6e14fe8a05a8c2b132a2a688ab" id="r_a0ee49b6e14fe8a05a8c2b132a2a688ab"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ee49b6e14fe8a05a8c2b132a2a688ab">operator==</a> (std::nullptr_t, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;)</td></tr>
 <tr class="separator:a0ee49b6e14fe8a05a8c2b132a2a688ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82bf66350ecd0e8c83ca886652f89bc2" id="r_a82bf66350ecd0e8c83ca886652f89bc2"><td class="memItemLeft" align="right" valign="top"><a id="a82bf66350ecd0e8c83ca886652f89bc2" name="a82bf66350ecd0e8c83ca886652f89bc2"></a>
-constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, std::nullptr_t)</td></tr>
+<tr class="memitem:a82bf66350ecd0e8c83ca886652f89bc2" id="r_a82bf66350ecd0e8c83ca886652f89bc2"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82bf66350ecd0e8c83ca886652f89bc2">operator!=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, std::nullptr_t)</td></tr>
 <tr class="separator:a82bf66350ecd0e8c83ca886652f89bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6554f64989d3f18135062c6a19af1355" id="r_a6554f64989d3f18135062c6a19af1355"><td class="memItemLeft" align="right" valign="top"><a id="a6554f64989d3f18135062c6a19af1355" name="a6554f64989d3f18135062c6a19af1355"></a>
-constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator!=</b> (std::nullptr_t, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;)</td></tr>
+<tr class="memitem:a6554f64989d3f18135062c6a19af1355" id="r_a6554f64989d3f18135062c6a19af1355"><td class="memItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6554f64989d3f18135062c6a19af1355">operator!=</a> (std::nullptr_t, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;)</td></tr>
 <tr class="separator:a6554f64989d3f18135062c6a19af1355"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa277007e33274603b103fa9b656fe8cf" id="r_aa277007e33274603b103fa9b656fe8cf"><td class="memTemplParams" colspan="2"><a id="aa277007e33274603b103fa9b656fe8cf" name="aa277007e33274603b103fa9b656fe8cf"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:aa277007e33274603b103fa9b656fe8cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:aa277007e33274603b103fa9b656fe8cf" id="r_aa277007e33274603b103fa9b656fe8cf"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:aa277007e33274603b103fa9b656fe8cf"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa277007e33274603b103fa9b656fe8cf">operator==</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:aa277007e33274603b103fa9b656fe8cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4bd84b085dec50b91e1d853ebf9c3f9" id="r_af4bd84b085dec50b91e1d853ebf9c3f9"><td class="memTemplParams" colspan="2"><a id="af4bd84b085dec50b91e1d853ebf9c3f9" name="af4bd84b085dec50b91e1d853ebf9c3f9"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:af4bd84b085dec50b91e1d853ebf9c3f9"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:af4bd84b085dec50b91e1d853ebf9c3f9" id="r_af4bd84b085dec50b91e1d853ebf9c3f9"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:af4bd84b085dec50b91e1d853ebf9c3f9"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af4bd84b085dec50b91e1d853ebf9c3f9">operator!=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:af4bd84b085dec50b91e1d853ebf9c3f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ce745c40061d784f9957daccde0ab82" id="r_a7ce745c40061d784f9957daccde0ab82"><td class="memTemplParams" colspan="2"><a id="a7ce745c40061d784f9957daccde0ab82" name="a7ce745c40061d784f9957daccde0ab82"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a7ce745c40061d784f9957daccde0ab82"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a7ce745c40061d784f9957daccde0ab82" id="r_a7ce745c40061d784f9957daccde0ab82"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a7ce745c40061d784f9957daccde0ab82"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7ce745c40061d784f9957daccde0ab82">operator&lt;</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a7ce745c40061d784f9957daccde0ab82"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90fc07e2522acd255d956770f415329d" id="r_a90fc07e2522acd255d956770f415329d"><td class="memTemplParams" colspan="2"><a id="a90fc07e2522acd255d956770f415329d" name="a90fc07e2522acd255d956770f415329d"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a90fc07e2522acd255d956770f415329d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a90fc07e2522acd255d956770f415329d" id="r_a90fc07e2522acd255d956770f415329d"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a90fc07e2522acd255d956770f415329d"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a90fc07e2522acd255d956770f415329d">operator&gt;</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a90fc07e2522acd255d956770f415329d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29f5534a5e1058f973086f5a14810633" id="r_a29f5534a5e1058f973086f5a14810633"><td class="memTemplParams" colspan="2"><a id="a29f5534a5e1058f973086f5a14810633" name="a29f5534a5e1058f973086f5a14810633"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a29f5534a5e1058f973086f5a14810633"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a29f5534a5e1058f973086f5a14810633" id="r_a29f5534a5e1058f973086f5a14810633"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a29f5534a5e1058f973086f5a14810633"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a29f5534a5e1058f973086f5a14810633">operator&lt;=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a29f5534a5e1058f973086f5a14810633"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f5955844d69703a0cbe845bed290f16" id="r_a6f5955844d69703a0cbe845bed290f16"><td class="memTemplParams" colspan="2"><a id="a6f5955844d69703a0cbe845bed290f16" name="a6f5955844d69703a0cbe845bed290f16"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a6f5955844d69703a0cbe845bed290f16"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a6f5955844d69703a0cbe845bed290f16" id="r_a6f5955844d69703a0cbe845bed290f16"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a6f5955844d69703a0cbe845bed290f16"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6f5955844d69703a0cbe845bed290f16">operator&gt;=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a6f5955844d69703a0cbe845bed290f16"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2aa6c3e12f18604164a5b75c6f8ab9d2" id="r_a2aa6c3e12f18604164a5b75c6f8ab9d2"><td class="memTemplParams" colspan="2"><a id="a2aa6c3e12f18604164a5b75c6f8ab9d2" name="a2aa6c3e12f18604164a5b75c6f8ab9d2"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a2aa6c3e12f18604164a5b75c6f8ab9d2"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
+<tr class="memitem:a2aa6c3e12f18604164a5b75c6f8ab9d2" id="r_a2aa6c3e12f18604164a5b75c6f8ab9d2"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a2aa6c3e12f18604164a5b75c6f8ab9d2"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2aa6c3e12f18604164a5b75c6f8ab9d2">operator==</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
 <tr class="separator:a2aa6c3e12f18604164a5b75c6f8ab9d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a599774f54003e6a2665625f5f33d8f39" id="r_a599774f54003e6a2665625f5f33d8f39"><td class="memTemplParams" colspan="2"><a id="a599774f54003e6a2665625f5f33d8f39" name="a599774f54003e6a2665625f5f33d8f39"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a599774f54003e6a2665625f5f33d8f39"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator!=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
+<tr class="memitem:a599774f54003e6a2665625f5f33d8f39" id="r_a599774f54003e6a2665625f5f33d8f39"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a599774f54003e6a2665625f5f33d8f39"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a599774f54003e6a2665625f5f33d8f39">operator!=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
 <tr class="separator:a599774f54003e6a2665625f5f33d8f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693d8c7875e47a55c608d6eaec7acb7a" id="r_a693d8c7875e47a55c608d6eaec7acb7a"><td class="memTemplParams" colspan="2"><a id="a693d8c7875e47a55c608d6eaec7acb7a" name="a693d8c7875e47a55c608d6eaec7acb7a"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a693d8c7875e47a55c608d6eaec7acb7a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator==</b> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a693d8c7875e47a55c608d6eaec7acb7a" id="r_a693d8c7875e47a55c608d6eaec7acb7a"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a693d8c7875e47a55c608d6eaec7acb7a"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a693d8c7875e47a55c608d6eaec7acb7a">operator==</a> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a693d8c7875e47a55c608d6eaec7acb7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e35da9bbd54b1d0e4ff7f7517f5d174" id="r_a6e35da9bbd54b1d0e4ff7f7517f5d174"><td class="memTemplParams" colspan="2"><a id="a6e35da9bbd54b1d0e4ff7f7517f5d174" name="a6e35da9bbd54b1d0e4ff7f7517f5d174"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a6e35da9bbd54b1d0e4ff7f7517f5d174"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator!=</b> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a6e35da9bbd54b1d0e4ff7f7517f5d174" id="r_a6e35da9bbd54b1d0e4ff7f7517f5d174"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a6e35da9bbd54b1d0e4ff7f7517f5d174"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a6e35da9bbd54b1d0e4ff7f7517f5d174">operator!=</a> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a6e35da9bbd54b1d0e4ff7f7517f5d174"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06b8182a34f72a2489125283906ae127" id="r_a06b8182a34f72a2489125283906ae127"><td class="memTemplParams" colspan="2"><a id="a06b8182a34f72a2489125283906ae127" name="a06b8182a34f72a2489125283906ae127"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a06b8182a34f72a2489125283906ae127"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
+<tr class="memitem:a06b8182a34f72a2489125283906ae127" id="r_a06b8182a34f72a2489125283906ae127"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a06b8182a34f72a2489125283906ae127"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a06b8182a34f72a2489125283906ae127">operator&lt;</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
 <tr class="separator:a06b8182a34f72a2489125283906ae127"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08a0bd382775fe82d349b75842615c50" id="r_a08a0bd382775fe82d349b75842615c50"><td class="memTemplParams" colspan="2"><a id="a08a0bd382775fe82d349b75842615c50" name="a08a0bd382775fe82d349b75842615c50"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a08a0bd382775fe82d349b75842615c50"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
+<tr class="memitem:a08a0bd382775fe82d349b75842615c50" id="r_a08a0bd382775fe82d349b75842615c50"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a08a0bd382775fe82d349b75842615c50"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a08a0bd382775fe82d349b75842615c50">operator&gt;</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
 <tr class="separator:a08a0bd382775fe82d349b75842615c50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acffeaa1c83e7b98652f203162ddf7dc5" id="r_acffeaa1c83e7b98652f203162ddf7dc5"><td class="memTemplParams" colspan="2"><a id="acffeaa1c83e7b98652f203162ddf7dc5" name="acffeaa1c83e7b98652f203162ddf7dc5"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:acffeaa1c83e7b98652f203162ddf7dc5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
+<tr class="memitem:acffeaa1c83e7b98652f203162ddf7dc5" id="r_acffeaa1c83e7b98652f203162ddf7dc5"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:acffeaa1c83e7b98652f203162ddf7dc5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acffeaa1c83e7b98652f203162ddf7dc5">operator&lt;=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
 <tr class="separator:acffeaa1c83e7b98652f203162ddf7dc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae37690d98af98d7deee78cd74e121e94" id="r_ae37690d98af98d7deee78cd74e121e94"><td class="memTemplParams" colspan="2"><a id="ae37690d98af98d7deee78cd74e121e94" name="ae37690d98af98d7deee78cd74e121e94"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:ae37690d98af98d7deee78cd74e121e94"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;=</b> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
+<tr class="memitem:ae37690d98af98d7deee78cd74e121e94" id="r_ae37690d98af98d7deee78cd74e121e94"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:ae37690d98af98d7deee78cd74e121e94"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae37690d98af98d7deee78cd74e121e94">operator&gt;=</a> (const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;, const U &amp;)</td></tr>
 <tr class="separator:ae37690d98af98d7deee78cd74e121e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a388d8c6685b55b7e8cd5253abe376cd5" id="r_a388d8c6685b55b7e8cd5253abe376cd5"><td class="memTemplParams" colspan="2"><a id="a388d8c6685b55b7e8cd5253abe376cd5" name="a388d8c6685b55b7e8cd5253abe376cd5"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a388d8c6685b55b7e8cd5253abe376cd5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;</b> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a388d8c6685b55b7e8cd5253abe376cd5" id="r_a388d8c6685b55b7e8cd5253abe376cd5"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a388d8c6685b55b7e8cd5253abe376cd5"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a388d8c6685b55b7e8cd5253abe376cd5">operator&lt;</a> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a388d8c6685b55b7e8cd5253abe376cd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d3ae1944ff15b0872c22fc3ad6d942c" id="r_a2d3ae1944ff15b0872c22fc3ad6d942c"><td class="memTemplParams" colspan="2"><a id="a2d3ae1944ff15b0872c22fc3ad6d942c" name="a2d3ae1944ff15b0872c22fc3ad6d942c"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a2d3ae1944ff15b0872c22fc3ad6d942c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;</b> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a2d3ae1944ff15b0872c22fc3ad6d942c" id="r_a2d3ae1944ff15b0872c22fc3ad6d942c"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a2d3ae1944ff15b0872c22fc3ad6d942c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2d3ae1944ff15b0872c22fc3ad6d942c">operator&gt;</a> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a2d3ae1944ff15b0872c22fc3ad6d942c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cac80b50917cb7b8019b5a386821d1c" id="r_a5cac80b50917cb7b8019b5a386821d1c"><td class="memTemplParams" colspan="2"><a id="a5cac80b50917cb7b8019b5a386821d1c" name="a5cac80b50917cb7b8019b5a386821d1c"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a5cac80b50917cb7b8019b5a386821d1c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&lt;=</b> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a5cac80b50917cb7b8019b5a386821d1c" id="r_a5cac80b50917cb7b8019b5a386821d1c"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a5cac80b50917cb7b8019b5a386821d1c"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5cac80b50917cb7b8019b5a386821d1c">operator&lt;=</a> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a5cac80b50917cb7b8019b5a386821d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9aac07e288182ae5f38801ee992a3d45" id="r_a9aac07e288182ae5f38801ee992a3d45"><td class="memTemplParams" colspan="2"><a id="a9aac07e288182ae5f38801ee992a3d45" name="a9aac07e288182ae5f38801ee992a3d45"></a>
-template&lt;class U &gt; </td></tr>
-<tr class="memitem:a9aac07e288182ae5f38801ee992a3d45"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>operator&gt;=</b> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
+<tr class="memitem:a9aac07e288182ae5f38801ee992a3d45" id="r_a9aac07e288182ae5f38801ee992a3d45"><td class="memTemplParams" colspan="2">template&lt;class U &gt; </td></tr>
+<tr class="memitem:a9aac07e288182ae5f38801ee992a3d45"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9aac07e288182ae5f38801ee992a3d45">operator&gt;=</a> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a9aac07e288182ae5f38801ee992a3d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ade81b340ea2482ec4c20b79aa1d4330a" name="ade81b340ea2482ec4c20b79aa1d4330a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade81b340ea2482ec4c20b79aa1d4330a">&#9670;&#160;</a></span>PropagateConst() <span class="overload">[1/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::PropagateConst </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecde95272c8260e229f7e0c2536aa209" name="aecde95272c8260e229f7e0c2536aa209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecde95272c8260e229f7e0c2536aa209">&#9670;&#160;</a></span>PropagateConst() <span class="overload">[2/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::PropagateConst </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0587d97694dbd85ac3ac1395a6ae7f65" name="a0587d97694dbd85ac3ac1395a6ae7f65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0587d97694dbd85ac3ac1395a6ae7f65">&#9670;&#160;</a></span>PropagateConst() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; <br />
+requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; std::is_convertible&lt;U, T&gt;::value</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::PropagateConst </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad864c425a521a142d9c88a10e27016c2" name="ad864c425a521a142d9c88a10e27016c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad864c425a521a142d9c88a10e27016c2">&#9670;&#160;</a></span>PropagateConst() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; <br />
+requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!std::is_convertible&lt;U, T&gt;::value)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::PropagateConst </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4e9a60e0cd8e2d540cc09d367ed8f65b" name="a4e9a60e0cd8e2d540cc09d367ed8f65b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9a60e0cd8e2d540cc09d367ed8f65b">&#9670;&#160;</a></span>PropagateConst() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; <br />
+requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!is_specialisation&lt;std::decay_t&lt;U&gt;&gt;::value)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::PropagateConst </td>
+          <td>(</td>
+          <td class="paramtype">U &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a530608e7f6f3b8eaa1b2bacf1b100e9c" name="a530608e7f6f3b8eaa1b2bacf1b100e9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530608e7f6f3b8eaa1b2bacf1b100e9c">&#9670;&#160;</a></span>PropagateConst() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; <br />
+requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!is_specialisation&lt;std::decay_t&lt;U&gt;&gt;::value) &amp;&amp; (!std::is_convertible&lt;U, T&gt;::value)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::PropagateConst </td>
+          <td>(</td>
+          <td class="paramtype">U &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="acb8104a4a6dbf10a979bd490e3fc99cc" name="acb8104a4a6dbf10a979bd490e3fc99cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb8104a4a6dbf10a979bd490e3fc99cc">&#9670;&#160;</a></span>get() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr element_type * <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::get </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4bd97a733ab2d96a96a7971204ab4630" name="a4bd97a733ab2d96a96a7971204ab4630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bd97a733ab2d96a96a7971204ab4630">&#9670;&#160;</a></span>get() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const element_type * <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::get </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad9516071b590da1bcfbe9e1b15f24c29" name="ad9516071b590da1bcfbe9e1b15f24c29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9516071b590da1bcfbe9e1b15f24c29">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa837e387cc0e8cff9214e8966a02b9cd" name="aa837e387cc0e8cff9214e8966a02b9cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa837e387cc0e8cff9214e8966a02b9cd">&#9670;&#160;</a></span>operator const element_type *()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator const element_type * </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ad9a79bebf24dd56e4348c63175c02e" name="a0ad9a79bebf24dd56e4348c63175c02e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad9a79bebf24dd56e4348c63175c02e">&#9670;&#160;</a></span>operator element_type *()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator element_type * </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a236d743cff9217f2de24c29d5d16d9f9" name="a236d743cff9217f2de24c29d5d16d9f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a236d743cff9217f2de24c29d5d16d9f9">&#9670;&#160;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr element_type &amp; <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaf7233995b0ab1075cac309eddaecac9" name="aaf7233995b0ab1075cac309eddaecac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf7233995b0ab1075cac309eddaecac9">&#9670;&#160;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const element_type &amp; <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator* </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aad168bb416b8eeb705abea6455377413" name="aad168bb416b8eeb705abea6455377413"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad168bb416b8eeb705abea6455377413">&#9670;&#160;</a></span>operator-&gt;() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr element_type * <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0d7c5e5ca68941f6223f19e8f3e18934" name="a0d7c5e5ca68941f6223f19e8f3e18934"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d7c5e5ca68941f6223f19e8f3e18934">&#9670;&#160;</a></span>operator-&gt;() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const element_type * <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator-&gt; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7250c342a61df730b21f5e435e68da8" name="ad7250c342a61df730b21f5e435e68da8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7250c342a61df730b21f5e435e68da8">&#9670;&#160;</a></span>operator=() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp; <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7f2445add9d4a4e90bfab805962bf830" name="a7f2445add9d4a4e90bfab805962bf830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f2445add9d4a4e90bfab805962bf830">&#9670;&#160;</a></span>operator=() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp; <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a996253ee8b4c2b24593a55f7490a65e1" name="a996253ee8b4c2b24593a55f7490a65e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a996253ee8b4c2b24593a55f7490a65e1">&#9670;&#160;</a></span>operator=() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; <br />
+requires std::is_convertible&lt;U, T&gt;::value</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp; <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26e2c03f0c2e00d1a8b7c5d6af7cd89f" name="a26e2c03f0c2e00d1a8b7c5d6af7cd89f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e2c03f0c2e00d1a8b7c5d6af7cd89f">&#9670;&#160;</a></span>operator=() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; <br />
+requires std::is_convertible&lt;U, T&gt;::value &amp;&amp; (!is_specialisation&lt;std::decay_t&lt;U&gt;&gt;::value)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a> &amp; <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">U &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aebaa7200f12ded0e5e50acb6d0fbd577" name="aebaa7200f12ded0e5e50acb6d0fbd577"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebaa7200f12ded0e5e50acb6d0fbd577">&#9670;&#160;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr void <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">marvin::library::PropagateConst</a>&lt; T &gt;::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="af4bd84b085dec50b91e1d853ebf9c3f9" name="af4bd84b085dec50b91e1d853ebf9c3f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4bd84b085dec50b91e1d853ebf9c3f9">&#9670;&#160;</a></span>operator!= <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a599774f54003e6a2665625f5f33d8f39" name="a599774f54003e6a2665625f5f33d8f39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a599774f54003e6a2665625f5f33d8f39">&#9670;&#160;</a></span>operator!= <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a82bf66350ecd0e8c83ca886652f89bc2" name="a82bf66350ecd0e8c83ca886652f89bc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82bf66350ecd0e8c83ca886652f89bc2">&#9670;&#160;</a></span>operator!= <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::nullptr_t</td>          <td class="paramname"><span class="paramname"></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e35da9bbd54b1d0e4ff7f7517f5d174" name="a6e35da9bbd54b1d0e4ff7f7517f5d174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e35da9bbd54b1d0e4ff7f7517f5d174">&#9670;&#160;</a></span>operator!= <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6554f64989d3f18135062c6a19af1355" name="a6554f64989d3f18135062c6a19af1355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6554f64989d3f18135062c6a19af1355">&#9670;&#160;</a></span>operator!= <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator!= </td>
+          <td>(</td>
+          <td class="paramtype">std::nullptr_t</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7ce745c40061d784f9957daccde0ab82" name="a7ce745c40061d784f9957daccde0ab82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ce745c40061d784f9957daccde0ab82">&#9670;&#160;</a></span>operator&lt; <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a06b8182a34f72a2489125283906ae127" name="a06b8182a34f72a2489125283906ae127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b8182a34f72a2489125283906ae127">&#9670;&#160;</a></span>operator&lt; <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a388d8c6685b55b7e8cd5253abe376cd5" name="a388d8c6685b55b7e8cd5253abe376cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a388d8c6685b55b7e8cd5253abe376cd5">&#9670;&#160;</a></span>operator&lt; <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29f5534a5e1058f973086f5a14810633" name="a29f5534a5e1058f973086f5a14810633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29f5534a5e1058f973086f5a14810633">&#9670;&#160;</a></span>operator&lt;= <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acffeaa1c83e7b98652f203162ddf7dc5" name="acffeaa1c83e7b98652f203162ddf7dc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acffeaa1c83e7b98652f203162ddf7dc5">&#9670;&#160;</a></span>operator&lt;= <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5cac80b50917cb7b8019b5a386821d1c" name="a5cac80b50917cb7b8019b5a386821d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cac80b50917cb7b8019b5a386821d1c">&#9670;&#160;</a></span>operator&lt;= <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa277007e33274603b103fa9b656fe8cf" name="aa277007e33274603b103fa9b656fe8cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa277007e33274603b103fa9b656fe8cf">&#9670;&#160;</a></span>operator== <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2aa6c3e12f18604164a5b75c6f8ab9d2" name="a2aa6c3e12f18604164a5b75c6f8ab9d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2aa6c3e12f18604164a5b75c6f8ab9d2">&#9670;&#160;</a></span>operator== <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7c31becd9d427e7335ef5af39b405f88" name="a7c31becd9d427e7335ef5af39b405f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c31becd9d427e7335ef5af39b405f88">&#9670;&#160;</a></span>operator== <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::nullptr_t</td>          <td class="paramname"><span class="paramname"></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a693d8c7875e47a55c608d6eaec7acb7a" name="a693d8c7875e47a55c608d6eaec7acb7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a693d8c7875e47a55c608d6eaec7acb7a">&#9670;&#160;</a></span>operator== <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0ee49b6e14fe8a05a8c2b132a2a688ab" name="a0ee49b6e14fe8a05a8c2b132a2a688ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ee49b6e14fe8a05a8c2b132a2a688ab">&#9670;&#160;</a></span>operator== <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator== </td>
+          <td>(</td>
+          <td class="paramtype">std::nullptr_t</td>          <td class="paramname"><span class="paramname">, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a90fc07e2522acd255d956770f415329d" name="a90fc07e2522acd255d956770f415329d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90fc07e2522acd255d956770f415329d">&#9670;&#160;</a></span>operator&gt; <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08a0bd382775fe82d349b75842615c50" name="a08a0bd382775fe82d349b75842615c50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08a0bd382775fe82d349b75842615c50">&#9670;&#160;</a></span>operator&gt; <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2d3ae1944ff15b0872c22fc3ad6d942c" name="a2d3ae1944ff15b0872c22fc3ad6d942c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3ae1944ff15b0872c22fc3ad6d942c">&#9670;&#160;</a></span>operator&gt; <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f5955844d69703a0cbe845bed290f16" name="a6f5955844d69703a0cbe845bed290f16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f5955844d69703a0cbe845bed290f16">&#9670;&#160;</a></span>operator&gt;= <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae37690d98af98d7deee78cd74e121e94" name="ae37690d98af98d7deee78cd74e121e94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae37690d98af98d7deee78cd74e121e94">&#9670;&#160;</a></span>operator&gt;= <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pt</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const U &amp;</td>          <td class="paramname"><span class="paramname"><em>u</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9aac07e288182ae5f38801ee992a3d45" name="a9aac07e288182ae5f38801ee992a3d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aac07e288182ae5f38801ee992a3d45">&#9670;&#160;</a></span>operator&gt;= <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<div class="memtemplate">
+template&lt;class U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>t</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pu</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/runner/work/marvin/marvin/include/marvin/library/<a class="el" href="marvin__PropagateConst_8h_source.html">marvin_PropagateConst.h</a></li>
 </ul>

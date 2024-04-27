@@ -84,7 +84,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">marvin_Math.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
+<a href="marvin__Math_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  _______ _______ ______ ___ ___ _______ _______</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// |   |   |   _   |   __ \   |   |_     _|    |  |</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// |       |       |      &lt;   |   |_|   |_|       |</span></div>
@@ -96,20 +96,27 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef MARVIN_MATH_H</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MARVIN_MATH_H</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;marvin/library/marvin_Concepts.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="marvin__Concepts_8h.html">marvin/library/marvin_Concepts.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;marvin/library/marvin_EnableWarnings.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span>marvin::math {</div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html">   15</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1math.html">marvin::math</a> {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    [[nodiscard]] T lerp(T start, T end, T ratio) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keyword">const</span> <span class="keyword">auto</span> interpolated = start + (end - start) * ratio;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">return</span> interpolated;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>} <span class="comment">// namespace marvin::math</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;marvin/library/marvin_DisableWarnings.h&quot;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00025" data-start="{" data-end="}">
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a67212a8a8c4d308a97bb2e4ea34e7c39">   25</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#a67212a8a8c4d308a97bb2e4ea34e7c39">lerp</a>(T start, T end, T ratio) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">const</span> <span class="keyword">auto</span> interpolated = start + (end - start) * ratio;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordflow">return</span> interpolated;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    }</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>} <span class="comment">// namespace marvin::math</span></div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;marvin/library/marvin_DisableWarnings.h&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html"><div class="ttname"><a href="namespacemarvin_1_1math.html">marvin::math</a></div><div class="ttdef"><b>Definition</b> marvin_Math.h:15</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html_a67212a8a8c4d308a97bb2e4ea34e7c39"><div class="ttname"><a href="namespacemarvin_1_1math.html#a67212a8a8c4d308a97bb2e4ea34e7c39">marvin::math::lerp</a></div><div class="ttdeci">T lerp(T start, T end, T ratio) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:25</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

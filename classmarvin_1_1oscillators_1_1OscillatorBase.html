@@ -72,7 +72,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>marvin</b></li><li class="navelem"><b>oscillators</b></li><li class="navelem"><a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">OscillatorBase</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacemarvin.html">marvin</a></li><li class="navelem"><a class="el" href="namespacemarvin_1_1oscillators.html">oscillators</a></li><li class="navelem"><a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">OscillatorBase</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -110,6 +110,8 @@ Inheritance diagram for marvin::oscillators::OscillatorBase&lt; SampleType &gt;:
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:ad83c5972562b70d9424d0e14576140cf" id="r_ad83c5972562b70d9424d0e14576140cf"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad83c5972562b70d9424d0e14576140cf">~OscillatorBase</a> () noexcept=default</td></tr>
+<tr class="separator:ad83c5972562b70d9424d0e14576140cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67f4daf692dfb657c01bac9218c5dac1" id="r_a67f4daf692dfb657c01bac9218c5dac1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67f4daf692dfb657c01bac9218c5dac1">initialise</a> (double sampleRate)</td></tr>
 <tr class="separator:a67f4daf692dfb657c01bac9218c5dac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88164d984e75cc5b66a687316ae3f2b1" id="r_a88164d984e75cc5b66a687316ae3f2b1"><td class="memItemLeft" align="right" valign="top">virtual SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88164d984e75cc5b66a687316ae3f2b1">operator()</a> () noexcept=0</td></tr>
@@ -128,20 +130,45 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4fe1b20df9c3a1d9577a7e9b9e82108d" id="r_a4fe1b20df9c3a1d9577a7e9b9e82108d"><td class="memItemLeft" align="right" valign="top"><a id="a4fe1b20df9c3a1d9577a7e9b9e82108d" name="a4fe1b20df9c3a1d9577a7e9b9e82108d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>m_sampleRate</b> {}</td></tr>
+<tr class="memitem:a4fe1b20df9c3a1d9577a7e9b9e82108d" id="r_a4fe1b20df9c3a1d9577a7e9b9e82108d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fe1b20df9c3a1d9577a7e9b9e82108d">m_sampleRate</a> {}</td></tr>
 <tr class="separator:a4fe1b20df9c3a1d9577a7e9b9e82108d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6d50fdd8b2b6b8f7dd7e4eed4b66089" id="r_ab6d50fdd8b2b6b8f7dd7e4eed4b66089"><td class="memItemLeft" align="right" valign="top"><a id="ab6d50fdd8b2b6b8f7dd7e4eed4b66089" name="ab6d50fdd8b2b6b8f7dd7e4eed4b66089"></a>
-SampleType&#160;</td><td class="memItemRight" valign="bottom"><b>m_phaseIncrement</b> { static_cast&lt;SampleType&gt;(0.0) }</td></tr>
+<tr class="memitem:ab6d50fdd8b2b6b8f7dd7e4eed4b66089" id="r_ab6d50fdd8b2b6b8f7dd7e4eed4b66089"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6d50fdd8b2b6b8f7dd7e4eed4b66089">m_phaseIncrement</a> { static_cast&lt;SampleType&gt;(0.0) }</td></tr>
 <tr class="separator:ab6d50fdd8b2b6b8f7dd7e4eed4b66089"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad262b3c2241e05a6e7b3e47aa8d1e3d" id="r_aad262b3c2241e05a6e7b3e47aa8d1e3d"><td class="memItemLeft" align="right" valign="top"><a id="aad262b3c2241e05a6e7b3e47aa8d1e3d" name="aad262b3c2241e05a6e7b3e47aa8d1e3d"></a>
-SampleType&#160;</td><td class="memItemRight" valign="bottom"><b>m_phase</b> { static_cast&lt;SampleType&gt;(0.0) }</td></tr>
+<tr class="memitem:aad262b3c2241e05a6e7b3e47aa8d1e3d" id="r_aad262b3c2241e05a6e7b3e47aa8d1e3d"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad262b3c2241e05a6e7b3e47aa8d1e3d">m_phase</a> { static_cast&lt;SampleType&gt;(0.0) }</td></tr>
 <tr class="separator:aad262b3c2241e05a6e7b3e47aa8d1e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType&gt;<br />
 class marvin::oscillators::OscillatorBase&lt; SampleType &gt;</div><p>Base class for all single-shape oscillator types. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad83c5972562b70d9424d0e14576140cf" name="ad83c5972562b70d9424d0e14576140cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad83c5972562b70d9424d0e14576140cf">&#9670;&#160;</a></span>~OscillatorBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase</a>&lt; SampleType &gt;::~<a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">OscillatorBase</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6f9a8312bc8cfaddf6cf7128b896f188" name="a6f9a8312bc8cfaddf6cf7128b896f188"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6f9a8312bc8cfaddf6cf7128b896f188">&#9670;&#160;</a></span>incrementPhase()</h2>
 
@@ -327,6 +354,79 @@ template&lt;FloatType SampleType&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aad262b3c2241e05a6e7b3e47aa8d1e3d" name="aad262b3c2241e05a6e7b3e47aa8d1e3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad262b3c2241e05a6e7b3e47aa8d1e3d">&#9670;&#160;</a></span>m_phase</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase</a>&lt; SampleType &gt;::m_phase { static_cast&lt;SampleType&gt;(0.0) }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab6d50fdd8b2b6b8f7dd7e4eed4b66089" name="ab6d50fdd8b2b6b8f7dd7e4eed4b66089"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d50fdd8b2b6b8f7dd7e4eed4b66089">&#9670;&#160;</a></span>m_phaseIncrement</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase</a>&lt; SampleType &gt;::m_phaseIncrement { static_cast&lt;SampleType&gt;(0.0) }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4fe1b20df9c3a1d9577a7e9b9e82108d" name="a4fe1b20df9c3a1d9577a7e9b9e82108d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fe1b20df9c3a1d9577a7e9b9e82108d">&#9670;&#160;</a></span>m_sampleRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double <a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase</a>&lt; SampleType &gt;::m_sampleRate {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

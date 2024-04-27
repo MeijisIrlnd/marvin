@@ -84,7 +84,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">marvin_LinearSmoothedValue.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
+<a href="marvin__LinearSmoothedValue_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// ========================================================================================================</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//  _______ _______ ______ ___ ___ _______ _______</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// |   |   |   _   |   __ \   |   |_     _|    |  |</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// |       |       |      &lt;   |   |_|   |_|       |</span></div>
@@ -96,21 +96,22 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef MARVIN_LINEARSMOOTHEDVALUE_H</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MARVIN_LINEARSMOOTHEDVALUE_H</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;marvin/library/marvin_Concepts.h&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="marvin__Concepts_8h.html">marvin/library/marvin_Concepts.h</a>&quot;</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;marvin/library/marvin_EnableWarnings.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span>marvin::utils {</div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1utils.html">   15</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1utils.html">marvin::utils</a> {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">template</span> &lt;FloatType SampleType&gt;</div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html">   17</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html">LinearSmoothedValue</a> {</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <span class="keywordtype">void</span> reset(<span class="keywordtype">int</span> stepsSamples);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">void</span> reset(<span class="keywordtype">double</span> sampleRate, <span class="keywordtype">double</span> timeMs);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordtype">void</span> setCurrentAndTargetValue(SampleType newValue);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="keywordtype">void</span> setTargetValue(SampleType newValue);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        [[nodiscard]] SampleType operator()() <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        [[nodiscard]] <span class="keywordtype">bool</span> isSmoothing() <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#aa2f853298c41ec0dae1510dd5850fd8a">   19</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#aa2f853298c41ec0dae1510dd5850fd8a">reset</a>(<span class="keywordtype">int</span> stepsSamples);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a567dbfbd7dcf1b6bf4d3008a361cc752">   20</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a567dbfbd7dcf1b6bf4d3008a361cc752">reset</a>(<span class="keywordtype">double</span> sampleRate, <span class="keywordtype">double</span> timeMs);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a720638c8be6644a077127a6ceae95cfd">   21</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a720638c8be6644a077127a6ceae95cfd">setCurrentAndTargetValue</a>(SampleType newValue);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#ae8d88f91c5fbb78b3d2f9ff34e18768b">   22</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#ae8d88f91c5fbb78b3d2f9ff34e18768b">setTargetValue</a>(SampleType newValue);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a5203f8995434dc6cf7c824e54a3e1d93">   23</a></span>        [[nodiscard]] SampleType <a class="code hl_function" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a5203f8995434dc6cf7c824e54a3e1d93">operator()</a>() noexcept;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a5338dec41d1a61c5ee319e1f665fef68">   24</a></span>        [[nodiscard]] <span class="keywordtype">bool</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a5338dec41d1a61c5ee319e1f665fef68">isSmoothing</a>() noexcept;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    private:</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keywordtype">int</span> m_duration{ 1 };</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordtype">int</span> m_samplesRemaining{ 0 };</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        SampleType m_currentValue{ <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(0.0) };</div>
@@ -119,9 +120,18 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    };</div>
 </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>} <span class="comment">// namespace marvin::utils</span></div>
+</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;marvin/library/marvin_DisableWarnings.h&quot;</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassmarvin_1_1utils_1_1LinearSmoothedValue_html"><div class="ttname"><a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html">marvin::utils::LinearSmoothedValue</a></div><div class="ttdef"><b>Definition</b> marvin_LinearSmoothedValue.h:17</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1LinearSmoothedValue_html_a5203f8995434dc6cf7c824e54a3e1d93"><div class="ttname"><a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a5203f8995434dc6cf7c824e54a3e1d93">marvin::utils::LinearSmoothedValue::operator()</a></div><div class="ttdeci">SampleType operator()() noexcept</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1LinearSmoothedValue_html_a5338dec41d1a61c5ee319e1f665fef68"><div class="ttname"><a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a5338dec41d1a61c5ee319e1f665fef68">marvin::utils::LinearSmoothedValue::isSmoothing</a></div><div class="ttdeci">bool isSmoothing() noexcept</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1LinearSmoothedValue_html_a567dbfbd7dcf1b6bf4d3008a361cc752"><div class="ttname"><a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a567dbfbd7dcf1b6bf4d3008a361cc752">marvin::utils::LinearSmoothedValue::reset</a></div><div class="ttdeci">void reset(double sampleRate, double timeMs)</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1LinearSmoothedValue_html_a720638c8be6644a077127a6ceae95cfd"><div class="ttname"><a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#a720638c8be6644a077127a6ceae95cfd">marvin::utils::LinearSmoothedValue::setCurrentAndTargetValue</a></div><div class="ttdeci">void setCurrentAndTargetValue(SampleType newValue)</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1LinearSmoothedValue_html_aa2f853298c41ec0dae1510dd5850fd8a"><div class="ttname"><a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#aa2f853298c41ec0dae1510dd5850fd8a">marvin::utils::LinearSmoothedValue::reset</a></div><div class="ttdeci">void reset(int stepsSamples)</div></div>
+<div class="ttc" id="aclassmarvin_1_1utils_1_1LinearSmoothedValue_html_ae8d88f91c5fbb78b3d2f9ff34e18768b"><div class="ttname"><a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#ae8d88f91c5fbb78b3d2f9ff34e18768b">marvin::utils::LinearSmoothedValue::setTargetValue</a></div><div class="ttdeci">void setTargetValue(SampleType newValue)</div></div>
+<div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
+<div class="ttc" id="anamespacemarvin_1_1utils_html"><div class="ttname"><a href="namespacemarvin_1_1utils.html">marvin::utils</a></div><div class="ttdef"><b>Definition</b> marvin_LinearSmoothedValue.h:15</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
