@@ -9,5 +9,5 @@ jobs:
     name: "Build project"
     runs-on: ubuntu-latest
     steps: 
-      -name: Checkout
+      - name: Checkout
       uses: actions/checkout@v4.1.2
