@@ -6,7 +6,7 @@ on:
 
 jobs: 
   build-project: 
-    name: Build project
+    name: Build Documentation
     runs-on: ubuntu-latest
     steps: 
       - name: Checkout
@@ -17,3 +17,8 @@ jobs:
         uses: threeal/cmake-action@main
         with:
           run-build: false
+      - name: Doxygen
+        uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          config_file: ./build/docs/Doxyfile.marvin_docs
