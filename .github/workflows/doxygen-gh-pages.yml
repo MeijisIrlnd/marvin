@@ -1,0 +1,13 @@
+name: Doxygen Github Pages Deploy Action
+on: 
+  push: 
+    branches: 
+      - main
+
+jobs: 
+  build-project: 
+    name: "Build project"
+    runs-on: ubuntu-latest
+    steps: 
+      -name: Checkout
+      uses: actions/checkout@v4.1.2
