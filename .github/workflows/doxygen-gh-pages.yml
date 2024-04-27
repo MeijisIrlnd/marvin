@@ -15,3 +15,5 @@ jobs:
         uses: ssciwr/doxygen-install@v1 
       - name: Configure
         uses: threeal/cmake-action@main
+        with:
+          run-build: false
