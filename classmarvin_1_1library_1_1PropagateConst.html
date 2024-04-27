@@ -446,6 +446,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns a pointer to the object pointed to by the wrapped internal pointer-like variable. </p><dl class="section return"><dt>Returns</dt><dd>If T is an object pointer type, then the internal pointer variable. Otherwise, a <code>.<a class="el" href="#acb8104a4a6dbf10a979bd490e3fc99cc">get()</a></code> call on the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -473,6 +474,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns a pointer to the object pointed to by the wrapped internal pointer-like variable. </p><dl class="section return"><dt>Returns</dt><dd>If T is an object pointer type, then the internal pointer variable. Otherwise, a <code>.<a class="el" href="#acb8104a4a6dbf10a979bd490e3fc99cc">get()</a></code> call on the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -500,6 +502,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Checks whether the internal pointer variable is null. </p><dl class="section return"><dt>Returns</dt><dd><code>true</code> if the internal pointer variable is not null, otherwise <code>false</code>. </dd></dl>
 
 </div>
 </div>
@@ -527,6 +530,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Provides implicit conversion to <code>const element_type*</code> </p><dl class="section return"><dt>Returns</dt><dd>A pointer to the object pointed to by the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -554,6 +558,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Provides implicit conversion to <code>element_type*</code> </p><dl class="section return"><dt>Returns</dt><dd>A pointer to the object pointed to by the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -581,6 +586,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Dereferences the internal pointer variable - undefined behaviour if its null! </p><dl class="section return"><dt>Returns</dt><dd>The value stored at the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -608,6 +614,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Dereferences the internal pointer variable - undefined behaviour if its null! </p><dl class="section return"><dt>Returns</dt><dd>The value stored at the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -635,6 +642,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Provides access into the internal pointer variable - undefined behaviour if its null! </p><dl class="section return"><dt>Returns</dt><dd>A pointer to the object pointed to by the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -662,6 +670,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Provides access into the internal pointer variable - undefined behaviour if its null! </p><dl class="section return"><dt>Returns</dt><dd>A pointer to the object pointed to by the internal pointer variable. </dd></dl>
 
 </div>
 </div>
@@ -689,6 +698,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Deleted - non copyable. </p>
 
 </div>
 </div>
@@ -784,6 +794,13 @@ requires std::is_convertible&lt;U, T&gt;::value &amp;&amp; (!is_specialisation&l
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Assigns a <code>std::forward</code> of <code>u</code> to the internal pointer variable. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>Another object to assign to the internal pointer variable. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>*this</code>. </dd></dl>
 
 </div>
 </div>
@@ -811,6 +828,12 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Swaps the internal pointer variable with that of pt. UB if lvalues of T do not satisfy swappable. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pt</td><td>Another <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html" title="A compiler-support agnostic implementation of std::propagate_const">PropagateConst</a> object to swap with. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
