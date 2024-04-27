@@ -101,6 +101,11 @@ namespace marvin::library {
             return *this;
         }
 
+        /**
+            Assigns a `std::forward` of `u` to the internal pointer variable.
+            \param u Another object to assign to the internal pointer variable.
+            \return `*this`.
+        */
         template <class U>
         requires std::is_convertible<U, T>::value && (!is_specialisation<std::decay_t<U>>::value)
         constexpr PropagateConst& operator=(U&& u) {
@@ -108,12 +113,23 @@ namespace marvin::library {
             return *this;
         }
 
+        /**
+            Deleted - non copyable.
+        */
         PropagateConst& operator=(const PropagateConst& other) = delete;
 
+        /**
+           Swaps the internal pointer variable with that of pt. UB if lvalues of T do not satisfy swappable.
+           \param pt Another PropagateConst object to swap with.
+        */
         constexpr void swap(PropagateConst& pt) noexcept {
             std::swap(m_underlying, pt.m_underlying);
         }
 
+        /**
+            Returns a pointer to the object pointed to by the wrapped internal pointer-like variable.
+            \return If T is an object pointer type, then the internal pointer variable. Otherwise, a `.get()` call on the internal pointer variable.
+        */
         constexpr element_type* get() {
             if constexpr (isSmartPointer) {
                 return m_underlying.get();
@@ -123,6 +139,10 @@ namespace marvin::library {
         }
 
 
+        /**
+            Returns a pointer to the object pointed to by the wrapped internal pointer-like variable.
+            \return If T is an object pointer type, then the internal pointer variable. Otherwise, a `.get()` call on the internal pointer variable.
+        */
         constexpr const element_type* get() const {
             if constexpr (isSmartPointer) {
                 return m_underlying.get();
@@ -132,33 +152,61 @@ namespace marvin::library {
         }
 
 
+        /**
+            Checks whether the internal pointer variable is null.
+            \return `true` if the internal pointer variable is not null, otherwise `false`.
+        */
         constexpr explicit operator bool() const {
             return m_underlying != nullptr;
         }
 
 
+        /**
+            Dereferences the internal pointer variable - undefined behaviour if its null!
+            \return The value stored at the internal pointer variable.
+        */
         constexpr element_type& operator*() {
             return *get();
         }
 
+        /**
+            Dereferences the internal pointer variable - undefined behaviour if its null!
+            \return The value stored at the internal pointer variable.
+        */
         constexpr const element_type& operator*() const {
             return *get();
         }
 
+        /**
+            Provides access into the internal pointer variable - undefined behaviour if its null!
+            \return A pointer to the object pointed to by the internal pointer variable.
+        */
         constexpr element_type* operator->() {
             return get();
         }
 
+        /**
+            Provides access into the internal pointer variable - undefined behaviour if its null!
+            \return A pointer to the object pointed to by the internal pointer variable.
+        */
         constexpr const element_type* operator->() const {
             return get();
         }
 
+        /**
+            Provides implicit conversion to `element_type*`
+            \returns A pointer to the object pointed to by the internal pointer variable.
+        */
         constexpr operator element_type*()
         requires isConvertibleOrPointer
         {
             return get();
         }
 
+        /**
+            Provides implicit conversion to `const element_type*`
+            \returns A pointer to the object pointed to by the internal pointer variable.
+        */
         constexpr operator const element_type*()
         requires isConvertibleOrPointer
         {
