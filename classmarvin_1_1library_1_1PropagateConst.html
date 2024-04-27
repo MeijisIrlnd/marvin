@@ -84,6 +84,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A compiler-support agnostic implementation of <code>std::propagate_const</code>  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="marvin__PropagateConst_8h_source.html">marvin_PropagateConst.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -206,7 +209,13 @@ Friends</h2></td></tr>
 <tr class="memitem:a9aac07e288182ae5f38801ee992a3d45"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9aac07e288182ae5f38801ee992a3d45">operator&gt;=</a> (const T &amp;, const <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html">PropagateConst</a>&lt; U &gt; &amp;)</td></tr>
 <tr class="separator:a9aac07e288182ae5f38801ee992a3d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T&gt;<br />
+requires SmartPointerType&lt;T&gt; || std::is_pointer_v&lt;T&gt;<br />
+class marvin::library::PropagateConst&lt; T &gt;</div><p>A compiler-support agnostic implementation of <code>std::propagate_const</code> </p>
+<p>The <em>raison d'etre</em> being that certain popular compilers (<em>cough</em> Apple-Clang <em>cough</em>) are horrifically slow at implementing stdlib features, and <code>std::propagate_const</code> is pretty desirable for anything using a <code>PImpl</code> pattern. <br  />
+For more information about what <code>std::propagate_const</code> actually <em>does</em>, see here: <a href="https://en.cppreference.com/w/cpp/experimental/propagate_const">https://en.cppreference.com/w/cpp/experimental/propagate_const</a> </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ade81b340ea2482ec4c20b79aa1d4330a" name="ade81b340ea2482ec4c20b79aa1d4330a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ade81b340ea2482ec4c20b79aa1d4330a">&#9670;&#160;</a></span>PropagateConst() <span class="overload">[1/6]</span></h2>
 
@@ -231,6 +240,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructs a <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html" title="A compiler-support agnostic implementation of std::propagate_const">PropagateConst</a>, default initialising the internal pointer variable. </p>
 
 </div>
 </div>
@@ -258,6 +268,12 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Explicitly defaulted move constructor that move constructs the internal pointer variable with <code>p</code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">p</td><td>Another <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html" title="A compiler-support agnostic implementation of std::propagate_const">PropagateConst</a> object to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -288,6 +304,12 @@ requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; std::is_convertible
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Initialises the internal pointer variable as if from the expression <code>std::move(pu.t_)</code>. Implicit if <code>std::is_convertible_v&lt;U, T&gt;</code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pu</td><td>Another <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html" title="A compiler-support agnostic implementation of std::propagate_const">PropagateConst</a> object of a different specialization to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -318,6 +340,12 @@ requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!std::is_convertib
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Initialises the internal pointer variable as if from the expression <code>std::move(pu.t_)</code>. Explicit if <code>!std::is_convertible_v&lt;U, T&gt;</code> </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pu</td><td>Another <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html" title="A compiler-support agnostic implementation of std::propagate_const">PropagateConst</a> object of a different specialization to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -348,6 +376,12 @@ requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!is_specialisation
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Initialises the internal pointer variable with the expression <code>std::forward&lt;U&gt;(u)</code>. Implicit if <code>std::is_convertible_v&lt;U, T&gt;</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>Another object to initialise the internal pointer variable with. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -378,6 +412,12 @@ requires std::is_constructible&lt;T, U&gt;::value &amp;&amp; (!is_specialisation
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Initialises the internal pointer variable with the expression <code>std::forward&lt;U&gt;(u)</code>. Explicit if <code>!std::is_convertible_v&lt;U, T&gt;</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">u</td><td>Another object to initialise the internal pointer variable with. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -676,6 +716,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Explicitly defaulted move-assign that move-assigns the internal pointer variable from <code>other</code>'s internal pointer variable. </p>
 
 </div>
 </div>
@@ -706,6 +747,13 @@ requires std::is_convertible&lt;U, T&gt;::value</div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Assigns a <code>std::move</code> of <code>pu</code>'s internal pointer variable to this instance's internal pointer variable. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pu</td><td>Another <a class="el" href="classmarvin_1_1library_1_1PropagateConst.html" title="A compiler-support agnostic implementation of std::propagate_const">PropagateConst</a> object of a different specialization to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>*this</code>. </dd></dl>
 
 </div>
 </div>

@@ -100,7 +100,28 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType, size_t NumStages&gt;<br />
 class marvin::dsp::filters::Biquad&lt; SampleType, NumStages &gt;</div><p>A cascading direct form ii biquad filter. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+<p>Biquads have a tendency to "blow up" at high modulation frequencies, so keep in mind that a StateVariableFilter (coming soon) might be a better choice if that's the kind of thing you need. <br  />
+Usage example: </p><div class="fragment"><div class="line"><span class="keyword">class </span>Processor final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keywordtype">void</span> initialise(<span class="keywordtype">double</span> sampleRate) {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> coeffs = marvin::dsp::filters::rbj::lowpass&lt;float&gt;(sampleRate, 1000.0f, 0.5f);</div>
+<div class="line">        m_lpf.setCoeffs(0, coeffs);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    [[nodiscard]] <span class="keywordtype">float</span> operator()(<span class="keywordtype">float</span> x) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> filtered = m_lpf(x);</div>
+<div class="line">        <span class="keywordflow">return</span> filtered;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> reset() noexcept {</div>
+<div class="line">        m_lpf.reset();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <a class="code hl_class" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">marvin::dsp::filters::Biquad&lt;float, 1&gt;</a> m_lpf;</div>
+<div class="line">};</div>
+<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">marvin::dsp::filters::Biquad</a></div><div class="ttdoc">A cascading direct form ii biquad filter.</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:47</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a756e737907e93f57734a9b390b70082a" name="a756e737907e93f57734a9b390b70082a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a756e737907e93f57734a9b390b70082a">&#9670;&#160;</a></span>operator()()</h2>
 

@@ -102,64 +102,64 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;marvin/library/marvin_EnableWarnings.h&quot;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1dsp_1_1filters.html">marvin::dsp::filters</a> {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">template</span> &lt;FloatType SampleType, <span class="keywordtype">size_t</span> NumStages&gt;</div>
-<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">   23</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">Biquad</a> final {</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f">   30</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f">setCoeffs</a>(<span class="keywordtype">size_t</span> stage, <a class="code hl_struct" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients&lt;SampleType&gt;</a> coeffs) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            m_coeffs[stage] = coeffs;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
-</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a756e737907e93f57734a9b390b70082a">   39</a></span>        [[nodiscard]] SampleType <a class="code hl_function" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a756e737907e93f57734a9b390b70082a">operator()</a>(SampleType x) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> stage = 0_sz; stage &lt; NumStages; ++stage) {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <span class="keyword">const</span> <span class="keyword">auto</span> [b0, b1, b2, a0, a1, a2] = m_coeffs[stage];</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                <span class="keyword">auto</span>&amp; delay = m_delays[stage];</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                <span class="keyword">const</span> <span class="keyword">auto</span> y = <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(1.0) / b0 * (a0 * x + a1 * delay.x_z1 + a2 * delay.x_z2 + b1 + delay.y_z1 + b2 * delay.y_z2);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>                delay.update(x, y);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                x = y;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        }</div>
-</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a00ce39b408ec679ba34e49beb519dcd4">   52</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a00ce39b408ec679ba34e49beb519dcd4">reset</a>() noexcept {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; d : m_delays) {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                d.reset();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">template</span> &lt;FloatType SampleType, <span class="keywordtype">size_t</span> NumStages&gt;</div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="};">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">   47</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">Biquad</a> final {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f">   54</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f">setCoeffs</a>(<span class="keywordtype">size_t</span> stage, <a class="code hl_struct" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients&lt;SampleType&gt;</a> coeffs) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            m_coeffs[stage] = coeffs;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
 </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">struct </span>BiquadDelay final {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            SampleType x_z1, x_z2;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            SampleType y_z1, y_z2;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <span class="keywordtype">void</span> operator()(SampleType x, SampleType y) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                x_z2 = x_z1;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                x_z1 = x;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                y_z2 = y_z1;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                y_z1 = y;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordtype">void</span> reset() noexcept {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                x_z1 = x_z2 = y_z1 = y_z2 = <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(0.0);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        };</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        std::array&lt;BiquadDelay, NumStages&gt; m_delays;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        std::array&lt;BiquadCoefficients&lt;SampleType&gt;, NumStages&gt; m_coeffs;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    };</div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a756e737907e93f57734a9b390b70082a">   63</a></span>        [[nodiscard]] SampleType <a class="code hl_function" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a756e737907e93f57734a9b390b70082a">operator()</a>(SampleType x) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> stage = 0_sz; stage &lt; NumStages; ++stage) {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                <span class="keyword">const</span> <span class="keyword">auto</span> [b0, b1, b2, a0, a1, a2] = m_coeffs[stage];</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keyword">auto</span>&amp; delay = m_delays[stage];</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                <span class="keyword">const</span> <span class="keyword">auto</span> y = <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(1.0) / b0 * (a0 * x + a1 * delay.x_z1 + a2 * delay.x_z2 + b1 + delay.y_z1 + b2 * delay.y_z2);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                delay.update(x, y);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                x = y;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        }</div>
 </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>} <span class="comment">// namespace marvin::dsp::filters</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#include &quot;marvin/library/marvin_DisableWarnings.h&quot;</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">marvin::dsp::filters::Biquad</a></div><div class="ttdoc">A cascading direct form ii biquad filter.</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:23</div></div>
-<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html_a00ce39b408ec679ba34e49beb519dcd4"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a00ce39b408ec679ba34e49beb519dcd4">marvin::dsp::filters::Biquad::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:52</div></div>
-<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html_a756e737907e93f57734a9b390b70082a"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a756e737907e93f57734a9b390b70082a">marvin::dsp::filters::Biquad::operator()</a></div><div class="ttdeci">SampleType operator()(SampleType x) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:39</div></div>
-<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html_a8dfee098419f82b25c849549a252c45f"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f">marvin::dsp::filters::Biquad::setCoeffs</a></div><div class="ttdeci">void setCoeffs(size_t stage, BiquadCoefficients&lt; SampleType &gt; coeffs) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:30</div></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a00ce39b408ec679ba34e49beb519dcd4">   76</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a00ce39b408ec679ba34e49beb519dcd4">reset</a>() noexcept {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; d : m_delays) {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                d.reset();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">struct </span>BiquadDelay final {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            SampleType x_z1, x_z2;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            SampleType y_z1, y_z2;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordtype">void</span> operator()(SampleType x, SampleType y) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                x_z2 = x_z1;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                x_z1 = x;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                y_z2 = y_z1;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                y_z1 = y;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordtype">void</span> reset() noexcept {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                x_z1 = x_z2 = y_z1 = y_z2 = <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(0.0);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        };</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        std::array&lt;BiquadDelay, NumStages&gt; m_delays;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        std::array&lt;BiquadCoefficients&lt;SampleType&gt;, NumStages&gt; m_coeffs;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    };</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>} <span class="comment">// namespace marvin::dsp::filters</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="preprocessor">#include &quot;marvin/library/marvin_DisableWarnings.h&quot;</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html">marvin::dsp::filters::Biquad</a></div><div class="ttdoc">A cascading direct form ii biquad filter.</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:47</div></div>
+<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html_a00ce39b408ec679ba34e49beb519dcd4"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a00ce39b408ec679ba34e49beb519dcd4">marvin::dsp::filters::Biquad::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:76</div></div>
+<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html_a756e737907e93f57734a9b390b70082a"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a756e737907e93f57734a9b390b70082a">marvin::dsp::filters::Biquad::operator()</a></div><div class="ttdeci">SampleType operator()(SampleType x) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:63</div></div>
+<div class="ttc" id="aclassmarvin_1_1dsp_1_1filters_1_1Biquad_html_a8dfee098419f82b25c849549a252c45f"><div class="ttname"><a href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f">marvin::dsp::filters::Biquad::setCoeffs</a></div><div class="ttdeci">void setCoeffs(size_t stage, BiquadCoefficients&lt; SampleType &gt; coeffs) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Biquad.h:54</div></div>
 <div class="ttc" id="amarvin__BiquadCoefficients_8h_html"><div class="ttname"><a href="marvin__BiquadCoefficients_8h.html">marvin_BiquadCoefficients.h</a></div></div>
 <div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
 <div class="ttc" id="anamespacemarvin_1_1dsp_1_1filters_html"><div class="ttname"><a href="namespacemarvin_1_1dsp_1_1filters.html">marvin::dsp::filters</a></div><div class="ttdef"><b>Definition</b> marvin_APF.h:15</div></div>

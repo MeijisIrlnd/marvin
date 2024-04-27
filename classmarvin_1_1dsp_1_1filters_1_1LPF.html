@@ -83,10 +83,17 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A direct form i first order single pole lowpass filter.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="marvin__LPF_8h_source.html">marvin_LPF.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a5297d9b795182baeb93501d77dcaaab9" id="r_a5297d9b795182baeb93501d77dcaaab9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5297d9b795182baeb93501d77dcaaab9">initialise</a> (double sampleRate) noexcept</td></tr>
+<tr class="separator:a5297d9b795182baeb93501d77dcaaab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ee0f7fc77f62170a3b5d33bfcdf6880" id="r_a8ee0f7fc77f62170a3b5d33bfcdf6880"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ee0f7fc77f62170a3b5d33bfcdf6880">setCutoff</a> (SampleType cutoff) noexcept</td></tr>
+<tr class="separator:a8ee0f7fc77f62170a3b5d33bfcdf6880"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9dd4ee21883d461d5cb67a649ce0cdb0" id="r_a9dd4ee21883d461d5cb67a649ce0cdb0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dd4ee21883d461d5cb67a649ce0cdb0">setCoeff</a> (SampleType newCoeff) noexcept</td></tr>
 <tr class="separator:a9dd4ee21883d461d5cb67a649ce0cdb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1972c451254b4bea60831fdcd5ae382" id="r_aa1972c451254b4bea60831fdcd5ae382"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1972c451254b4bea60831fdcd5ae382">operator()</a> (SampleType x) noexcept</td></tr>
@@ -94,7 +101,43 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4977ca3d80ed65715435b4ec1e3ba69d" id="r_a4977ca3d80ed65715435b4ec1e3ba69d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4977ca3d80ed65715435b4ec1e3ba69d">reset</a> () noexcept</td></tr>
 <tr class="separator:a4977ca3d80ed65715435b4ec1e3ba69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType&gt;<br />
+class marvin::dsp::filters::LPF&lt; SampleType &gt;</div><p>A direct form i first order single pole lowpass filter. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5297d9b795182baeb93501d77dcaaab9" name="a5297d9b795182baeb93501d77dcaaab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5297d9b795182baeb93501d77dcaaab9">&#9670;&#160;</a></span>initialise()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1LPF.html">marvin::dsp::filters::LPF</a>&lt; SampleType &gt;::initialise </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Initialise the <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1LPF.html" title="A direct form i first order single pole lowpass filter.">LPF</a>'s sample rate. If using <code>setCutoff</code> to set the coefficient, make sure to call this function before any calls to it! </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>The sample rate the filter should run at. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa1972c451254b4bea60831fdcd5ae382" name="aa1972c451254b4bea60831fdcd5ae382"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa1972c451254b4bea60831fdcd5ae382">&#9670;&#160;</a></span>operator()()</h2>
 
@@ -119,6 +162,13 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Filters a single sample. The lowpass is in the form <code> y[n] = ax[n] + (1-a)y[n-1] </code> where a is the <code>coeff</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>The sample to filter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The filtered sample. </dd></dl>
 
 </div>
 </div>
@@ -146,6 +196,7 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Resets the internal state of the filter (including zero-ing <code>y[n-1]</code>) </p>
 
 </div>
 </div>
@@ -173,6 +224,50 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Directly sets the coefficient the filter should use internally - see <code>setCutoff</code> for its relationship to cutoff. <br  />
+ As the internal <code>coeff</code> variable is <b>not</b> atomic, ensure this function is either called on the audio thread, or that the audio thread is <b>not</b> running when this function is called. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newCoeff</td><td>The coeff the <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1LPF.html" title="A direct form i first order single pole lowpass filter.">LPF</a> should use. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8ee0f7fc77f62170a3b5d33bfcdf6880" name="a8ee0f7fc77f62170a3b5d33bfcdf6880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ee0f7fc77f62170a3b5d33bfcdf6880">&#9670;&#160;</a></span>setCutoff()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1LPF.html">marvin::dsp::filters::LPF</a>&lt; SampleType &gt;::setCutoff </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>cutoff</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets the desired -3dB cutoff frequency for the filter. Make sure to call <code>initialise</code> before calling this function. Internally, ends up calling <code>setCoeff</code> with the calculated coeff, from the formula </p><div class="fragment"><div class="line">w = f_c / f_s</div>
+<div class="line">y = 1 - cos(w_c)</div>
+<div class="line">coeff = -y + sqrt(y^2 + 2y)</div>
+</div><!-- fragment --><p> which is explained in more detail here: <a href="https://dsp.stackexchange.com/questions/54086/single-pole-iir-low-pass-filter-which-is-the-correct-formula-for-the-decay-coe">https://dsp.stackexchange.com/questions/54086/single-pole-iir-low-pass-filter-which-is-the-correct-formula-for-the-decay-coe</a> <br  />
+As the internal <code>coeff</code> variable is <b>not</b> atomic, this function needs to be either called on the audio thread, or called when the audio thread is <b>not</b> running. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cutoff</td><td>The cutoff frequency the <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1LPF.html" title="A direct form i first order single pole lowpass filter.">LPF</a> should use. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
