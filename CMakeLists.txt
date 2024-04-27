@@ -24,6 +24,7 @@ set(MARVIN_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
 add_subdirectory(source)
 add_subdirectory(include)
 add_subdirectory(tests)
+add_subdirectory(docs)
 source_group(TREE source)
 add_library(marvin STATIC ${MARVIN_SOURCES})
 add_library(slma::marvin ALIAS marvin)
