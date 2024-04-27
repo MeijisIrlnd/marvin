@@ -14,13 +14,26 @@
 #include <cmath>
 
 namespace marvin::utils {
-    // Use like `Householder<double, 8>::inPlace(data)` - size must be ≥ 1
+    /**
+        \brief A helper class to apply an NxN Householder matrix to a given input array-like.
+
+        `size` <b>must</b> be greater than or equal to 1.
+        Example usage:
+        ```cpp
+            std::array<float, 4> arr{ 1, 0, 0, 0 };
+            marvin::utils::Householder<float, 4>::inPlace(arr.data());
+        ```
+    */
     template <FloatType SampleType, int size>
     requires(size >= 1)
     class Householder {
         static constexpr SampleType multiplier{ -2.0 / size };
 
     public:
+        /**
+            Multiplies a given input of `size` by a `size x size` Householder matrix.
+            \param arr A pointer to the internal data of an array-like to apply the Householder matrix to.
+        */
         static void inPlace(SampleType* arr) {
             SampleType sum = 0;
             for (int i = 0; i < size; ++i) {
@@ -33,11 +46,24 @@ namespace marvin::utils {
         }
     };
 
-    // Use like `Hadamard<double, 8>::inPlace(data)` - size must be a power of 2
+    /**
+        \brief A helper class to apply an NxN Hadamard matrix to a given input array-like.
+
+        `size` <b>must</b> be a power of two.
+        Example usage:
+        ```cpp
+            std::array<float, 4> arr{ 1, 0, 0, 0 };
+            marvin::utils::Hadamard<float, 4>::inPlace(arr.data());
+        ```
+    */
     template <FloatType SampleType, int size>
     requires(isPowerOfTwo<size>())
     class Hadamard {
     public:
+        /**
+            Used internally by `inPlace` to generate an `NxN` Hadamard via recursion - probably shouldn't be in the public API.
+            \param data A pointer to the internal data of the array-like to apply the Householder to.
+        */
         static inline void recursiveUnscaled(SampleType* data) {
             if constexpr (size <= 1)
                 return;
@@ -55,6 +81,10 @@ namespace marvin::utils {
                 }
             }
         }
+        /**
+            Multiplies an input array-like of `size` by a `size x size` Hadamard matrix.
+            \param data A pointer to the internal data of the array-like to apply the Hadamard to.
+        */
         static inline void inPlace(SampleType* data) {
             recursiveUnscaled(data);
             auto scalingFactor = static_cast<SampleType>(std::sqrt(1.0 / size));

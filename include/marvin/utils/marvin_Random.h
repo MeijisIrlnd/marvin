@@ -14,15 +14,32 @@
 #include <random>
 #include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::utils {
+    /**
+        \brief A class for (pseudo) random number generation.
+
+        Internally, this class is just a wrapper around the `std::mt19937` Mersenne-Twister engine, for convenience and brevity of typing.
+    */
     class Random final {
     public:
+        /**
+            \brief A POD type specifying the min and max range an instance of the Random class should use for generation.
+        */
         template <NumericType T>
         struct Range {
             T min, max;
         };
 
+        /**
+            As it's not recommended to have multiple copies of a `std::random_device`, this class relies on one to be provided to its constructor, which is used to configure the internal `std::mt19937` rng.
+            \param rd An instance of a `std::random_device` to seed the internal rng with.
+        */
         explicit Random(std::random_device& rd);
 
+        /**
+            Generates a (pseudo) random number in the given Range. Internally uses the appropriate `std::uniform_t_distribution` depending on if T is an integral type, or a float-type.
+            \param range An instance of the Range POD type, specifying the min and max values the rng should generate between.
+            \return A pseudo random number in `range`.
+        */
         template <NumericType T>
         [[nodiscard]] T generate(Range<T> range) noexcept {
             Distribution<T> distribution{ range.min, range.max };

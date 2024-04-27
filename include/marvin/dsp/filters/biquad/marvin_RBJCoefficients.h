@@ -176,7 +176,7 @@ namespace marvin::dsp::filters::rbj {
         An RBJ allpass implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
         \param sampleRate The sample rate to base the calculations off.
         \param cutoff The centre frequency of the allpass.
-        \param q The resonance of the allpass in octaves.
+        \param q The resonance of the allpass (0 to 1).
         \return An instance of BiquadCoefficients populated with the resulting coefficients.
     */
     template <FloatType SampleType>
@@ -204,6 +204,14 @@ namespace marvin::dsp::filters::rbj {
         };
     }
 
+    /**
+        An RBJ bell implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param centreFrequency The centre frequency of the bell.
+        \param bandwidth The bandwidth of the bell in octaves.
+        \param dbGain The gain of the bell, in decibels.
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> peak(double sampleRate, SampleType centreFrequency, SampleType bandwidth, SampleType dbGain) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
@@ -229,6 +237,15 @@ namespace marvin::dsp::filters::rbj {
             .a2 = a2
         };
     }
+
+    /**
+        An RBJ low shelf implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param centreFrequency The centre frequency of the shelf.
+        \param slope The slope of the shelf in db/octave. At slope=1, the shelf is as steep as it can be. Should be between `std::numeric_limits<SampleType>::min()`, and 1`.
+        \param dbGain The gain of the shelf, in decibels.
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> lowShelf(double sampleRate, SampleType centreFrequency, SampleType slope, SampleType dbGain) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
@@ -255,6 +272,14 @@ namespace marvin::dsp::filters::rbj {
         };
     }
 
+    /**
+        An RBJ high shelf implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param centreFrequency The centre frequency of the shelf.
+        \param slope The slope of the shelf in db/octave. At slope=1, the shelf is as steep as it can be. Should be between `std::numeric_limits<SampleType>::min()`, and 1`.
+        \param dbGain The gain of the shelf, in decibels.
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> highShelf(double sampleRate, SampleType centreFrequency, SampleType slope, SampleType dbGain) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
