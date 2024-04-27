@@ -21,4 +21,4 @@ jobs:
         uses: mattnotmitt/doxygen-action@v1.1.0 
         with: 
           doxyfile-path: ./build/docs/Doxyfile.marvin_docs
-          working-directory: "./docs/doxygen"
+          working-directory: "./build/doxygen"
