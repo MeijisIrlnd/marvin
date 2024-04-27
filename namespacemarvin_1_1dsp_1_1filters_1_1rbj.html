@@ -150,7 +150,7 @@ template&lt;FloatType SampleType&gt; </div>
   <table class="params">
     <tr><td class="paramname">sampleRate</td><td>The sample rate to base the calculations off. </td></tr>
     <tr><td class="paramname">cutoff</td><td>The centre frequency of the allpass. </td></tr>
-    <tr><td class="paramname">q</td><td>The resonance of the allpass in octaves. </td></tr>
+    <tr><td class="paramname">q</td><td>The resonance of the allpass (0 to 1). </td></tr>
   </table>
   </dd>
 </dl>
@@ -336,6 +336,16 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>An RBJ high shelf implementation for use with the <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html" title="A cascading direct form ii biquad filter.">Biquad</a> class, based on the formulae from the RBJ Cookbook (<a href="https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html">https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html</a>) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>The sample rate to base the calculations off. </td></tr>
+    <tr><td class="paramname">centreFrequency</td><td>The centre frequency of the shelf. </td></tr>
+    <tr><td class="paramname">slope</td><td>The slope of the shelf in db/octave. At slope=1, the shelf is as steep as it can be. Should be between <code>std::numeric_limits&lt;SampleType&gt;::min()</code>, and 1`. </td></tr>
+    <tr><td class="paramname">dbGain</td><td>The gain of the shelf, in decibels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An instance of <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html" title="A POD type for use with the Biquad class, and the SmoothedBiquadCoefficients class.">BiquadCoefficients</a> populated with the resulting coefficients. </dd></dl>
 
 </div>
 </div>
@@ -422,6 +432,16 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>An RBJ low shelf implementation for use with the <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html" title="A cascading direct form ii biquad filter.">Biquad</a> class, based on the formulae from the RBJ Cookbook (<a href="https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html">https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html</a>) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>The sample rate to base the calculations off. </td></tr>
+    <tr><td class="paramname">centreFrequency</td><td>The centre frequency of the shelf. </td></tr>
+    <tr><td class="paramname">slope</td><td>The slope of the shelf in db/octave. At slope=1, the shelf is as steep as it can be. Should be between <code>std::numeric_limits&lt;SampleType&gt;::min()</code>, and 1`. </td></tr>
+    <tr><td class="paramname">dbGain</td><td>The gain of the shelf, in decibels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An instance of <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html" title="A POD type for use with the Biquad class, and the SmoothedBiquadCoefficients class.">BiquadCoefficients</a> populated with the resulting coefficients. </dd></dl>
 
 </div>
 </div>
@@ -508,6 +528,16 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>An RBJ bell implementation for use with the <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html" title="A cascading direct form ii biquad filter.">Biquad</a> class, based on the formulae from the RBJ Cookbook (<a href="https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html">https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html</a>) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>The sample rate to base the calculations off. </td></tr>
+    <tr><td class="paramname">centreFrequency</td><td>The centre frequency of the bell. </td></tr>
+    <tr><td class="paramname">bandwidth</td><td>The bandwidth of the bell in octaves. </td></tr>
+    <tr><td class="paramname">dbGain</td><td>The gain of the bell, in decibels. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>An instance of <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html" title="A POD type for use with the Biquad class, and the SmoothedBiquadCoefficients class.">BiquadCoefficients</a> populated with the resulting coefficients. </dd></dl>
 
 </div>
 </div>

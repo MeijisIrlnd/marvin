@@ -84,11 +84,15 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A class for (pseudo) random number generation.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="marvin__Random_8h_source.html">marvin_Random.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A POD type specifying the min and max range an instance of the <a class="el" href="classmarvin_1_1utils_1_1Random.html" title="A class for (pseudo) random number generation.">Random</a> class should use for generation.  <a href="structmarvin_1_1utils_1_1Random_1_1Range.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -99,7 +103,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae64dd30118e742a805770b3cdba3b42f"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae64dd30118e742a805770b3cdba3b42f">generate</a> (<a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range</a>&lt; T &gt; range) noexcept</td></tr>
 <tr class="separator:ae64dd30118e742a805770b3cdba3b42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class for (pseudo) random number generation. </p>
+<p>Internally, this class is just a wrapper around the <code>std::mt19937</code> Mersenne-Twister engine, for convenience and brevity of typing. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ac936e9c54ec03042fd16469f5ce7df83" name="ac936e9c54ec03042fd16469f5ce7df83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac936e9c54ec03042fd16469f5ce7df83">&#9670;&#160;</a></span>Random()</h2>
 
@@ -122,6 +129,12 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>As it's not recommended to have multiple copies of a <code>std::random_device</code>, this class relies on one to be provided to its constructor, which is used to configure the internal <code>std::mt19937</code> rng. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rd</td><td>An instance of a <code>std::random_device</code> to seed the internal rng with. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -150,6 +163,13 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Generates a (pseudo) random number in the given <a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html" title="A POD type specifying the min and max range an instance of the Random class should use for generation...">Range</a>. Internally uses the appropriate <code>std::uniform_t_distribution</code> depending on if T is an integral type, or a float-type. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range</td><td>An instance of the <a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html" title="A POD type specifying the min and max range an instance of the Random class should use for generation...">Range</a> POD type, specifying the min and max values the rng should generate between. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pseudo random number in <code>range</code>. </dd></dl>
 
 </div>
 </div>

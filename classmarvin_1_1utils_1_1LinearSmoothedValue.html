@@ -83,6 +83,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>A utility class to smooth discrete values over a given period. Mainly useful to help with zippering caused by discrete parameter updates.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="marvin__LinearSmoothedValue_8h_source.html">marvin_LinearSmoothedValue.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -100,7 +103,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5338dec41d1a61c5ee319e1f665fef68" id="r_a5338dec41d1a61c5ee319e1f665fef68"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5338dec41d1a61c5ee319e1f665fef68">isSmoothing</a> () noexcept</td></tr>
 <tr class="separator:a5338dec41d1a61c5ee319e1f665fef68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType&gt;<br />
+class marvin::utils::LinearSmoothedValue&lt; SampleType &gt;</div><p>A utility class to smooth discrete values over a given period. Mainly useful to help with zippering caused by discrete parameter updates. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a5338dec41d1a61c5ee319e1f665fef68" name="a5338dec41d1a61c5ee319e1f665fef68"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5338dec41d1a61c5ee319e1f665fef68">&#9670;&#160;</a></span>isSmoothing()</h2>
 
@@ -125,6 +131,7 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Checks if the smoother has reached its target value. </p><dl class="section return"><dt>Returns</dt><dd>Whether the smoother has reached its target value. </dd></dl>
 
 </div>
 </div>
@@ -152,6 +159,7 @@ template&lt;FloatType SampleType&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Performs a single tick of the smoothing from the current value to the target value. </p><dl class="section return"><dt>Returns</dt><dd>The smoothed value. </dd></dl>
 
 </div>
 </div>
@@ -175,6 +183,13 @@ template&lt;FloatType SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the internal variables to their targets, and sets the period of the smoothing. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>The sample rate the <a class="el" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html" title="A utility class to smooth discrete values over a given period. Mainly useful to help with zippering c...">LinearSmoothedValue</a> should operate at. </td></tr>
+    <tr><td class="paramname">timeMs</td><td>The duration of the smoothing, in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -194,6 +209,12 @@ template&lt;FloatType SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the internal variables to their targets, and sets the period of the smoothing. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stepsSamples</td><td>The duration of the smoothing, in samples. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -213,6 +234,12 @@ template&lt;FloatType SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets both the current value, and the target value of the smoother. Use this function to initialise the value of the <a class="el" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html" title="A utility class to smooth discrete values over a given period. Mainly useful to help with zippering c...">LinearSmoothedValue</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newValue</td><td>The new current and target value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -232,6 +259,12 @@ template&lt;FloatType SampleType&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the target value of the smoother - the <a class="el" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html" title="A utility class to smooth discrete values over a given period. Mainly useful to help with zippering c...">LinearSmoothedValue</a> will then smooth between the internal <code>currentValue</code>, and this target value. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newValue</td><td>The new target value. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

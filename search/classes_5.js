@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['off_0',['Off',['../structmarvin_1_1oscillators_1_1BlepState_1_1Off.html',1,'marvin::oscillators::BlepState']]],
-  ['on_1',['On',['../structmarvin_1_1oscillators_1_1BlepState_1_1On.html',1,'marvin::oscillators::BlepState']]],
-  ['oscillatorbase_2',['OscillatorBase',['../classmarvin_1_1oscillators_1_1OscillatorBase.html',1,'marvin::oscillators']]]
+  ['noiseoscillator_0',['NoiseOscillator',['../classmarvin_1_1oscillators_1_1NoiseOscillator.html',1,'marvin::oscillators']]],
+  ['none_1',['None',['../structmarvin_1_1dsp_1_1DelayLineInterpolationTypes_1_1None.html',1,'marvin::dsp::DelayLineInterpolationTypes']]]
 ];

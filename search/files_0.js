@@ -10,9 +10,10 @@ var searchData=
   ['marvin_5flinearsmoothedvalue_2eh_7',['marvin_LinearSmoothedValue.h',['../marvin__LinearSmoothedValue_8h.html',1,'']]],
   ['marvin_5flpf_2eh_8',['marvin_LPF.h',['../marvin__LPF_8h.html',1,'']]],
   ['marvin_5fmath_2eh_9',['marvin_Math.h',['../marvin__Math_8h.html',1,'']]],
-  ['marvin_5foscillator_2eh_10',['marvin_Oscillator.h',['../marvin__Oscillator_8h.html',1,'']]],
-  ['marvin_5fpropagateconst_2eh_11',['marvin_PropagateConst.h',['../marvin__PropagateConst_8h.html',1,'']]],
-  ['marvin_5frandom_2eh_12',['marvin_Random.h',['../marvin__Random_8h.html',1,'']]],
-  ['marvin_5frbjcoefficients_2eh_13',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
-  ['marvin_5fsmoothedbiquadcoefficients_2eh_14',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]]
+  ['marvin_5fmixmatrix_2eh_10',['marvin_MixMatrix.h',['../marvin__MixMatrix_8h.html',1,'']]],
+  ['marvin_5foscillator_2eh_11',['marvin_Oscillator.h',['../marvin__Oscillator_8h.html',1,'']]],
+  ['marvin_5fpropagateconst_2eh_12',['marvin_PropagateConst.h',['../marvin__PropagateConst_8h.html',1,'']]],
+  ['marvin_5frandom_2eh_13',['marvin_Random.h',['../marvin__Random_8h.html',1,'']]],
+  ['marvin_5frbjcoefficients_2eh_14',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
+  ['marvin_5fsmoothedbiquadcoefficients_2eh_15',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]]
 ];
