@@ -18,7 +18,6 @@ jobs:
         with:
           run-build: false
       - name: Doxygen
-        uses: DenverCoder1/doxygen-github-pages-action@v1.3.0
+        uses: mattnotmitt/doxygen-action@v1.1.0 
         with: 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          config_file: ./build/docs/Doxyfile.marvin_docs
+          doxyfile-path: ./build/docs/Doxyfile.marvin_docs
