@@ -16,6 +16,7 @@
 #include "marvin/utils/marvin_Random.h"
 #include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::oscillators {
+
     namespace BlepState {
         struct Off {};
         struct On {};

@@ -12,18 +12,27 @@
 #define MARVIN_CONCEPTS_H
 #include <type_traits>
 namespace marvin {
+    /**
+        \brief Contrains T to be either a float or a double.
+    */
     template <class T>
     concept FloatType = requires {
         std::is_floating_point_v<T>;
     };
 
 
+    /**
+        \brief Constrains T to be any numeric type.
+    */
     template <class T>
     concept NumericType = requires {
         std::is_integral_v<T> ||
             std::is_floating_point_v<T>;
     };
 
+    /**
+        \brief Constrains T to a class that implements `get()`, `reset()` `operator*()` and `operator->()`.
+    */
     template <class T>
     concept SmartPointerType = requires(T a) {
         a.get();
@@ -32,6 +41,10 @@ namespace marvin {
         a.operator->();
     };
 
+    /**
+        Checks if `N` is a power of two.
+        \returns `true` if N is a power of two, otherwise `false`.
+    */
     template <size_t N>
     constexpr bool isPowerOfTwo() {
         if constexpr (N == 1) {
