@@ -17,3 +17,8 @@ jobs:
         uses: threeal/cmake-action@main
         with:
           build-args: "--target marvin_docs"
+      - name: Deploy 
+        uses: peaceiris/action-gh-pages@v3
+        with: 
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/docs/html
