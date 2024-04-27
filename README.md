@@ -54,5 +54,6 @@ cd build
 cmake ..
 cmake --build . --target marvin-tests
 ```
-
+## Contributing
+Contributions are more than appreciated - if you'd like to open a PR with bugfixes or features, please open an issue, and link to the issue your PR solves in the PR's description. I'd also ask that you compile with `/W4 /WX` with MSVC, or `-Wall -Wextra -Werror` on GNU-like compilers, and that you use the included `.clang-format` file to keep the styling consistent. Other than that, have at it!
 
