@@ -16,4 +16,4 @@ jobs:
       - name: Configure
         uses: threeal/cmake-action@main
         with:
-          args: "--target marvin_docs"
+          build-args: "--target marvin_docs"
