@@ -15,6 +15,9 @@
 #include <numbers>
 namespace marvin::dsp::filters {
     template <FloatType SampleType>
+    /**
+        RBJ Lowpass implementation.
+    */
     [[nodiscard]] BiquadCoefficients<SampleType> lowpass(double sampleRate, SampleType cutoff, SampleType q) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
         const auto fs{ static_cast<SampleType>(sampleRate) };

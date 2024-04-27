@@ -16,13 +16,26 @@
 #include <array>
 #include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
+    /**
+        \brief A cascading direct form ii biquad filter.
+    */
     template <FloatType SampleType, size_t NumStages>
     class Biquad final {
     public:
-        void setCoeffs(size_t stage, BiquadCoefficients<SampleType>& coeffs) noexcept {
+        /**
+            Sets the coeffs the Biquad should use. Note that BiquadCoefficients is trivially copyable (and is just a POD type), so this function can be (and should be) called on the audio thread - the BiquadCoefficients class' members aren't atomic.
+            \param stage The stage to assign these coefficients to. <b>Must</b> be less than `NumStages`.
+            \param coeffs The coeffs to set.
+        */
+        void setCoeffs(size_t stage, BiquadCoefficients<SampleType> coeffs) noexcept {
             m_coeffs[stage] = coeffs;
         }
 
+        /**
+            Processes a sample through the biquad cascade.
+            \param x The sample to filter.
+            \return The filtered sample.
+        */
         [[nodiscard]] SampleType operator()(SampleType x) noexcept {
             for (auto stage = 0_sz; stage < NumStages; ++stage) {
                 const auto [b0, b1, b2, a0, a1, a2] = m_coeffs[stage];
@@ -33,6 +46,9 @@ namespace marvin::dsp::filters {
             }
         }
 
+        /**
+            Initialises the filter to its default state (does <b>not</b> zero the coefficients).
+        */
         void reset() noexcept {
             for (auto& d : m_delays) {
                 d.reset();

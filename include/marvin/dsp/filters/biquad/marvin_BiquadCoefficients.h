@@ -14,6 +14,9 @@
 #include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
 
+    /**
+        \brief A POD type for use with the Biquad class, and the SmoothedBiquadCoefficients class.
+    */
     template <FloatType SampleType>
     struct BiquadCoefficients final {
         SampleType b0{ static_cast<SampleType>(0.0) };
