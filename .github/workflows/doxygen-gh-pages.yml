@@ -16,9 +16,4 @@ jobs:
       - name: Configure
         uses: threeal/cmake-action@main
         with:
-          run-build: false
-      - name: Doxygen
-        uses: mattnotmitt/doxygen-action@v1.1.0 
-        with: 
-          doxyfile-path: ./build/docs/Doxyfile.marvin_docs
-          working-directory: "./build/doxygen"
+          args: "--target marvin_docs"
