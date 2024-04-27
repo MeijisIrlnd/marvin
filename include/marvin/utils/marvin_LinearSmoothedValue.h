@@ -15,6 +15,7 @@
 namespace marvin::utils {
     /**
     \brief A utility class to smooth discrete values over a given period.
+
     Mainly useful to help with zippering caused by discrete parameter updates.
     */
     template <FloatType SampleType>

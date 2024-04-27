@@ -13,9 +13,20 @@
 #include "marvin/library/marvin_Concepts.h"
 #include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::math {
+    /**
+        \brief An integrator of a continuous signal which leaks a small amount of said signal over time.
+
+        https://en.wikipedia.org/wiki/Leaky_integrator
+    */
     template <FloatType SampleType>
     class LeakyIntegrator final {
     public:
+        /**
+            Processes the next tick of the integrator.
+            \param x The input sample.
+            \param a The rate of of the leak.
+            \return The leakily-integrated signal.
+        */
         [[nodiscard]] SampleType operator()(SampleType x, SampleType a) noexcept;
 
     private:
