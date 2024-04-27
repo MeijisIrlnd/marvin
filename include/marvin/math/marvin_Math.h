@@ -14,6 +14,13 @@
 #include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::math {
 
+    /**
+        Returns a point `ratio` of the way between `start` and `end`.
+        \param start The start value of the interpolation.
+        \param end The end value of the interpolation.
+        \param ratio The (0 to 1) position between `start` and `end`
+        \return A linear interpolation between `start` and `end` at position `ratio`.
+    */
     template <FloatType T>
     [[nodiscard]] T lerp(T start, T end, T ratio) noexcept {
         const auto interpolated = start + (end - start) * ratio;

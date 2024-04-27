@@ -13,11 +13,15 @@
 #include "marvin/dsp/filters/biquad/marvin_BiquadCoefficients.h"
 #include <cmath>
 #include <numbers>
-namespace marvin::dsp::filters {
-    template <FloatType SampleType>
+namespace marvin::dsp::filters::rbj {
     /**
-        RBJ Lowpass implementation.
+        An RBJ lowpass implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param cutoff The frequency of the lowpass
+        \param q The resonance of the lowpass (between 0 and 1)
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
     */
+    template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> lowpass(double sampleRate, SampleType cutoff, SampleType q) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
         const auto fs{ static_cast<SampleType>(sampleRate) };
@@ -41,6 +45,13 @@ namespace marvin::dsp::filters {
         };
     }
 
+    /**
+        An RBJ highpass implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param cutoff The frequency of the highpass
+        \param q The resonance of the highpass (between 0 and 1)
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> highpass(double sampleRate, SampleType cutoff, SampleType q) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
@@ -65,6 +76,13 @@ namespace marvin::dsp::filters {
         };
     }
 
+    /**
+        A constant skirt-gain RBJ bandpass implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param centreFrequency The centre frequency of the bandpass.
+        \param peakGain The peak gain of the bandpass (between 0 and 1)
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> bandpass(double sampleRate, SampleType centreFrequency, SampleType bandwidth, SampleType peakGain) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
@@ -90,6 +108,13 @@ namespace marvin::dsp::filters {
         };
     }
 
+    /**
+        A constant 0db peak-gain RBJ bandpass implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param centreFrequency The centre frequency of the bandpass.
+        \param bandwidth The bandwidth of the bandpass in octaves.
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> bandpass(double sampleRate, SampleType centreFrequency, SampleType bandwidth) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
@@ -115,6 +140,13 @@ namespace marvin::dsp::filters {
         };
     }
 
+    /**
+        An RBJ notch implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param centreFrequency The centre frequency of the notch.
+        \param bandwidth The bandwidth of the notch in octaves.
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> notch(double sampleRate, SampleType centreFrequency, SampleType bandwidth) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
@@ -140,15 +172,22 @@ namespace marvin::dsp::filters {
             .a2 = a2
         };
     }
+    /**
+        An RBJ allpass implementation for use with the Biquad class, based on the formulae from the RBJ Cookbook (https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
+        \param cutoff The centre frequency of the allpass.
+        \param q The resonance of the allpass in octaves.
+        \return An instance of BiquadCoefficients populated with the resulting coefficients.
+    */
     template <FloatType SampleType>
-    [[nodiscard]] BiquadCoefficients<SampleType> allpass(double sampleRate, SampleType cutoff, SampleType bandwidth) noexcept {
+    [[nodiscard]] BiquadCoefficients<SampleType> allpass(double sampleRate, SampleType cutoff, SampleType q) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
         const auto fs{ static_cast<SampleType>(sampleRate) };
         const auto omega{ twoPi * (cutoff / fs) };
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
-        const auto alpha = sinOmega * sinh(log2Over2 * bandwidth * (omega / sinOmega));
+        const auto alpha = sinOmega * sinh(log2Over2 * q * (omega / sinOmega));
         const auto b0 = static_cast<SampleType>(1.0) - alpha;
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) + alpha;
@@ -164,6 +203,7 @@ namespace marvin::dsp::filters {
             .a2 = a2
         };
     }
+
     template <FloatType SampleType>
     [[nodiscard]] BiquadCoefficients<SampleType> peak(double sampleRate, SampleType centreFrequency, SampleType bandwidth, SampleType dbGain) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
@@ -240,7 +280,7 @@ namespace marvin::dsp::filters {
             .a2 = a2
         };
     }
-} // namespace marvin::dsp::filters
+} // namespace marvin::dsp::filters::rbj
 
 
 #endif
