@@ -95,8 +95,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmarvin_1_1oscillators_1_1BlepState_1_1Off.html">marvin::oscillators::BlepState::Off</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">No PolyBLEP (or BLAMP in the case of <code>marvin::oscillators::TriangleOscillator</code>)  <a href="structmarvin_1_1oscillators_1_1BlepState_1_1Off.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmarvin_1_1oscillators_1_1BlepState_1_1On.html">marvin::oscillators::BlepState::On</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">PolyBLEP (or BLAMP in the case of <code>marvin::oscillators::TriangleOscillator</code>)  <a href="structmarvin_1_1oscillators_1_1BlepState_1_1On.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase&lt; SampleType &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for all single-shape oscillator types.  <a href="classmarvin_1_1oscillators_1_1OscillatorBase.html#details">More...</a><br /></td></tr>
@@ -111,7 +113,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A sawtooth oscillator, with optional BLEP.  <a href="classmarvin_1_1oscillators_1_1SawOscillator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1oscillators_1_1SquareOscillator.html">marvin::oscillators::SquareOscillator&lt; SampleType, Blep &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Square oscillator, with optional BLEP.  <a href="classmarvin_1_1oscillators_1_1SquareOscillator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A square oscillator, with optional BLEP.  <a href="classmarvin_1_1oscillators_1_1SquareOscillator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1oscillators_1_1PulseOscillator.html">marvin::oscillators::PulseOscillator&lt; SampleType, Blep &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pulse oscillator, with optional BLEP, and pulsewidth control.  <a href="classmarvin_1_1oscillators_1_1PulseOscillator.html#details">More...</a><br /></td></tr>
@@ -130,11 +132,13 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacemarvin_1_1oscillators" id="r_namespacemarvin_1_1oscillators"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1oscillators.html">marvin::oscillators</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacemarvin_1_1oscillators_1_1BlepState" id="r_namespacemarvin_1_1oscillators_1_1BlepState"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1oscillators_1_1BlepState.html">marvin::oscillators::BlepState</a></td></tr>
+<tr class="memdesc:namespacemarvin_1_1oscillators_1_1BlepState"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tag-like structs used to configure classes deriving from <code><a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html" title="Base class for all single-shape oscillator types.">marvin::oscillators::OscillatorBase</a></code>. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="concepts" name="concepts"></a>
 Concepts</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">concept &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="conceptmarvin_1_1oscillators_1_1BlepType.html">marvin::oscillators::BlepType</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constrains T to be either <code><a class="el" href="structmarvin_1_1oscillators_1_1BlepState_1_1Off.html" title="No PolyBLEP (or BLAMP in the case of marvin::oscillators::TriangleOscillator)">marvin::oscillators::BlepState::Off</a></code>, or <code><a class="el" href="structmarvin_1_1oscillators_1_1BlepState_1_1On.html" title="PolyBLEP (or BLAMP in the case of marvin::oscillators::TriangleOscillator)">marvin::oscillators::BlepState::On</a></code> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
