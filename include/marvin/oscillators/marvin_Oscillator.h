@@ -22,11 +22,11 @@ namespace marvin::oscillators {
     */
     namespace BlepState {
         /**
-            \brief No PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriangleOscillator`)
+            \brief No PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriOscillator`)
         */
         struct Off {};
         /**
-            \brief PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriangleOscillator`)
+            \brief PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriOscillator`)
         */
         struct On {};
     } // namespace BlepState
