@@ -17,11 +17,23 @@
 #include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::oscillators {
 
+    /**
+        \brief Tag-like structs used to configure classes deriving from `marvin::oscillators::OscillatorBase`.
+    */
     namespace BlepState {
+        /**
+            \brief No PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriangleOscillator`)
+        */
         struct Off {};
+        /**
+            \brief PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriangleOscillator`)
+        */
         struct On {};
     } // namespace BlepState
 
+    /**
+        \brief Constrains T to be either `marvin::oscillators::BlepState::Off`, or `marvin::oscillators::BlepState::On`
+    */
     template <class T>
     concept BlepType = requires {
         std::is_same_v<T, BlepState::Off> ||
@@ -113,7 +125,7 @@ namespace marvin::oscillators {
     };
 
     /**
-        \brief A Square oscillator, with optional BLEP.
+        \brief A square oscillator, with optional BLEP.
     */
     template <FloatType SampleType, BlepType Blep = BlepState::Off>
     class SquareOscillator final : public OscillatorBase<SampleType> {
