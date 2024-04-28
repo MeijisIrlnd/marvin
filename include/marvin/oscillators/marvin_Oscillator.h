@@ -14,30 +14,14 @@
 #include "marvin/library/marvin_PropagateConst.h"
 #include "marvin/math/marvin_LeakyIntegrator.h"
 #include "marvin/utils/marvin_Random.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::oscillators {
 
     /**
-        \brief Tag-like structs used to configure classes deriving from `marvin::oscillators::OscillatorBase`.
+        \brief Enum to configure PolyBLEP or BLAMP where applicable, to classes deriving from marvin::oscillators::OscillatorBase.
     */
-    namespace BlepState {
-        /**
-            \brief No PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriOscillator`)
-        */
-        struct Off {};
-        /**
-            \brief PolyBLEP (or BLAMP in the case of `marvin::oscillators::TriOscillator`)
-        */
-        struct On {};
-    } // namespace BlepState
-
-    /**
-        \brief Constrains T to be either `marvin::oscillators::BlepState::Off`, or `marvin::oscillators::BlepState::On`
-    */
-    template <class T>
-    concept BlepType = requires {
-        std::is_same_v<T, BlepState::Off> ||
-            std::is_same_v<T, BlepState::On>;
+    enum class Bandlimiting {
+        Off,
+        On
     };
 
     /**
@@ -102,7 +86,7 @@ namespace marvin::oscillators {
     /**
         \brief A triangle oscillator, with optional BLAMP.
     */
-    template <FloatType SampleType, BlepType Blep = BlepState::Off>
+    template <FloatType SampleType, Bandlimiting Blamp = Bandlimiting::Off>
     class TriOscillator final : public OscillatorBase<SampleType> {
     public:
         ~TriOscillator() noexcept override = default;
@@ -116,7 +100,7 @@ namespace marvin::oscillators {
     /**
         \brief A sawtooth oscillator, with optional BLEP.
     */
-    template <FloatType SampleType, BlepType Blep = BlepState::Off>
+    template <FloatType SampleType, Bandlimiting Blep = Bandlimiting::Off>
     class SawOscillator final : public OscillatorBase<SampleType> {
     public:
         ~SawOscillator() noexcept override = default;
@@ -127,7 +111,7 @@ namespace marvin::oscillators {
     /**
         \brief A square oscillator, with optional BLEP.
     */
-    template <FloatType SampleType, BlepType Blep = BlepState::Off>
+    template <FloatType SampleType, Bandlimiting Blep = Bandlimiting::Off>
     class SquareOscillator final : public OscillatorBase<SampleType> {
     public:
         ~SquareOscillator() noexcept override = default;
@@ -138,7 +122,7 @@ namespace marvin::oscillators {
     /**
         \brief A pulse oscillator, with optional BLEP, and pulsewidth control.
     */
-    template <FloatType SampleType, BlepType Blep = BlepState::Off>
+    template <FloatType SampleType, Bandlimiting Blep = Bandlimiting::Off>
     class PulseOscillator final : public OscillatorBase<SampleType> {
     public:
         ~PulseOscillator() noexcept override = default;
@@ -180,7 +164,7 @@ namespace marvin::oscillators {
     /**
         \brief A switchable multi-shape oscillator, with optional BLEP.
     */
-    template <FloatType SampleType, BlepType Blep = BlepState::Off>
+    template <FloatType SampleType, Bandlimiting Bandlimit = Bandlimiting::Off>
     class MultiOscillator final {
     public:
         /**
@@ -244,12 +228,11 @@ namespace marvin::oscillators {
         SampleType m_phase{ static_cast<SampleType>(0.0) };
         SampleType m_phaseIncrement{ static_cast<SampleType>(0.0) };
         SineOscillator<SampleType> m_sine;
-        TriOscillator<SampleType, Blep> m_tri;
-        SawOscillator<SampleType, Blep> m_saw;
-        SquareOscillator<SampleType, Blep> m_square;
-        PulseOscillator<SampleType, Blep> m_pulse;
+        TriOscillator<SampleType, Bandlimit> m_tri;
+        SawOscillator<SampleType, Bandlimit> m_saw;
+        SquareOscillator<SampleType, Bandlimit> m_square;
+        PulseOscillator<SampleType, Bandlimit> m_pulse;
         NoiseOscillator<SampleType> m_noise;
     };
 } // namespace marvin::oscillators
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

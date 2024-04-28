@@ -12,41 +12,22 @@
 #define MARVIN_DELAYLINE_H
 #include "marvin/library/marvin_Concepts.h"
 #include <vector>
-#include <type_traits>
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp {
     /**
-        \brief Tag-like structs used to initialise `marvin::dsp::DelayLine`.
+        \brief Enum to configure the type of interpolation an instance of marvin::dsp::DelayLine should use.
     */
-    namespace DelayLineInterpolationTypes {
-        /**
-            \brief No interpolation.
-        */
-        struct None {};
-        /**
-            \brief Linear interpolation.
-        */
-        struct Linear {};
-        /**
-            \brief Lagrange 3rd-order interpolation
-        */
-        struct Lagrange3rd {};
-    } // namespace DelayLineInterpolationTypes
-
-    /**
-        \brief Constrains T to be one of the structs specified in the `marvin::dsp::DelayLneInterpolationTypes` namespace.
-    */
-    template <class T>
-    concept InterpType = requires {
-        std::is_same_v<T, DelayLineInterpolationTypes::None> ||
-            std::is_same_v<T, DelayLineInterpolationTypes::Linear> ||
-            std::is_same_v<T, DelayLineInterpolationTypes::Lagrange3rd>;
+    enum class DelayLineInterpolationType {
+        None,
+        Linear,
+        Lagrange3rd
     };
 
     /**
         \brief A fractional delay line implementation, with configurable interpolation types.
+
+        For available options for interpolation, see the marvin::dsp::DelayLineInterpolationType enum class.
     */
-    template <FloatType SampleType, InterpType InterpolationType = DelayLineInterpolationTypes::Linear>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType = DelayLineInterpolationType::Linear>
     class DelayLine {
     public:
         /**
@@ -117,5 +98,4 @@ namespace marvin::dsp {
     };
 
 } // namespace marvin::dsp
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

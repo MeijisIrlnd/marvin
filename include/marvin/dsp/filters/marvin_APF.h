@@ -11,7 +11,6 @@
 #ifndef MARVIN_APF_H
 #define MARVIN_APF_H
 #include "marvin/dsp/marvin_DelayLine.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
     /**
         \brief A two multiply first order Schroeder allpass filter.
@@ -54,10 +53,9 @@ namespace marvin::dsp::filters {
         [[nodiscard]] SampleType tap(SampleType delaySamples) noexcept;
 
     private:
-        DelayLine<SampleType, DelayLineInterpolationTypes::Linear> m_delay;
+        DelayLine<SampleType, DelayLineInterpolationType::Linear> m_delay;
         SampleType m_coeff{ 0.0 };
     };
 
 } // namespace marvin::dsp::filters
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

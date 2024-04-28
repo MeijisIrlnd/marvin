@@ -12,7 +12,6 @@
 #include <numbers>
 #include <cmath>
 #include <random>
-#include "marvin/library/marvin_EnableWarnings.h"
 
 namespace marvin::oscillators {
     template <FloatType SampleType>
@@ -84,17 +83,17 @@ namespace marvin::oscillators {
         return x;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType TriOscillator<SampleType, Blep>::operator()() noexcept {
         const auto res = operator()(this->m_phase);
         this->incrementPhase();
         return res;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType TriOscillator<SampleType, Blep>::operator()(SampleType phase) noexcept {
         auto x = static_cast<SampleType>(4.0) * std::abs(phase - std::floor(phase + static_cast<SampleType>(0.75)) + static_cast<SampleType>(0.25)) - static_cast<SampleType>(1.0);
-        if constexpr (std::is_same_v<Blep, BlepState::On>) {
+        if constexpr (Blep == Bandlimiting::On) {
             const auto t1 = std::fmod(phase + static_cast<SampleType>(0.25), static_cast<SampleType>(1.0));
             const auto t2 = std::fmod(phase + static_cast<SampleType>(0.75), static_cast<SampleType>(1.0));
             const auto b1 = blamp(t1, this->m_phaseIncrement);
@@ -107,31 +106,31 @@ namespace marvin::oscillators {
     }
 
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType SawOscillator<SampleType, Blep>::operator()() noexcept {
         const auto x = operator()(this->m_phase);
         this->incrementPhase();
         return x;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType SawOscillator<SampleType, Blep>::operator()(SampleType phase) noexcept {
         auto x = (static_cast<SampleType>(2.0) * phase) - static_cast<SampleType>(1.0);
-        if constexpr (std::is_same_v<Blep, BlepState::On>) {
+        if constexpr (Blep == Bandlimiting::On) {
             x -= polyBlep(phase, this->m_phaseIncrement);
         }
         return x;
     }
 
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType SquareOscillator<SampleType, Blep>::operator()() noexcept {
         const auto value = operator()(this->m_phase);
         this->incrementPhase();
         return value;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType SquareOscillator<SampleType, Blep>::operator()(SampleType phase) noexcept {
         SampleType value;
         if (phase < static_cast<SampleType>(0.5)) {
@@ -139,21 +138,21 @@ namespace marvin::oscillators {
         } else {
             value = static_cast<SampleType>(-1.0);
         }
-        if constexpr (std::is_same_v<Blep, BlepState::On>) {
+        if constexpr (Blep == Bandlimiting::On) {
             value += polyBlep(phase, this->m_phaseIncrement);
             value -= polyBlep(std::fmod(phase + static_cast<SampleType>(0.5), static_cast<SampleType>(1.0)), this->m_phaseIncrement);
         }
         return value;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType PulseOscillator<SampleType, Blep>::operator()() noexcept {
         const auto value = operator()(this->m_phase);
         this->incrementPhase();
         return value;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType PulseOscillator<SampleType, Blep>::operator()(SampleType phase) noexcept {
         SampleType value;
         if (phase < m_pulsewidth) {
@@ -161,14 +160,14 @@ namespace marvin::oscillators {
         } else {
             value = static_cast<SampleType>(-1.0);
         }
-        if constexpr (std::is_same_v<Blep, BlepState::On>) {
+        if constexpr (Blep == Bandlimiting::On) {
             value += polyBlep(phase, this->m_phaseIncrement);
             value -= polyBlep(std::fmod(phase + static_cast<SampleType>(m_pulsewidth), static_cast<SampleType>(1.0)), this->m_phaseIncrement);
         }
         return value;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     void PulseOscillator<SampleType, Blep>::setPulsewidth(SampleType newPulsewidth) noexcept {
         m_pulsewidth = newPulsewidth;
     }
@@ -188,17 +187,17 @@ namespace marvin::oscillators {
         return operator()();
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     MultiOscillator<SampleType, Blep>::MultiOscillator(std::random_device& rd) : m_shape(SHAPE::SINE),
                                                                                  m_noise(rd) {
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     MultiOscillator<SampleType, Blep>::MultiOscillator(std::random_device& rd, SHAPE shape) : m_shape(shape),
                                                                                               m_noise(rd) {
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::initialise(double sampleRate) {
         m_sampleRate = sampleRate;
         m_sine.initialise(sampleRate);
@@ -209,7 +208,7 @@ namespace marvin::oscillators {
         m_noise.initialise(sampleRate);
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     SampleType MultiOscillator<SampleType, Blep>::operator()() noexcept {
         SampleType v{ static_cast<SampleType>(0.0) };
         switch (m_shape) {
@@ -243,7 +242,7 @@ namespace marvin::oscillators {
         return v;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::reset() noexcept {
         m_phase = static_cast<SampleType>(0.0);
         m_sine.reset();
@@ -254,12 +253,12 @@ namespace marvin::oscillators {
         m_noise.reset();
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::setShape(SHAPE shape) {
         m_shape = shape;
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::setFrequency(SampleType newFrequency) noexcept {
         m_phaseIncrement = newFrequency / static_cast<SampleType>(m_sampleRate);
         m_sine.setFrequency(newFrequency);
@@ -270,12 +269,12 @@ namespace marvin::oscillators {
         m_noise.setFrequency(newFrequency);
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::setPulsewidth(SampleType newPulsewidth) noexcept {
         m_pulse.setPulsewidth(newPulsewidth);
     }
 
-    template <FloatType SampleType, BlepType Blep>
+    template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::incrementPhase() noexcept {
         m_phase += m_phaseIncrement;
         while (m_phase >= static_cast<SampleType>(1.0)) {
@@ -288,25 +287,24 @@ namespace marvin::oscillators {
     template class OscillatorBase<double>;
     template class SineOscillator<float>;
     template class SineOscillator<double>;
-    template class TriOscillator<float, BlepState::Off>;
-    template class TriOscillator<float, BlepState::On>;
-    template class TriOscillator<double, BlepState::Off>;
-    template class TriOscillator<double, BlepState::On>;
-    template class SawOscillator<float, BlepState::Off>;
-    template class SawOscillator<float, BlepState::On>;
-    template class SawOscillator<double, BlepState::Off>;
-    template class SawOscillator<double, BlepState::On>;
-    template class SquareOscillator<float, BlepState::Off>;
-    template class SquareOscillator<float, BlepState::On>;
-    template class SquareOscillator<double, BlepState::Off>;
-    template class SquareOscillator<double, BlepState::On>;
-    template class PulseOscillator<float, BlepState::Off>;
-    template class PulseOscillator<float, BlepState::On>;
-    template class PulseOscillator<double, BlepState::Off>;
-    template class PulseOscillator<double, BlepState::On>;
+    template class TriOscillator<float, Bandlimiting::Off>;
+    template class TriOscillator<float, Bandlimiting::On>;
+    template class TriOscillator<double, Bandlimiting::Off>;
+    template class TriOscillator<double, Bandlimiting::On>;
+    template class SawOscillator<float, Bandlimiting::Off>;
+    template class SawOscillator<float, Bandlimiting::On>;
+    template class SawOscillator<double, Bandlimiting::Off>;
+    template class SawOscillator<double, Bandlimiting::On>;
+    template class SquareOscillator<float, Bandlimiting::Off>;
+    template class SquareOscillator<float, Bandlimiting::On>;
+    template class SquareOscillator<double, Bandlimiting::Off>;
+    template class SquareOscillator<double, Bandlimiting::On>;
+    template class PulseOscillator<float, Bandlimiting::Off>;
+    template class PulseOscillator<float, Bandlimiting::On>;
+    template class PulseOscillator<double, Bandlimiting::Off>;
+    template class PulseOscillator<double, Bandlimiting::On>;
     template class NoiseOscillator<float>;
     template class NoiseOscillator<double>;
-    template class MultiOscillator<float, BlepState::Off>;
-    template class MultiOscillator<float, BlepState::On>;
+    template class MultiOscillator<float, Bandlimiting::Off>;
+    template class MultiOscillator<float, Bandlimiting::On>;
 } // namespace marvin::oscillators
-#include "marvin/library/marvin_DisableWarnings.h"

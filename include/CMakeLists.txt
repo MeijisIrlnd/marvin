@@ -22,7 +22,7 @@ set(MARVIN_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/math/marvin_Math.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/math/marvin_LeakyIntegrator.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/oscillators/marvin_Oscillator.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_LinearSmoothedValue.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_SmoothedValue.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_Random.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_MixMatrix.h
     PARENT_SCOPE

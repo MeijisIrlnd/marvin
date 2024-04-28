@@ -11,7 +11,6 @@
 #ifndef MARVIN_BIQUADCOEFFICIENTS_H
 #define MARVIN_BIQUADCOEFFICIENTS_H
 #include "marvin/library/marvin_Concepts.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
 
     /**
@@ -27,5 +26,4 @@ namespace marvin::dsp::filters {
         SampleType a2{ static_cast<SampleType>(0.0) };
     };
 } // namespace marvin::dsp::filters
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

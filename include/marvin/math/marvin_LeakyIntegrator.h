@@ -11,7 +11,6 @@
 #ifndef MARVIN_LEAKYINTEGRATOR_H
 #define MARVIN_LEAKYINTEGRATOR_H
 #include "marvin/library/marvin_Concepts.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::math {
     /**
         \brief An integrator of a continuous signal which leaks a small amount of said signal over time.
@@ -33,5 +32,4 @@ namespace marvin::math {
         SampleType m_prev;
     };
 } // namespace marvin::math
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

@@ -14,7 +14,6 @@
 #include "marvin/library/marvin_Literals.h"
 #include "marvin/dsp/filters/biquad/marvin_BiquadCoefficients.h"
 #include <array>
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
     /**
         \brief A cascading direct form ii biquad filter.
@@ -100,5 +99,4 @@ namespace marvin::dsp::filters {
     };
 
 } // namespace marvin::dsp::filters
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

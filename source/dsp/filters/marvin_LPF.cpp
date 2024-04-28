@@ -9,7 +9,6 @@
 // ========================================================================================================
 
 #include "marvin/dsp/filters/marvin_LPF.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 #include <cmath>
 #include <cassert>
 
@@ -53,4 +52,3 @@ namespace marvin::dsp::filters {
     template class LPF<float>;
     template class LPF<double>;
 } // namespace marvin::dsp::filters
-#include "marvin/library/marvin_DisableWarnings.h"

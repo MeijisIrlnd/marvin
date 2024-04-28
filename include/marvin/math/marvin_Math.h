@@ -11,7 +11,6 @@
 #ifndef MARVIN_MATH_H
 #define MARVIN_MATH_H
 #include "marvin/library/marvin_Concepts.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::math {
 
     /**
@@ -28,6 +27,5 @@ namespace marvin::math {
     }
 
 } // namespace marvin::math
-#include "marvin/library/marvin_DisableWarnings.h"
 
 #endif

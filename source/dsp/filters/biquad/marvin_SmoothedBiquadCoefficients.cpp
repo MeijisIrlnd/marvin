@@ -9,7 +9,6 @@
 // ========================================================================================================
 
 #include "marvin/dsp/filters/biquad/marvin_SmoothedBiquadCoefficients.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
     template <FloatType SampleType>
     void SmoothedBiquadCoefficients<SampleType>::setCurrentAndTargetCoeffs(const BiquadCoefficients<SampleType>& target) noexcept {
@@ -42,4 +41,3 @@ namespace marvin::dsp::filters {
     template class SmoothedBiquadCoefficients<float>;
     template class SmoothedBiquadCoefficients<double>;
 } // namespace marvin::dsp::filters
-#include "marvin/library/marvin_DisableWarnings.h"

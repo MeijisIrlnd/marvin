@@ -11,18 +11,17 @@
 #include "marvin/dsp/marvin_DelayLine.h"
 #include <algorithm>
 #include <cmath>
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp {
     template <FloatType SampleType>
     [[nodiscard]] bool isPositiveAndNotGreaterThan(SampleType x, SampleType y) noexcept {
         return x >= 0 && x < y;
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     DelayLine<SampleType, InterpolationType>::DelayLine() : DelayLine(0) {
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     DelayLine<SampleType, InterpolationType>::DelayLine(int maximumDelayInSamples) {
         m_bufferData.reserve(44100);
         m_sampleRate = 44100.0;
@@ -30,7 +29,7 @@ namespace marvin::dsp {
     }
 
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     void DelayLine<SampleType, InterpolationType>::setDelay(SampleType newDelayInSamples) {
         auto upperLimit = static_cast<SampleType>(getMaximumDelayInSamples());
         m_delay = std::clamp(newDelayInSamples, static_cast<SampleType>(0), upperLimit);
@@ -39,44 +38,44 @@ namespace marvin::dsp {
         updateInternalVariables();
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     SampleType DelayLine<SampleType, InterpolationType>::getDelay() const noexcept {
         return m_delay;
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     void DelayLine<SampleType, InterpolationType>::initialise(double sampleRate) {
         m_sampleRate = sampleRate;
         m_bufferData.resize(m_totalSize);
         reset();
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     void DelayLine<SampleType, InterpolationType>::setMaximumDelayInSamples(int maxDelayInSamples) {
         m_totalSize = std::max(4, maxDelayInSamples + 2);
         m_bufferData.resize(m_totalSize);
         reset();
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     int DelayLine<SampleType, InterpolationType>::getMaximumDelayInSamples() const noexcept {
         return m_totalSize;
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     void DelayLine<SampleType, InterpolationType>::reset() {
         m_readPos = m_writePos = 0;
         std::fill(m_bufferData.begin(), m_bufferData.end(), static_cast<SampleType>(0.0));
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     void DelayLine<SampleType, InterpolationType>::pushSample(SampleType sample) {
         const auto writePos{ static_cast<size_t>(m_writePos) };
         m_bufferData.at(writePos) = sample;
         m_writePos = (m_writePos + m_totalSize - 1) % m_totalSize;
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     SampleType DelayLine<SampleType, InterpolationType>::popSample(SampleType delayInSamples, bool updateReadPointer) {
         if (delayInSamples >= 0) {
             setDelay(delayInSamples);
@@ -88,12 +87,12 @@ namespace marvin::dsp {
         return result;
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     SampleType DelayLine<SampleType, InterpolationType>::interpolateSample() {
-        if constexpr (std::is_same_v<InterpolationType, DelayLineInterpolationTypes::None>) {
+        if constexpr (InterpolationType == DelayLineInterpolationType::None) {
             const auto index = (m_readPos + m_delayInt) % m_totalSize;
             return m_bufferData.at(index);
-        } else if constexpr (std::is_same_v<InterpolationType, DelayLineInterpolationTypes::Linear>) {
+        } else if constexpr (InterpolationType == DelayLineInterpolationType::Linear) {
             auto index0 = m_readPos + m_delayInt;
             auto index1 = index0 + 1;
             if (index1 >= m_totalSize) {
@@ -104,7 +103,7 @@ namespace marvin::dsp {
             const auto value1 = m_bufferData.at(index1);
             const auto interpolated = value0 + m_delayFrac * (value1 - value0);
             return interpolated;
-        } else if constexpr (std::is_same_v<InterpolationType, DelayLineInterpolationTypes::Lagrange3rd>) {
+        } else if constexpr (InterpolationType == DelayLineInterpolationType::Lagrange3rd) {
             auto index0 = m_readPos + m_delayInt;
             auto index1 = index0 + 1;
             auto index2 = index0 + 2;
@@ -132,9 +131,9 @@ namespace marvin::dsp {
         }
     }
 
-    template <FloatType SampleType, InterpType InterpolationType>
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     void DelayLine<SampleType, InterpolationType>::updateInternalVariables() {
-        if constexpr (std::is_same_v<InterpolationType, DelayLineInterpolationTypes::Lagrange3rd>) {
+        if constexpr (InterpolationType == DelayLineInterpolationType::Lagrange3rd) {
             if (m_delayFrac < static_cast<SampleType>(2.0) && m_delayInt >= 1) {
                 ++m_delayFrac;
                 --m_delayInt;
@@ -143,11 +142,10 @@ namespace marvin::dsp {
     }
 
 
-    template class DelayLine<float, DelayLineInterpolationTypes::None>;
-    template class DelayLine<double, DelayLineInterpolationTypes::None>;
-    template class DelayLine<float, DelayLineInterpolationTypes::Linear>;
-    template class DelayLine<double, DelayLineInterpolationTypes::Linear>;
-    template class DelayLine<float, DelayLineInterpolationTypes::Lagrange3rd>;
-    template class DelayLine<double, DelayLineInterpolationTypes::Lagrange3rd>;
+    template class DelayLine<float, DelayLineInterpolationType::None>;
+    template class DelayLine<double, DelayLineInterpolationType::None>;
+    template class DelayLine<float, DelayLineInterpolationType::Linear>;
+    template class DelayLine<double, DelayLineInterpolationType::Linear>;
+    template class DelayLine<float, DelayLineInterpolationType::Lagrange3rd>;
+    template class DelayLine<double, DelayLineInterpolationType::Lagrange3rd>;
 } // namespace marvin::dsp
-#include "marvin/library/marvin_DisableWarnings.h"

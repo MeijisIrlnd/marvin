@@ -21,6 +21,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(MARVIN_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
         CACHE STRING "Path where package files will be installed, relative to the install prefix"
 )
+if(MSVC) 
+    set(MARVIN_WARNING_FLAGS "/W4 /WX")
+else() 
+    set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Werror")
+endif()
+
 add_subdirectory(source)
 add_subdirectory(include)
 add_subdirectory(tests)
@@ -28,6 +34,7 @@ add_subdirectory(docs)
 source_group(TREE source)
 add_library(marvin STATIC ${MARVIN_SOURCES})
 add_library(slma::marvin ALIAS marvin)
+set_source_files_properties(${MARVIN_SOURCES} PROPERTIES COMPILE_FLAGS "${MARVIN_WARNING_FLAGS}")
 target_compile_features(marvin PUBLIC cxx_std_20)
 target_include_directories(marvin PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>

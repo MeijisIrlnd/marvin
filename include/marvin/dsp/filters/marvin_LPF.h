@@ -11,7 +11,6 @@
 #ifndef MARVIN_LPF_H
 #define MARVIN_LPF_H
 #include "marvin/library/marvin_Concepts.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::dsp::filters {
     /**
         \brief A direct form i first order single pole lowpass filter.
@@ -62,5 +61,4 @@ namespace marvin::dsp::filters {
         SampleType m_coeff{ static_cast<SampleType>(0.0) };
     };
 } // namespace marvin::dsp::filters
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

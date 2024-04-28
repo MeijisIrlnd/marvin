@@ -11,39 +11,50 @@
 #ifndef MARVIN_LINEARSMOOTHEDVALUE_H
 #define MARVIN_LINEARSMOOTHEDVALUE_H
 #include "marvin/library/marvin_Concepts.h"
-#include "marvin/library/marvin_EnableWarnings.h"
 namespace marvin::utils {
+    /**
+        \brief Enum to configure SmoothedValue to either use linear smoothing, or exponential (lowpass) smoothing.
+    */
+    enum class SmoothingType {
+        Linear,
+        Exponential
+    };
     /**
     \brief A utility class to smooth discrete values over a given period.
 
-    Mainly useful to help with zippering caused by discrete parameter updates.
+    Mainly useful to help with zippering caused by discrete parameter updates. Can be configured to either smooth linearly or exponentially to the target value.
     */
-    template <FloatType SampleType>
-    class LinearSmoothedValue {
+    template <FloatType SampleType, SmoothingType Type>
+    class SmoothedValue {
     public:
         /**
-            Sets the internal variables to their targets, and sets the period of the smoothing.
-            \param stepsSamples The duration of the smoothing, in samples.
+            Sets the period of the smoothing, and internally sets the current value to the target value.
+            \param stepsSamples The period of the smoothing, in samples.
         */
         void reset(int stepsSamples);
         /**
-            Sets the internal variables to their targets, and sets the period of the smoothing.
-            \param sampleRate The sample rate the LinearSmoothedValue should operate at.
-            \param timeMs The duration of the smoothing, in milliseconds.
+            Sets the period of the smoothing, and internally sets the current value to the target value.
+            \param sampleRate The currently configured sample rate.
+            \param timeMs The period of the smoothing, in milliseconds.
         */
         void reset(double sampleRate, double timeMs);
         /**
-            Sets both the current value, and the target value of the smoother. Use this function to initialise the value of the LinearSmoothedValue.
-            \param newValue The new current and target value.
+            Sets both the current value, and the target value to interpolate to.
+            \param newValue The new target (and current) value.
         */
         void setCurrentAndTargetValue(SampleType newValue);
+
         /**
-            Sets the target value of the smoother - the LinearSmoothedValue will then smooth between the internal `currentValue`, and this target value.
+            Sets the value the smoother should interpolate to.
             \param newValue The new target value.
         */
         void setTargetValue(SampleType newValue);
         /**
-            Performs a single tick of the smoothing from the current value to the target value.
+            Performs a single tick of the smoothing function.<br>
+            If the SmoothedValue is configured to use SmoothingType::Linear, the formula is
+            `v = v+slew`, where slew has been calculated based on the target value.<br>
+            If the SmoothedValue is configured to use SmoothingType::Exponential, the formula is
+            `v = v + (target = v) * slew`.
             \return The smoothed value.
         */
         [[nodiscard]] SampleType operator()() noexcept;
@@ -61,5 +72,4 @@ namespace marvin::utils {
         SampleType m_slew{ static_cast<SampleType>(0.0) };
     };
 } // namespace marvin::utils
-#include "marvin/library/marvin_DisableWarnings.h"
 #endif

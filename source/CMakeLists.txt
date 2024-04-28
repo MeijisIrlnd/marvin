@@ -16,7 +16,7 @@ set(MARVIN_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_SmoothedBiquadCoefficients.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegrator.cpp 
     ${CMAKE_CURRENT_SOURCE_DIR}/oscillators/marvin_Oscillator.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_LinearSmoothedValue.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValue.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_Random.cpp
     PARENT_SCOPE
 )

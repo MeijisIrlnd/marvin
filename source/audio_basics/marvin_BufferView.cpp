@@ -51,6 +51,6 @@ namespace marvin::audiobasics {
         return { m_samples[channel], m_nSamples };
     }
 
-    template class BufferView<float>;
-    template class BufferView<double>;
+    template struct BufferView<float>;
+    template struct BufferView<double>;
 } // namespace marvin::audiobasics
