@@ -193,6 +193,7 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the currently set delay time. </p><dl class="section return"><dt>Returns</dt><dd>The delay time, in samples. </dd></dl>
 
 </div>
 </div>
@@ -220,6 +221,7 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns the maximum length of the internal buffer. </p><dl class="section return"><dt>Returns</dt><dd>The maximum delay in samples. </dd></dl>
 
 </div>
 </div>
@@ -239,6 +241,12 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Initialises the delay line. Make sure to call this function before any audio calls! </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>The sample rate the <a class="el" href="classmarvin_1_1dsp_1_1DelayLine.html" title="A fractional delay line implementation, with configurable interpolation types.">DelayLine</a> should run at. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -262,6 +270,14 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Returns the sample at the internal readPos dictated by the earlier calls to <code>setDelay</code> if <code>delayInSamples</code> is -1, or the sample at <code>writePos + delayInSamples</code> if it isn't. If updateReadPointer is false, the internal read pointer does <b>not</b> update, which is useful for a multitap configuration. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">delayInSamples</td><td>An optional offset from writePos to read from. </td></tr>
+    <tr><td class="paramname">updateReadPointer</td><td>Whether or not the internal read pointer should advance its position. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The sample at the internal readPos if <code>delayInSamples == -1</code>, the sample at <code>writePos + delayInSamples</code> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -281,6 +297,12 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Pushes a sample into the <a class="el" href="classmarvin_1_1dsp_1_1DelayLine.html" title="A fractional delay line implementation, with configurable interpolation types.">DelayLine</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sample</td><td>The sample to add to the <a class="el" href="classmarvin_1_1dsp_1_1DelayLine.html" title="A fractional delay line implementation, with configurable interpolation types.">DelayLine</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -300,6 +322,7 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Clears the internal buffer, and resets the <a class="el" href="classmarvin_1_1dsp_1_1DelayLine.html" title="A fractional delay line implementation, with configurable interpolation types.">DelayLine</a> to its initialised state. </p>
 
 </div>
 </div>
@@ -344,6 +367,12 @@ template&lt;FloatType SampleType, InterpType InterpolationType = DelayLineInterp
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sets the maximum length of the internal buffer. <b>Will</b> allocate if more space is required by the internal vector, so it's best to call this from the parent's <code><a class="el" href="#ab2a224c4d6647643552aa29b17fa0f4b">initialise()</a></code> function before any processing, with the max length the delay line will ever be. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxDelayInSamples</td><td>The amount of samples to allocate in the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
