@@ -64,12 +64,44 @@ namespace marvin::dsp {
             \param newDelayInSamples The new delay to use, in samples.
         */
         void setDelay(SampleType newDelayInSamples);
+        /**
+            Returns the currently set delay time.
+            \return The delay time, in samples.
+        */
         [[nodiscard]] SampleType getDelay() const noexcept;
+        /**
+            Initialises the delay line. Make sure to call this function before any audio calls!
+            \param sampleRate The sample rate the DelayLine should run at.
+        */
         void initialise(double sampleRate);
+        /**
+            Sets the maximum length of the internal buffer. <b>Will</b> allocate if more space is required by the internal vector, so it's best to call this from the parent's `initialise()` function before any processing,
+            with the max length the delay line will ever be.
+            \param maxDelayInSamples The amount of samples to allocate in the buffer.
+        */
         void setMaximumDelayInSamples(int maxDelayInSamples);
+        /**
+            Returns the maximum length of the internal buffer.
+            \return The maximum delay in samples.
+        */
         [[nodiscard]] int getMaximumDelayInSamples() const noexcept;
+        /**
+            Clears the internal buffer, and resets the DelayLine to its initialised state.
+        */
         void reset();
+        /**
+            Pushes a sample into the DelayLine.
+            \param sample The sample to add to the DelayLine.
+        */
         void pushSample(SampleType sample);
+        /**
+            Returns the sample at the internal readPos dictated by the earlier calls to `setDelay` if `delayInSamples` is -1,
+            or the sample at `writePos + delayInSamples` if it isn't. If updateReadPointer is false, the internal read pointer does <b>not</b> update,
+            which is useful for a multitap configuration.
+            \param delayInSamples An optional offset from writePos to read from.
+            \param updateReadPointer Whether or not the internal read pointer should advance its position.
+            \return The sample at the internal readPos if `delayInSamples == -1`, the sample at `writePos + delayInSamples` otherwise.
+        */
         [[nodiscard]] SampleType popSample(SampleType delayInSamples = -1, bool updateReadPointer = true);
 
     private:
