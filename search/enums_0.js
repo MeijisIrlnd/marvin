@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['shape_0',['SHAPE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188a',1,'marvin::oscillators::MultiOscillator']]]
+  ['bandlimiting_0',['Bandlimiting',['../namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9',1,'marvin::oscillators']]]
 ];

@@ -77,7 +77,8 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle"><div class="title">marvin::utils Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -90,13 +91,50 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1utils_1_1Householder.html">Householder</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A helper class to apply an NxN <a class="el" href="classmarvin_1_1utils_1_1Householder.html" title="A helper class to apply an NxN Householder matrix to a given input array-like.">Householder</a> matrix to a given input array-like.  <a href="classmarvin_1_1utils_1_1Householder.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1utils_1_1LinearSmoothedValue.html">LinearSmoothedValue</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility class to smooth discrete values over a given period.  <a href="classmarvin_1_1utils_1_1LinearSmoothedValue.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1utils_1_1Random.html">Random</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for (pseudo) random number generation.  <a href="classmarvin_1_1utils_1_1Random.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1utils_1_1SmoothedValue.html">SmoothedValue</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility class to smooth discrete values over a given period.  <a href="classmarvin_1_1utils_1_1SmoothedValue.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a561daf68b83f068162d1ef3582e6d89a" id="r_a561daf68b83f068162d1ef3582e6d89a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a561daf68b83f068162d1ef3582e6d89a">SmoothingType</a> { <a class="el" href="#a561daf68b83f068162d1ef3582e6d89aa32a843da6ea40ab3b17a3421ccdf671b">Linear</a>
+, <a class="el" href="#a561daf68b83f068162d1ef3582e6d89aac1e19c09f700938f0ff7f1fd4722a3ac">Exponential</a>
+ }</td></tr>
+<tr class="memdesc:a561daf68b83f068162d1ef3582e6d89a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum to configure SmoothedValue to either use linear smoothing, or exponential (lowpass) smoothing.  <a href="#a561daf68b83f068162d1ef3582e6d89a">More...</a><br /></td></tr>
+<tr class="separator:a561daf68b83f068162d1ef3582e6d89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a561daf68b83f068162d1ef3582e6d89a" name="a561daf68b83f068162d1ef3582e6d89a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a561daf68b83f068162d1ef3582e6d89a">&#9670;&#160;</a></span>SmoothingType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a561daf68b83f068162d1ef3582e6d89a">marvin::utils::SmoothingType</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enum to configure <a class="el" href="classmarvin_1_1utils_1_1SmoothedValue.html" title="A utility class to smooth discrete values over a given period.">SmoothedValue</a> to either use linear smoothing, or exponential (lowpass) smoothing. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a561daf68b83f068162d1ef3582e6d89aa32a843da6ea40ab3b17a3421ccdf671b" name="a561daf68b83f068162d1ef3582e6d89aa32a843da6ea40ab3b17a3421ccdf671b"></a>Linear&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a561daf68b83f068162d1ef3582e6d89aac1e19c09f700938f0ff7f1fd4722a3ac" name="a561daf68b83f068162d1ef3582e6d89aac1e19c09f700938f0ff7f1fd4722a3ac"></a>Exponential&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>marvin: marvin::oscillators::MultiOscillator&lt; SampleType, Blep &gt; Class Template Reference</title>
+<title>marvin: marvin::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,7 +80,7 @@ $(function() {
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classmarvin_1_1oscillators_1_1MultiOscillator-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">marvin::oscillators::MultiOscillator&lt; SampleType, Blep &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
+  <div class="headertitle"><div class="title">marvin::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt; Class Template Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -105,26 +105,26 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4f9c3102ec7981558417c7484bbd0456" id="r_a4f9c3102ec7981558417c7484bbd0456"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f9c3102ec7981558417c7484bbd0456">MultiOscillator</a> (std::random_device &amp;rd)</td></tr>
-<tr class="separator:a4f9c3102ec7981558417c7484bbd0456"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acacb4f48e364cba21eecb6fbc985cb86" id="r_acacb4f48e364cba21eecb6fbc985cb86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acacb4f48e364cba21eecb6fbc985cb86">MultiOscillator</a> (std::random_device &amp;rd, <a class="el" href="#a400ca8552c7f5abae9ccd721bc05188a">SHAPE</a> shape)</td></tr>
-<tr class="separator:acacb4f48e364cba21eecb6fbc985cb86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab3575f515172f166e6c3d60a92418cee" id="r_ab3575f515172f166e6c3d60a92418cee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3575f515172f166e6c3d60a92418cee">initialise</a> (double sampleRate)</td></tr>
-<tr class="separator:ab3575f515172f166e6c3d60a92418cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c02f35752c47c0869c20ca28f4f42bb" id="r_a6c02f35752c47c0869c20ca28f4f42bb"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c02f35752c47c0869c20ca28f4f42bb">operator()</a> () noexcept</td></tr>
-<tr class="separator:a6c02f35752c47c0869c20ca28f4f42bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af612d512cf2ac1606e7f696e3d98bb6a" id="r_af612d512cf2ac1606e7f696e3d98bb6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af612d512cf2ac1606e7f696e3d98bb6a">reset</a> () noexcept</td></tr>
-<tr class="separator:af612d512cf2ac1606e7f696e3d98bb6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af29852d662a5eeb00ad06b2627da0f74" id="r_af29852d662a5eeb00ad06b2627da0f74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af29852d662a5eeb00ad06b2627da0f74">setShape</a> (<a class="el" href="#a400ca8552c7f5abae9ccd721bc05188a">SHAPE</a> shape)</td></tr>
-<tr class="separator:af29852d662a5eeb00ad06b2627da0f74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a284d25eddb82f27a0c49e2e50c4d9823" id="r_a284d25eddb82f27a0c49e2e50c4d9823"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a284d25eddb82f27a0c49e2e50c4d9823">setFrequency</a> (SampleType newFrequency) noexcept</td></tr>
-<tr class="separator:a284d25eddb82f27a0c49e2e50c4d9823"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add603c944361d1f098f52b659382c1b4" id="r_add603c944361d1f098f52b659382c1b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add603c944361d1f098f52b659382c1b4">setPulsewidth</a> (SampleType newPulsewidth) noexcept</td></tr>
-<tr class="separator:add603c944361d1f098f52b659382c1b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a390c58f1afd641bf4c54b953fef830fb" id="r_a390c58f1afd641bf4c54b953fef830fb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a390c58f1afd641bf4c54b953fef830fb">MultiOscillator</a> (std::random_device &amp;rd)</td></tr>
+<tr class="separator:a390c58f1afd641bf4c54b953fef830fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125ee49fc5ed6cb1c2b63050c56621b0" id="r_a125ee49fc5ed6cb1c2b63050c56621b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a125ee49fc5ed6cb1c2b63050c56621b0">MultiOscillator</a> (std::random_device &amp;rd, <a class="el" href="#a400ca8552c7f5abae9ccd721bc05188a">SHAPE</a> shape)</td></tr>
+<tr class="separator:a125ee49fc5ed6cb1c2b63050c56621b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb318646f06ed79e98a8eb5dc0cf14a6" id="r_adb318646f06ed79e98a8eb5dc0cf14a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb318646f06ed79e98a8eb5dc0cf14a6">initialise</a> (double sampleRate)</td></tr>
+<tr class="separator:adb318646f06ed79e98a8eb5dc0cf14a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d7ee07a5bb93b71425f9d27883a7f8d" id="r_a8d7ee07a5bb93b71425f9d27883a7f8d"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d7ee07a5bb93b71425f9d27883a7f8d">operator()</a> () noexcept</td></tr>
+<tr class="separator:a8d7ee07a5bb93b71425f9d27883a7f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01a6841bc4b86dc435209d3a84574535" id="r_a01a6841bc4b86dc435209d3a84574535"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01a6841bc4b86dc435209d3a84574535">reset</a> () noexcept</td></tr>
+<tr class="separator:a01a6841bc4b86dc435209d3a84574535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9878f3a90bd1d6451a8693127f933a17" id="r_a9878f3a90bd1d6451a8693127f933a17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9878f3a90bd1d6451a8693127f933a17">setShape</a> (<a class="el" href="#a400ca8552c7f5abae9ccd721bc05188a">SHAPE</a> shape)</td></tr>
+<tr class="separator:a9878f3a90bd1d6451a8693127f933a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af205bcaffd9c9726a01991f7f2f23deb" id="r_af205bcaffd9c9726a01991f7f2f23deb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af205bcaffd9c9726a01991f7f2f23deb">setFrequency</a> (SampleType newFrequency) noexcept</td></tr>
+<tr class="separator:af205bcaffd9c9726a01991f7f2f23deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18db4530ba0958139174f895b40f8924" id="r_a18db4530ba0958139174f895b40f8924"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18db4530ba0958139174f895b40f8924">setPulsewidth</a> (SampleType newPulsewidth) noexcept</td></tr>
+<tr class="separator:a18db4530ba0958139174f895b40f8924"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt;<br />
-class marvin::oscillators::MultiOscillator&lt; SampleType, Blep &gt;</div><p>A switchable multi-shape oscillator, with optional BLEP. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt;<br />
+class marvin::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt;</div><p>A switchable multi-shape oscillator, with optional BLEP. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a400ca8552c7f5abae9ccd721bc05188a" name="a400ca8552c7f5abae9ccd721bc05188a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a400ca8552c7f5abae9ccd721bc05188a">&#9670;&#160;</a></span>SHAPE</h2>
@@ -132,7 +132,7 @@ class marvin::oscillators::MultiOscillator&lt; SampleType, Blep &gt;</div><p>A s
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -160,19 +160,19 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4f9c3102ec7981558417c7484bbd0456" name="a4f9c3102ec7981558417c7484bbd0456"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f9c3102ec7981558417c7484bbd0456">&#9670;&#160;</a></span>MultiOscillator() <span class="overload">[1/2]</span></h2>
+<a id="a390c58f1afd641bf4c54b953fef830fb" name="a390c58f1afd641bf4c54b953fef830fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390c58f1afd641bf4c54b953fef830fb">&#9670;&#160;</a></span>MultiOscillator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::MultiOscillator </td>
+          <td class="memname"><a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::MultiOscillator </td>
           <td>(</td>
           <td class="paramtype">std::random_device &amp;</td>          <td class="paramname"><span class="paramname"><em>rd</em></span></td><td>)</td>
           <td></td>
@@ -193,19 +193,19 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 
 </div>
 </div>
-<a id="acacb4f48e364cba21eecb6fbc985cb86" name="acacb4f48e364cba21eecb6fbc985cb86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acacb4f48e364cba21eecb6fbc985cb86">&#9670;&#160;</a></span>MultiOscillator() <span class="overload">[2/2]</span></h2>
+<a id="a125ee49fc5ed6cb1c2b63050c56621b0" name="a125ee49fc5ed6cb1c2b63050c56621b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a125ee49fc5ed6cb1c2b63050c56621b0">&#9670;&#160;</a></span>MultiOscillator() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::MultiOscillator </td>
+          <td class="memname"><a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::MultiOscillator </td>
           <td>(</td>
           <td class="paramtype">std::random_device &amp;</td>          <td class="paramname"><span class="paramname"><em>rd</em>, </span></td>
         </tr>
@@ -232,16 +232,16 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab3575f515172f166e6c3d60a92418cee" name="ab3575f515172f166e6c3d60a92418cee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3575f515172f166e6c3d60a92418cee">&#9670;&#160;</a></span>initialise()</h2>
+<a id="adb318646f06ed79e98a8eb5dc0cf14a6" name="adb318646f06ed79e98a8eb5dc0cf14a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb318646f06ed79e98a8eb5dc0cf14a6">&#9670;&#160;</a></span>initialise()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::initialise </td>
+          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::initialise </td>
           <td>(</td>
           <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>sampleRate</em></span></td><td>)</td>
           <td></td>
@@ -257,19 +257,19 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 
 </div>
 </div>
-<a id="a6c02f35752c47c0869c20ca28f4f42bb" name="a6c02f35752c47c0869c20ca28f4f42bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c02f35752c47c0869c20ca28f4f42bb">&#9670;&#160;</a></span>operator()()</h2>
+<a id="a8d7ee07a5bb93b71425f9d27883a7f8d" name="a8d7ee07a5bb93b71425f9d27883a7f8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d7ee07a5bb93b71425f9d27883a7f8d">&#9670;&#160;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SampleType <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::operator() </td>
+          <td class="memname">SampleType <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::operator() </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -285,19 +285,19 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 
 </div>
 </div>
-<a id="af612d512cf2ac1606e7f696e3d98bb6a" name="af612d512cf2ac1606e7f696e3d98bb6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af612d512cf2ac1606e7f696e3d98bb6a">&#9670;&#160;</a></span>reset()</h2>
+<a id="a01a6841bc4b86dc435209d3a84574535" name="a01a6841bc4b86dc435209d3a84574535"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a6841bc4b86dc435209d3a84574535">&#9670;&#160;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::reset </td>
+          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::reset </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -313,19 +313,19 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 
 </div>
 </div>
-<a id="a284d25eddb82f27a0c49e2e50c4d9823" name="a284d25eddb82f27a0c49e2e50c4d9823"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a284d25eddb82f27a0c49e2e50c4d9823">&#9670;&#160;</a></span>setFrequency()</h2>
+<a id="af205bcaffd9c9726a01991f7f2f23deb" name="af205bcaffd9c9726a01991f7f2f23deb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af205bcaffd9c9726a01991f7f2f23deb">&#9670;&#160;</a></span>setFrequency()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::setFrequency </td>
+          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::setFrequency </td>
           <td>(</td>
           <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>newFrequency</em></span></td><td>)</td>
           <td></td>
@@ -346,19 +346,19 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 
 </div>
 </div>
-<a id="add603c944361d1f098f52b659382c1b4" name="add603c944361d1f098f52b659382c1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add603c944361d1f098f52b659382c1b4">&#9670;&#160;</a></span>setPulsewidth()</h2>
+<a id="a18db4530ba0958139174f895b40f8924" name="a18db4530ba0958139174f895b40f8924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18db4530ba0958139174f895b40f8924">&#9670;&#160;</a></span>setPulsewidth()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::setPulsewidth </td>
+          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::setPulsewidth </td>
           <td>(</td>
           <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>newPulsewidth</em></span></td><td>)</td>
           <td></td>
@@ -374,16 +374,16 @@ template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
 
 </div>
 </div>
-<a id="af29852d662a5eeb00ad06b2627da0f74" name="af29852d662a5eeb00ad06b2627da0f74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af29852d662a5eeb00ad06b2627da0f74">&#9670;&#160;</a></span>setShape()</h2>
+<a id="a9878f3a90bd1d6451a8693127f933a17" name="a9878f3a90bd1d6451a8693127f933a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9878f3a90bd1d6451a8693127f933a17">&#9670;&#160;</a></span>setShape()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, BlepType Blep = BlepState::Off&gt; </div>
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Blep &gt;::setShape </td>
+          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::setShape </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="#a400ca8552c7f5abae9ccd721bc05188a">SHAPE</a></td>          <td class="paramname"><span class="paramname"><em>shape</em></span></td><td>)</td>
           <td></td>

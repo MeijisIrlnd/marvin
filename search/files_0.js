@@ -7,13 +7,13 @@ var searchData=
   ['marvin_5fconcepts_2eh_4',['marvin_Concepts.h',['../marvin__Concepts_8h.html',1,'']]],
   ['marvin_5fdelayline_2eh_5',['marvin_DelayLine.h',['../marvin__DelayLine_8h.html',1,'']]],
   ['marvin_5fleakyintegrator_2eh_6',['marvin_LeakyIntegrator.h',['../marvin__LeakyIntegrator_8h.html',1,'']]],
-  ['marvin_5flinearsmoothedvalue_2eh_7',['marvin_LinearSmoothedValue.h',['../marvin__LinearSmoothedValue_8h.html',1,'']]],
-  ['marvin_5flpf_2eh_8',['marvin_LPF.h',['../marvin__LPF_8h.html',1,'']]],
-  ['marvin_5fmath_2eh_9',['marvin_Math.h',['../marvin__Math_8h.html',1,'']]],
-  ['marvin_5fmixmatrix_2eh_10',['marvin_MixMatrix.h',['../marvin__MixMatrix_8h.html',1,'']]],
-  ['marvin_5foscillator_2eh_11',['marvin_Oscillator.h',['../marvin__Oscillator_8h.html',1,'']]],
-  ['marvin_5fpropagateconst_2eh_12',['marvin_PropagateConst.h',['../marvin__PropagateConst_8h.html',1,'']]],
-  ['marvin_5frandom_2eh_13',['marvin_Random.h',['../marvin__Random_8h.html',1,'']]],
-  ['marvin_5frbjcoefficients_2eh_14',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
-  ['marvin_5fsmoothedbiquadcoefficients_2eh_15',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]]
+  ['marvin_5flpf_2eh_7',['marvin_LPF.h',['../marvin__LPF_8h.html',1,'']]],
+  ['marvin_5fmath_2eh_8',['marvin_Math.h',['../marvin__Math_8h.html',1,'']]],
+  ['marvin_5fmixmatrix_2eh_9',['marvin_MixMatrix.h',['../marvin__MixMatrix_8h.html',1,'']]],
+  ['marvin_5foscillator_2eh_10',['marvin_Oscillator.h',['../marvin__Oscillator_8h.html',1,'']]],
+  ['marvin_5fpropagateconst_2eh_11',['marvin_PropagateConst.h',['../marvin__PropagateConst_8h.html',1,'']]],
+  ['marvin_5frandom_2eh_12',['marvin_Random.h',['../marvin__Random_8h.html',1,'']]],
+  ['marvin_5frbjcoefficients_2eh_13',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
+  ['marvin_5fsmoothedbiquadcoefficients_2eh_14',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
+  ['marvin_5fsmoothedvalue_2eh_15',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]]
 ];

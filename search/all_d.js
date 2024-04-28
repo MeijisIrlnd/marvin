@@ -1,26 +1,10 @@
 var searchData=
 [
-  ['saw_0',['SAW',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa0539f4139fdf8b3b7ca00bb4f460261f',1,'marvin::oscillators::MultiOscillator']]],
-  ['sawoscillator_1',['SawOscillator',['../classmarvin_1_1oscillators_1_1SawOscillator.html',1,'marvin::oscillators']]],
-  ['sawoscillator_3c_20sampletype_2c_20blepstate_3a_3aoff_20_3e_2',['SawOscillator&lt; SampleType, BlepState::Off &gt;',['../classmarvin_1_1oscillators_1_1SawOscillator.html',1,'marvin::oscillators']]],
-  ['setcoeff_3',['setCoeff',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#afe499a9c7c9256e0bab87e4538ddbc28',1,'marvin::dsp::filters::LatticeAPF::setCoeff()'],['../classmarvin_1_1dsp_1_1filters_1_1LPF.html#a9dd4ee21883d461d5cb67a649ce0cdb0',1,'marvin::dsp::filters::LPF::setCoeff()']]],
-  ['setcoeffs_4',['setCoeffs',['../classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f',1,'marvin::dsp::filters::Biquad']]],
-  ['setcurrentandtargetcoeffs_5',['setCurrentAndTargetCoeffs',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#a8b853ab2c39928f4c867522f449d984c',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
-  ['setcurrentandtargetvalue_6',['setCurrentAndTargetValue',['../classmarvin_1_1utils_1_1LinearSmoothedValue.html#a720638c8be6644a077127a6ceae95cfd',1,'marvin::utils::LinearSmoothedValue']]],
-  ['setcutoff_7',['setCutoff',['../classmarvin_1_1dsp_1_1filters_1_1LPF.html#a8ee0f7fc77f62170a3b5d33bfcdf6880',1,'marvin::dsp::filters::LPF']]],
-  ['setdelay_8',['setDelay',['../classmarvin_1_1dsp_1_1DelayLine.html#a4091550bc9b85f2bfec3f895858fa398',1,'marvin::dsp::DelayLine::setDelay()'],['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a2ea4d5497c904382a481cc9035603068',1,'marvin::dsp::filters::LatticeAPF::setDelay()']]],
-  ['setfrequency_9',['setFrequency',['../classmarvin_1_1oscillators_1_1OscillatorBase.html#af61e293d98b46eab1cc55302c5d7c604',1,'marvin::oscillators::OscillatorBase::setFrequency()'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a284d25eddb82f27a0c49e2e50c4d9823',1,'marvin::oscillators::MultiOscillator::setFrequency()']]],
-  ['setmaximumdelayinsamples_10',['setMaximumDelayInSamples',['../classmarvin_1_1dsp_1_1DelayLine.html#a7c7c0811b5e71f1a67a8e2fd7c033013',1,'marvin::dsp::DelayLine']]],
-  ['setpulsewidth_11',['setPulsewidth',['../classmarvin_1_1oscillators_1_1PulseOscillator.html#aacde205070158f0032c7818234f8c501',1,'marvin::oscillators::PulseOscillator::setPulsewidth()'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#add603c944361d1f098f52b659382c1b4',1,'marvin::oscillators::MultiOscillator::setPulsewidth(SampleType newPulsewidth) noexcept']]],
-  ['setshape_12',['setShape',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#af29852d662a5eeb00ad06b2627da0f74',1,'marvin::oscillators::MultiOscillator']]],
-  ['settargetcoeffs_13',['setTargetCoeffs',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#a98faeb0cef79cdd7b4c53859f4532130',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
-  ['settargetvalue_14',['setTargetValue',['../classmarvin_1_1utils_1_1LinearSmoothedValue.html#ae8d88f91c5fbb78b3d2f9ff34e18768b',1,'marvin::utils::LinearSmoothedValue']]],
-  ['shape_15',['SHAPE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188a',1,'marvin::oscillators::MultiOscillator']]],
-  ['sine_16',['SINE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aaeed52f6fa986d4fb81f722d6ea5f38bf',1,'marvin::oscillators::MultiOscillator']]],
-  ['sineoscillator_17',['SineOscillator',['../classmarvin_1_1oscillators_1_1SineOscillator.html',1,'marvin::oscillators']]],
-  ['smoothedbiquadcoefficients_18',['SmoothedBiquadCoefficients',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html',1,'marvin::dsp::filters']]],
-  ['square_19',['SQUARE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa12dec4e1f7ec620651b2b95c440ffac0',1,'marvin::oscillators::MultiOscillator']]],
-  ['squareoscillator_20',['SquareOscillator',['../classmarvin_1_1oscillators_1_1SquareOscillator.html',1,'marvin::oscillators']]],
-  ['squareoscillator_3c_20sampletype_2c_20blepstate_3a_3aoff_20_3e_21',['SquareOscillator&lt; SampleType, BlepState::Off &gt;',['../classmarvin_1_1oscillators_1_1SquareOscillator.html',1,'marvin::oscillators']]],
-  ['swap_22',['swap',['../classmarvin_1_1library_1_1PropagateConst.html#aebaa7200f12ded0e5e50acb6d0fbd577',1,'marvin::library::PropagateConst']]]
+  ['peak_0',['peak',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#ae2935f127e4d933f10b6bd6144efd712',1,'marvin::dsp::filters::rbj']]],
+  ['popsample_1',['popSample',['../classmarvin_1_1dsp_1_1DelayLine.html#a9762b8fd07e022f7c1e279345da4e212',1,'marvin::dsp::DelayLine']]],
+  ['propagateconst_2',['PropagateConst',['../classmarvin_1_1library_1_1PropagateConst.html',1,'marvin::library::PropagateConst&lt; T &gt;'],['../classmarvin_1_1library_1_1PropagateConst.html#ade81b340ea2482ec4c20b79aa1d4330a',1,'marvin::library::PropagateConst::PropagateConst()=default'],['../classmarvin_1_1library_1_1PropagateConst.html#aecde95272c8260e229f7e0c2536aa209',1,'marvin::library::PropagateConst::PropagateConst(PropagateConst &amp;&amp;p)=default'],['../classmarvin_1_1library_1_1PropagateConst.html#a0587d97694dbd85ac3ac1395a6ae7f65',1,'marvin::library::PropagateConst::PropagateConst(PropagateConst&lt; U &gt; &amp;&amp;pu)'],['../classmarvin_1_1library_1_1PropagateConst.html#ad864c425a521a142d9c88a10e27016c2',1,'marvin::library::PropagateConst::PropagateConst(PropagateConst&lt; U &gt; &amp;&amp;pu)'],['../classmarvin_1_1library_1_1PropagateConst.html#a4e9a60e0cd8e2d540cc09d367ed8f65b',1,'marvin::library::PropagateConst::PropagateConst(U &amp;&amp;u)'],['../classmarvin_1_1library_1_1PropagateConst.html#a530608e7f6f3b8eaa1b2bacf1b100e9c',1,'marvin::library::PropagateConst::PropagateConst(U &amp;&amp;u)']]],
+  ['pulse_3',['PULSE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa4712174b138f092655be88673fc2a070',1,'marvin::oscillators::MultiOscillator']]],
+  ['pulseoscillator_4',['PulseOscillator',['../classmarvin_1_1oscillators_1_1PulseOscillator.html',1,'marvin::oscillators']]],
+  ['pulseoscillator_3c_20sampletype_2c_20bandlimiting_3a_3aoff_20_3e_5',['PulseOscillator&lt; SampleType, Bandlimiting::Off &gt;',['../classmarvin_1_1oscillators_1_1PulseOscillator.html',1,'marvin::oscillators']]],
+  ['pushsample_6',['pushSample',['../classmarvin_1_1dsp_1_1DelayLine.html#acb0ec358cadbd9cb06ada3ae4b700380',1,'marvin::dsp::DelayLine']]]
 ];

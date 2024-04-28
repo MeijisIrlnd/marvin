@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['peak_0',['peak',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#ae2935f127e4d933f10b6bd6144efd712',1,'marvin::dsp::filters::rbj']]],
-  ['popsample_1',['popSample',['../classmarvin_1_1dsp_1_1DelayLine.html#a9762b8fd07e022f7c1e279345da4e212',1,'marvin::dsp::DelayLine']]],
-  ['propagateconst_2',['PropagateConst',['../classmarvin_1_1library_1_1PropagateConst.html',1,'marvin::library::PropagateConst&lt; T &gt;'],['../classmarvin_1_1library_1_1PropagateConst.html#ade81b340ea2482ec4c20b79aa1d4330a',1,'marvin::library::PropagateConst::PropagateConst()=default'],['../classmarvin_1_1library_1_1PropagateConst.html#aecde95272c8260e229f7e0c2536aa209',1,'marvin::library::PropagateConst::PropagateConst(PropagateConst &amp;&amp;p)=default'],['../classmarvin_1_1library_1_1PropagateConst.html#a0587d97694dbd85ac3ac1395a6ae7f65',1,'marvin::library::PropagateConst::PropagateConst(PropagateConst&lt; U &gt; &amp;&amp;pu)'],['../classmarvin_1_1library_1_1PropagateConst.html#ad864c425a521a142d9c88a10e27016c2',1,'marvin::library::PropagateConst::PropagateConst(PropagateConst&lt; U &gt; &amp;&amp;pu)'],['../classmarvin_1_1library_1_1PropagateConst.html#a4e9a60e0cd8e2d540cc09d367ed8f65b',1,'marvin::library::PropagateConst::PropagateConst(U &amp;&amp;u)'],['../classmarvin_1_1library_1_1PropagateConst.html#a530608e7f6f3b8eaa1b2bacf1b100e9c',1,'marvin::library::PropagateConst::PropagateConst(U &amp;&amp;u)']]],
-  ['pulse_3',['PULSE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa4712174b138f092655be88673fc2a070',1,'marvin::oscillators::MultiOscillator']]],
-  ['pulseoscillator_4',['PulseOscillator',['../classmarvin_1_1oscillators_1_1PulseOscillator.html',1,'marvin::oscillators']]],
-  ['pulseoscillator_3c_20sampletype_2c_20blepstate_3a_3aoff_20_3e_5',['PulseOscillator&lt; SampleType, BlepState::Off &gt;',['../classmarvin_1_1oscillators_1_1PulseOscillator.html',1,'marvin::oscillators']]],
-  ['pushsample_6',['pushSample',['../classmarvin_1_1dsp_1_1DelayLine.html#acb0ec358cadbd9cb06ada3ae4b700380',1,'marvin::dsp::DelayLine']]]
+  ['noexcept_0',['noexcept',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#a46d549edc32ec8113702dd0f81a0ee61',1,'marvin::dsp::filters::rbj']]],
+  ['noise_1',['NOISE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa2a8eb3b0974dc3508ba003d3f7a37e52',1,'marvin::oscillators::MultiOscillator']]],
+  ['noiseoscillator_2',['NoiseOscillator',['../classmarvin_1_1oscillators_1_1NoiseOscillator.html',1,'marvin::oscillators::NoiseOscillator&lt; SampleType &gt;'],['../classmarvin_1_1oscillators_1_1NoiseOscillator.html#acac5f6dbb4dddd2aa47d390ea06f20e0',1,'marvin::oscillators::NoiseOscillator::NoiseOscillator()']]],
+  ['none_3',['None',['../namespacemarvin_1_1dsp.html#a5c2fdd1ce8a2463b0b25e40dd5566d8fa6adf97f83acf6453d4a6a4b1070f3754',1,'marvin::dsp']]],
+  ['notch_4',['notch',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#ab231eb44b64ea9c2583b076d3ff61949',1,'marvin::dsp::filters::rbj']]]
 ];

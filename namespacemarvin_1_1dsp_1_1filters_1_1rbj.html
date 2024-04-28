@@ -77,40 +77,71 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">marvin::dsp::filters::rbj Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5ed1fba46fb2848e5ded1cc2ce87e149" id="r_a5ed1fba46fb2848e5ded1cc2ce87e149"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:a5ed1fba46fb2848e5ded1cc2ce87e149"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5ed1fba46fb2848e5ded1cc2ce87e149">lowpass</a> (double sampleRate, SampleType cutoff, SampleType q) noexcept</td></tr>
-<tr class="separator:a5ed1fba46fb2848e5ded1cc2ce87e149"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1089c02e19a0d79b261fdc89fb542efc" id="r_a1089c02e19a0d79b261fdc89fb542efc"><td class="memItemLeft" align="right" valign="top">param sampleRate The sample rate to base the calculations off param <a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a> The frequency of the lowpass param q The resonance of the&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1089c02e19a0d79b261fdc89fb542efc">lowpass</a> (between 0 and 1) \<a class="el" href="#a4bc97a6770c4b45f8c2c29575e96b286">return</a> An instance of <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a> populated with the resulting coefficients.*/template&lt; FloatType SampleType &gt; <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt; lowpass(double sampleRate</td></tr>
+<tr class="separator:a1089c02e19a0d79b261fdc89fb542efc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a524c1e3b92f0ce3057830a6b22f48d6f" id="r_a524c1e3b92f0ce3057830a6b22f48d6f"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:a524c1e3b92f0ce3057830a6b22f48d6f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a524c1e3b92f0ce3057830a6b22f48d6f">highpass</a> (double sampleRate, SampleType cutoff, SampleType q) noexcept</td></tr>
+<tr class="memitem:a524c1e3b92f0ce3057830a6b22f48d6f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a524c1e3b92f0ce3057830a6b22f48d6f">highpass</a> (double sampleRate, SampleType <a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a>, SampleType q) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:a524c1e3b92f0ce3057830a6b22f48d6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45f2dbfd3cd60f56eba31e6bf9fe56dc" id="r_a45f2dbfd3cd60f56eba31e6bf9fe56dc"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:a45f2dbfd3cd60f56eba31e6bf9fe56dc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a45f2dbfd3cd60f56eba31e6bf9fe56dc">bandpass</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth, SampleType peakGain) noexcept</td></tr>
+<tr class="memitem:a45f2dbfd3cd60f56eba31e6bf9fe56dc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a45f2dbfd3cd60f56eba31e6bf9fe56dc">bandpass</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth, SampleType peakGain) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:a45f2dbfd3cd60f56eba31e6bf9fe56dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09f4b71e72a587864f1d144d1db94f49" id="r_a09f4b71e72a587864f1d144d1db94f49"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:a09f4b71e72a587864f1d144d1db94f49"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a09f4b71e72a587864f1d144d1db94f49">bandpass</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth) noexcept</td></tr>
+<tr class="memitem:a09f4b71e72a587864f1d144d1db94f49"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a09f4b71e72a587864f1d144d1db94f49">bandpass</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:a09f4b71e72a587864f1d144d1db94f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab231eb44b64ea9c2583b076d3ff61949" id="r_ab231eb44b64ea9c2583b076d3ff61949"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:ab231eb44b64ea9c2583b076d3ff61949"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab231eb44b64ea9c2583b076d3ff61949">notch</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth) noexcept</td></tr>
+<tr class="memitem:ab231eb44b64ea9c2583b076d3ff61949"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab231eb44b64ea9c2583b076d3ff61949">notch</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:ab231eb44b64ea9c2583b076d3ff61949"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a018d81b21c5e991bb6d6778a2b604fe0" id="r_a018d81b21c5e991bb6d6778a2b604fe0"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:a018d81b21c5e991bb6d6778a2b604fe0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a018d81b21c5e991bb6d6778a2b604fe0">allpass</a> (double sampleRate, SampleType cutoff, SampleType q) noexcept</td></tr>
+<tr class="memitem:a018d81b21c5e991bb6d6778a2b604fe0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a018d81b21c5e991bb6d6778a2b604fe0">allpass</a> (double sampleRate, SampleType <a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a>, SampleType q) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:a018d81b21c5e991bb6d6778a2b604fe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2935f127e4d933f10b6bd6144efd712" id="r_ae2935f127e4d933f10b6bd6144efd712"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:ae2935f127e4d933f10b6bd6144efd712"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae2935f127e4d933f10b6bd6144efd712">peak</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth, SampleType dbGain) noexcept</td></tr>
+<tr class="memitem:ae2935f127e4d933f10b6bd6144efd712"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae2935f127e4d933f10b6bd6144efd712">peak</a> (double sampleRate, SampleType centreFrequency, SampleType bandwidth, SampleType dbGain) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:ae2935f127e4d933f10b6bd6144efd712"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a49a07a7ad1da784d475d0a6ff5777d" id="r_a1a49a07a7ad1da784d475d0a6ff5777d"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:a1a49a07a7ad1da784d475d0a6ff5777d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1a49a07a7ad1da784d475d0a6ff5777d">lowShelf</a> (double sampleRate, SampleType centreFrequency, SampleType slope, SampleType dbGain) noexcept</td></tr>
+<tr class="memitem:a1a49a07a7ad1da784d475d0a6ff5777d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1a49a07a7ad1da784d475d0a6ff5777d">lowShelf</a> (double sampleRate, SampleType centreFrequency, SampleType slope, SampleType dbGain) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:a1a49a07a7ad1da784d475d0a6ff5777d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a709f224e22e7115b8e801501c6e38776" id="r_a709f224e22e7115b8e801501c6e38776"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
-<tr class="memitem:a709f224e22e7115b8e801501c6e38776"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a709f224e22e7115b8e801501c6e38776">highShelf</a> (double sampleRate, SampleType centreFrequency, SampleType slope, SampleType dbGain) noexcept</td></tr>
+<tr class="memitem:a709f224e22e7115b8e801501c6e38776"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a709f224e22e7115b8e801501c6e38776">highShelf</a> (double sampleRate, SampleType centreFrequency, SampleType slope, SampleType dbGain) <a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
 <tr class="separator:a709f224e22e7115b8e801501c6e38776"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4470defb657c8aa785830393bd1f400b" id="r_a4470defb657c8aa785830393bd1f400b"><td class="memItemLeft" align="right" valign="top">param sampleRate The sample rate to base the calculations off param cutoff The frequency of the <a class="el" href="#a1089c02e19a0d79b261fdc89fb542efc">lowpass</a> param q The resonance of the SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a></td></tr>
+<tr class="separator:a4470defb657c8aa785830393bd1f400b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46d549edc32ec8113702dd0f81a0ee61" id="r_a46d549edc32ec8113702dd0f81a0ee61"><td class="memItemLeft" align="right" valign="top">param sampleRate The sample rate to base the calculations off param <a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a> The frequency of the <a class="el" href="#a1089c02e19a0d79b261fdc89fb542efc">lowpass</a> param q The resonance of the SampleType SampleType q&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46d549edc32ec8113702dd0f81a0ee61">noexcept</a></td></tr>
+<tr class="separator:a46d549edc32ec8113702dd0f81a0ee61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bc9a20737bd23d92dabb813e23257fa" id="r_a5bc9a20737bd23d92dabb813e23257fa"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bc9a20737bd23d92dabb813e23257fa">fs</a> { static_cast&lt;SampleType&gt;(sampleRate) }</td></tr>
+<tr class="separator:a5bc9a20737bd23d92dabb813e23257fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ba8cafe5b5609b8eb839e4860dba37b" id="r_a2ba8cafe5b5609b8eb839e4860dba37b"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ba8cafe5b5609b8eb839e4860dba37b">omega</a> { twoPi * (<a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a> / <a class="el" href="#a5bc9a20737bd23d92dabb813e23257fa">fs</a>) }</td></tr>
+<tr class="separator:a2ba8cafe5b5609b8eb839e4860dba37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ed3e2008ec24e5b7e99b1e4c1bafaea" id="r_a6ed3e2008ec24e5b7e99b1e4c1bafaea"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">cosOmega</a> = std::cos(<a class="el" href="#a2ba8cafe5b5609b8eb839e4860dba37b">omega</a>)</td></tr>
+<tr class="separator:a6ed3e2008ec24e5b7e99b1e4c1bafaea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57d430e668b497e00e91912ec1199feb" id="r_a57d430e668b497e00e91912ec1199feb"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a57d430e668b497e00e91912ec1199feb">sinOmega</a> = std::sin(<a class="el" href="#a2ba8cafe5b5609b8eb839e4860dba37b">omega</a>)</td></tr>
+<tr class="separator:a57d430e668b497e00e91912ec1199feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7ac7b5d48b91cde2d813c178e3cc2ac" id="r_ae7ac7b5d48b91cde2d813c178e3cc2ac"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7ac7b5d48b91cde2d813c178e3cc2ac">alpha</a> { <a class="el" href="#a57d430e668b497e00e91912ec1199feb">sinOmega</a> / (static_cast&lt;SampleType&gt;(2.0) * q) }</td></tr>
+<tr class="separator:ae7ac7b5d48b91cde2d813c178e3cc2ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a257e4e91b4fb8de14fdc53f75378bc2a" id="r_a257e4e91b4fb8de14fdc53f75378bc2a"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a257e4e91b4fb8de14fdc53f75378bc2a">b0</a> = (static_cast&lt;SampleType&gt;(1.0) - <a class="el" href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">cosOmega</a>) / static_cast&lt;SampleType&gt;(2.0)</td></tr>
+<tr class="separator:a257e4e91b4fb8de14fdc53f75378bc2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9ec555aa55c7c4345256fa0b0c9ecac" id="r_ab9ec555aa55c7c4345256fa0b0c9ecac"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9ec555aa55c7c4345256fa0b0c9ecac">b1</a> = static_cast&lt;SampleType&gt;(1.0) - <a class="el" href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">cosOmega</a></td></tr>
+<tr class="separator:ab9ec555aa55c7c4345256fa0b0c9ecac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3daefe5f9d13c7854c187192b0d71557" id="r_a3daefe5f9d13c7854c187192b0d71557"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3daefe5f9d13c7854c187192b0d71557">b2</a> = <a class="el" href="#a257e4e91b4fb8de14fdc53f75378bc2a">b0</a></td></tr>
+<tr class="separator:a3daefe5f9d13c7854c187192b0d71557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b0c2d2d9689daab6dc733f19a5a02e1" id="r_a1b0c2d2d9689daab6dc733f19a5a02e1"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b0c2d2d9689daab6dc733f19a5a02e1">a0</a> = static_cast&lt;SampleType&gt;(1.0) + <a class="el" href="#ae7ac7b5d48b91cde2d813c178e3cc2ac">alpha</a></td></tr>
+<tr class="separator:a1b0c2d2d9689daab6dc733f19a5a02e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f4bb5617763dc45994d166ea36529a0" id="r_a9f4bb5617763dc45994d166ea36529a0"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f4bb5617763dc45994d166ea36529a0">a1</a> = static_cast&lt;SampleType&gt;(-2.0) * <a class="el" href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">cosOmega</a></td></tr>
+<tr class="separator:a9f4bb5617763dc45994d166ea36529a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff9ce40de357d3247c63317d6d63f5ff" id="r_aff9ce40de357d3247c63317d6d63f5ff"><td class="memItemLeft" align="right" valign="top">const auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff9ce40de357d3247c63317d6d63f5ff">a2</a> = static_cast&lt;SampleType&gt;(1.0) - <a class="el" href="#ae7ac7b5d48b91cde2d813c178e3cc2ac">alpha</a></td></tr>
+<tr class="separator:aff9ce40de357d3247c63317d6d63f5ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bc97a6770c4b45f8c2c29575e96b286" id="r_a4bc97a6770c4b45f8c2c29575e96b286"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bc97a6770c4b45f8c2c29575e96b286">return</a></td></tr>
+<tr class="separator:a4bc97a6770c4b45f8c2c29575e96b286"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a018d81b21c5e991bb6d6778a2b604fe0" name="a018d81b21c5e991bb6d6778a2b604fe0"></a>
@@ -349,48 +380,20 @@ template&lt;FloatType SampleType&gt; </div>
 
 </div>
 </div>
-<a id="a5ed1fba46fb2848e5ded1cc2ce87e149" name="a5ed1fba46fb2848e5ded1cc2ce87e149"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ed1fba46fb2848e5ded1cc2ce87e149">&#9670;&#160;</a></span>lowpass()</h2>
+<a id="a1089c02e19a0d79b261fdc89fb542efc" name="a1089c02e19a0d79b261fdc89fb542efc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1089c02e19a0d79b261fdc89fb542efc">&#9670;&#160;</a></span>lowpass()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;FloatType SampleType&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html">BiquadCoefficients</a>&lt; SampleType &gt; marvin::dsp::filters::rbj::lowpass </td>
+          <td class="memname">param sampleRate The sample rate to base the calculations off param <a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a> The frequency of the lowpass param q The resonance of the marvin::dsp::filters::rbj::lowpass </td>
           <td>(</td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>sampleRate</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">between 0 and</td>          <td class="paramname"><span class="paramname"><em>1</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>cutoff</em>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>q</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>An RBJ lowpass implementation for use with the <a class="el" href="classmarvin_1_1dsp_1_1filters_1_1Biquad.html" title="A cascading direct form ii biquad filter.">Biquad</a> class, based on the formulae from the RBJ Cookbook (<a href="https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html">https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html</a>) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sampleRate</td><td>The sample rate to base the calculations off. </td></tr>
-    <tr><td class="paramname">cutoff</td><td>The frequency of the lowpass </td></tr>
-    <tr><td class="paramname">q</td><td>The resonance of the lowpass (between 0 and 1) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>An instance of <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html" title="A POD type for use with the Biquad class, and the SmoothedBiquadCoefficients class.">BiquadCoefficients</a> populated with the resulting coefficients. </dd></dl>
 
 </div>
 </div>
@@ -538,6 +541,219 @@ template&lt;FloatType SampleType&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An instance of <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html" title="A POD type for use with the Biquad class, and the SmoothedBiquadCoefficients class.">BiquadCoefficients</a> populated with the resulting coefficients. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a1b0c2d2d9689daab6dc733f19a5a02e1" name="a1b0c2d2d9689daab6dc733f19a5a02e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b0c2d2d9689daab6dc733f19a5a02e1">&#9670;&#160;</a></span>a0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::a0 = static_cast&lt;SampleType&gt;(1.0) + <a class="el" href="#ae7ac7b5d48b91cde2d813c178e3cc2ac">alpha</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f4bb5617763dc45994d166ea36529a0" name="a9f4bb5617763dc45994d166ea36529a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f4bb5617763dc45994d166ea36529a0">&#9670;&#160;</a></span>a1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::a1 = static_cast&lt;SampleType&gt;(-2.0) * <a class="el" href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">cosOmega</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aff9ce40de357d3247c63317d6d63f5ff" name="aff9ce40de357d3247c63317d6d63f5ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff9ce40de357d3247c63317d6d63f5ff">&#9670;&#160;</a></span>a2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::a2 = static_cast&lt;SampleType&gt;(1.0) - <a class="el" href="#ae7ac7b5d48b91cde2d813c178e3cc2ac">alpha</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae7ac7b5d48b91cde2d813c178e3cc2ac" name="ae7ac7b5d48b91cde2d813c178e3cc2ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7ac7b5d48b91cde2d813c178e3cc2ac">&#9670;&#160;</a></span>alpha</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::alpha { <a class="el" href="#a57d430e668b497e00e91912ec1199feb">sinOmega</a> / (static_cast&lt;SampleType&gt;(2.0) * q) }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a257e4e91b4fb8de14fdc53f75378bc2a" name="a257e4e91b4fb8de14fdc53f75378bc2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a257e4e91b4fb8de14fdc53f75378bc2a">&#9670;&#160;</a></span>b0</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::b0 = (static_cast&lt;SampleType&gt;(1.0) - <a class="el" href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">cosOmega</a>) / static_cast&lt;SampleType&gt;(2.0)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9ec555aa55c7c4345256fa0b0c9ecac" name="ab9ec555aa55c7c4345256fa0b0c9ecac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9ec555aa55c7c4345256fa0b0c9ecac">&#9670;&#160;</a></span>b1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::b1 = static_cast&lt;SampleType&gt;(1.0) - <a class="el" href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">cosOmega</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3daefe5f9d13c7854c187192b0d71557" name="a3daefe5f9d13c7854c187192b0d71557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3daefe5f9d13c7854c187192b0d71557">&#9670;&#160;</a></span>b2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::b2 = <a class="el" href="#a257e4e91b4fb8de14fdc53f75378bc2a">b0</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6ed3e2008ec24e5b7e99b1e4c1bafaea" name="a6ed3e2008ec24e5b7e99b1e4c1bafaea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ed3e2008ec24e5b7e99b1e4c1bafaea">&#9670;&#160;</a></span>cosOmega</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::cosOmega = std::cos(<a class="el" href="#a2ba8cafe5b5609b8eb839e4860dba37b">omega</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4470defb657c8aa785830393bd1f400b" name="a4470defb657c8aa785830393bd1f400b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4470defb657c8aa785830393bd1f400b">&#9670;&#160;</a></span>cutoff</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">param sampleRate The sample rate to base the calculations off param cutoff The frequency of the <a class="el" href="#a1089c02e19a0d79b261fdc89fb542efc">lowpass</a> param q The resonance of the SampleType marvin::dsp::filters::rbj::cutoff</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5bc9a20737bd23d92dabb813e23257fa" name="a5bc9a20737bd23d92dabb813e23257fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc9a20737bd23d92dabb813e23257fa">&#9670;&#160;</a></span>fs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::fs { static_cast&lt;SampleType&gt;(sampleRate) }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a46d549edc32ec8113702dd0f81a0ee61" name="a46d549edc32ec8113702dd0f81a0ee61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46d549edc32ec8113702dd0f81a0ee61">&#9670;&#160;</a></span>noexcept</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">param sampleRate The sample rate to base the calculations off param <a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a> The frequency of the <a class="el" href="#a1089c02e19a0d79b261fdc89fb542efc">lowpass</a> param q The resonance of the SampleType SampleType q marvin::dsp::filters::rbj::noexcept</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">auto</span> twoPi = std::numbers::pi_v&lt;SampleType&gt; * <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(2.0)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2ba8cafe5b5609b8eb839e4860dba37b" name="a2ba8cafe5b5609b8eb839e4860dba37b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ba8cafe5b5609b8eb839e4860dba37b">&#9670;&#160;</a></span>omega</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::omega { twoPi * (<a class="el" href="#a4470defb657c8aa785830393bd1f400b">cutoff</a> / <a class="el" href="#a5bc9a20737bd23d92dabb813e23257fa">fs</a>) }</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4bc97a6770c4b45f8c2c29575e96b286" name="a4bc97a6770c4b45f8c2c29575e96b286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc97a6770c4b45f8c2c29575e96b286">&#9670;&#160;</a></span>return</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">marvin::dsp::filters::rbj::return</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">{</div>
+<div class="line">            .b0 = <a class="code hl_variable" href="#a257e4e91b4fb8de14fdc53f75378bc2a">b0</a>,</div>
+<div class="line">            .b1 = <a class="code hl_variable" href="#ab9ec555aa55c7c4345256fa0b0c9ecac">b1</a>,</div>
+<div class="line">            .b2 = <a class="code hl_variable" href="#a3daefe5f9d13c7854c187192b0d71557">b2</a>,</div>
+<div class="line">            .a0 = <a class="code hl_variable" href="#a1b0c2d2d9689daab6dc733f19a5a02e1">a0</a>,</div>
+<div class="line">            .a1 = <a class="code hl_variable" href="#a9f4bb5617763dc45994d166ea36529a0">a1</a>,</div>
+<div class="line">            .a2 = <a class="code hl_variable" href="#aff9ce40de357d3247c63317d6d63f5ff">a2</a></div>
+<div class="line">        }</div>
+<div class="ttc" id="anamespacemarvin_1_1dsp_1_1filters_1_1rbj_html_a1b0c2d2d9689daab6dc733f19a5a02e1"><div class="ttname"><a href="#a1b0c2d2d9689daab6dc733f19a5a02e1">marvin::dsp::filters::rbj::a0</a></div><div class="ttdeci">const auto a0</div><div class="ttdef"><b>Definition</b> marvin_RBJCoefficients.h:32</div></div>
+<div class="ttc" id="anamespacemarvin_1_1dsp_1_1filters_1_1rbj_html_a257e4e91b4fb8de14fdc53f75378bc2a"><div class="ttname"><a href="#a257e4e91b4fb8de14fdc53f75378bc2a">marvin::dsp::filters::rbj::b0</a></div><div class="ttdeci">const auto b0</div><div class="ttdef"><b>Definition</b> marvin_RBJCoefficients.h:29</div></div>
+<div class="ttc" id="anamespacemarvin_1_1dsp_1_1filters_1_1rbj_html_a3daefe5f9d13c7854c187192b0d71557"><div class="ttname"><a href="#a3daefe5f9d13c7854c187192b0d71557">marvin::dsp::filters::rbj::b2</a></div><div class="ttdeci">const auto b2</div><div class="ttdef"><b>Definition</b> marvin_RBJCoefficients.h:31</div></div>
+<div class="ttc" id="anamespacemarvin_1_1dsp_1_1filters_1_1rbj_html_a9f4bb5617763dc45994d166ea36529a0"><div class="ttname"><a href="#a9f4bb5617763dc45994d166ea36529a0">marvin::dsp::filters::rbj::a1</a></div><div class="ttdeci">const auto a1</div><div class="ttdef"><b>Definition</b> marvin_RBJCoefficients.h:33</div></div>
+<div class="ttc" id="anamespacemarvin_1_1dsp_1_1filters_1_1rbj_html_ab9ec555aa55c7c4345256fa0b0c9ecac"><div class="ttname"><a href="#ab9ec555aa55c7c4345256fa0b0c9ecac">marvin::dsp::filters::rbj::b1</a></div><div class="ttdeci">const auto b1</div><div class="ttdef"><b>Definition</b> marvin_RBJCoefficients.h:30</div></div>
+<div class="ttc" id="anamespacemarvin_1_1dsp_1_1filters_1_1rbj_html_aff9ce40de357d3247c63317d6d63f5ff"><div class="ttname"><a href="#aff9ce40de357d3247c63317d6d63f5ff">marvin::dsp::filters::rbj::a2</a></div><div class="ttdeci">const auto a2</div><div class="ttdef"><b>Definition</b> marvin_RBJCoefficients.h:34</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a57d430e668b497e00e91912ec1199feb" name="a57d430e668b497e00e91912ec1199feb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57d430e668b497e00e91912ec1199feb">&#9670;&#160;</a></span>sinOmega</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const auto marvin::dsp::filters::rbj::sinOmega = std::sin(<a class="el" href="#a2ba8cafe5b5609b8eb839e4860dba37b">omega</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

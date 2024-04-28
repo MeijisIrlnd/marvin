@@ -97,25 +97,23 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#ifndef MARVIN_LEAKYINTEGRATOR_H</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#define MARVIN_LEAKYINTEGRATOR_H</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="marvin__Concepts_8h.html">marvin/library/marvin_Concepts.h</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;marvin/library/marvin_EnableWarnings.h&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1math.html">marvin::math</a> {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keyword">template</span> &lt;FloatType SampleType&gt;</div>
-<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1LeakyIntegrator.html">   22</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmarvin_1_1math_1_1LeakyIntegrator.html">LeakyIntegrator</a> final {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1LeakyIntegrator.html#a338202e06b8f7f859652d746674349a9">   30</a></span>        [[nodiscard]] SampleType <a class="code hl_function" href="classmarvin_1_1math_1_1LeakyIntegrator.html#a338202e06b8f7f859652d746674349a9">operator()</a>(SampleType x, SampleType a) <span class="keyword">noexcept</span>;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        SampleType m_prev;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    };</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1math.html">marvin::math</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">template</span> &lt;FloatType SampleType&gt;</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1LeakyIntegrator.html">   21</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classmarvin_1_1math_1_1LeakyIntegrator.html">LeakyIntegrator</a> final {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1LeakyIntegrator.html#a338202e06b8f7f859652d746674349a9">   29</a></span>        [[nodiscard]] SampleType <a class="code hl_function" href="classmarvin_1_1math_1_1LeakyIntegrator.html#a338202e06b8f7f859652d746674349a9">operator()</a>(SampleType x, SampleType a) <span class="keyword">noexcept</span>;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        SampleType m_prev;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
 </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>} <span class="comment">// namespace marvin::math</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;marvin/library/marvin_DisableWarnings.h&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassmarvin_1_1math_1_1LeakyIntegrator_html"><div class="ttname"><a href="classmarvin_1_1math_1_1LeakyIntegrator.html">marvin::math::LeakyIntegrator</a></div><div class="ttdoc">An integrator of a continuous signal which leaks a small amount of said signal over time.</div><div class="ttdef"><b>Definition</b> marvin_LeakyIntegrator.h:22</div></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>} <span class="comment">// namespace marvin::math</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassmarvin_1_1math_1_1LeakyIntegrator_html"><div class="ttname"><a href="classmarvin_1_1math_1_1LeakyIntegrator.html">marvin::math::LeakyIntegrator</a></div><div class="ttdoc">An integrator of a continuous signal which leaks a small amount of said signal over time.</div><div class="ttdef"><b>Definition</b> marvin_LeakyIntegrator.h:21</div></div>
 <div class="ttc" id="aclassmarvin_1_1math_1_1LeakyIntegrator_html_a338202e06b8f7f859652d746674349a9"><div class="ttname"><a href="classmarvin_1_1math_1_1LeakyIntegrator.html#a338202e06b8f7f859652d746674349a9">marvin::math::LeakyIntegrator::operator()</a></div><div class="ttdeci">SampleType operator()(SampleType x, SampleType a) noexcept</div></div>
 <div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
-<div class="ttc" id="anamespacemarvin_1_1math_html"><div class="ttname"><a href="namespacemarvin_1_1math.html">marvin::math</a></div><div class="ttdef"><b>Definition</b> marvin_Math.h:15</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html"><div class="ttname"><a href="namespacemarvin_1_1math.html">marvin::math</a></div><div class="ttdef"><b>Definition</b> marvin_Math.h:14</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

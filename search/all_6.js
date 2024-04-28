@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['incrementphase_0',['incrementPhase',['../classmarvin_1_1oscillators_1_1OscillatorBase.html#a6f9a8312bc8cfaddf6cf7128b896f188',1,'marvin::oscillators::OscillatorBase']]],
-  ['initialise_1',['initialise',['../classmarvin_1_1dsp_1_1DelayLine.html#ab2a224c4d6647643552aa29b17fa0f4b',1,'marvin::dsp::DelayLine::initialise()'],['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a90011c429c18ea2fa5be1fee1f33666a',1,'marvin::dsp::filters::LatticeAPF::initialise()'],['../classmarvin_1_1dsp_1_1filters_1_1LPF.html#a5297d9b795182baeb93501d77dcaaab9',1,'marvin::dsp::filters::LPF::initialise()'],['../classmarvin_1_1oscillators_1_1OscillatorBase.html#a67f4daf692dfb657c01bac9218c5dac1',1,'marvin::oscillators::OscillatorBase::initialise()'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#ab3575f515172f166e6c3d60a92418cee',1,'marvin::oscillators::MultiOscillator::initialise()']]],
-  ['inplace_2',['inPlace',['../classmarvin_1_1utils_1_1Householder.html#a68b70639276ee219890db2738ebc699e',1,'marvin::utils::Householder::inPlace()'],['../classmarvin_1_1utils_1_1Hadamard.html#a1afd4fdc3c3f98dc22dbcd2960856c0e',1,'marvin::utils::Hadamard::inPlace()']]],
-  ['interpolate_3',['interpolate',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#ac8d5abe4cc26e035c431508fe3bd2d3b',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
-  ['ispoweroftwo_4',['isPowerOfTwo',['../namespacemarvin.html#aef211161dc3b68ddd015a4b477d815c1',1,'marvin']]],
-  ['issmoothing_5',['isSmoothing',['../classmarvin_1_1utils_1_1LinearSmoothedValue.html#a5338dec41d1a61c5ee319e1f665fef68',1,'marvin::utils::LinearSmoothedValue']]]
+  ['generate_0',['generate',['../classmarvin_1_1utils_1_1Random.html#ae64dd30118e742a805770b3cdba3b42f',1,'marvin::utils::Random']]],
+  ['get_1',['get',['../classmarvin_1_1library_1_1PropagateConst.html#acb8104a4a6dbf10a979bd490e3fc99cc',1,'marvin::library::PropagateConst::get()'],['../classmarvin_1_1library_1_1PropagateConst.html#a4bd97a733ab2d96a96a7971204ab4630',1,'marvin::library::PropagateConst::get() const']]],
+  ['getarrayofreadpointers_2',['getArrayOfReadPointers',['../structmarvin_1_1audiobasics_1_1BufferView.html#a917c342888f72a8aa623a573d0bd72af',1,'marvin::audiobasics::BufferView']]],
+  ['getarrayofwritepointers_3',['getArrayOfWritePointers',['../structmarvin_1_1audiobasics_1_1BufferView.html#a548d070e19024a72e689a4ee17c65120',1,'marvin::audiobasics::BufferView']]],
+  ['getdelay_4',['getDelay',['../classmarvin_1_1dsp_1_1DelayLine.html#a93adf72c1f2a345c0e1ecbc65c527dfb',1,'marvin::dsp::DelayLine']]],
+  ['getmaximumdelayinsamples_5',['getMaximumDelayInSamples',['../classmarvin_1_1dsp_1_1DelayLine.html#ae2438994c586fc568fa952af1728e020',1,'marvin::dsp::DelayLine']]],
+  ['getnumchannels_6',['getNumChannels',['../structmarvin_1_1audiobasics_1_1BufferView.html#a8692d244123b1d5f817b718d5fa36cc0',1,'marvin::audiobasics::BufferView']]],
+  ['getnumsamples_7',['getNumSamples',['../structmarvin_1_1audiobasics_1_1BufferView.html#adda66848663c45e1c98ef1716789cb7a',1,'marvin::audiobasics::BufferView']]]
 ];

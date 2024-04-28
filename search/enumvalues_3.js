@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['triangle_0',['TRIANGLE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa9bcd89070cae224dce305f5011659ef4',1,'marvin::oscillators::MultiOscillator']]]
+  ['off_0',['Off',['../namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9ad15305d7a4e34e02489c74a5ef542f36',1,'marvin::oscillators']]],
+  ['on_1',['On',['../namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9a521c36a31c2762741cf0f8890cbe05e3',1,'marvin::oscillators']]]
 ];
