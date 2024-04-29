@@ -94,8 +94,42 @@ Functions</h2></td></tr>
 <tr class="memitem:a67212a8a8c4d308a97bb2e4ea34e7c39" id="r_a67212a8a8c4d308a97bb2e4ea34e7c39"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a67212a8a8c4d308a97bb2e4ea34e7c39"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a67212a8a8c4d308a97bb2e4ea34e7c39">lerp</a> (T start, T end, T ratio) noexcept</td></tr>
 <tr class="separator:a67212a8a8c4d308a97bb2e4ea34e7c39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a3d40e45bbeb22d6a4566c0f155a292" id="r_a4a3d40e45bbeb22d6a4566c0f155a292"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
+<tr class="memitem:a4a3d40e45bbeb22d6a4566c0f155a292"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4a3d40e45bbeb22d6a4566c0f155a292">dbToGain</a> (T db, T referenceMinDb=static_cast&lt; T &gt;(-100.0))</td></tr>
+<tr class="separator:a4a3d40e45bbeb22d6a4566c0f155a292"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a4a3d40e45bbeb22d6a4566c0f155a292" name="a4a3d40e45bbeb22d6a4566c0f155a292"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a3d40e45bbeb22d6a4566c0f155a292">&#9670;&#160;</a></span>dbToGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T marvin::math::dbToGain </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>db</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>referenceMinDb</em><span class="paramdefsep"> = </span><span class="paramdefval">static_cast&lt;T&gt;(-100.0)</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts from decibels to gain. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">db</td><td>The level in decibels. </td></tr>
+    <tr><td class="paramname">referenceMinDb</td><td>The level in decibels that should correspond to 0 gain. Optional, defaults to -100dB. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The level in decibels converted to a 0 to 1 gain. </dd></dl>
+
+</div>
+</div>
 <a id="a67212a8a8c4d308a97bb2e4ea34e7c39" name="a67212a8a8c4d308a97bb2e4ea34e7c39"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67212a8a8c4d308a97bb2e4ea34e7c39">&#9670;&#160;</a></span>lerp()</h2>
 

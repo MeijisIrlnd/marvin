@@ -84,12 +84,16 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="marvin__Concepts_8h_source.html">marvin/library/marvin_Concepts.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="marvin__BiquadCoefficients_8h_source.html">marvin/dsp/filters/biquad/marvin_BiquadCoefficients.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="marvin__SmoothedValue_8h_source.html">marvin/utils/marvin_SmoothedValue.h</a>&quot;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 </div>
 <p><a href="marvin__SmoothedBiquadCoefficients_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html">marvin::dsp::filters::SmoothedBiquadCoefficients&lt; SampleType &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html">marvin::dsp::filters::SmoothedBiquadCoefficients&lt; SampleType, InterpolationType, NumStages &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class to simplify smoothly changing <a class="el" href="structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html" title="A POD type for use with the Biquad class, and the SmoothedBiquadCoefficients class.">BiquadCoefficients</a> with no zippering.  <a href="classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
