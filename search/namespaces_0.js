@@ -8,5 +8,6 @@ var searchData=
   ['marvin_3a_3alibrary_5',['library',['../namespacemarvin_1_1library.html',1,'marvin']]],
   ['marvin_3a_3amath_6',['math',['../namespacemarvin_1_1math.html',1,'marvin']]],
   ['marvin_3a_3aoscillators_7',['oscillators',['../namespacemarvin_1_1oscillators.html',1,'marvin']]],
-  ['marvin_3a_3autils_8',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
+  ['marvin_3a_3asimd_8',['simd',['../namespacemarvin_1_1simd.html',1,'marvin']]],
+  ['marvin_3a_3autils_9',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
 ];

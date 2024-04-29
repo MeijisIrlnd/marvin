@@ -25,5 +25,6 @@ var searchData=
   ['square_22',['SQUARE',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a400ca8552c7f5abae9ccd721bc05188aa12dec4e1f7ec620651b2b95c440ffac0',1,'marvin::oscillators::MultiOscillator']]],
   ['squareoscillator_23',['SquareOscillator',['../classmarvin_1_1oscillators_1_1SquareOscillator.html',1,'marvin::oscillators']]],
   ['squareoscillator_3c_20sampletype_2c_20bandlimiting_3a_3aoff_20_3e_24',['SquareOscillator&lt; SampleType, Bandlimiting::Off &gt;',['../classmarvin_1_1oscillators_1_1SquareOscillator.html',1,'marvin::oscillators']]],
-  ['swap_25',['swap',['../classmarvin_1_1library_1_1PropagateConst.html#aebaa7200f12ded0e5e50acb6d0fbd577',1,'marvin::library::PropagateConst']]]
+  ['subtract_25',['subtract',['../namespacemarvin_1_1simd.html#ae3e1cfeca58d5d43df031f9356c8e0f1',1,'marvin::simd']]],
+  ['swap_26',['swap',['../classmarvin_1_1library_1_1PropagateConst.html#aebaa7200f12ded0e5e50acb6d0fbd577',1,'marvin::library::PropagateConst']]]
 ];

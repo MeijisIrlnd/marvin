@@ -12,5 +12,6 @@ var searchData=
   ['setshape_9',['setShape',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a9878f3a90bd1d6451a8693127f933a17',1,'marvin::oscillators::MultiOscillator']]],
   ['settargetcoeffs_10',['setTargetCoeffs',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#aea5133077f9e70473937610ca86882c1',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
   ['settargetvalue_11',['setTargetValue',['../classmarvin_1_1utils_1_1SmoothedValue.html#a9a6ef6a44c14a54972ebc3f469c24776',1,'marvin::utils::SmoothedValue']]],
-  ['swap_12',['swap',['../classmarvin_1_1library_1_1PropagateConst.html#aebaa7200f12ded0e5e50acb6d0fbd577',1,'marvin::library::PropagateConst']]]
+  ['subtract_12',['subtract',['../namespacemarvin_1_1simd.html#ae3e1cfeca58d5d43df031f9356c8e0f1',1,'marvin::simd']]],
+  ['swap_13',['swap',['../classmarvin_1_1library_1_1PropagateConst.html#aebaa7200f12ded0e5e50acb6d0fbd577',1,'marvin::library::PropagateConst']]]
 ];
