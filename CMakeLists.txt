@@ -27,6 +27,14 @@ else()
     set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Werror")
 endif()
 
+include(FetchContent)
+FetchContent_Declare( 
+    mipp
+    GIT_REPOSITORY https://github.com/aff3ct/MIPP
+    GIT_SHALLOW ON 
+)
+FetchContent_MakeAvailable(mipp)
+
 add_subdirectory(source)
 add_subdirectory(include)
 add_subdirectory(tests)
@@ -40,6 +48,7 @@ target_include_directories(marvin PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
+target_link_libraries(marvin PUBLIC mipp)
 
 install(DIRECTORY "include/" # source directory
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}" # target directory
