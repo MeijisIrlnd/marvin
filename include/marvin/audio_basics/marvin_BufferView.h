@@ -27,7 +27,7 @@ namespace marvin::audiobasics {
             \param nChannels The number of channels allocated (the size of the outermost array)
             \param nSamples The number of samples allocated per channel (the size of the innermost array)
         */
-        BufferView(SampleType** samples, size_t nChannels, size_t nSamples);
+        BufferView(SampleType* const* samples, size_t nChannels, size_t nSamples);
         /**
             Returns the number of channels allocated in the underlying buffer
             \return The number of channels allocated.
@@ -64,7 +64,7 @@ namespace marvin::audiobasics {
         [[nodiscard]] std::span<const SampleType> operator[](size_t channel) const noexcept;
 
     private:
-        SampleType** m_samples;
+        SampleType* const* m_samples;
         size_t m_nChannels;
         size_t m_nSamples;
     };

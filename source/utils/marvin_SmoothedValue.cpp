@@ -35,7 +35,7 @@ namespace marvin::utils {
         if constexpr (Type == SmoothingType::Linear) {
             m_slew = (newValue - m_currentValue) / static_cast<SampleType>(m_duration);
         } else {
-            m_slew = static_cast<SampleType>(1.0) / static_cast<SampleType>(m_duration) + static_cast<SampleType>(1.0);
+            m_slew = static_cast<SampleType>(1.0) / (static_cast<SampleType>(m_duration) + static_cast<SampleType>(1.0));
         }
         m_targetValue = newValue;
         m_samplesRemaining = m_duration;

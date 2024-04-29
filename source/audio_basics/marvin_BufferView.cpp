@@ -14,9 +14,9 @@
 #include <cassert>
 namespace marvin::audiobasics {
     template <FloatType SampleType>
-    BufferView<SampleType>::BufferView(SampleType** samples, size_t nChannels, size_t nSamples) : m_samples(samples),
-                                                                                                  m_nChannels(nChannels),
-                                                                                                  m_nSamples(nSamples) {
+    BufferView<SampleType>::BufferView(SampleType* const* samples, size_t nChannels, size_t nSamples) : m_samples(samples),
+                                                                                                        m_nChannels(nChannels),
+                                                                                                        m_nSamples(nSamples) {
     }
 
     template <FloatType SampleType>

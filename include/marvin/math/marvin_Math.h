@@ -11,6 +11,7 @@
 #ifndef MARVIN_MATH_H
 #define MARVIN_MATH_H
 #include "marvin/library/marvin_Concepts.h"
+#include <cmath>
 namespace marvin::math {
 
     /**
@@ -24,6 +25,21 @@ namespace marvin::math {
     [[nodiscard]] T lerp(T start, T end, T ratio) noexcept {
         const auto interpolated = start + (end - start) * ratio;
         return interpolated;
+    }
+
+    /**
+        Converts from decibels to gain.
+        \param db The level in decibels.
+        \param referenceMinDb The level in decibels that should correspond to 0 gain. Optional, defaults to -100dB.
+        \return The level in decibels converted to a 0 to 1 gain.
+    */
+    template <FloatType T>
+    [[nodiscard]] T dbToGain(T db, T referenceMinDb = static_cast<T>(-100.0)) {
+        if (db > referenceMinDb) {
+            return std::pow(static_cast<T>(10.0), db * static_cast<T>(0.05));
+        } else {
+            return static_cast<T>(0.0);
+        }
     }
 
 } // namespace marvin::math
