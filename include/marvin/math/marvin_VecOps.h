@@ -103,7 +103,7 @@ namespace marvin::vecops {
     */
     template <NumericType T, size_t Size>
     void multiply(std::span<T, Size> lhs, std::span<T, Size> rhs) noexcept {
-        const auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
+        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
         [[maybe_unused]] const auto n = mipp::N<T>();
         mipp::Reg<T> rl, rr, rtemp;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
