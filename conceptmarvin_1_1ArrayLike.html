@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>marvin: Concepts</title>
+<title>marvin: marvin::ArrayLike Concept Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -49,7 +49,6 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -71,20 +70,32 @@ $(function() {
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacemarvin.html">marvin</a></li><li class="navelem"><a class="el" href="conceptmarvin_1_1ArrayLike.html">ArrayLike</a></li>  </ul>
+</div>
+</div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">Concepts</div></div>
+  <div class="headertitle"><div class="title">marvin::ArrayLike Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all concepts with brief descriptions:</div><div class="directory">
-<div class="levels">[detail level <span onclick="javascript:dynsection.toggleLevel(1);">1</span><span onclick="javascript:dynsection.toggleLevel(2);">2</span>]</div><table class="directory">
-<tr id="row_0_" class="even"><td class="entry"><span style="width:0px;display:inline-block;">&#160;</span><span id="arr_0_" class="arrow" onclick="dynsection.toggleFolder('0_')">&#9660;</span><span class="icona"><span class="icon">N</span></span><a class="el" href="namespacemarvin.html" target="_self">marvin</a></td><td class="desc"></td></tr>
-<tr id="row_0_0_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">R</span></span><a class="el" href="conceptmarvin_1_1FloatType.html" target="_self">FloatType</a></td><td class="desc">Contrains T to be either a float or a double </td></tr>
-<tr id="row_0_1_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">R</span></span><a class="el" href="conceptmarvin_1_1NumericType.html" target="_self">NumericType</a></td><td class="desc">Constrains T to be any numeric type </td></tr>
-<tr id="row_0_2_" class="odd"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">R</span></span><a class="el" href="conceptmarvin_1_1SmartPointerType.html" target="_self">SmartPointerType</a></td><td class="desc">Constrains T to a class that implements <code>get()</code>, <code>reset()</code> <code>operator*()</code> and <code>operator-&gt;()</code> </td></tr>
-<tr id="row_0_3_" class="even"><td class="entry"><span style="width:32px;display:inline-block;">&#160;</span><span class="icona"><span class="icon">R</span></span><a class="el" href="conceptmarvin_1_1ArrayLike.html" target="_self">ArrayLike</a></td><td class="desc">Constrains T to a type that defines a const_iterator as a child, has an implementation of <code>operator[](size_t)</code> and has a <code>.size()</code> member </td></tr>
-</table>
-</div><!-- directory -->
-</div><!-- contents -->
+
+<p>Constrains T to a type that defines a const_iterator as a child, has an implementation of <code>operator[](size_t)</code> and has a <code>.size()</code> member.  
+<a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="marvin__Concepts_8h_source.html">marvin_Concepts.h</a>&gt;</code></p>
+<h2 class="groupheader">Concept definition</h2>
+<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmarvin_1_1ArrayLike.html">marvin::ArrayLike</a> =  <span class="keyword">requires</span>(T a) {</div>
+<div class="line">        <span class="keyword">typename</span> T::iterator;</div>
+<div class="line">        a.operator[](0);</div>
+<div class="line">        a.data();</div>
+<div class="line">        a.size();</div>
+<div class="line">    }</div>
+<div class="ttc" id="aconceptmarvin_1_1ArrayLike_html"><div class="ttname"><a href="conceptmarvin_1_1ArrayLike.html">marvin::ArrayLike</a></div><div class="ttdoc">Constrains T to a type that defines a const_iterator as a child, has an implementation of operator[](...</div><div class="ttdef"><b>Definition</b> marvin_Concepts.h:49</div></div>
+</div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Constrains T to a type that defines a const_iterator as a child, has an implementation of <code>operator[](size_t)</code> and has a <code>.size()</code> member. </p>
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
