@@ -13,9 +13,9 @@ var searchData=
   ['marvin_3a_3amath_10',['math',['../namespacemarvin_1_1math.html',1,'marvin']]],
   ['marvin_3a_3anumerictype_11',['NumericType',['../conceptmarvin_1_1NumericType.html',1,'marvin']]],
   ['marvin_3a_3aoscillators_12',['oscillators',['../namespacemarvin_1_1oscillators.html',1,'marvin']]],
-  ['marvin_3a_3asimd_13',['simd',['../namespacemarvin_1_1simd.html',1,'marvin']]],
-  ['marvin_3a_3asmartpointertype_14',['SmartPointerType',['../conceptmarvin_1_1SmartPointerType.html',1,'marvin']]],
-  ['marvin_3a_3autils_15',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]],
+  ['marvin_3a_3asmartpointertype_13',['SmartPointerType',['../conceptmarvin_1_1SmartPointerType.html',1,'marvin']]],
+  ['marvin_3a_3autils_14',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]],
+  ['marvin_3a_3avecops_15',['vecops',['../namespacemarvin_1_1vecops.html',1,'marvin']]],
   ['marvin_5fapf_2eh_16',['marvin_APF.h',['../marvin__APF_8h.html',1,'']]],
   ['marvin_5fbiquad_2eh_17',['marvin_Biquad.h',['../marvin__Biquad_8h.html',1,'']]],
   ['marvin_5fbiquadcoefficients_2eh_18',['marvin_BiquadCoefficients.h',['../marvin__BiquadCoefficients_8h.html',1,'']]],
@@ -30,11 +30,11 @@ var searchData=
   ['marvin_5fpropagateconst_2eh_27',['marvin_PropagateConst.h',['../marvin__PropagateConst_8h.html',1,'']]],
   ['marvin_5frandom_2eh_28',['marvin_Random.h',['../marvin__Random_8h.html',1,'']]],
   ['marvin_5frbjcoefficients_2eh_29',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
-  ['marvin_5fsimdops_2eh_30',['marvin_SIMDOps.h',['../marvin__SIMDOps_8h.html',1,'']]],
-  ['marvin_5fsmoothedbiquadcoefficients_2eh_31',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
-  ['marvin_5fsmoothedvalue_2eh_32',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]],
+  ['marvin_5fsmoothedbiquadcoefficients_2eh_30',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
+  ['marvin_5fsmoothedvalue_2eh_31',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]],
+  ['marvin_5fvecops_2eh_32',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]],
   ['max_33',['max',['../structmarvin_1_1utils_1_1Random_1_1Range.html#a76068fcea5b816c6463082f0a7a15bac',1,'marvin::utils::Random::Range']]],
   ['min_34',['min',['../structmarvin_1_1utils_1_1Random_1_1Range.html#a19afa88d802fb522a095cf931c95bf90',1,'marvin::utils::Random::Range']]],
   ['multioscillator_35',['MultiOscillator',['../classmarvin_1_1oscillators_1_1MultiOscillator.html',1,'marvin::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt;'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a390c58f1afd641bf4c54b953fef830fb',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd)'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a125ee49fc5ed6cb1c2b63050c56621b0',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd, SHAPE shape)']]],
-  ['multiply_36',['multiply',['../namespacemarvin_1_1simd.html#a3b3c6d77308f7cab7a9957679dba0065',1,'marvin::simd']]]
+  ['multiply_36',['multiply',['../namespacemarvin_1_1vecops.html#ac7d95871d83872bfb5740b4153c92edd',1,'marvin::vecops::multiply(std::span&lt; T, Size &gt; lhs, std::span&lt; T, Size &gt; rhs) noexcept'],['../namespacemarvin_1_1vecops.html#abbe8938286118263ce0971011837c1ff',1,'marvin::vecops::multiply(std::span&lt; T, Size &gt; arrView, T scalar) noexcept']]]
 ];
