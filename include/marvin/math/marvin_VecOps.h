@@ -65,7 +65,8 @@ namespace marvin::vecops {
         \param rhs The source array-like.
     */
     template <ArrayLike T>
-    requires NumericType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type> ||
+             std::is_integral_v<typename T::value_type>
     void add(T& lhs, const T& rhs) noexcept {
         assert(lhs.size() == rhs.size());
         add(lhs.data(), rhs.data(), lhs.size());
@@ -78,7 +79,8 @@ namespace marvin::vecops {
         \param scalar The value to add to each element of `arr`.
     */
     template <ArrayLike T>
-    requires NumericType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type> ||
+             std::is_integral_v<typename T::value_type>
     void add(T& arr, typename T::value_type scalar) noexcept {
         add(arr.data(), scalar, arr.size());
     }
@@ -133,7 +135,8 @@ namespace marvin::vecops {
         \param rhs The source array-like.
     */
     template <ArrayLike T>
-    requires NumericType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type> ||
+             std::is_integral_v<typename T::value_type>
     void subtract(T& lhs, const T& rhs) noexcept {
         assert(lhs.size() == rhs.size());
         subtract(lhs.data(), rhs.data(), lhs.size());
@@ -146,7 +149,8 @@ namespace marvin::vecops {
         \param scalar The value to subtract from each element in `arr`.
     */
     template <ArrayLike T>
-    requires NumericType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type> ||
+             std::is_integral_v<typename T::value_type>
     void subtract(T& arr, typename T::value_type scalar) noexcept {
         subtract(arr.data(), scalar, arr.size());
     }
@@ -201,7 +205,8 @@ namespace marvin::vecops {
         \param rhs The source array-like.
     */
     template <ArrayLike T>
-    requires NumericType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type> ||
+             std::is_integral_v<typename T::value_type>
     void multiply(T& lhs, const T& rhs) noexcept {
         assert(lhs.size() == rhs.size());
         multiply(lhs.data(), rhs.data(), lhs.size());
@@ -214,7 +219,8 @@ namespace marvin::vecops {
         \param scalar The value to multiply each element in `arr` by.
     */
     template <ArrayLike T>
-    requires NumericType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type> ||
+             std::is_integral_v<typename T::value_type>
     void multiply(T& arr, typename T::value_type scalar) noexcept {
         multiply(arr.data(), scalar, arr.size());
     }
@@ -272,7 +278,7 @@ namespace marvin::vecops {
         \param rhs The source array-like.
     */
     template <ArrayLike T>
-    requires FloatType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type>
     void divide(T& lhs, const T& rhs) noexcept {
         assert(lhs.size() == rhs.size());
         divide(lhs.data(), rhs.data(), lhs.size());
@@ -286,7 +292,7 @@ namespace marvin::vecops {
         \param scalar The value to divide each element in `arr` by.
     */
     template <ArrayLike T>
-    requires FloatType<typename T::value_type>
+    requires std::is_floating_point_v<typename T::value_type>
     void divide(T& arr, typename T::value_type scalar) noexcept {
         divide(arr.data(), scalar, arr.size());
     }
