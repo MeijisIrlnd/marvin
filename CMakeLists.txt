@@ -21,6 +21,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(MARVIN_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
         CACHE STRING "Path where package files will be installed, relative to the install prefix"
 )
+set(MARVIN_SIMD_FLAGS -msse4.2 -mavx -march=native)
 if(MSVC) 
     set(MARVIN_WARNING_FLAGS "/W4 /WX")
 else() 
@@ -44,6 +45,7 @@ add_library(marvin STATIC ${MARVIN_SOURCES})
 add_library(slma::marvin ALIAS marvin)
 set_source_files_properties(${MARVIN_SOURCES} PROPERTIES COMPILE_FLAGS "${MARVIN_WARNING_FLAGS}")
 target_compile_features(marvin PUBLIC cxx_std_20)
+target_compile_options(marvin PUBLIC ${MARVIN_SIMD_FLAGS})
 target_include_directories(marvin PUBLIC 
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
@@ -100,12 +102,21 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/catchorg/Catch2.git
     GIT_TAG v3.0.1 # or a later release
     GIT_SHALLOW ON
-    FIND_PACKAGE_ARGS 3.0.1 GLOBAL
+    # FIND_PACKAGE_ARGS 3.0.1 GLOBAL
 )
 FetchContent_MakeAvailable(Catch2)
+
+FetchContent_Declare( 
+    fmt 
+    GIT_REPOSITORY https://github.com/fmtlib/fmt
+    GIT_SHALLOW ON 
+)
+FetchContent_MakeAvailable(fmt) 
+
 add_executable(marvin-tests ${MARVIN_TEST_SOURCE})
 target_include_directories(marvin-tests PRIVATE include)
-target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin)
+target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin fmt)
+target_compile_definitions(marvin-tests PRIVATE FMT_HEADER_ONLY)
 add_dependencies(marvin-tests marvin)
 
 

@@ -70,18 +70,18 @@ namespace marvin::testing {
 
         SECTION("Test oscillator waves") {
             SineOscillator<float> sine;
-            TriOscillator<float, BlepState::Off> tri;
-            SawOscillator<float, BlepState::Off> saw;
-            SquareOscillator<float, BlepState::Off> square;
-            PulseOscillator<float, BlepState::Off> pulse;
+            TriOscillator<float, Bandlimiting::Off> tri;
+            SawOscillator<float, Bandlimiting::Off> saw;
+            SquareOscillator<float, Bandlimiting::Off> square;
+            PulseOscillator<float, Bandlimiting::Off> pulse;
             NoiseOscillator<float> noise{ rd };
 
-            MultiOscillator<float, BlepState::Off> multiSine{ rd, MultiOscillator<float>::SHAPE::SINE };
-            MultiOscillator<float, BlepState::Off> multiTri{ rd, MultiOscillator<float>::SHAPE::TRIANGLE };
-            MultiOscillator<float, BlepState::Off> multiSaw{ rd, MultiOscillator<float>::SHAPE::SAW };
-            MultiOscillator<float, BlepState::Off> multiSquare{ rd, MultiOscillator<float>::SHAPE::SQUARE };
-            MultiOscillator<float, BlepState::Off> multiPulse{ rd, MultiOscillator<float>::SHAPE::PULSE };
-            MultiOscillator<float, BlepState::Off> multiNoise{ rd, MultiOscillator<float>::SHAPE::NOISE };
+            MultiOscillator<float, Bandlimiting::Off> multiSine{ rd, MultiOscillator<float>::SHAPE::SINE };
+            MultiOscillator<float, Bandlimiting::Off> multiTri{ rd, MultiOscillator<float>::SHAPE::TRIANGLE };
+            MultiOscillator<float, Bandlimiting::Off> multiSaw{ rd, MultiOscillator<float>::SHAPE::SAW };
+            MultiOscillator<float, Bandlimiting::Off> multiSquare{ rd, MultiOscillator<float>::SHAPE::SQUARE };
+            MultiOscillator<float, Bandlimiting::Off> multiPulse{ rd, MultiOscillator<float>::SHAPE::PULSE };
+            MultiOscillator<float, Bandlimiting::Off> multiNoise{ rd, MultiOscillator<float>::SHAPE::NOISE };
 
             initialiseOsc(&sine, frequency, sampleRate);
             initialiseOsc(&tri, frequency, sampleRate);
@@ -142,10 +142,10 @@ namespace marvin::testing {
         }
         SECTION("Test PolyBLEP Ranges") {
             // I don't know enough about BLEP to test the actual functionality
-            TriOscillator<float, BlepState::On> triOsc;
-            SawOscillator<float, BlepState::On> sawOsc;
-            SquareOscillator<float, BlepState::On> squareOsc;
-            PulseOscillator<float, BlepState::On> pulseOsc;
+            TriOscillator<float, Bandlimiting::On> triOsc;
+            SawOscillator<float, Bandlimiting::On> sawOsc;
+            SquareOscillator<float, Bandlimiting::On> squareOsc;
+            PulseOscillator<float, Bandlimiting::On> pulseOsc;
             initialiseOsc(&triOsc, frequency, sampleRate);
             initialiseOsc(&sawOsc, frequency, sampleRate);
             initialiseOsc(&squareOsc, frequency, sampleRate);

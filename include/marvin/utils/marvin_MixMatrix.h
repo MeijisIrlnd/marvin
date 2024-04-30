@@ -11,6 +11,7 @@
 #ifndef MARVIN_MIXMATRIX_H
 #define MARVIN_MIXMATRIX_H
 #include "marvin/library/marvin_Concepts.h"
+#include "marvin/math/marvin_VecOps.h"
 #include <cmath>
 
 namespace marvin::utils {
