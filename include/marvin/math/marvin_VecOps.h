@@ -12,179 +12,307 @@
 #include <marvin/library/marvin_Concepts.h>
 #include <marvin/library/marvin_Literals.h>
 #include <mipp.h>
-#include <span>
+#include <type_traits>
 namespace marvin::vecops {
 
     /**
-        Uses SIMD operations to add the values of the rhs view to the lhs view,
-        and stores the result in lhs.
-        \param lhs The destination view, to add the values to.
-        \param rhs The view to add the values from.
+        Uses SIMD operations to add the values of `rhs` to the values of `lhs`, and
+        stores the result in `lhs`.
+        \param lhs A raw pointer to the dest array-like.
+        \param rhs A raw pointer to the source array-like.
+        \param size The number of elements in `lhs` and `rhs`.
     */
-    template <NumericType T, size_t Size>
-    void add(std::span<T, Size> lhs, std::span<T, Size> rhs) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
-        mipp::Reg<T> rl, rr, rtemp;
+    template <NumericType T>
+    void add(T* lhs, const T* rhs, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
+        mipp::Reg<T> rl, rr;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
             rl.load(&lhs[i]);
             rr.load(&rhs[i]);
-            rtemp = rl + rr;
-            rtemp.store(&lhs[i]);
+            rl += rr;
+            rl.store(&lhs[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
             lhs[i] += rhs[i];
         }
     }
 
     /**
-        Uses SIMD operations to add the value of `scalar` to the values of `arrView`, and stores the result in `arrView`.
-        \param arrView The destination view.
-        \param scalar A scalar to add to every element in the view.
+        Uses SIMD operations to add the value of `scalar` to the values of `lhs`,
+        and stores the result in `lhs`.
+        \param arr A raw pointer to the dest array-like.
+        \param scalar The value to add to each element of `arr`.
+        \param size The number of elements in `arr`.
     */
-    template <NumericType T, size_t Size>
-    void add(std::span<T, Size> arrView, T scalar) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
+    template <NumericType T>
+    void add(T* arr, T scalar, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
         mipp::Reg<T> r;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
-            r.load(&arrView[i]);
+            r.load(&arr[i]);
             r += scalar;
-            r.store(&arrView[i]);
+            r.store(&arr[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
-            arrView[i] += scalar;
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
+            arr[i] += scalar;
         }
     }
 
     /**
-        Uses SIMD operations to subtract the values of the rhs view from the values of the lhs view,
-        and stores the result in lhs.
-        \param lhs The destination view, to subtract the values from.
-        \param rhs The view containing the values to subtract.
+        Uses SIMD operations to add the values of `rhs` to the values of `lhs`, and
+        stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`.
+        \param lhs The destination array-like.
+        \param rhs The source array-like.
     */
-    template <NumericType T, size_t Size>
-    void subtract(std::span<T, Size> lhs, std::span<T, Size> rhs) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
-        mipp::Reg<T> rl, rr, rtemp;
+    template <ArrayLike T>
+    requires NumericType<typename T::value_type>
+    void add(T& lhs, const T& rhs) noexcept {
+        assert(lhs.size() == rhs.size());
+        add(lhs.data(), rhs.data(), lhs.size());
+    }
+
+    /**
+        Uses SIMD operations to add the value of `scalar` to the values of `lhs`,
+        and stores the result in `lhs`.
+        \param arr The destination array-like.
+        \param scalar The value to add to each element of `arr`.
+    */
+    template <ArrayLike T>
+    requires NumericType<typename T::value_type>
+    void add(T& arr, typename T::value_type scalar) noexcept {
+        add(arr.data(), scalar, arr.size());
+    }
+
+    /**
+        Uses SIMD operations to subtract the values of `rhs` from the values of `lhs`, and
+        stores the result in `lhs`.
+        \param lhs A raw pointer to the dest array-like.
+        \param rhs A raw pointer to the source array-like.
+        \param size The number of elements in `lhs` and `rhs`.
+    */
+    template <NumericType T>
+    void subtract(T* lhs, const T* rhs, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
+        mipp::Reg<T> rl, rr;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
             rl.load(&lhs[i]);
             rr.load(&rhs[i]);
-            rtemp = rl - rr;
-            rtemp.store(&lhs[i]);
+            rl -= rr;
+            rl.store(&lhs[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
             lhs[i] -= rhs[i];
         }
     }
 
     /**
-        Uses SIMD operations to subtract the value of `scalar` from the values of `arrView`, and stores the result in `arrView`.
-        \param arrView The destination view.
-        \param scalar A scalar to subtract from every element in the view.
+        Uses SIMD operations to subtract the value of `scalar` from the values of `lhs`, and
+        stores the result in `lhs`.
+        \param arr A raw pointer to the dest array-like.
+        \param scalar The value to subtract from each element in `arr`.
+        \param size The number of elements in `lhs` and `rhs`.
     */
-    template <NumericType T, size_t Size>
-    void subtract(std::span<T, Size> arrView, T scalar) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
+    template <NumericType T>
+    void subtract(T* arr, T scalar, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
         mipp::Reg<T> r;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
-            r.load(&arrView[i]);
+            r.load(&arr[i]);
             r -= scalar;
-            r.store(&arrView[i]);
+            r.store(&arr[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
-            arrView[i] += scalar;
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
+            arr[i] -= scalar;
         }
     }
 
     /**
-        Uses SIMD operations to multiply the values of the lhs view with the values of the rhs array like,
-        and stores the result in lhs.
-        \param lhs The destination view.
-        \param rhs The view to multiply lhs by.
+        Uses SIMD operations to subtract the values of `rhs` from the values of `lhs`, and
+        stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`.
+        \param lhs The destination array-like.
+        \param rhs The source array-like.
     */
-    template <NumericType T, size_t Size>
-    void multiply(std::span<T, Size> lhs, std::span<T, Size> rhs) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
-        [[maybe_unused]] const auto n = mipp::N<T>();
-        mipp::Reg<T> rl, rr, rtemp;
+    template <ArrayLike T>
+    requires NumericType<typename T::value_type>
+    void subtract(T& lhs, const T& rhs) noexcept {
+        assert(lhs.size() == rhs.size());
+        subtract(lhs.data(), rhs.data(), lhs.size());
+    }
+
+    /**
+        Uses SIMD operations to subtract the value of `scalar` from the values of `lhs`, and
+        stores the result in `lhs`.
+        \param arr The destination array-like.
+        \param scalar The value to subtract from each element in `arr`.
+    */
+    template <ArrayLike T>
+    requires NumericType<typename T::value_type>
+    void subtract(T& arr, typename T::value_type scalar) noexcept {
+        subtract(arr.data(), scalar, arr.size());
+    }
+
+    /**
+        Uses SIMD operations to multiply the values of `lhs` by the values of `rhs`, and
+        stores the result in `lhs`.
+        \param lhs A raw pointer to the dest array-like.
+        \param rhs A raw pointer to the source array-like.
+        \param size The number of elements in `lhs` and `rhs`.
+    */
+    template <NumericType T>
+    void multiply(T* lhs, const T* rhs, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
+        mipp::Reg<T> rl, rr;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
             rl.load(&lhs[i]);
             rr.load(&rhs[i]);
             rl *= rr;
             rl.store(&lhs[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
             lhs[i] *= rhs[i];
         }
     }
 
     /**
-        Uses SIMD operations to multiply the values of `arrView` by `scalar`, and stores the result in `arrView`.
-        \param arrView The destination view.
-        \param scalar A scalar to multiply every element in the view by.
+        Uses SIMD operations to multiply the values of `lhs` by value of `scalar`, and
+        stores the result in `lhs`.
+        \param arr A raw pointer to the dest array-like.
+        \param scalar The value to multiply each element in `arr` by.
+        \param size The number of elements in `lhs` and `rhs`.
     */
-    template <NumericType T, size_t Size>
-    void multiply(std::span<T, Size> arrView, T scalar) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
+    template <NumericType T>
+    void multiply(T* arr, T scalar, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
         mipp::Reg<T> r;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
-            r.load(&arrView[i]);
+            r.load(&arr[i]);
             r *= scalar;
-            r.store(&arrView[i]);
+            r.store(&arr[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
-            arrView[i] *= scalar;
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
+            arr[i] *= scalar;
         }
     }
 
     /**
-        Uses SIMD operations to divide the values in the lhs view by the values in the rhs view,
-        and stores the result in lhs. Note that as avx/sse don't support integer divison, the constraint on T here is stricter
-        than in the other SIMD ops.
-        \param lhs The destination view.
-        \param rhs The view to divide lhs by.
+        Uses SIMD operations to multiply the values of `lhs` by the values of `rhs`, and
+        stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`.
+        \param lhs The destination array-like.
+        \param rhs The source array-like.
     */
-    template <FloatType T, size_t Size>
-    void divide(std::span<T, Size> lhs, std::span<T, Size> rhs) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
-        mipp::Reg<T> rl, rr, rtemp;
+    template <ArrayLike T>
+    requires NumericType<typename T::value_type>
+    void multiply(T& lhs, const T& rhs) noexcept {
+        assert(lhs.size() == rhs.size());
+        multiply(lhs.data(), rhs.data(), lhs.size());
+    }
+
+    /**
+        Uses SIMD operations to multiply the values of `lhs` by the value of `scalar`, and
+        stores the result in `lhs`.
+        \param arr The destination array-like.
+        \param scalar The value to multiply each element in `arr` by.
+    */
+    template <ArrayLike T>
+    requires NumericType<typename T::value_type>
+    void multiply(T& arr, typename T::value_type scalar) noexcept {
+        multiply(arr.data(), scalar, arr.size());
+    }
+
+    /**
+        Uses SIMD operations to divide the values of `lhs` by the values of `rhs`, and
+        stores the result in `lhs`. Note that because AVX and MSSE4.2 don't support int division ops,
+        the constraint on T here is stricter than on other vecops.
+        \param lhs A raw pointer to the dest array-like.
+        \param rhs A raw pointer to the source array-like.
+        \param size The number of elements in `lhs` and `rhs`.
+    */
+    template <FloatType T>
+    void divide(T* lhs, const T* rhs, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
+        mipp::Reg<T> rl, rr;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
             rl.load(&lhs[i]);
             rr.load(&rhs[i]);
-            rtemp = rl / rr;
-            rtemp.store(&lhs[i]);
+            rl /= rr;
+            rl.store(&lhs[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
             lhs[i] /= rhs[i];
         }
     }
 
     /**
-        Uses SIMD operations to divide the values of `arrView` by `scalar`, and stores the result in `arrView`.
-        \param arrView The destination view.
-        \param scalar A scalar to divide every element in the view by.
+        Uses SIMD operations to divide the values of `lhs` by the value of `scalar`, and
+        stores the result in `lhs`. Note that because AVX and MSSE4.2 don't support int division ops,
+        the constraint on T here is stricter than on other vecops.
+        \param arr A raw pointer to the dest array-like.
+        \param scalar The value to divide each element in `arr` by.
+        \param size The number of elements in `lhs` and `rhs`.
     */
-    template <FloatType T, size_t Size>
-    void divide(std::span<T, Size> arrView, T scalar) noexcept {
-        constexpr auto vectorisedLoopSize = (Size / mipp::N<T>()) * mipp::N<T>();
+    template <FloatType T>
+    void divide(T* arr, T scalar, size_t size) noexcept {
+        const auto vectorisedLoopSize = (size / mipp::N<T>()) * mipp::N<T>();
         mipp::Reg<T> r;
         for (auto i = 0_sz; i < vectorisedLoopSize; i += mipp::N<T>()) {
-            r.load(&arrView[i]);
+            r.load(&arr[i]);
             r /= scalar;
-            r.store(&arrView[i]);
+            r.store(&arr[i]);
         }
-        for (auto i = vectorisedLoopSize; i < Size; ++i) {
-            arrView[i] /= scalar;
+        for (auto i = vectorisedLoopSize; i < size; ++i) {
+            arr[i] /= scalar;
         }
     }
 
     /**
-        Literally just a wrapper around `std::memcpy`, to make it slightly harder to forget to use `sizeof`.
-        \param lhs The destination to copy the values to.
-        \param rhs The source to copy the values from.
+        Uses SIMD operations to divide the values of `lhs` by the values of `rhs`, and
+        stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`. Note that because AVX and MSSE4.2 don't support int division ops,
+        the constraint on T here is stricter than on other vecops.
+        \param lhs The destination array-like.
+        \param rhs The source array-like.
     */
-    template <FloatType T, size_t Size>
-    void copy(std::span<T, Size> lhs, std::span<T, Size> rhs) noexcept {
-        std::memcpy(lhs.data(), rhs.data(), sizeof(T) * Size);
+    template <ArrayLike T>
+    requires FloatType<typename T::value_type>
+    void divide(T& lhs, const T& rhs) noexcept {
+        assert(lhs.size() == rhs.size());
+        divide(lhs.data(), rhs.data(), lhs.size());
+    }
+
+    /**
+        Uses SIMD operations to divide the values of `lhs` by the value of `scalar`, and
+        stores the result in `lhs`. Note that because AVX and MSSE4.2 don't support int division ops,
+        the constraint on T here is stricter than on other vecops.
+        \param arr The destination array-like.
+        \param scalar The value to divide each element in `arr` by.
+    */
+    template <ArrayLike T>
+    requires FloatType<typename T::value_type>
+    void divide(T& arr, typename T::value_type scalar) noexcept {
+        divide(arr.data(), scalar, arr.size());
+    }
+
+    /**
+        Wrapper around `std::memcpy`.
+        \param lhs A raw pointer to the destination array-like.
+        \param rhs A raw pointer to the source array-like.
+        \param size The number of elements to copy.
+    */
+    template <NumericType T>
+    void copy(T* lhs, const T* rhs, size_t size) noexcept {
+        std::memcpy(lhs, rhs, sizeof(T) * size);
+    }
+
+    /**
+        Wrapper around memcpy, to make it slightly harder to forget to call `sizeof(T)`.
+        `lhs.size()` <b>must</b> == `rhs.size()`.
+        \param lhs The destination array-like.
+        \param rhs The source array-like.
+    */
+    template <ArrayLike T>
+    requires NumericType<typename T::value_type>
+    void copy(T& lhs, const T& rhs) noexcept {
+        assert(lhs.size() == rhs.size());
+        copy(lhs.data(), rhs.data(), lhs.size());
     }
 } // namespace marvin::vecops
 #endif

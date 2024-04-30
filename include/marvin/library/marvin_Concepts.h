@@ -18,6 +18,7 @@ namespace marvin {
     template <class T>
     concept FloatType = requires {
         std::is_floating_point_v<T>;
+        !std::is_integral_v<T>;
     };
 
 
@@ -39,6 +40,17 @@ namespace marvin {
         a.reset();
         a.operator*();
         a.operator->();
+    };
+
+    /**
+        \brief Constrains T to a type that defines a const_iterator as a child, has an implementation of `operator[](size_t)` and has a `.size()` member.
+    */
+    template <class T>
+    concept ArrayLike = requires(T a) {
+        typename T::iterator;
+        a.operator[](0);
+        a.data();
+        a.size();
     };
 
     /**
