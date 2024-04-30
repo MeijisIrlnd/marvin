@@ -41,9 +41,7 @@ namespace marvin::utils {
                 sum += arr[i];
             }
             sum *= multiplier;
-            for (int i = 0; i < size; ++i) {
-                arr[i] += sum;
-            }
+            vecops::add(arr, sum, size);
         }
     };
 
@@ -89,9 +87,7 @@ namespace marvin::utils {
         static inline void inPlace(SampleType* data) {
             recursiveUnscaled(data);
             auto scalingFactor = static_cast<SampleType>(std::sqrt(1.0 / size));
-            for (int c = 0; c < size; ++c) {
-                data[c] *= scalingFactor;
-            }
+            vecops::multiply(data, scalingFactor, size);
         }
     };
 } // namespace marvin::utils
