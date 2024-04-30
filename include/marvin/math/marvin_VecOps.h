@@ -303,7 +303,7 @@ namespace marvin::vecops {
         \param rhs A raw pointer to the source array-like.
         \param size The number of elements to copy.
     */
-    template <NumericType T>
+    template <typename T>
     void copy(T* lhs, const T* rhs, size_t size) noexcept {
         std::memcpy(lhs, rhs, sizeof(T) * size);
     }
@@ -315,7 +315,6 @@ namespace marvin::vecops {
         \param rhs The source array-like.
     */
     template <ArrayLike T>
-    requires NumericType<typename T::value_type>
     void copy(T& lhs, const T& rhs) noexcept {
         assert(lhs.size() == rhs.size());
         copy(lhs.data(), rhs.data(), lhs.size());
