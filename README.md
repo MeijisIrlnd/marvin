@@ -5,7 +5,7 @@ Marvin is a framework-agnostic, raw-c++ dsp helper library, used internally at S
 Marvin is built with CMake, and can be consumed either via `find_package` for a system-wide installation, via `FetchContent` (or `CPM`) as a per-project dependency, or via a github submodule. <br>
 Regardless of how it's installed, usage in your CMake project remains the same:
 ```cmake
-target_link_libraries(<YourTarget> PRIVATE marvin::marvin)
+target_link_libraries(<YourTarget> PRIVATE slma::marvin)
 ```
 
 ### System-Wide
