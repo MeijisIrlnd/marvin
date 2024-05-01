@@ -28,16 +28,18 @@ namespace marvin::utils {
     class SmoothedValue {
     public:
         /**
-            Sets the period of the smoothing, and internally sets the current value to the target value.
+            Sets the period of the smoothing, and optionally sets the current value to the target value.
             \param stepsSamples The period of the smoothing, in samples.
+            \param skipRemaining If false, sets the current value to the target value.
         */
-        void reset(int stepsSamples);
+        void reset(int stepsSamples, bool skipRemaining = false);
         /**
-            Sets the period of the smoothing, and internally sets the current value to the target value.
+            Sets the period of the smoothing, and optionally sets the current value to the target value.
             \param sampleRate The currently configured sample rate.
             \param timeMs The period of the smoothing, in milliseconds.
+            \param skipRemaining If false, sets the current value to the target value.
         */
-        void reset(double sampleRate, double timeMs);
+        void reset(double sampleRate, double timeMs, bool skipRemaining = false);
         /**
             Sets both the current value, and the target value to interpolate to.
             \param newValue The new target (and current) value.
