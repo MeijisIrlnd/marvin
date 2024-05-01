@@ -12,6 +12,8 @@
 #define MARVIN_MATH_H
 #include "marvin/library/marvin_Concepts.h"
 #include <cmath>
+#include <algorithm>
+
 namespace marvin::math {
 
     /**
@@ -40,6 +42,37 @@ namespace marvin::math {
         } else {
             return static_cast<T>(0.0);
         }
+    }
+
+    /**
+        Converts from gain to decibels.
+        \param gain The 0 to 1 gain to convert.
+        \return The converted level in decibels.
+    */
+    template <FloatType T>
+    [[nodiscard]] T gainToDb(T gain) noexcept {
+        const auto clamped = std::clamp(gain, static_cast<T>(0.0), static_cast<T>(1.0));
+        const auto db = static_cast<T>(10.0) * std::log10(gain);
+        return db;
+    }
+
+    /**
+        Takes a value in range `srcMin` to `srcMax`, normalises it, and rescales it to be in range
+        `newMin` to `newMax`
+        \param x The value to remap.
+        \param srcMin The min of the value's original range.
+        \param srcMax The max of the value's original range.
+        \param newMin The new range's min.
+        \param newMax The new range's max.
+        \return The rescaled value.
+    */
+    template <FloatType T>
+    [[nodiscard]] T remap(T x, T srcMin, T srcMax, T newMin, T newMax) {
+        // (v - mn) / (mx - mn) == v_n
+        const auto normalised = (x - srcMin) / (srcMax - srcMin);
+        // (v_n . (mx - mn)) + mn = v
+        const auto rescaled = (normalised * (newMax - newMin)) + newMin;
+        return rescaled;
     }
 
 } // namespace marvin::math
