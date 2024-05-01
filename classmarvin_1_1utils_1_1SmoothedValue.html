@@ -90,10 +90,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8329078d161d054664f7908138f323bd" id="r_a8329078d161d054664f7908138f323bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8329078d161d054664f7908138f323bd">reset</a> (int stepsSamples)</td></tr>
-<tr class="separator:a8329078d161d054664f7908138f323bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82df083bcd6f6970a22b2fc5effa815c" id="r_a82df083bcd6f6970a22b2fc5effa815c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82df083bcd6f6970a22b2fc5effa815c">reset</a> (double sampleRate, double timeMs)</td></tr>
-<tr class="separator:a82df083bcd6f6970a22b2fc5effa815c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32cba3539d4572edba22915f845efa22" id="r_a32cba3539d4572edba22915f845efa22"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32cba3539d4572edba22915f845efa22">reset</a> (int stepsSamples, bool skipRemaining=false)</td></tr>
+<tr class="separator:a32cba3539d4572edba22915f845efa22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3f71eac70fad6ac6aa117c3df81a635" id="r_aa3f71eac70fad6ac6aa117c3df81a635"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3f71eac70fad6ac6aa117c3df81a635">reset</a> (double sampleRate, double timeMs, bool skipRemaining=false)</td></tr>
+<tr class="separator:aa3f71eac70fad6ac6aa117c3df81a635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9891044a2ad3ee173f15a57667c8406f" id="r_a9891044a2ad3ee173f15a57667c8406f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9891044a2ad3ee173f15a57667c8406f">setCurrentAndTargetValue</a> (SampleType newValue)</td></tr>
 <tr class="separator:a9891044a2ad3ee173f15a57667c8406f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a6ef6a44c14a54972ebc3f469c24776" id="r_a9a6ef6a44c14a54972ebc3f469c24776"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a6ef6a44c14a54972ebc3f469c24776">setTargetValue</a> (SampleType newValue)</td></tr>
@@ -166,8 +166,8 @@ template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.h
 
 </div>
 </div>
-<a id="a82df083bcd6f6970a22b2fc5effa815c" name="a82df083bcd6f6970a22b2fc5effa815c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82df083bcd6f6970a22b2fc5effa815c">&#9670;&#160;</a></span>reset() <span class="overload">[1/2]</span></h2>
+<a id="aa3f71eac70fad6ac6aa117c3df81a635" name="aa3f71eac70fad6ac6aa117c3df81a635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f71eac70fad6ac6aa117c3df81a635">&#9670;&#160;</a></span>reset() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,22 +182,28 @@ template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.h
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>timeMs</em></span>&#160;)</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>timeMs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>skipRemaining</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the period of the smoothing, and internally sets the current value to the target value. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the period of the smoothing, and optionally sets the current value to the target value. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sampleRate</td><td>The currently configured sample rate. </td></tr>
     <tr><td class="paramname">timeMs</td><td>The period of the smoothing, in milliseconds. </td></tr>
+    <tr><td class="paramname">skipRemaining</td><td>If false, sets the current value to the target value. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a8329078d161d054664f7908138f323bd" name="a8329078d161d054664f7908138f323bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8329078d161d054664f7908138f323bd">&#9670;&#160;</a></span>reset() <span class="overload">[2/2]</span></h2>
+<a id="a32cba3539d4572edba22915f845efa22" name="a32cba3539d4572edba22915f845efa22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32cba3539d4572edba22915f845efa22">&#9670;&#160;</a></span>reset() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,14 +213,19 @@ template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.h
         <tr>
           <td class="memname">void <a class="el" href="classmarvin_1_1utils_1_1SmoothedValue.html">marvin::utils::SmoothedValue</a>&lt; SampleType, Type &gt;::reset </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>stepsSamples</em></span></td><td>)</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>stepsSamples</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>skipRemaining</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the period of the smoothing, and internally sets the current value to the target value. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the period of the smoothing, and optionally sets the current value to the target value. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">stepsSamples</td><td>The period of the smoothing, in samples. </td></tr>
+    <tr><td class="paramname">skipRemaining</td><td>If false, sets the current value to the target value. </td></tr>
   </table>
   </dd>
 </dl>
