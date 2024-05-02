@@ -14,12 +14,15 @@
 #include <cmath>
 #include <numbers>
 namespace marvin::dsp::filters::rbj {
-    \param sampleRate The sample rate to base the calculations off.
+    /**
+        An RBJ lowpass implementation for use with the Biquad class, with formulae from the [RBJ Cookbook](https://webaudio.github.io/Audio-EQ-Cookbook/audio-eq-cookbook.html)
+        \param sampleRate The sample rate to base the calculations off.
         \param cutoff The frequency of the lowpass
         \param q The resonance of the lowpass(between 0 and 1)
         \return An instance of BiquadCoefficients populated with the resulting coefficients.* /
-        template <FloatType SampleType>
-        [[nodiscard]] BiquadCoefficients<SampleType> lowpass(double sampleRate, SampleType cutoff, SampleType q) noexcept {
+        */
+    template <FloatType SampleType>
+    [[nodiscard]] BiquadCoefficients<SampleType> lowpass(double sampleRate, SampleType cutoff, SampleType q) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
         const auto fs{ static_cast<SampleType>(sampleRate) };
         const auto omega{ twoPi * (cutoff / fs) };
