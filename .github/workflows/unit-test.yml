@@ -15,4 +15,6 @@ jobs:
         uses: threeal/cmake-action@main
         with:
           build-args: "--target marvin-tests"
+      - name: Run tests
+        run: ./marvin-tests
 
