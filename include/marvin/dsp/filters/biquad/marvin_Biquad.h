@@ -81,8 +81,8 @@ namespace marvin::dsp::filters {
 
     private:
         struct BiquadDelay final {
-            SampleType x_z1, x_z2;
-            SampleType y_z1, y_z2;
+            SampleType x_z1{ static_cast<SampleType>(0.0) }, x_z2{ static_cast<SampleType>(0.0) };
+            SampleType y_z1{ static_cast<SampleType>(0.0) }, y_z2{ static_cast<SampleType>(0.0) };
 
             void operator()(SampleType x, SampleType y) noexcept {
                 x_z2 = x_z1;
