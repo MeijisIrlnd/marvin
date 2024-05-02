@@ -126,7 +126,7 @@ $(function() { codefold.init(0); });
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#ad298b070cf86f74f306f824d265311e9">   53</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#ad298b070cf86f74f306f824d265311e9">gainToDb</a>(T gain) <span class="keyword">noexcept</span> {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> <span class="keyword">auto</span> clamped = std::clamp(gain, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0), <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1.0));</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> <span class="keyword">auto</span> db = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(10.0) * std::log10(gain);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> <span class="keyword">auto</span> db = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(10.0) * std::log10(clamped);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">return</span> db;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
 </div>
