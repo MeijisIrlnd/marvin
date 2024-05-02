@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aba3c0f588cc223f2c39d9674edecd571"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af61e293d98b46eab1cc55302c5d7c604" id="r_af61e293d98b46eab1cc55302c5d7c604"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af61e293d98b46eab1cc55302c5d7c604">setFrequency</a> (SampleType newFrequency) noexcept</td></tr>
 <tr class="separator:af61e293d98b46eab1cc55302c5d7c604"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaeccaec1d733a65ac9c8c8ada427a070" id="r_aaeccaec1d733a65ac9c8c8ada427a070"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaeccaec1d733a65ac9c8c8ada427a070">setPhaseOffset</a> (SampleType newPhaseOffset) noexcept</td></tr>
+<tr class="separator:aaeccaec1d733a65ac9c8c8ada427a070"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -136,6 +138,8 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:ab6d50fdd8b2b6b8f7dd7e4eed4b66089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad262b3c2241e05a6e7b3e47aa8d1e3d" id="r_aad262b3c2241e05a6e7b3e47aa8d1e3d"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad262b3c2241e05a6e7b3e47aa8d1e3d">m_phase</a> { static_cast&lt;SampleType&gt;(0.0) }</td></tr>
 <tr class="separator:aad262b3c2241e05a6e7b3e47aa8d1e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4881965562878f6a6186bbe1bac706b3" id="r_a4881965562878f6a6186bbe1bac706b3"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4881965562878f6a6186bbe1bac706b3">m_phaseOffset</a> { static_cast&lt;SampleType&gt;(0.0) }</td></tr>
+<tr class="separator:a4881965562878f6a6186bbe1bac706b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType&gt;<br />
@@ -357,6 +361,39 @@ template&lt;FloatType SampleType&gt; </div>
 
 </div>
 </div>
+<a id="aaeccaec1d733a65ac9c8c8ada427a070" name="aaeccaec1d733a65ac9c8c8ada427a070"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaeccaec1d733a65ac9c8c8ada427a070">&#9670;&#160;</a></span>setPhaseOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase</a>&lt; SampleType &gt;::setPhaseOffset </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>newPhaseOffset</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets a constant value to offset the internal phase by. Useful for using one oscillator as an lfo to control multiple sources. By default, this is set to 0. If using the overload of <code>operator()</code> that takes a value for phase, this function will do nothing. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newPhaseOffset</td><td>The phase offset, between 0 and 1. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="aad262b3c2241e05a6e7b3e47aa8d1e3d" name="aad262b3c2241e05a6e7b3e47aa8d1e3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad262b3c2241e05a6e7b3e47aa8d1e3d">&#9670;&#160;</a></span>m_phase</h2>
@@ -395,6 +432,30 @@ template&lt;FloatType SampleType&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">SampleType <a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase</a>&lt; SampleType &gt;::m_phaseIncrement { static_cast&lt;SampleType&gt;(0.0) }</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4881965562878f6a6186bbe1bac706b3" name="a4881965562878f6a6186bbe1bac706b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4881965562878f6a6186bbe1bac706b3">&#9670;&#160;</a></span>m_phaseOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classmarvin_1_1oscillators_1_1OscillatorBase.html">marvin::oscillators::OscillatorBase</a>&lt; SampleType &gt;::m_phaseOffset { static_cast&lt;SampleType&gt;(0.0) }</td>
         </tr>
       </table>
   </td>

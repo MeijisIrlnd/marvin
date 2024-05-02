@@ -119,6 +119,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9878f3a90bd1d6451a8693127f933a17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af205bcaffd9c9726a01991f7f2f23deb" id="r_af205bcaffd9c9726a01991f7f2f23deb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af205bcaffd9c9726a01991f7f2f23deb">setFrequency</a> (SampleType newFrequency) noexcept</td></tr>
 <tr class="separator:af205bcaffd9c9726a01991f7f2f23deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa52a3053349efcce7f2b45b2d5a8598a" id="r_aa52a3053349efcce7f2b45b2d5a8598a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa52a3053349efcce7f2b45b2d5a8598a">setPhaseOffset</a> (SampleType newPhaseOffset) noexcept</td></tr>
+<tr class="separator:aa52a3053349efcce7f2b45b2d5a8598a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18db4530ba0958139174f895b40f8924" id="r_a18db4530ba0958139174f895b40f8924"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18db4530ba0958139174f895b40f8924">setPulsewidth</a> (SampleType newPulsewidth) noexcept</td></tr>
 <tr class="separator:a18db4530ba0958139174f895b40f8924"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -340,6 +342,39 @@ template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscilla
 <p>Sets the frequency the <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html" title="A switchable multi-shape oscillator, with optional BLEP.">MultiOscillator</a> should output. This propagates to all internal oscillators. Note that the internal <code>phaseIncrement</code> variable this function sets is not atomic, so ensure this function is either called on the audio thread, or that the audio thread is <b>not</b> running when this function is called. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newFrequency</td><td>The frequency the <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html" title="A switchable multi-shape oscillator, with optional BLEP.">MultiOscillator</a> should process at. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa52a3053349efcce7f2b45b2d5a8598a" name="aa52a3053349efcce7f2b45b2d5a8598a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa52a3053349efcce7f2b45b2d5a8598a">&#9670;&#160;</a></span>setPhaseOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1oscillators.html#aa61d6b2f862bd88b438207b148b325e9">Bandlimiting</a> Bandlimit = Bandlimiting::Off&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classmarvin_1_1oscillators_1_1MultiOscillator.html">marvin::oscillators::MultiOscillator</a>&lt; SampleType, Bandlimit &gt;::setPhaseOffset </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>newPhaseOffset</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets a fixed phase offset for the internal phase calculation, which is set to 0 by default. This propagates to all internal oscillator types. Note that the internal <code>phase</code> variable this function sets is not atomic, so ensure this function is either called on the audio thread, or that the audio thread is <b>not</b> running when this function is called. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newPhaseOffset</td><td>The phase offset to use, between 0 and 1. </td></tr>
   </table>
   </dd>
 </dl>
