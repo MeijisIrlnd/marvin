@@ -427,11 +427,13 @@ namespace marvin::testing {
             testAdd<double, 17>();
             testAdd<int, 17>();
         }
+#if defined(MARVIN_BENCHMARK)
         SECTION("Benchmark Add") {
             benchmarkAdd<float, 32>();
             benchmarkAdd<double, 32>();
             benchmarkAdd<int, 32>();
         }
+#endif
         SECTION("Test Subtract") {
             testSubtract<float, 4>();
             testSubtract<double, 4>();
@@ -452,11 +454,13 @@ namespace marvin::testing {
             testSubtract<double, 17>();
             testSubtract<int, 17>();
         }
+#if defined(MARVIN_BENCHMARK)
         SECTION("Benchmark Subtract") {
             benchmarkSubtract<float, 32>();
             benchmarkSubtract<double, 32>();
             benchmarkSubtract<int, 32>();
         }
+#endif
         SECTION("Test Multiply") {
             testMultiply<float, 4>();
             testMultiply<double, 4>();
@@ -477,11 +481,13 @@ namespace marvin::testing {
             testMultiply<double, 17>();
             testMultiply<int, 17>();
         }
+#if defined(MARVIN_BENCHMARK)
         SECTION("Benchmark Multiply") {
             benchmarkMultiply<float, 32>();
             benchmarkMultiply<double, 32>();
             benchmarkMultiply<int, 32>();
         }
+#endif
         SECTION("Test Divide") {
             testDivide<float, 4>();
             testDivide<double, 4>();
@@ -496,11 +502,13 @@ namespace marvin::testing {
             testDivide<float, 17>();
             testDivide<double, 17>();
         }
+#if defined(MARVIN_BENCHMARK)
         SECTION("Benchmark Divide") {
             benchmarkDivide<float, 32>();
             benchmarkDivide<double, 32>();
             benchmarkDivide<int, 32>();
         }
+#endif
         SECTION("Test Copy") {
             testCopy<float, 4>();
             testCopy<double, 4>();
