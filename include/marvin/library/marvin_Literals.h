@@ -13,7 +13,7 @@
 #include <cstddef>
 namespace marvin {
     inline namespace literals {
-        constexpr size_t operator""_sz(size_t x) {
+        constexpr unsigned long long operator""_sz(unsigned long long x) {
             return x;
         }
     } // namespace literals
