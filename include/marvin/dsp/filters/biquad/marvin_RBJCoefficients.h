@@ -92,12 +92,12 @@ namespace marvin::dsp::filters::rbj {
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
         const auto alpha = sinOmega * sinh(log2Over2 * bandwidth * (omega / sinOmega));
-        const auto a0 = (sinOmega / 2.0f) * (peakGain * alpha);
-        const auto a1 = 0.0f;
-        const auto a2 = -1.0f * (sinOmega / 2.0f);
-        const auto b0 = 1.0f + alpha;
-        const auto b1 = -2.0f * cosOmega;
-        const auto b2 = 1.0f - alpha;
+        const auto a0 = (sinOmega / static_cast<SampleType>(2.0)) * (peakGain * alpha);
+        const auto a1 = static_cast<SampleType>(0.0);
+        const auto a2 = static_cast<SampleType>(-1.0) * (sinOmega / static_cast<SampleType>(2.0));
+        const auto b0 = static_cast<SampleType>(1.0) + alpha;
+        const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
+        const auto b2 = static_cast<SampleType>(1.0) - alpha;
         return {
             .a0 = a0,
             .a1 = a1,
