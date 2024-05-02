@@ -52,7 +52,7 @@ namespace marvin::math {
     template <FloatType T>
     [[nodiscard]] T gainToDb(T gain) noexcept {
         const auto clamped = std::clamp(gain, static_cast<T>(0.0), static_cast<T>(1.0));
-        const auto db = static_cast<T>(10.0) * std::log10(gain);
+        const auto db = static_cast<T>(10.0) * std::log10(clamped);
         return db;
     }
 
