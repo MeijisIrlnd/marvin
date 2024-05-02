@@ -1,0 +1,18 @@
+name: Build and Run marvin_tests 
+on: 
+  push: 
+    branches: 
+      - main
+
+jobs: 
+  build-project: 
+    name: Build and run tests
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v4.1.2         
+      - name: Build
+        uses: threeal/cmake-action@main
+        with:
+          build-args: "--target marvin_tests"
+
