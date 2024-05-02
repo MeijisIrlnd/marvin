@@ -15,6 +15,7 @@
 #include <mipp.h>
 #include <marvin/utils/marvin_ReenableWarnings.h>
 #include <type_traits>
+#include <cstring>
 namespace marvin::vecops {
 
     /**
