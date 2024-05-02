@@ -14,11 +14,14 @@
 #include "marvin/library/marvin_Literals.h"
 #include "marvin/dsp/filters/biquad/marvin_BiquadCoefficients.h"
 #include <array>
+#include <cmath>
+#include <cassert>
 namespace marvin::dsp::filters {
     /**
         \brief A cascading direct form ii biquad filter.
 
         Biquads have a tendency to "blow up" at high modulation frequencies, so keep in mind that a StateVariableFilter (coming soon) might be a better choice if that's the kind of thing you need.
+        Uses a coeffs as the numerators (zeroes) and b coeffs as the denominators (poles).
         <br>Usage example:
         ```cpp
         class Processor final {
@@ -61,9 +64,16 @@ namespace marvin::dsp::filters {
         */
         [[nodiscard]] SampleType operator()(SampleType x) noexcept {
             for (auto stage = 0_sz; stage < NumStages; ++stage) {
-                const auto [b0, b1, b2, a0, a1, a2] = m_coeffs[stage];
+                //            auto y = static_cast<float>(1 / m_coefficients[offset + 3] * ( // b0
+                // m_coefficients[offset] * sectionInput + // a0
+                // m_coefficients[offset + 1] * del->mX_z1 + // a1
+                // m_coefficients[offset + 2] * del->mX_z2 - // a2
+                // m_coefficients[offset + 4] * del->mY_z1 - // b1
+                // m_coefficients[offset + 5] * del->mY_z2  // b2
+                // ));
+                const auto [a0, a1, a2, b0, b1, b2] = m_coeffs[stage];
                 auto& delay = m_delays[stage];
-                const auto y = static_cast<SampleType>(1.0) / b0 * (a0 * x + a1 * delay.x_z1 + a2 * delay.x_z2 + b1 + delay.y_z1 + b2 * delay.y_z2);
+                const auto y = static_cast<SampleType>(1.0) / b0 * ((a0 * x) + (a1 * delay.x_z1) + (a2 * delay.x_z2) - (b1 * delay.y_z1) - (b2 * delay.y_z2));
                 delay(x, y);
                 x = y;
             }

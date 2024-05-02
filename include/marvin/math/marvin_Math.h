@@ -47,12 +47,14 @@ namespace marvin::math {
     /**
         Converts from gain to decibels.
         \param gain The 0 to 1 gain to convert.
+        \param minusInfDb The level in decibels that should correspond to 0 gain. Optional, defaults to -100dB.
         \return The converted level in decibels.
     */
     template <FloatType T>
-    [[nodiscard]] T gainToDb(T gain) noexcept {
+    [[nodiscard]] T gainToDb(T gain, T minusInfDb = static_cast<T>(-100.0)) noexcept {
         const auto clamped = std::clamp(gain, static_cast<T>(0.0), static_cast<T>(1.0));
-        const auto db = static_cast<T>(10.0) * std::log10(clamped);
+        if (clamped <= 0.0f) return minusInfDb;
+        const auto db = std::max(static_cast<T>(20.0) * std::log10(clamped), minusInfDb);
         return db;
     }
 
