@@ -220,10 +220,14 @@ namespace marvin::library {
         };
 
 
-        friend constexpr bool operator==(const PropagateConst<T>&, std::nullptr_t);
-        friend constexpr bool operator==(std::nullptr_t, const PropagateConst<T>&);
-        friend constexpr bool operator!=(const PropagateConst<T>&, std::nullptr_t);
-        friend constexpr bool operator!=(std::nullptr_t, const PropagateConst<T>&);
+        template <class U>
+        friend constexpr bool operator==(const PropagateConst<U>&, std::nullptr_t);
+        template <class U>
+        friend constexpr bool operator==(std::nullptr_t, const PropagateConst<U>&);
+        template <class U>
+        friend constexpr bool operator!=(const PropagateConst<U>&, std::nullptr_t);
+        template <class U>
+        friend constexpr bool operator!=(std::nullptr_t, const PropagateConst<U>&);
         template <class U>
         friend constexpr bool operator==(const PropagateConst<T>&, const PropagateConst<U>&);
         template <class U>
