@@ -37,7 +37,6 @@ namespace marvin::testing {
     }
 
     TEST_CASE("Test Biquad") {
-        REQUIRE(1 == 0);
         // Fixed coeffs from https://www.earlevel.com/main/2021/09/02/biquad-calculator-v3/
         dsp::filters::BiquadCoefficients<float> fixedCoeffs = {
             .a0 = 0.00005024141818873903f,
