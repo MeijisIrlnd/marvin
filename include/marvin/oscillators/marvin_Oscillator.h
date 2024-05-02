@@ -61,6 +61,13 @@ namespace marvin::oscillators {
         */
         void setFrequency(SampleType newFrequency) noexcept;
 
+        /**
+            Sets a constant value to offset the internal phase by. Useful for using one oscillator as an lfo to control multiple sources. By default, this is set to 0.
+            If using the overload of `operator()` that takes a value for phase, this function will do nothing.
+            \param newPhaseOffset The phase offset, between 0 and 1.
+        */
+        void setPhaseOffset(SampleType newPhaseOffset) noexcept;
+
     protected:
         /**
             Called by subclasses to increment the internal phase according to the frequency set in `setFrequency`. Unused if using an external value for phase.
@@ -70,6 +77,7 @@ namespace marvin::oscillators {
         double m_sampleRate{};
         SampleType m_phaseIncrement{ static_cast<SampleType>(0.0) };
         SampleType m_phase{ static_cast<SampleType>(0.0) };
+        SampleType m_phaseOffset{ static_cast<SampleType>(0.0) };
     };
 
     /**
@@ -216,6 +224,12 @@ namespace marvin::oscillators {
             \param newFrequency The frequency the MultiOscillator should process at.
         */
         void setFrequency(SampleType newFrequency) noexcept;
+
+        /**
+            Sets a fixed phase offset for the internal phase calculation, which is set to 0 by default. This propagates to all internal oscillator types. Note that the internal `phase` variable this function sets is not atomic, so ensure this function is either called on the audio thread, or that the audio thread is <b>not</b> running when this function is called.
+            \param newPhaseOffset The phase offset to use, between 0 and 1.
+        */
+        void setPhaseOffset(SampleType newPhaseOffset) noexcept;
         /**
             Sets the pulsewidth the MultiOscillator should use when configured with `SHAPE::PULSE`. Note that the internal `pulsewidth` variable the PulseOscillator class uses is <b>not</b> atomic, so ensure this function is either called on the audio thread, or that the audio thread is <b>not</b> running when this function is called.
         */
@@ -227,6 +241,7 @@ namespace marvin::oscillators {
         SHAPE m_shape{ SHAPE::SINE };
         SampleType m_phase{ static_cast<SampleType>(0.0) };
         SampleType m_phaseIncrement{ static_cast<SampleType>(0.0) };
+        SampleType m_phaseOffset{ static_cast<SampleType>(0.0) };
         SineOscillator<SampleType> m_sine;
         TriOscillator<SampleType, Bandlimit> m_tri;
         SawOscillator<SampleType, Bandlimit> m_saw;

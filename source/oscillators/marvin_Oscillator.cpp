@@ -58,13 +58,18 @@ namespace marvin::oscillators {
     }
 
     template <FloatType SampleType>
+    void OscillatorBase<SampleType>::setPhaseOffset(SampleType newPhaseOffset) noexcept {
+        m_phaseOffset = newPhaseOffset;
+    }
+
+    template <FloatType SampleType>
     void OscillatorBase<SampleType>::reset() noexcept {
         m_phase = static_cast<SampleType>(0.0);
     }
 
     template <FloatType SampleType>
     void OscillatorBase<SampleType>::incrementPhase() noexcept {
-        m_phase += m_phaseIncrement;
+        m_phase += (m_phaseIncrement + m_phaseOffset);
         while (m_phase >= static_cast<SampleType>(1.0)) {
             m_phase -= static_cast<SampleType>(1.0);
         }
@@ -261,6 +266,7 @@ namespace marvin::oscillators {
     template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::setFrequency(SampleType newFrequency) noexcept {
         m_phaseIncrement = newFrequency / static_cast<SampleType>(m_sampleRate);
+        // TODO: I think we can delete these?
         m_sine.setFrequency(newFrequency);
         m_tri.setFrequency(newFrequency);
         m_saw.setFrequency(newFrequency);
@@ -270,13 +276,18 @@ namespace marvin::oscillators {
     }
 
     template <FloatType SampleType, Bandlimiting Blep>
+    void MultiOscillator<SampleType, Blep>::setPhaseOffset(SampleType newPhaseOffset) noexcept {
+        m_phaseOffset = newPhaseOffset;
+    }
+
+    template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::setPulsewidth(SampleType newPulsewidth) noexcept {
         m_pulse.setPulsewidth(newPulsewidth);
     }
 
     template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::incrementPhase() noexcept {
-        m_phase += m_phaseIncrement;
+        m_phase += (m_phaseIncrement + m_phaseOffset);
         while (m_phase >= static_cast<SampleType>(1.0)) {
             m_phase -= static_cast<SampleType>(1.0);
         }
