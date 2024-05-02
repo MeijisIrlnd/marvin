@@ -122,36 +122,37 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
-<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#ad298b070cf86f74f306f824d265311e9">   53</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#ad298b070cf86f74f306f824d265311e9">gainToDb</a>(T gain) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">const</span> <span class="keyword">auto</span> clamped = std::clamp(gain, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0), <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1.0));</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> <span class="keyword">auto</span> db = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(10.0) * std::log10(clamped);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">return</span> db;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#aa1bc6e54bd3d8abb587555b24648353b">   54</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#aa1bc6e54bd3d8abb587555b24648353b">gainToDb</a>(T gain, T minusInfDb = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(-100.0)) noexcept {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">const</span> <span class="keyword">auto</span> clamped = std::clamp(gain, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0), <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1.0));</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordflow">if</span> (clamped &lt;= 0.0f) <span class="keywordflow">return</span> minusInfDb;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">const</span> <span class="keyword">auto</span> db = std::max(<span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(20.0) * std::log10(clamped), minusInfDb);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        <span class="keywordflow">return</span> db;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
 </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a593ac57e25503d44c65ffe3e068d9df9">   70</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#a593ac57e25503d44c65ffe3e068d9df9">remap</a>(T x, T srcMin, T srcMax, T newMin, T newMax) {</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">// (v - mn) / (mx - mn) == v_n</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">const</span> <span class="keyword">auto</span> normalised = (x - srcMin) / (srcMax - srcMin);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// (v_n . (mx - mn)) + mn = v</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">const</span> <span class="keyword">auto</span> rescaled = (normalised * (newMax - newMin)) + newMin;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> rescaled;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
-</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>} <span class="comment">// namespace marvin::math</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a593ac57e25503d44c65ffe3e068d9df9">   72</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#a593ac57e25503d44c65ffe3e068d9df9">remap</a>(T x, T srcMin, T srcMax, T newMin, T newMax) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="comment">// (v - mn) / (mx - mn) == v_n</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">const</span> <span class="keyword">auto</span> normalised = (x - srcMin) / (srcMax - srcMin);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="comment">// (v_n . (mx - mn)) + mn = v</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">const</span> <span class="keyword">auto</span> rescaled = (normalised * (newMax - newMin)) + newMin;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keywordflow">return</span> rescaled;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    }</div>
 </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>} <span class="comment">// namespace marvin::math</span></div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html"><div class="ttname"><a href="namespacemarvin_1_1math.html">marvin::math</a></div><div class="ttdef"><b>Definition</b> marvin_Math.h:17</div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html_a4a3d40e45bbeb22d6a4566c0f155a292"><div class="ttname"><a href="namespacemarvin_1_1math.html#a4a3d40e45bbeb22d6a4566c0f155a292">marvin::math::dbToGain</a></div><div class="ttdeci">T dbToGain(T db, T referenceMinDb=static_cast&lt; T &gt;(-100.0))</div><div class="ttdef"><b>Definition</b> marvin_Math.h:39</div></div>
-<div class="ttc" id="anamespacemarvin_1_1math_html_a593ac57e25503d44c65ffe3e068d9df9"><div class="ttname"><a href="namespacemarvin_1_1math.html#a593ac57e25503d44c65ffe3e068d9df9">marvin::math::remap</a></div><div class="ttdeci">T remap(T x, T srcMin, T srcMax, T newMin, T newMax)</div><div class="ttdef"><b>Definition</b> marvin_Math.h:70</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html_a593ac57e25503d44c65ffe3e068d9df9"><div class="ttname"><a href="namespacemarvin_1_1math.html#a593ac57e25503d44c65ffe3e068d9df9">marvin::math::remap</a></div><div class="ttdeci">T remap(T x, T srcMin, T srcMax, T newMin, T newMax)</div><div class="ttdef"><b>Definition</b> marvin_Math.h:72</div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html_a67212a8a8c4d308a97bb2e4ea34e7c39"><div class="ttname"><a href="namespacemarvin_1_1math.html#a67212a8a8c4d308a97bb2e4ea34e7c39">marvin::math::lerp</a></div><div class="ttdeci">T lerp(T start, T end, T ratio) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:27</div></div>
-<div class="ttc" id="anamespacemarvin_1_1math_html_ad298b070cf86f74f306f824d265311e9"><div class="ttname"><a href="namespacemarvin_1_1math.html#ad298b070cf86f74f306f824d265311e9">marvin::math::gainToDb</a></div><div class="ttdeci">T gainToDb(T gain) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:53</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html_aa1bc6e54bd3d8abb587555b24648353b"><div class="ttname"><a href="namespacemarvin_1_1math.html#aa1bc6e54bd3d8abb587555b24648353b">marvin::math::gainToDb</a></div><div class="ttdeci">T gainToDb(T gain, T minusInfDb=static_cast&lt; T &gt;(-100.0)) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:54</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
