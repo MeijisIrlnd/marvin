@@ -14,5 +14,5 @@ jobs:
       - name: Build
         uses: threeal/cmake-action@main
         with:
-          build-args: "--target marvin_tests"
+          build-args: "--target marvin-tests"
 
