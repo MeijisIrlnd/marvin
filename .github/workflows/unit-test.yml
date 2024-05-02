@@ -16,5 +16,5 @@ jobs:
         with:
           build-args: "--target marvin-tests"
       - name: Run tests
-        run: ./marvin-tests
+        run: ./build/marvin-tests
 
