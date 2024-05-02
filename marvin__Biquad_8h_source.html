@@ -134,8 +134,8 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keyword">private</span>:</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keyword">struct </span>BiquadDelay final {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            SampleType x_z1, x_z2;</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            SampleType y_z1, y_z2;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            SampleType x_z1{ <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(0.0) }, x_z2{ <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(0.0) };</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            SampleType y_z1{ <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(0.0) }, y_z2{ <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(0.0) };</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <span class="keywordtype">void</span> operator()(SampleType x, SampleType y) <span class="keyword">noexcept</span> {</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                x_z2 = x_z1;</div>
