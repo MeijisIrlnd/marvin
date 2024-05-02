@@ -1,3 +1,4 @@
+![tests](https://github.com/MeijisIrlnd/marvin/actions/workflows/unit-test.yml/badge.svg)
 # marvin: a mostly harmless dsp library
 Marvin is a framework-agnostic, raw-c++ dsp helper library, used internally at SLM Audio and Kalide Systems. It's still a work in progress, and both the documentation and test coverage are incomplete, so use at your own peril for the forseeable future!
 
