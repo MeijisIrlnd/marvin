@@ -156,6 +156,7 @@ namespace marvin::dsp::filters {
                 m_smoothers[3].setCurrentAndTargetValue(newCoeffs.b0);
                 m_smoothers[4].setCurrentAndTargetValue(newCoeffs.b1);
                 m_smoothers[5].setCurrentAndTargetValue(newCoeffs.b2);
+                m_current = newCoeffs;
             }
 
             void setTargetCoeffs(BiquadCoefficients<SampleType> newCoeffs) noexcept {

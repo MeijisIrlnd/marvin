@@ -8,8 +8,14 @@
 //
 // ========================================================================================================
 
+#include <marvin/library/marvin_Concepts.h>
 #include <catch2/catch_test_macros.hpp>
 namespace marvin::testing {
+    template <FloatType T>
+    void testLerp(){
+
+    };
+
     TEST_CASE("Test lerp") {
     }
 

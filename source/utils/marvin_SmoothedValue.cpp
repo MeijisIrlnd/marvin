@@ -60,7 +60,7 @@ namespace marvin::utils {
         if constexpr (Type == SmoothingType::Linear) {
             return m_samplesRemaining > 0;
         } else {
-            return std::abs(m_targetValue - m_currentValue) <= static_cast<SampleType>(1e-6);
+            return std::abs(m_targetValue - m_currentValue) >= static_cast<SampleType>(1e-6);
         }
     }
 
