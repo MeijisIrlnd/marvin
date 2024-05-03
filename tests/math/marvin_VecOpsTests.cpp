@@ -15,7 +15,6 @@
 #include <array>
 #include <span>
 #include <vector>
-#include <cstring>
 namespace marvin::testing {
 
     template <NumericType T>

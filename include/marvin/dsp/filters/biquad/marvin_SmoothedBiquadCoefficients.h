@@ -150,31 +150,31 @@ namespace marvin::dsp::filters {
             }
 
             void setCurrentAndTargetCoeffs(BiquadCoefficients<SampleType> newCoeffs) noexcept {
-                m_smoothers[0].setCurrentAndTargetValue(newCoeffs.b0);
-                m_smoothers[1].setCurrentAndTargetValue(newCoeffs.b1);
-                m_smoothers[2].setCurrentAndTargetValue(newCoeffs.b1);
-                m_smoothers[3].setCurrentAndTargetValue(newCoeffs.a0);
-                m_smoothers[4].setCurrentAndTargetValue(newCoeffs.a1);
-                m_smoothers[5].setCurrentAndTargetValue(newCoeffs.a2);
+                m_smoothers[0].setCurrentAndTargetValue(newCoeffs.a0);
+                m_smoothers[1].setCurrentAndTargetValue(newCoeffs.a1);
+                m_smoothers[2].setCurrentAndTargetValue(newCoeffs.a1);
+                m_smoothers[3].setCurrentAndTargetValue(newCoeffs.b0);
+                m_smoothers[4].setCurrentAndTargetValue(newCoeffs.b1);
+                m_smoothers[5].setCurrentAndTargetValue(newCoeffs.b2);
             }
 
             void setTargetCoeffs(BiquadCoefficients<SampleType> newCoeffs) noexcept {
-                m_smoothers[0].setTargetValue(newCoeffs.b0);
-                m_smoothers[1].setTargetValue(newCoeffs.b1);
-                m_smoothers[2].setTargetValue(newCoeffs.b1);
-                m_smoothers[3].setTargetValue(newCoeffs.a0);
-                m_smoothers[4].setTargetValue(newCoeffs.a1);
-                m_smoothers[5].setTargetValue(newCoeffs.a2);
+                m_smoothers[0].setTargetValue(newCoeffs.a0);
+                m_smoothers[1].setTargetValue(newCoeffs.a1);
+                m_smoothers[2].setTargetValue(newCoeffs.a1);
+                m_smoothers[3].setTargetValue(newCoeffs.b0);
+                m_smoothers[4].setTargetValue(newCoeffs.b1);
+                m_smoothers[5].setTargetValue(newCoeffs.b2);
             }
 
             void operator()() noexcept {
                 m_current = {
-                    .b0 = m_smoothers[0](),
-                    .b1 = m_smoothers[1](),
-                    .b2 = m_smoothers[2](),
-                    .a0 = m_smoothers[3](),
-                    .a1 = m_smoothers[4](),
-                    .a2 = m_smoothers[5]()
+                    .a0 = m_smoothers[0](),
+                    .a1 = m_smoothers[1](),
+                    .a2 = m_smoothers[2](),
+                    .b0 = m_smoothers[3](),
+                    .b1 = m_smoothers[4](),
+                    .b2 = m_smoothers[5]()
                 };
             }
 
