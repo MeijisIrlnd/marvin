@@ -11,8 +11,20 @@
 #include <marvin/utils/marvin_SmoothedValue.h>
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
-#include <iostream>
+#include <fmt/format.h>
+#include <numbers>
 namespace marvin::testing {
+    template <NumericType T>
+    [[nodiscard]] std::string getTypeName() {
+        if constexpr (std::is_same_v<T, float>) {
+            return "float";
+        } else if constexpr (std::is_same_v<T, double>) {
+            return "double";
+        } else if constexpr (std::is_same_v<T, int>) {
+            return "int";
+        }
+    }
+
     template <FloatType T>
     void testLinear(T start, T end) {
         marvin::utils::SmoothedValue<T, marvin::utils::SmoothingType::Linear> smoothedValue;
@@ -32,26 +44,28 @@ namespace marvin::testing {
 
     template <FloatType T>
     void testExponential(T start, T end) {
-        // If your slew factor is slew, the distance to the target is (1 - slew)^n after the nth iteration.
-        // If you want that distance to be 1%, then you want (1 - slew)^n = 0.01.
-        // Take the log of both sides: n*log(1 - slew) = log(0.01)
-        // So your n = log(0.01)/log(1 - slew), and then round up to get a whole number of iterations.
-        // marvin::utils::SmoothedValue<T, marvin::utils::SmoothingType::Exponential> smoothedValue;
-        // constexpr static auto period{ 100 };
-        // const auto slew = static_cast<T>(1.0) / (static_cast<T>(period) + static_cast<T>(1.0));
-        // // constexpr static auto delta{ static_cast<T>(1e-6) };
-        // smoothedValue.reset(period);
-        // smoothedValue.setCurrentAndTargetValue(start);
-        // smoothedValue.setTargetValue(end);
-        // auto smoothedRes = static_cast<T>(0.0);
-        // for (auto i = 0; i < 100; ++i) {
-        //     REQUIRE(smoothedValue.isSmoothing());
-        //     smoothedRes = smoothedValue();
-        //     std::cout << smoothedRes << "\n";
-        // }
-        // const auto tcTarget = ((end - start) / static_cast<T>(100.0)) * static_cast<T>(63.2);
-        // // REQUIRE_THAT(smoothedRes, Catch::Matchers::WithinRel(tcTarget));
-        // REQUIRE(!smoothedValue.isSmoothing());
+        const auto typeName = getTypeName<T>();
+        SECTION(fmt::format("Test Exponential<{}>, s = {}, e = {}", typeName, start, end)) {
+            constexpr static auto period{ 100 };
+            marvin::utils::SmoothedValue<T, marvin::utils::SmoothingType::Exponential> smoothedValue;
+            smoothedValue.reset(period);
+            smoothedValue.setCurrentAndTargetValue(start);
+            smoothedValue.setTargetValue(end);
+            const auto targetPc = (static_cast<T>(1.0) - (static_cast<T>(1.0) / std::numbers::e_v<T>)) * static_cast<T>(100.0);
+            const auto expectedAfterT = (((end - start) / static_cast<T>(100.0)) * static_cast<T>(targetPc)) + start;
+            auto current{ static_cast<T>(0.0) };
+            for (auto i = 0; i < period; ++i) {
+                current = smoothedValue();
+            }
+            REQUIRE(smoothedValue.isSmoothing());
+            REQUIRE_THAT(current, Catch::Matchers::WithinRel(expectedAfterT, static_cast<T>(0.01)));
+            const auto remaining = smoothedValue.getRemainingSamples();
+            for (auto i = 0; i <= remaining; ++i) {
+                current = smoothedValue();
+            }
+            REQUIRE_THAT(current, Catch::Matchers::WithinRel(end, static_cast<T>(0.01)));
+            REQUIRE(!smoothedValue.isSmoothing());
+        }
     }
 
     TEST_CASE("Test SmoothedValue") {
@@ -68,8 +82,20 @@ namespace marvin::testing {
             testLinear<double>(0.0, 0.0);
         }
         SECTION("Test exponential") {
+            testExponential<double>(0.0, 1.0);
+            testExponential<double>(0.0, 100.0);
+            testExponential<double>(0.0, 1000.0);
+            testExponential<double>(10.0, 1000.0);
+            testExponential<double>(20.0, -20.0);
+            testExponential<double>(0.0, 0.0);
+            testExponential<double>(-30.0, 100.0);
             testExponential<float>(0.0f, 1.0f);
             testExponential<float>(0.0f, 100.0f);
+            testExponential<float>(0.0f, 1000.0f);
+            testExponential<float>(10.0f, 1000.0f);
+            testExponential<float>(20.0f, -20.0f);
+            testExponential<float>(0.0f, 0.0f);
+            testExponential<float>(-30.0f, 100.0f);
         }
     }
 } // namespace marvin::testing

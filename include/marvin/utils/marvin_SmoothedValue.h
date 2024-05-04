@@ -29,6 +29,15 @@ namespace marvin::utils {
     public:
         /**
             Sets the period of the smoothing, and optionally sets the current value to the target value.
+            If Type == SmoothingType::Linear, the interpolation will take exactly this many samples. If Type == SmoothingType::Exponential,
+            then the period actually specifies the time (in samples) it will take for the smoother to reach 63.2% (approx `1 - 1/e`) of the target value.
+            This is the mathematical definition of an exponential smoother's time constant, so was chosen for that reason. If you'd instead like to set the time taken to reach
+            some arbitary percent distance from the target value, then you can calculate the value for it with something like the below snippet.
+            ```cpp
+            constexpr static auto withinPc{ 10.0f }; // Within 10% of target value
+            const auto period = stepsSamples / -std::log(withinPc / 100.0f); // period samples to reach 90% of the target value.
+            ```
+
             \param stepsSamples The period of the smoothing, in samples.
             \param skipRemaining If false, sets the current value to the target value.
         */
@@ -65,6 +74,10 @@ namespace marvin::utils {
             \returns Whether the smoother has reached its target value.
         */
         [[nodiscard]] bool isSmoothing() noexcept;
+        /**
+            \return The number of samples left to reach the target (if linear), or the number of samples left to reach 1% of the target (if exponential)
+        */
+        [[nodiscard]] int getRemainingSamples() noexcept;
 
     private:
         int m_duration{ 1 };
@@ -72,6 +85,7 @@ namespace marvin::utils {
         SampleType m_currentValue{ static_cast<SampleType>(0.0) };
         SampleType m_targetValue{ static_cast<SampleType>(0.0) };
         SampleType m_slew{ static_cast<SampleType>(0.0) };
+        SampleType m_approxTarget{};
     };
 } // namespace marvin::utils
 #endif
