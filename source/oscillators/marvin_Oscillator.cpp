@@ -60,16 +60,17 @@ namespace marvin::oscillators {
     template <FloatType SampleType>
     void OscillatorBase<SampleType>::setPhaseOffset(SampleType newPhaseOffset) noexcept {
         m_phaseOffset = newPhaseOffset;
+        reset();
     }
 
     template <FloatType SampleType>
     void OscillatorBase<SampleType>::reset() noexcept {
-        m_phase = static_cast<SampleType>(0.0);
+        m_phase = m_phaseOffset;
     }
 
     template <FloatType SampleType>
     void OscillatorBase<SampleType>::incrementPhase() noexcept {
-        m_phase += (m_phaseIncrement + m_phaseOffset);
+        m_phase += m_phaseIncrement;
         while (m_phase >= static_cast<SampleType>(1.0)) {
             m_phase -= static_cast<SampleType>(1.0);
         }
@@ -249,7 +250,7 @@ namespace marvin::oscillators {
 
     template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::reset() noexcept {
-        m_phase = static_cast<SampleType>(0.0);
+        m_phase = m_phaseOffset;
         m_sine.reset();
         m_tri.reset();
         m_saw.reset();
@@ -278,6 +279,7 @@ namespace marvin::oscillators {
     template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::setPhaseOffset(SampleType newPhaseOffset) noexcept {
         m_phaseOffset = newPhaseOffset;
+        reset();
     }
 
     template <FloatType SampleType, Bandlimiting Blep>
@@ -287,7 +289,7 @@ namespace marvin::oscillators {
 
     template <FloatType SampleType, Bandlimiting Blep>
     void MultiOscillator<SampleType, Blep>::incrementPhase() noexcept {
-        m_phase += (m_phaseIncrement + m_phaseOffset);
+        m_phase += m_phaseIncrement;
         while (m_phase >= static_cast<SampleType>(1.0)) {
             m_phase -= static_cast<SampleType>(1.0);
         }
