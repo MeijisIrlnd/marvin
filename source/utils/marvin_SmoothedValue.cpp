@@ -69,13 +69,18 @@ namespace marvin::utils {
     }
 
     template <FloatType SampleType, SmoothingType Type>
-    bool SmoothedValue<SampleType, Type>::isSmoothing() noexcept {
+    bool SmoothedValue<SampleType, Type>::isSmoothing() const noexcept {
         return m_samplesRemaining > 0;
     }
 
     template <FloatType SampleType, SmoothingType Type>
-    int SmoothedValue<SampleType, Type>::getRemainingSamples() noexcept {
+    int SmoothedValue<SampleType, Type>::getRemainingSamples() const noexcept {
         return m_samplesRemaining;
+    }
+
+    template <FloatType SampleType, SmoothingType Type>
+    SampleType SmoothedValue<SampleType, Type>::getTargetValue() const noexcept {
+        return m_targetValue;
     }
 
     template class SmoothedValue<float, SmoothingType::Linear>;

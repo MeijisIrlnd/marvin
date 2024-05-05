@@ -26,6 +26,36 @@ namespace marvin::dsp::filters {
         SampleType b0{ static_cast<SampleType>(0.0) };
         SampleType b1{ static_cast<SampleType>(0.0) };
         SampleType b2{ static_cast<SampleType>(0.0) };
+
+        template <FloatType U>
+        friend bool operator==(const BiquadCoefficients<SampleType>& a, const BiquadCoefficients<SampleType>& b);
     };
+
+    /**
+        Checks the equality of two BiquadCoefficients objects.
+        \param a A BiquadCoefficients object.
+        \param b A BiquadCoefficients object.
+        \return true if every coeff in a == every coeff in b, otherwise false.
+    */
+    template <FloatType SampleType>
+    bool operator==(const BiquadCoefficients<SampleType>& a, const BiquadCoefficients<SampleType>& b) noexcept {
+        return (a.a0 == b.a0) &&
+               (a.a1 == b.a1) &&
+               (a.a2 == b.a2) &&
+               (a.b0 == b.b0) &&
+               (a.b1 == b.b1) &&
+               (a.b2 == b.b2);
+    }
+
+    /**
+        Checks the equality of two BiquadCoefficients objects.
+        \param a A BiquadCoefficients object.
+        \param b A BiquadCoefficients object.
+        \return true if any coeff in a != any coeff in b, otherwise false.
+    */
+    template <FloatType SampleType>
+    bool operator!=(const BiquadCoefficients<SampleType>& a, const BiquadCoefficients<SampleType>& b) noexcept {
+        return !(a == b);
+    }
 } // namespace marvin::dsp::filters
 #endif

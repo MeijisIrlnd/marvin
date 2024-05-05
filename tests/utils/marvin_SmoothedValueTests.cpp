@@ -27,19 +27,22 @@ namespace marvin::testing {
 
     template <FloatType T>
     void testLinear(T start, T end) {
-        marvin::utils::SmoothedValue<T, marvin::utils::SmoothingType::Linear> smoothedValue;
-        smoothedValue.reset(100);
-        smoothedValue.setCurrentAndTargetValue(start);
-        smoothedValue.setTargetValue(end);
-        const auto expectedIncrement{ (end - start) / static_cast<T>(100.0) };
-        auto expected{ start };
-        for (auto i = 1; i < 101; ++i) {
-            REQUIRE(smoothedValue.isSmoothing());
-            const auto nextSmoothed = smoothedValue();
-            expected += expectedIncrement;
-            REQUIRE_THAT(nextSmoothed, Catch::Matchers::WithinRel(expected));
+        const auto typeName = getTypeName<T>();
+        SECTION(fmt::format("Test Linear<{}>, s = {}, e = {}", typeName, start, end)) {
+            marvin::utils::SmoothedValue<T, marvin::utils::SmoothingType::Linear> smoothedValue;
+            smoothedValue.reset(100);
+            smoothedValue.setCurrentAndTargetValue(start);
+            smoothedValue.setTargetValue(end);
+            const auto expectedIncrement{ (end - start) / static_cast<T>(100.0) };
+            auto expected{ start };
+            for (auto i = 1; i < 101; ++i) {
+                REQUIRE(smoothedValue.isSmoothing());
+                const auto nextSmoothed = smoothedValue();
+                expected += expectedIncrement;
+                REQUIRE_THAT(nextSmoothed, Catch::Matchers::WithinRel(expected));
+            }
+            REQUIRE(!smoothedValue.isSmoothing());
         }
-        REQUIRE(!smoothedValue.isSmoothing());
     }
 
     template <FloatType T>

@@ -73,11 +73,17 @@ namespace marvin::utils {
             Checks if the smoother has reached its target value.
             \returns Whether the smoother has reached its target value.
         */
-        [[nodiscard]] bool isSmoothing() noexcept;
+        [[nodiscard]] bool isSmoothing() const noexcept;
+
         /**
             \return The number of samples left to reach the target (if linear), or the number of samples left to reach 1% of the target (if exponential)
         */
-        [[nodiscard]] int getRemainingSamples() noexcept;
+        [[nodiscard]] int getRemainingSamples() const noexcept;
+
+        /**
+            \return The value the smoother is smoothing towards.
+        */
+        [[nodiscard]] SampleType getTargetValue() const noexcept;
 
     private:
         int m_duration{ 1 };

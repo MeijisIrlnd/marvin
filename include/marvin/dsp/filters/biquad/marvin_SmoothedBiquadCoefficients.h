@@ -126,11 +126,20 @@ namespace marvin::dsp::filters {
         }
 
         /**
+            Retrieves the target coeffs for a given `stage`.
+            \param stage The index of the stage to retrieve.
+            \return The target coefficients for the given `stage`.
+        */
+        [[nodiscard]] BiquadCoefficients<SampleType> target(size_t stage) const noexcept {
+            assert(stage < NumStages);
+            return m_stages[stage].target();
+        }
+        /**
             Performs a single tick of smoothing towards the target in all stages.
         */
-        void operator()() noexcept {
+        void interpolate() noexcept {
             for (auto& stage : m_stages) {
-                stage();
+                stage.interpolate();
             }
         }
 
@@ -152,7 +161,7 @@ namespace marvin::dsp::filters {
             void setCurrentAndTargetCoeffs(BiquadCoefficients<SampleType> newCoeffs) noexcept {
                 m_smoothers[0].setCurrentAndTargetValue(newCoeffs.a0);
                 m_smoothers[1].setCurrentAndTargetValue(newCoeffs.a1);
-                m_smoothers[2].setCurrentAndTargetValue(newCoeffs.a1);
+                m_smoothers[2].setCurrentAndTargetValue(newCoeffs.a2);
                 m_smoothers[3].setCurrentAndTargetValue(newCoeffs.b0);
                 m_smoothers[4].setCurrentAndTargetValue(newCoeffs.b1);
                 m_smoothers[5].setCurrentAndTargetValue(newCoeffs.b2);
@@ -162,13 +171,13 @@ namespace marvin::dsp::filters {
             void setTargetCoeffs(BiquadCoefficients<SampleType> newCoeffs) noexcept {
                 m_smoothers[0].setTargetValue(newCoeffs.a0);
                 m_smoothers[1].setTargetValue(newCoeffs.a1);
-                m_smoothers[2].setTargetValue(newCoeffs.a1);
+                m_smoothers[2].setTargetValue(newCoeffs.a2);
                 m_smoothers[3].setTargetValue(newCoeffs.b0);
                 m_smoothers[4].setTargetValue(newCoeffs.b1);
                 m_smoothers[5].setTargetValue(newCoeffs.b2);
             }
 
-            void operator()() noexcept {
+            void interpolate() noexcept {
                 m_current = {
                     .a0 = m_smoothers[0](),
                     .a1 = m_smoothers[1](),
@@ -181,6 +190,17 @@ namespace marvin::dsp::filters {
 
             [[nodiscard]] BiquadCoefficients<SampleType> current() const noexcept {
                 return m_current;
+            }
+
+            [[nodiscard]] BiquadCoefficients<SampleType> target() const noexcept {
+                return {
+                    .a0 = m_smoothers[0].getTargetValue(),
+                    .a1 = m_smoothers[1].getTargetValue(),
+                    .a2 = m_smoothers[2].getTargetValue(),
+                    .b0 = m_smoothers[3].getTargetValue(),
+                    .b1 = m_smoothers[4].getTargetValue(),
+                    .b2 = m_smoothers[5].getTargetValue()
+                };
             }
 
         private:
