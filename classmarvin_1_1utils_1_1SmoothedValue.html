@@ -100,18 +100,20 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9a6ef6a44c14a54972ebc3f469c24776"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3952652788cba105c190386cc68c7cbe" id="r_a3952652788cba105c190386cc68c7cbe"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3952652788cba105c190386cc68c7cbe">operator()</a> () noexcept</td></tr>
 <tr class="separator:a3952652788cba105c190386cc68c7cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad06a55de9240b8aa07ce0da50394150c" id="r_ad06a55de9240b8aa07ce0da50394150c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad06a55de9240b8aa07ce0da50394150c">isSmoothing</a> () noexcept</td></tr>
-<tr class="separator:ad06a55de9240b8aa07ce0da50394150c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4571ea5adcb5c0a16af8e7ab5c3154b" id="r_aa4571ea5adcb5c0a16af8e7ab5c3154b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4571ea5adcb5c0a16af8e7ab5c3154b">getRemainingSamples</a> () noexcept</td></tr>
-<tr class="separator:aa4571ea5adcb5c0a16af8e7ab5c3154b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a115608c69142ce963bd6ddba217a9686" id="r_a115608c69142ce963bd6ddba217a9686"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a115608c69142ce963bd6ddba217a9686">isSmoothing</a> () const noexcept</td></tr>
+<tr class="separator:a115608c69142ce963bd6ddba217a9686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83cf07f07698cda928c8e576e5faff88" id="r_a83cf07f07698cda928c8e576e5faff88"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a83cf07f07698cda928c8e576e5faff88">getRemainingSamples</a> () const noexcept</td></tr>
+<tr class="separator:a83cf07f07698cda928c8e576e5faff88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88ee864101dfdc9f24846af37a25df2d" id="r_a88ee864101dfdc9f24846af37a25df2d"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88ee864101dfdc9f24846af37a25df2d">getTargetValue</a> () const noexcept</td></tr>
+<tr class="separator:a88ee864101dfdc9f24846af37a25df2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.html#a561daf68b83f068162d1ef3582e6d89a">SmoothingType</a> Type&gt;<br />
 class marvin::utils::SmoothedValue&lt; SampleType, Type &gt;</div><p>A utility class to smooth discrete values over a given period. </p>
 <p>Mainly useful to help with zippering caused by discrete parameter updates. Can be configured to either smooth linearly or exponentially to the target value. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="aa4571ea5adcb5c0a16af8e7ab5c3154b" name="aa4571ea5adcb5c0a16af8e7ab5c3154b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4571ea5adcb5c0a16af8e7ab5c3154b">&#9670;&#160;</a></span>getRemainingSamples()</h2>
+<a id="a83cf07f07698cda928c8e576e5faff88" name="a83cf07f07698cda928c8e576e5faff88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83cf07f07698cda928c8e576e5faff88">&#9670;&#160;</a></span>getRemainingSamples()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -125,7 +127,7 @@ template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.h
           <td class="memname">int <a class="el" href="classmarvin_1_1utils_1_1SmoothedValue.html">marvin::utils::SmoothedValue</a>&lt; SampleType, Type &gt;::getRemainingSamples </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -138,8 +140,36 @@ template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.h
 
 </div>
 </div>
-<a id="ad06a55de9240b8aa07ce0da50394150c" name="ad06a55de9240b8aa07ce0da50394150c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad06a55de9240b8aa07ce0da50394150c">&#9670;&#160;</a></span>isSmoothing()</h2>
+<a id="a88ee864101dfdc9f24846af37a25df2d" name="a88ee864101dfdc9f24846af37a25df2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88ee864101dfdc9f24846af37a25df2d">&#9670;&#160;</a></span>getTargetValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.html#a561daf68b83f068162d1ef3582e6d89a">SmoothingType</a> Type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classmarvin_1_1utils_1_1SmoothedValue.html">marvin::utils::SmoothedValue</a>&lt; SampleType, Type &gt;::getTargetValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>The value the smoother is smoothing towards. </dd></dl>
+
+</div>
+</div>
+<a id="a115608c69142ce963bd6ddba217a9686" name="a115608c69142ce963bd6ddba217a9686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a115608c69142ce963bd6ddba217a9686">&#9670;&#160;</a></span>isSmoothing()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,7 +183,7 @@ template&lt;FloatType SampleType, <a class="el" href="namespacemarvin_1_1utils.h
           <td class="memname">bool <a class="el" href="classmarvin_1_1utils_1_1SmoothedValue.html">marvin::utils::SmoothedValue</a>&lt; SampleType, Type &gt;::isSmoothing </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>

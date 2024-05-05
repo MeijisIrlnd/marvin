@@ -9,5 +9,6 @@ var searchData=
   ['getmaximumdelayinsamples_6',['getMaximumDelayInSamples',['../classmarvin_1_1dsp_1_1DelayLine.html#ae2438994c586fc568fa952af1728e020',1,'marvin::dsp::DelayLine']]],
   ['getnumchannels_7',['getNumChannels',['../structmarvin_1_1audiobasics_1_1BufferView.html#a8692d244123b1d5f817b718d5fa36cc0',1,'marvin::audiobasics::BufferView']]],
   ['getnumsamples_8',['getNumSamples',['../structmarvin_1_1audiobasics_1_1BufferView.html#adda66848663c45e1c98ef1716789cb7a',1,'marvin::audiobasics::BufferView']]],
-  ['getremainingsamples_9',['getRemainingSamples',['../classmarvin_1_1utils_1_1SmoothedValue.html#aa4571ea5adcb5c0a16af8e7ab5c3154b',1,'marvin::utils::SmoothedValue']]]
+  ['getremainingsamples_9',['getRemainingSamples',['../classmarvin_1_1utils_1_1SmoothedValue.html#a83cf07f07698cda928c8e576e5faff88',1,'marvin::utils::SmoothedValue']]],
+  ['gettargetvalue_10',['getTargetValue',['../classmarvin_1_1utils_1_1SmoothedValue.html#a88ee864101dfdc9f24846af37a25df2d',1,'marvin::utils::SmoothedValue']]]
 ];
