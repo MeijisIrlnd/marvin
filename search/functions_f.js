@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['_7elatticeapf_0',['~LatticeAPF',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a51ba10ffb356a6fd3c5fff8908db18fd',1,'marvin::dsp::filters::LatticeAPF']]],
-  ['_7enoiseoscillator_1',['~NoiseOscillator',['../classmarvin_1_1oscillators_1_1NoiseOscillator.html#a652d7fa8dbaecc9ab02d73766e870242',1,'marvin::oscillators::NoiseOscillator']]],
-  ['_7eoscillatorbase_2',['~OscillatorBase',['../classmarvin_1_1oscillators_1_1OscillatorBase.html#ad83c5972562b70d9424d0e14576140cf',1,'marvin::oscillators::OscillatorBase']]],
-  ['_7epulseoscillator_3',['~PulseOscillator',['../classmarvin_1_1oscillators_1_1PulseOscillator.html#ac6de5a6e71073f63488fb56dd580f366',1,'marvin::oscillators::PulseOscillator']]],
-  ['_7esawoscillator_4',['~SawOscillator',['../classmarvin_1_1oscillators_1_1SawOscillator.html#a38de5fd1f013b2230f4b33d500d0110f',1,'marvin::oscillators::SawOscillator']]],
-  ['_7esineoscillator_5',['~SineOscillator',['../classmarvin_1_1oscillators_1_1SineOscillator.html#ac01900ac6ab6e49ecb707c36596c9a3e',1,'marvin::oscillators::SineOscillator']]],
-  ['_7esquareoscillator_6',['~SquareOscillator',['../classmarvin_1_1oscillators_1_1SquareOscillator.html#a15680e0f6b66bc0f1ce64a2e79bc9f6d',1,'marvin::oscillators::SquareOscillator']]],
-  ['_7etrioscillator_7',['~TriOscillator',['../classmarvin_1_1oscillators_1_1TriOscillator.html#aabc0b3474f69b397c70c5df9083600f0',1,'marvin::oscillators::TriOscillator']]]
+  ['tap_0',['tap',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a95465a08f4f4cdba56144b5128f8e9f9',1,'marvin::dsp::filters::LatticeAPF']]],
+  ['target_1',['target',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#ad37122727b33c2ee6a0d39be163f7052',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
+  ['trypop_2',['tryPop',['../classmarvin_1_1utils_1_1fifos_1_1SPSC.html#a245d96a277d523029adbc1c3cdf9b4e0',1,'marvin::utils::fifos::SPSC']]],
+  ['trypush_3',['tryPush',['../classmarvin_1_1utils_1_1fifos_1_1SPSC.html#aaf5f29266e2c25bbdd779bcbbba1aebb',1,'marvin::utils::fifos::SPSC']]]
 ];

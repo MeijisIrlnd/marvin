@@ -1,5 +1,19 @@
 var searchData=
 [
-  ['tap_0',['tap',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a95465a08f4f4cdba56144b5128f8e9f9',1,'marvin::dsp::filters::LatticeAPF']]],
-  ['target_1',['target',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#ad37122727b33c2ee6a0d39be163f7052',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]]
+  ['setcoeff_0',['setCoeff',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#afe499a9c7c9256e0bab87e4538ddbc28',1,'marvin::dsp::filters::LatticeAPF::setCoeff()'],['../classmarvin_1_1dsp_1_1filters_1_1LPF.html#a9dd4ee21883d461d5cb67a649ce0cdb0',1,'marvin::dsp::filters::LPF::setCoeff()']]],
+  ['setcoeffs_1',['setCoeffs',['../classmarvin_1_1dsp_1_1filters_1_1Biquad.html#a8dfee098419f82b25c849549a252c45f',1,'marvin::dsp::filters::Biquad']]],
+  ['setcurrentandtargetcoeffs_2',['setCurrentAndTargetCoeffs',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#a0ba3a6f2ee53a180933c85a985dd35f5',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
+  ['setcurrentandtargetvalue_3',['setCurrentAndTargetValue',['../classmarvin_1_1utils_1_1SmoothedValue.html#a9891044a2ad3ee173f15a57667c8406f',1,'marvin::utils::SmoothedValue']]],
+  ['setcutoff_4',['setCutoff',['../classmarvin_1_1dsp_1_1filters_1_1LPF.html#a8ee0f7fc77f62170a3b5d33bfcdf6880',1,'marvin::dsp::filters::LPF']]],
+  ['setdelay_5',['setDelay',['../classmarvin_1_1dsp_1_1DelayLine.html#a4091550bc9b85f2bfec3f895858fa398',1,'marvin::dsp::DelayLine::setDelay()'],['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a2ea4d5497c904382a481cc9035603068',1,'marvin::dsp::filters::LatticeAPF::setDelay()']]],
+  ['setfrequency_6',['setFrequency',['../classmarvin_1_1oscillators_1_1OscillatorBase.html#af61e293d98b46eab1cc55302c5d7c604',1,'marvin::oscillators::OscillatorBase::setFrequency()'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#af205bcaffd9c9726a01991f7f2f23deb',1,'marvin::oscillators::MultiOscillator::setFrequency()']]],
+  ['setmaximumdelayinsamples_7',['setMaximumDelayInSamples',['../classmarvin_1_1dsp_1_1DelayLine.html#a7c7c0811b5e71f1a67a8e2fd7c033013',1,'marvin::dsp::DelayLine']]],
+  ['setphaseoffset_8',['setPhaseOffset',['../classmarvin_1_1oscillators_1_1OscillatorBase.html#aaeccaec1d733a65ac9c8c8ada427a070',1,'marvin::oscillators::OscillatorBase::setPhaseOffset()'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#aa52a3053349efcce7f2b45b2d5a8598a',1,'marvin::oscillators::MultiOscillator::setPhaseOffset()']]],
+  ['setpulsewidth_9',['setPulsewidth',['../classmarvin_1_1oscillators_1_1PulseOscillator.html#aacde205070158f0032c7818234f8c501',1,'marvin::oscillators::PulseOscillator::setPulsewidth()'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a18db4530ba0958139174f895b40f8924',1,'marvin::oscillators::MultiOscillator::setPulsewidth(SampleType newPulsewidth) noexcept']]],
+  ['setshape_10',['setShape',['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a9878f3a90bd1d6451a8693127f933a17',1,'marvin::oscillators::MultiOscillator']]],
+  ['settargetcoeffs_11',['setTargetCoeffs',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#aea5133077f9e70473937610ca86882c1',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
+  ['settargetvalue_12',['setTargetValue',['../classmarvin_1_1utils_1_1SmoothedValue.html#a9a6ef6a44c14a54972ebc3f469c24776',1,'marvin::utils::SmoothedValue']]],
+  ['spsc_13',['SPSC',['../classmarvin_1_1utils_1_1fifos_1_1SPSC.html#af1664de52afc322cb2a644a555673701',1,'marvin::utils::fifos::SPSC']]],
+  ['subtract_14',['subtract',['../namespacemarvin_1_1vecops.html#a5cf2ccb223cb8bdb5fffc9c6cd814889',1,'marvin::vecops::subtract(T *lhs, const T *rhs, size_t size) noexcept'],['../namespacemarvin_1_1vecops.html#afb5315725c3b19790a3f0e49616ecc87',1,'marvin::vecops::subtract(T *arr, T scalar, size_t size) noexcept'],['../namespacemarvin_1_1vecops.html#a46c33fb0c85b3009bb717a6791cebea9',1,'marvin::vecops::subtract(T &amp;lhs, const T &amp;rhs) noexcept'],['../namespacemarvin_1_1vecops.html#a52d7ac99dc87db4bc89a420dade183b6',1,'marvin::vecops::subtract(T &amp;arr, typename T::value_type scalar) noexcept']]],
+  ['swap_15',['swap',['../classmarvin_1_1library_1_1PropagateConst.html#aebaa7200f12ded0e5e50acb6d0fbd577',1,'marvin::library::PropagateConst']]]
 ];
