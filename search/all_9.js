@@ -31,12 +31,13 @@ var searchData=
   ['marvin_5foscillator_2eh_28',['marvin_Oscillator.h',['../marvin__Oscillator_8h.html',1,'']]],
   ['marvin_5fpropagateconst_2eh_29',['marvin_PropagateConst.h',['../marvin__PropagateConst_8h.html',1,'']]],
   ['marvin_5frandom_2eh_30',['marvin_Random.h',['../marvin__Random_8h.html',1,'']]],
-  ['marvin_5frbjcoefficients_2eh_31',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
-  ['marvin_5fsmoothedbiquadcoefficients_2eh_32',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
-  ['marvin_5fsmoothedvalue_2eh_33',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]],
-  ['marvin_5fvecops_2eh_34',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]],
-  ['max_35',['max',['../structmarvin_1_1utils_1_1Random_1_1Range.html#a76068fcea5b816c6463082f0a7a15bac',1,'marvin::utils::Random::Range']]],
-  ['min_36',['min',['../structmarvin_1_1utils_1_1Random_1_1Range.html#a19afa88d802fb522a095cf931c95bf90',1,'marvin::utils::Random::Range']]],
-  ['multioscillator_37',['MultiOscillator',['../classmarvin_1_1oscillators_1_1MultiOscillator.html',1,'marvin::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt;'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a390c58f1afd641bf4c54b953fef830fb',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd)'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a125ee49fc5ed6cb1c2b63050c56621b0',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd, SHAPE shape)']]],
-  ['multiply_38',['multiply',['../namespacemarvin_1_1vecops.html#a06c5b6348eec1981ce0da39dd6ed59fa',1,'marvin::vecops::multiply(T *lhs, const T *rhs, size_t size) noexcept'],['../namespacemarvin_1_1vecops.html#a3096b4e33382c79d7dc0db77bcee0697',1,'marvin::vecops::multiply(T *arr, T scalar, size_t size) noexcept'],['../namespacemarvin_1_1vecops.html#a31abf83dd0c8e6cae218e3497f3a6ca5',1,'marvin::vecops::multiply(T &amp;lhs, const T &amp;rhs) noexcept'],['../namespacemarvin_1_1vecops.html#acbd0e5d5cbd6c08b7d8290d0a9af48fe',1,'marvin::vecops::multiply(T &amp;arr, typename T::value_type scalar) noexcept']]]
+  ['marvin_5frange_2eh_31',['marvin_Range.h',['../marvin__Range_8h.html',1,'']]],
+  ['marvin_5frbjcoefficients_2eh_32',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
+  ['marvin_5fsmoothedbiquadcoefficients_2eh_33',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
+  ['marvin_5fsmoothedvalue_2eh_34',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]],
+  ['marvin_5fvecops_2eh_35',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]],
+  ['max_36',['max',['../structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175',1,'marvin::utils::Range']]],
+  ['min_37',['min',['../structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c',1,'marvin::utils::Range']]],
+  ['multioscillator_38',['MultiOscillator',['../classmarvin_1_1oscillators_1_1MultiOscillator.html',1,'marvin::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt;'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a390c58f1afd641bf4c54b953fef830fb',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd)'],['../classmarvin_1_1oscillators_1_1MultiOscillator.html#a125ee49fc5ed6cb1c2b63050c56621b0',1,'marvin::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd, SHAPE shape)']]],
+  ['multiply_39',['multiply',['../namespacemarvin_1_1vecops.html#a06c5b6348eec1981ce0da39dd6ed59fa',1,'marvin::vecops::multiply(T *lhs, const T *rhs, size_t size) noexcept'],['../namespacemarvin_1_1vecops.html#a3096b4e33382c79d7dc0db77bcee0697',1,'marvin::vecops::multiply(T *arr, T scalar, size_t size) noexcept'],['../namespacemarvin_1_1vecops.html#a31abf83dd0c8e6cae218e3497f3a6ca5',1,'marvin::vecops::multiply(T &amp;lhs, const T &amp;rhs) noexcept'],['../namespacemarvin_1_1vecops.html#acbd0e5d5cbd6c08b7d8290d0a9af48fe',1,'marvin::vecops::multiply(T &amp;arr, typename T::value_type scalar) noexcept']]]
 ];

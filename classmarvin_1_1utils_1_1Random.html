@@ -77,7 +77,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classmarvin_1_1utils_1_1Random-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">marvin::utils::Random Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div></div>
@@ -89,18 +88,12 @@ $(function() {
 
 <p><code>#include &lt;<a class="el" href="marvin__Random_8h_source.html">marvin_Random.h</a>&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A POD type specifying the min and max range an instance of the <a class="el" href="classmarvin_1_1utils_1_1Random.html" title="A class for (pseudo) random number generation.">Random</a> class should use for generation.  <a href="structmarvin_1_1utils_1_1Random_1_1Range.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac936e9c54ec03042fd16469f5ce7df83" id="r_ac936e9c54ec03042fd16469f5ce7df83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac936e9c54ec03042fd16469f5ce7df83">Random</a> (std::random_device &amp;rd)</td></tr>
 <tr class="separator:ac936e9c54ec03042fd16469f5ce7df83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae64dd30118e742a805770b3cdba3b42f" id="r_ae64dd30118e742a805770b3cdba3b42f"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
-<tr class="memitem:ae64dd30118e742a805770b3cdba3b42f"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae64dd30118e742a805770b3cdba3b42f">generate</a> (<a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range</a>&lt; T &gt; range) noexcept</td></tr>
+<tr class="memitem:ae64dd30118e742a805770b3cdba3b42f"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae64dd30118e742a805770b3cdba3b42f">generate</a> (<a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; range) noexcept</td></tr>
 <tr class="separator:ae64dd30118e742a805770b3cdba3b42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -153,7 +146,7 @@ template&lt;NumericType T&gt; </div>
         <tr>
           <td class="memname">T marvin::utils::Random::generate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -163,9 +156,9 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Generates a (pseudo) random number in the given <a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html" title="A POD type specifying the min and max range an instance of the Random class should use for generation...">Range</a>. Internally uses the appropriate <code>std::uniform_t_distribution</code> depending on if T is an integral type, or a float-type. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Generates a (pseudo) random number in the given <a class="el" href="structmarvin_1_1utils_1_1Range.html" title="POD type that represents a range of values, for classes requiring a min and a max.">Range</a>. Internally uses the appropriate <code>std::uniform_t_distribution</code> depending on if T is an integral type, or a float-type. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">range</td><td>An instance of the <a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html" title="A POD type specifying the min and max range an instance of the Random class should use for generation...">Range</a> POD type, specifying the min and max values the rng should generate between. </td></tr>
+    <tr><td class="paramname">range</td><td>An instance of the <a class="el" href="structmarvin_1_1utils_1_1Range.html" title="POD type that represents a range of values, for classes requiring a min and a max.">Range</a> POD type, specifying the min and max values the rng should generate between. </td></tr>
   </table>
   </dd>
 </dl>

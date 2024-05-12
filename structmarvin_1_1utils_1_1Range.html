@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>marvin: marvin::utils::Random::Range&lt; T &gt; Struct Template Reference</title>
+<title>marvin: marvin::utils::Range&lt; T &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -72,35 +72,36 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespacemarvin.html">marvin</a></li><li class="navelem"><a class="el" href="namespacemarvin_1_1utils.html">utils</a></li><li class="navelem"><a class="el" href="classmarvin_1_1utils_1_1Random.html">Random</a></li><li class="navelem"><a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">Range</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacemarvin.html">marvin</a></li><li class="navelem"><a class="el" href="namespacemarvin_1_1utils.html">utils</a></li><li class="navelem"><a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="structmarvin_1_1utils_1_1Random_1_1Range-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">marvin::utils::Random::Range&lt; T &gt; Struct Template Reference</div></div>
+<a href="structmarvin_1_1utils_1_1Range-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">marvin::utils::Range&lt; T &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>A POD type specifying the min and max range an instance of the <a class="el" href="classmarvin_1_1utils_1_1Random.html" title="A class for (pseudo) random number generation.">Random</a> class should use for generation.  
+<p>POD type that represents a range of values, for classes requiring a min and a max.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="marvin__Random_8h_source.html">marvin_Random.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="marvin__Range_8h_source.html">marvin_Range.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a19afa88d802fb522a095cf931c95bf90" id="r_a19afa88d802fb522a095cf931c95bf90"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19afa88d802fb522a095cf931c95bf90">min</a></td></tr>
-<tr class="separator:a19afa88d802fb522a095cf931c95bf90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76068fcea5b816c6463082f0a7a15bac" id="r_a76068fcea5b816c6463082f0a7a15bac"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76068fcea5b816c6463082f0a7a15bac">max</a></td></tr>
-<tr class="separator:a76068fcea5b816c6463082f0a7a15bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed9c1b198944fc7be0a6f8461414e27c" id="r_aed9c1b198944fc7be0a6f8461414e27c"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed9c1b198944fc7be0a6f8461414e27c">min</a></td></tr>
+<tr class="separator:aed9c1b198944fc7be0a6f8461414e27c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39231b7dba2ae081ec28ebe1248f9175" id="r_a39231b7dba2ae081ec28ebe1248f9175"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39231b7dba2ae081ec28ebe1248f9175">max</a></td></tr>
+<tr class="separator:a39231b7dba2ae081ec28ebe1248f9175"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;NumericType T&gt;<br />
-struct marvin::utils::Random::Range&lt; T &gt;</div><p>A POD type specifying the min and max range an instance of the <a class="el" href="classmarvin_1_1utils_1_1Random.html" title="A class for (pseudo) random number generation.">Random</a> class should use for generation. </p>
+struct marvin::utils::Range&lt; T &gt;</div><p>POD type that represents a range of values, for classes requiring a min and a max. </p>
+<p>Literally just two T-s - mainly exists to avoid needing to use <code>std::tuple</code>. </p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a76068fcea5b816c6463082f0a7a15bac" name="a76068fcea5b816c6463082f0a7a15bac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76068fcea5b816c6463082f0a7a15bac">&#9670;&#160;</a></span>max</h2>
+<a id="a39231b7dba2ae081ec28ebe1248f9175" name="a39231b7dba2ae081ec28ebe1248f9175"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39231b7dba2ae081ec28ebe1248f9175">&#9670;&#160;</a></span>max</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -108,15 +109,15 @@ struct marvin::utils::Random::Range&lt; T &gt;</div><p>A POD type specifying the
 template&lt;NumericType T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">marvin::utils::Random::Range</a>&lt; T &gt;::max</td>
+          <td class="memname">T <a class="el" href="structmarvin_1_1utils_1_1Range.html">marvin::utils::Range</a>&lt; T &gt;::max</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a19afa88d802fb522a095cf931c95bf90" name="a19afa88d802fb522a095cf931c95bf90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19afa88d802fb522a095cf931c95bf90">&#9670;&#160;</a></span>min</h2>
+<a id="aed9c1b198944fc7be0a6f8461414e27c" name="aed9c1b198944fc7be0a6f8461414e27c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed9c1b198944fc7be0a6f8461414e27c">&#9670;&#160;</a></span>min</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +125,7 @@ template&lt;NumericType T&gt; </div>
 template&lt;NumericType T&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="structmarvin_1_1utils_1_1Random_1_1Range.html">marvin::utils::Random::Range</a>&lt; T &gt;::min</td>
+          <td class="memname">T <a class="el" href="structmarvin_1_1utils_1_1Range.html">marvin::utils::Range</a>&lt; T &gt;::min</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -132,7 +133,7 @@ template&lt;NumericType T&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/runner/work/marvin/marvin/include/marvin/utils/<a class="el" href="marvin__Random_8h_source.html">marvin_Random.h</a></li>
+<li>/home/runner/work/marvin/marvin/include/marvin/utils/<a class="el" href="marvin__Range_8h_source.html">marvin_Range.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
