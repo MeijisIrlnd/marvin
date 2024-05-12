@@ -40,6 +40,12 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(mipp)
 
+FetchContent_Declare( 
+    readerwriterqueue
+    GIT_REPOSITORY https://github.com/cameron314/readerwriterqueue.git
+    GIT_SHALLOW ON
+)
+FetchContent_MakeAvailable(readerwriterqueue)
 
 add_subdirectory(source)
 add_subdirectory(include)
@@ -55,7 +61,10 @@ target_include_directories(marvin PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
-target_link_libraries(marvin PUBLIC MIPP::mipp)
+target_link_libraries(marvin PUBLIC 
+    MIPP::mipp
+    readerwriterqueue
+)
 
 install(DIRECTORY "include/" # source directory
     DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}" # target directory
