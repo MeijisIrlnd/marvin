@@ -17,7 +17,7 @@ namespace marvin::utils {
     template <FloatType SampleType, SmoothingType Type>
     void SmoothedValue<SampleType, Type>::reset(int steps, bool skipRemaining) {
         m_duration = steps;
-        if (skipRemaining) return;
+        if (!skipRemaining) return;
         m_samplesRemaining = steps;
         setCurrentAndTargetValue(m_targetValue);
     }

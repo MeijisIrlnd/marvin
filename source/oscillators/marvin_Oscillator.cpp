@@ -184,7 +184,7 @@ namespace marvin::oscillators {
 
     template <FloatType SampleType>
     SampleType NoiseOscillator<SampleType>::operator()() noexcept {
-        const auto random = m_rng.generate(utils::Random::Range<SampleType>{ static_cast<SampleType>(-1.0), static_cast<SampleType>(1.0) });
+        const auto random = m_rng.generate(utils::Range<SampleType>{ static_cast<SampleType>(-1.0), static_cast<SampleType>(1.0) });
         return random;
     }
 

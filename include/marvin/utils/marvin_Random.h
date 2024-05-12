@@ -11,6 +11,7 @@
 #ifndef SLMADSP_RANDOM_H
 #define SLMADSP_RANDOM_H
 #include "marvin/library/marvin_Concepts.h"
+#include "marvin/utils/marvin_Range.h"
 #include <random>
 namespace marvin::utils {
     /**
@@ -20,14 +21,6 @@ namespace marvin::utils {
     */
     class Random final {
     public:
-        /**
-            \brief A POD type specifying the min and max range an instance of the Random class should use for generation.
-        */
-        template <NumericType T>
-        struct Range {
-            T min, max;
-        };
-
         /**
             As it's not recommended to have multiple copies of a `std::random_device`, this class relies on one to be provided to its constructor, which is used to configure the internal `std::mt19937` rng.
             \param rd An instance of a `std::random_device` to seed the internal rng with.

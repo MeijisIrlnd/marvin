@@ -26,6 +26,7 @@ set(MARVIN_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_SmoothedValue.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_Random.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_MixMatrix.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_Range.h
     PARENT_SCOPE
 )
 

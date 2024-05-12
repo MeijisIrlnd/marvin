@@ -39,16 +39,16 @@ namespace marvin::utils {
             ```
 
             \param stepsSamples The period of the smoothing, in samples.
-            \param skipRemaining If false, sets the current value to the target value.
+            \param skipRemaining If true, sets the current value to the target value.
         */
-        void reset(int stepsSamples, bool skipRemaining = false);
+        void reset(int stepsSamples, bool skipRemaining = true);
         /**
             Sets the period of the smoothing, and optionally sets the current value to the target value.
             \param sampleRate The currently configured sample rate.
             \param timeMs The period of the smoothing, in milliseconds.
-            \param skipRemaining If false, sets the current value to the target value.
+            \param skipRemaining If true, sets the current value to the target value.
         */
-        void reset(double sampleRate, double timeMs, bool skipRemaining = false);
+        void reset(double sampleRate, double timeMs, bool skipRemaining = true);
         /**
             Sets both the current value, and the target value to interpolate to.
             \param newValue The new target (and current) value.
