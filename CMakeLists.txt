@@ -16,21 +16,32 @@ project(
     DESCRIPTION "Pure C++ audio helper library"
     HOMEPAGE_URL "https://github.com/MeijisIrlnd/marvin.git"
 )
+if(APPLE)
+    EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE)
+    if(${ARCHITECTURE} STREQUAL "arm64")
+        set(MARVIN_SIMD_FLAGS -mfpu=neon)
+    else() 
+        set(MARVIN_SIMD_FLAGS -msse4.2 -mavx -march=native)
+    endif()
+else()
+    set(MARVIN_SIMD_FLAGS -msse4.2 -mavx -march=native)
+endif()
+
 include(GNUInstallDirs)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 set(MARVIN_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
         CACHE STRING "Path where package files will be installed, relative to the install prefix"
 )
-set(MARVIN_SIMD_FLAGS -msse4.2 -mavx -march=native)
 if(MSVC) 
     set(MARVIN_WARNING_FLAGS "/W4 /WX")
 else() 
-    set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Werror")
+    # Need no unused command line arg because not all TU-s need -mfpu=neon
+    set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Wno-unused-command-line-argument -Werror")
 endif()
 
-# set(MIPP_STATIC_LIB OFF)
-# set(MIPP_EXAMPLES_EXE OFF)
-# set(MIPP_TESTS_EXE OFF)
+set(MIPP_STATIC_LIB OFF)
+set(MIPP_EXAMPLES_EXE OFF)
+set(MIPP_TESTS_EXE OFF)
 include(FetchContent)
 FetchContent_Declare( 
     mipp
@@ -131,6 +142,9 @@ add_executable(marvin-tests ${MARVIN_TEST_SOURCE})
 target_include_directories(marvin-tests PRIVATE include)
 target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin fmt)
 target_compile_definitions(marvin-tests PRIVATE FMT_HEADER_ONLY)
+if(${BENCHMARK}) 
+    target_compile_definitions(marvin-tests PRIVATE MARVIN_BENCHMARK)
+endif()
 add_dependencies(marvin-tests marvin)
 
 
