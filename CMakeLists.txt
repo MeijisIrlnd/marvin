@@ -18,8 +18,13 @@ project(
 )
 if(APPLE)
     set(MARVIN_EXTRA_DEFS MARVIN_MACOS)
+    set(MARVIN_EXTRA_LINK_LIBS "-framework Accelerate")
 else()
-    set(MARVIN_SIMD_FLAGS -msse4.2 -mavx -march=native)
+    find_package(IPP)
+    if(IPP_FOUND) 
+        set(MARVIN_EXTRA_DEFS MARVIN_HAS_IPP)
+        set(MARVIN_EXTRA_LINK_LIBS IPP::ippcore IPP::ipps IPP::ippi)
+    endif()
 endif()
 
 include(GNUInstallDirs)
@@ -69,7 +74,7 @@ target_include_directories(marvin PUBLIC
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 target_link_libraries(marvin PUBLIC 
-    MIPP::mipp
+    ${MARVIN_EXTRA_LINK_LIBS}
     readerwriterqueue
 )
 
@@ -136,7 +141,7 @@ FetchContent_MakeAvailable(fmt)
 
 add_executable(marvin-tests ${MARVIN_TEST_SOURCE})
 target_include_directories(marvin-tests PRIVATE include)
-target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin fmt "-framework accelerate")
+target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin fmt)
 target_compile_definitions(marvin-tests PRIVATE FMT_HEADER_ONLY)
 if(${BENCHMARK}) 
     target_compile_definitions(marvin-tests PRIVATE MARVIN_BENCHMARK)

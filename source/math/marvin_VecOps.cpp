@@ -2,6 +2,8 @@
 #include "marvin/library/marvin_Concepts.h"
 #if defined(MARVIN_MACOS)
 #include <Accelerate/Accelerate.h>
+#elif defined(MARVIN_HAS_IPP)
+#include <ipp.h>
 #endif
 
 namespace marvin::vecops {
@@ -86,6 +88,88 @@ namespace marvin::vecops {
     void divide<double>(double* arr, double scalar, size_t size) noexcept {
         vDSP_vsdivD(arr, 1, &scalar, arr, 1, size);
     }
+
+#elif defined(MARVIN_HAS_IPP)
+    template <>
+    void add<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        ippsAdd_32f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void add<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        ippsAdd_64f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void add<float>(float* arr, float scalar, size_t size) noexcept {
+        ippsAddC_32f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void add<double>(double* arr, double scalar, size_t size) noexcept {
+        ippsAddC_64f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void subtract<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        ippsSub_32f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void subtract<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        ippsSub_64f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void subtract<float>(float* arr, float scalar, size_t size) noexcept {
+        ippsSubC_32f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void subtract<double>(double* arr, double scalar, size_t size) noexcept {
+        ippsSubC_64f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void multiply<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        ippsMul_32f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void multiply<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        ippsMul_64f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void multiply<float>(float* arr, float scalar, size_t size) noexcept {
+        ippsMulC_32f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void multiply<double>(double* arr, double scalar, size_t size) noexcept {
+        ippsMulC_64f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void divide<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        ippsDiv_32f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void divide<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        ippsDiv_64f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void divide<float>(float* arr, float scalar, size_t size) noexcept {
+        ippsDivC_32f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void divide<double>(double* arr, double scalar, size_t size) noexcept {
+        ippsDivC_64f_I(scalar, arr, static_cast<int>(size));
+    }
+#else
 
 
 #endif
