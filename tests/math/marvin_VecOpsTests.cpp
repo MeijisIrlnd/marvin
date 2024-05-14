@@ -15,6 +15,7 @@
 #include <array>
 #include <span>
 #include <vector>
+#include <Accelerate/Accelerate.h>
 namespace marvin::testing {
 
     template <NumericType T>
@@ -408,84 +409,64 @@ namespace marvin::testing {
     TEST_CASE("Test VecOps") {
 
         SECTION("Test Add") {
+
             testAdd<float, 4>();
             testAdd<double, 4>();
-            testAdd<int, 4>();
             testAdd<float, 5>();
             testAdd<double, 5>();
-            testAdd<int, 5>();
             testAdd<float, 8>();
             testAdd<double, 8>();
-            testAdd<int, 8>();
             testAdd<float, 9>();
             testAdd<double, 9>();
-            testAdd<int, 9>();
             testAdd<float, 16>();
             testAdd<double, 16>();
-            testAdd<int, 16>();
             testAdd<float, 17>();
             testAdd<double, 17>();
-            testAdd<int, 17>();
         }
 #if defined(MARVIN_BENCHMARK)
         SECTION("Benchmark Add") {
             benchmarkAdd<float, 32>();
             benchmarkAdd<double, 32>();
-            benchmarkAdd<int, 32>();
         }
 #endif
         SECTION("Test Subtract") {
             testSubtract<float, 4>();
             testSubtract<double, 4>();
-            testSubtract<int, 4>();
             testSubtract<float, 5>();
             testSubtract<double, 5>();
-            testSubtract<int, 5>();
             testSubtract<float, 8>();
             testSubtract<double, 8>();
-            testSubtract<int, 8>();
             testSubtract<float, 9>();
             testSubtract<double, 9>();
-            testSubtract<int, 9>();
             testSubtract<float, 16>();
             testSubtract<double, 16>();
-            testSubtract<int, 16>();
             testSubtract<float, 17>();
             testSubtract<double, 17>();
-            testSubtract<int, 17>();
         }
 #if defined(MARVIN_BENCHMARK)
         SECTION("Benchmark Subtract") {
             benchmarkSubtract<float, 32>();
             benchmarkSubtract<double, 32>();
-            benchmarkSubtract<int, 32>();
         }
 #endif
         SECTION("Test Multiply") {
             testMultiply<float, 4>();
             testMultiply<double, 4>();
-            testMultiply<int, 4>();
             testMultiply<float, 5>();
             testMultiply<double, 5>();
-            testMultiply<int, 5>();
             testMultiply<float, 8>();
             testMultiply<double, 8>();
-            testMultiply<int, 8>();
             testMultiply<float, 9>();
             testMultiply<double, 9>();
-            testMultiply<int, 9>();
             testMultiply<float, 16>();
             testMultiply<double, 16>();
-            testMultiply<int, 16>();
             testMultiply<float, 17>();
             testMultiply<double, 17>();
-            testMultiply<int, 17>();
         }
 #if defined(MARVIN_BENCHMARK)
         SECTION("Benchmark Multiply") {
             benchmarkMultiply<float, 32>();
             benchmarkMultiply<double, 32>();
-            benchmarkMultiply<int, 32>();
         }
 #endif
         SECTION("Test Divide") {
@@ -506,7 +487,6 @@ namespace marvin::testing {
         SECTION("Benchmark Divide") {
             benchmarkDivide<float, 32>();
             benchmarkDivide<double, 32>();
-            benchmarkDivide<int, 32>();
         }
 #endif
         SECTION("Test Copy") {

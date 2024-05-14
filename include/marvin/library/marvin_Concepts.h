@@ -31,6 +31,28 @@ namespace marvin {
             std::is_floating_point_v<T>;
     };
 
+
+    /**
+        \brief Constrains T to a type that defines a const_iterator as a child, has an implementation of `operator[](size_t)` and has a `.size()` member.
+    */
+    template <class T>
+    concept ArrayLike = requires(T a) {
+        typename T::iterator;
+        typename T::value_type;
+        a.operator[](0);
+        a.data();
+        a.size();
+    };
+
+    /**
+        \brief
+    */
+    template <class T>
+    concept FloatArrayLike = requires {
+        ArrayLike<T>;
+        FloatType<typename T::value_type>;
+    };
+
     /**
         \brief Constrains T to a class that implements `get()`, `reset()` `operator*()` and `operator->()`.
     */
@@ -42,16 +64,6 @@ namespace marvin {
         a.operator->();
     };
 
-    /**
-        \brief Constrains T to a type that defines a const_iterator as a child, has an implementation of `operator[](size_t)` and has a `.size()` member.
-    */
-    template <class T>
-    concept ArrayLike = requires(T a) {
-        typename T::iterator;
-        a.operator[](0);
-        a.data();
-        a.size();
-    };
 
     /**
         Checks if `N` is a power of two.
