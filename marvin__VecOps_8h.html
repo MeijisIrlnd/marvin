@@ -84,11 +84,9 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="marvin__Concepts_8h_source.html">marvin/library/marvin_Concepts.h</a>&gt;</code><br />
 <code>#include &lt;marvin/library/marvin_Literals.h&gt;</code><br />
-<code>#include &lt;marvin/utils/marvin_DisableWarnings.h&gt;</code><br />
-<code>#include &lt;mipp.h&gt;</code><br />
-<code>#include &lt;marvin/utils/marvin_ReenableWarnings.h&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 </div>
 <p><a href="marvin__VecOps_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -97,67 +95,61 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespacemarvin" id="r_namespacemarvin"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemarvin.html">marvin</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespacemarvin_1_1vecops" id="r_namespacemarvin_1_1vecops"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html">marvin::vecops</a></td></tr>
+<tr class="memdesc:namespacemarvin_1_1vecops"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of basic arithmetic operations on vectors, SIMD accelerated where possible. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0666a6ca3f7004aaa746f7d7950707b8" id="r_a0666a6ca3f7004aaa746f7d7950707b8"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a0666a6ca3f7004aaa746f7d7950707b8" id="r_a0666a6ca3f7004aaa746f7d7950707b8"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a0666a6ca3f7004aaa746f7d7950707b8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a0666a6ca3f7004aaa746f7d7950707b8">marvin::vecops::add</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a0666a6ca3f7004aaa746f7d7950707b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5317955cac6ed0b7984454d1d952934" id="r_ae5317955cac6ed0b7984454d1d952934"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:ae5317955cac6ed0b7984454d1d952934" id="r_ae5317955cac6ed0b7984454d1d952934"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:ae5317955cac6ed0b7984454d1d952934"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#ae5317955cac6ed0b7984454d1d952934">marvin::vecops::add</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:ae5317955cac6ed0b7984454d1d952934"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9be64e672966224d57e50cf4349131a" id="r_ad9be64e672966224d57e50cf4349131a"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:ad9be64e672966224d57e50cf4349131a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#ad9be64e672966224d57e50cf4349131a">marvin::vecops::add</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:ad9be64e672966224d57e50cf4349131a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6835452eb3e548becf9fedf6a977416" id="r_aa6835452eb3e548becf9fedf6a977416"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:aa6835452eb3e548becf9fedf6a977416"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#aa6835452eb3e548becf9fedf6a977416">marvin::vecops::add</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:aa6835452eb3e548becf9fedf6a977416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cf2ccb223cb8bdb5fffc9c6cd814889" id="r_a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a3e1dd0df572c01fb04ce2a8e31f0eeec" id="r_a3e1dd0df572c01fb04ce2a8e31f0eeec"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a3e1dd0df572c01fb04ce2a8e31f0eeec"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a3e1dd0df572c01fb04ce2a8e31f0eeec">marvin::vecops::add</a> (T &amp;lhs, T &amp;rhs) noexcept</td></tr>
+<tr class="separator:a3e1dd0df572c01fb04ce2a8e31f0eeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da9a5b05086f32f729c1edafb044f17" id="r_a5da9a5b05086f32f729c1edafb044f17"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a5da9a5b05086f32f729c1edafb044f17"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a5da9a5b05086f32f729c1edafb044f17">marvin::vecops::add</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:a5da9a5b05086f32f729c1edafb044f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf2ccb223cb8bdb5fffc9c6cd814889" id="r_a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a5cf2ccb223cb8bdb5fffc9c6cd814889">marvin::vecops::subtract</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5315725c3b19790a3f0e49616ecc87" id="r_afb5315725c3b19790a3f0e49616ecc87"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:afb5315725c3b19790a3f0e49616ecc87" id="r_afb5315725c3b19790a3f0e49616ecc87"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:afb5315725c3b19790a3f0e49616ecc87"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#afb5315725c3b19790a3f0e49616ecc87">marvin::vecops::subtract</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:afb5315725c3b19790a3f0e49616ecc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46c33fb0c85b3009bb717a6791cebea9" id="r_a46c33fb0c85b3009bb717a6791cebea9"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a46c33fb0c85b3009bb717a6791cebea9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a46c33fb0c85b3009bb717a6791cebea9">marvin::vecops::subtract</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:a46c33fb0c85b3009bb717a6791cebea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52d7ac99dc87db4bc89a420dade183b6" id="r_a52d7ac99dc87db4bc89a420dade183b6"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a52d7ac99dc87db4bc89a420dade183b6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a52d7ac99dc87db4bc89a420dade183b6">marvin::vecops::subtract</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:a52d7ac99dc87db4bc89a420dade183b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06c5b6348eec1981ce0da39dd6ed59fa" id="r_a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a89da0b7bba08c77af4ca8f5d27654227" id="r_a89da0b7bba08c77af4ca8f5d27654227"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; <br />
+requires std::is_floating_point_v&lt;typename T::value_type&gt;</td></tr>
+<tr class="memitem:a89da0b7bba08c77af4ca8f5d27654227"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a89da0b7bba08c77af4ca8f5d27654227">marvin::vecops::subtract</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
+<tr class="separator:a89da0b7bba08c77af4ca8f5d27654227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145097f53bb59c1a05d7d0f806f8be1d" id="r_a145097f53bb59c1a05d7d0f806f8be1d"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a145097f53bb59c1a05d7d0f806f8be1d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a145097f53bb59c1a05d7d0f806f8be1d">marvin::vecops::subtract</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:a145097f53bb59c1a05d7d0f806f8be1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c5b6348eec1981ce0da39dd6ed59fa" id="r_a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a06c5b6348eec1981ce0da39dd6ed59fa">marvin::vecops::multiply</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3096b4e33382c79d7dc0db77bcee0697" id="r_a3096b4e33382c79d7dc0db77bcee0697"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a3096b4e33382c79d7dc0db77bcee0697" id="r_a3096b4e33382c79d7dc0db77bcee0697"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a3096b4e33382c79d7dc0db77bcee0697"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a3096b4e33382c79d7dc0db77bcee0697">marvin::vecops::multiply</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:a3096b4e33382c79d7dc0db77bcee0697"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31abf83dd0c8e6cae218e3497f3a6ca5" id="r_a31abf83dd0c8e6cae218e3497f3a6ca5"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a31abf83dd0c8e6cae218e3497f3a6ca5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a31abf83dd0c8e6cae218e3497f3a6ca5">marvin::vecops::multiply</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:a31abf83dd0c8e6cae218e3497f3a6ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbd0e5d5cbd6c08b7d8290d0a9af48fe" id="r_acbd0e5d5cbd6c08b7d8290d0a9af48fe"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:acbd0e5d5cbd6c08b7d8290d0a9af48fe"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#acbd0e5d5cbd6c08b7d8290d0a9af48fe">marvin::vecops::multiply</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:acbd0e5d5cbd6c08b7d8290d0a9af48fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdf35eb0b5361b7abea34d51973762f2" id="r_acdf35eb0b5361b7abea34d51973762f2"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:acdf35eb0b5361b7abea34d51973762f2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#acdf35eb0b5361b7abea34d51973762f2">marvin::vecops::multiply</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
+<tr class="separator:acdf35eb0b5361b7abea34d51973762f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa802b2a6ac0582073db4cd6e39ec963d" id="r_aa802b2a6ac0582073db4cd6e39ec963d"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:aa802b2a6ac0582073db4cd6e39ec963d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#aa802b2a6ac0582073db4cd6e39ec963d">marvin::vecops::multiply</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:aa802b2a6ac0582073db4cd6e39ec963d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a501562d67cacf27b3a3d2a743c8ad491" id="r_a501562d67cacf27b3a3d2a743c8ad491"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a501562d67cacf27b3a3d2a743c8ad491"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a501562d67cacf27b3a3d2a743c8ad491">marvin::vecops::divide</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a501562d67cacf27b3a3d2a743c8ad491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cae4bef8d22e9cdddfbcf80f88baa59" id="r_a3cae4bef8d22e9cdddfbcf80f88baa59"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a3cae4bef8d22e9cdddfbcf80f88baa59"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a3cae4bef8d22e9cdddfbcf80f88baa59">marvin::vecops::divide</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:a3cae4bef8d22e9cdddfbcf80f88baa59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae27dcabf1ed34edbc0f4281abb14c8d3" id="r_ae27dcabf1ed34edbc0f4281abb14c8d3"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:ae27dcabf1ed34edbc0f4281abb14c8d3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#ae27dcabf1ed34edbc0f4281abb14c8d3">marvin::vecops::divide</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:ae27dcabf1ed34edbc0f4281abb14c8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64058f13be000757b57345446bc0fa0d" id="r_a64058f13be000757b57345446bc0fa0d"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a64058f13be000757b57345446bc0fa0d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a64058f13be000757b57345446bc0fa0d">marvin::vecops::divide</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:a64058f13be000757b57345446bc0fa0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19adeb41588f52255021a2efef0f0a8c" id="r_a19adeb41588f52255021a2efef0f0a8c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a94c023c4aac11c4bfa7eefaa4ca95df3" id="r_a94c023c4aac11c4bfa7eefaa4ca95df3"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a94c023c4aac11c4bfa7eefaa4ca95df3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a94c023c4aac11c4bfa7eefaa4ca95df3">marvin::vecops::divide</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
+<tr class="separator:a94c023c4aac11c4bfa7eefaa4ca95df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692202aed193961aaf07a8f2a77d04df" id="r_a692202aed193961aaf07a8f2a77d04df"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a692202aed193961aaf07a8f2a77d04df"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a692202aed193961aaf07a8f2a77d04df">marvin::vecops::divide</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:a692202aed193961aaf07a8f2a77d04df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19adeb41588f52255021a2efef0f0a8c" id="r_a19adeb41588f52255021a2efef0f0a8c"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
 <tr class="memitem:a19adeb41588f52255021a2efef0f0a8c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1vecops.html#a19adeb41588f52255021a2efef0f0a8c">marvin::vecops::copy</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a19adeb41588f52255021a2efef0f0a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51289aefecd7c90a500668c36d2ccfda" id="r_a51289aefecd7c90a500668c36d2ccfda"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; </td></tr>

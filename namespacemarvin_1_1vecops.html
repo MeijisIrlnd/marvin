@@ -81,81 +81,82 @@ $(function() {
   <div class="headertitle"><div class="title">marvin::vecops Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Collection of basic arithmetic operations on vectors, SIMD accelerated where possible.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0666a6ca3f7004aaa746f7d7950707b8" id="r_a0666a6ca3f7004aaa746f7d7950707b8"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a0666a6ca3f7004aaa746f7d7950707b8" id="r_a0666a6ca3f7004aaa746f7d7950707b8"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a0666a6ca3f7004aaa746f7d7950707b8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a0666a6ca3f7004aaa746f7d7950707b8">add</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a0666a6ca3f7004aaa746f7d7950707b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5317955cac6ed0b7984454d1d952934" id="r_ae5317955cac6ed0b7984454d1d952934"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:ae5317955cac6ed0b7984454d1d952934" id="r_ae5317955cac6ed0b7984454d1d952934"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:ae5317955cac6ed0b7984454d1d952934"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae5317955cac6ed0b7984454d1d952934">add</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:ae5317955cac6ed0b7984454d1d952934"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad9be64e672966224d57e50cf4349131a" id="r_ad9be64e672966224d57e50cf4349131a"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:ad9be64e672966224d57e50cf4349131a"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad9be64e672966224d57e50cf4349131a">add</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:ad9be64e672966224d57e50cf4349131a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6835452eb3e548becf9fedf6a977416" id="r_aa6835452eb3e548becf9fedf6a977416"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:aa6835452eb3e548becf9fedf6a977416"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa6835452eb3e548becf9fedf6a977416">add</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:aa6835452eb3e548becf9fedf6a977416"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cf2ccb223cb8bdb5fffc9c6cd814889" id="r_a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a3e1dd0df572c01fb04ce2a8e31f0eeec" id="r_a3e1dd0df572c01fb04ce2a8e31f0eeec"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a3e1dd0df572c01fb04ce2a8e31f0eeec"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3e1dd0df572c01fb04ce2a8e31f0eeec">add</a> (T &amp;lhs, T &amp;rhs) noexcept</td></tr>
+<tr class="separator:a3e1dd0df572c01fb04ce2a8e31f0eeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5da9a5b05086f32f729c1edafb044f17" id="r_a5da9a5b05086f32f729c1edafb044f17"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a5da9a5b05086f32f729c1edafb044f17"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5da9a5b05086f32f729c1edafb044f17">add</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:a5da9a5b05086f32f729c1edafb044f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cf2ccb223cb8bdb5fffc9c6cd814889" id="r_a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a5cf2ccb223cb8bdb5fffc9c6cd814889">subtract</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a5cf2ccb223cb8bdb5fffc9c6cd814889"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb5315725c3b19790a3f0e49616ecc87" id="r_afb5315725c3b19790a3f0e49616ecc87"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:afb5315725c3b19790a3f0e49616ecc87" id="r_afb5315725c3b19790a3f0e49616ecc87"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:afb5315725c3b19790a3f0e49616ecc87"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afb5315725c3b19790a3f0e49616ecc87">subtract</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:afb5315725c3b19790a3f0e49616ecc87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46c33fb0c85b3009bb717a6791cebea9" id="r_a46c33fb0c85b3009bb717a6791cebea9"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a46c33fb0c85b3009bb717a6791cebea9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a46c33fb0c85b3009bb717a6791cebea9">subtract</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:a46c33fb0c85b3009bb717a6791cebea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52d7ac99dc87db4bc89a420dade183b6" id="r_a52d7ac99dc87db4bc89a420dade183b6"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a52d7ac99dc87db4bc89a420dade183b6"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a52d7ac99dc87db4bc89a420dade183b6">subtract</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:a52d7ac99dc87db4bc89a420dade183b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06c5b6348eec1981ce0da39dd6ed59fa" id="r_a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a89da0b7bba08c77af4ca8f5d27654227" id="r_a89da0b7bba08c77af4ca8f5d27654227"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; <br />
+requires std::is_floating_point_v&lt;typename T::value_type&gt;</td></tr>
+<tr class="memitem:a89da0b7bba08c77af4ca8f5d27654227"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a89da0b7bba08c77af4ca8f5d27654227">subtract</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
+<tr class="separator:a89da0b7bba08c77af4ca8f5d27654227"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a145097f53bb59c1a05d7d0f806f8be1d" id="r_a145097f53bb59c1a05d7d0f806f8be1d"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a145097f53bb59c1a05d7d0f806f8be1d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a145097f53bb59c1a05d7d0f806f8be1d">subtract</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:a145097f53bb59c1a05d7d0f806f8be1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06c5b6348eec1981ce0da39dd6ed59fa" id="r_a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a06c5b6348eec1981ce0da39dd6ed59fa">multiply</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a06c5b6348eec1981ce0da39dd6ed59fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3096b4e33382c79d7dc0db77bcee0697" id="r_a3096b4e33382c79d7dc0db77bcee0697"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a3096b4e33382c79d7dc0db77bcee0697" id="r_a3096b4e33382c79d7dc0db77bcee0697"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a3096b4e33382c79d7dc0db77bcee0697"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3096b4e33382c79d7dc0db77bcee0697">multiply</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:a3096b4e33382c79d7dc0db77bcee0697"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31abf83dd0c8e6cae218e3497f3a6ca5" id="r_a31abf83dd0c8e6cae218e3497f3a6ca5"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a31abf83dd0c8e6cae218e3497f3a6ca5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a31abf83dd0c8e6cae218e3497f3a6ca5">multiply</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:a31abf83dd0c8e6cae218e3497f3a6ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbd0e5d5cbd6c08b7d8290d0a9af48fe" id="r_acbd0e5d5cbd6c08b7d8290d0a9af48fe"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:acbd0e5d5cbd6c08b7d8290d0a9af48fe"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acbd0e5d5cbd6c08b7d8290d0a9af48fe">multiply</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:acbd0e5d5cbd6c08b7d8290d0a9af48fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdf35eb0b5361b7abea34d51973762f2" id="r_acdf35eb0b5361b7abea34d51973762f2"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:acdf35eb0b5361b7abea34d51973762f2"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acdf35eb0b5361b7abea34d51973762f2">multiply</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
+<tr class="separator:acdf35eb0b5361b7abea34d51973762f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa802b2a6ac0582073db4cd6e39ec963d" id="r_aa802b2a6ac0582073db4cd6e39ec963d"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:aa802b2a6ac0582073db4cd6e39ec963d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa802b2a6ac0582073db4cd6e39ec963d">multiply</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:aa802b2a6ac0582073db4cd6e39ec963d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a501562d67cacf27b3a3d2a743c8ad491" id="r_a501562d67cacf27b3a3d2a743c8ad491"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a501562d67cacf27b3a3d2a743c8ad491"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a501562d67cacf27b3a3d2a743c8ad491">divide</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a501562d67cacf27b3a3d2a743c8ad491"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cae4bef8d22e9cdddfbcf80f88baa59" id="r_a3cae4bef8d22e9cdddfbcf80f88baa59"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a3cae4bef8d22e9cdddfbcf80f88baa59"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3cae4bef8d22e9cdddfbcf80f88baa59">divide</a> (T *arr, T scalar, size_t size) noexcept</td></tr>
 <tr class="separator:a3cae4bef8d22e9cdddfbcf80f88baa59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae27dcabf1ed34edbc0f4281abb14c8d3" id="r_ae27dcabf1ed34edbc0f4281abb14c8d3"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:ae27dcabf1ed34edbc0f4281abb14c8d3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae27dcabf1ed34edbc0f4281abb14c8d3">divide</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
-<tr class="separator:ae27dcabf1ed34edbc0f4281abb14c8d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64058f13be000757b57345446bc0fa0d" id="r_a64058f13be000757b57345446bc0fa0d"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt;</td></tr>
-<tr class="memitem:a64058f13be000757b57345446bc0fa0d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a64058f13be000757b57345446bc0fa0d">divide</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
-<tr class="separator:a64058f13be000757b57345446bc0fa0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19adeb41588f52255021a2efef0f0a8c" id="r_a19adeb41588f52255021a2efef0f0a8c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a94c023c4aac11c4bfa7eefaa4ca95df3" id="r_a94c023c4aac11c4bfa7eefaa4ca95df3"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a94c023c4aac11c4bfa7eefaa4ca95df3"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a94c023c4aac11c4bfa7eefaa4ca95df3">divide</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
+<tr class="separator:a94c023c4aac11c4bfa7eefaa4ca95df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a692202aed193961aaf07a8f2a77d04df" id="r_a692202aed193961aaf07a8f2a77d04df"><td class="memTemplParams" colspan="2">template&lt;FloatArrayLike T&gt; </td></tr>
+<tr class="memitem:a692202aed193961aaf07a8f2a77d04df"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a692202aed193961aaf07a8f2a77d04df">divide</a> (T &amp;arr, typename T::value_type scalar) noexcept</td></tr>
+<tr class="separator:a692202aed193961aaf07a8f2a77d04df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19adeb41588f52255021a2efef0f0a8c" id="r_a19adeb41588f52255021a2efef0f0a8c"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
 <tr class="memitem:a19adeb41588f52255021a2efef0f0a8c"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a19adeb41588f52255021a2efef0f0a8c">copy</a> (T *lhs, const T *rhs, size_t size) noexcept</td></tr>
 <tr class="separator:a19adeb41588f52255021a2efef0f0a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51289aefecd7c90a500668c36d2ccfda" id="r_a51289aefecd7c90a500668c36d2ccfda"><td class="memTemplParams" colspan="2">template&lt;ArrayLike T&gt; </td></tr>
 <tr class="memitem:a51289aefecd7c90a500668c36d2ccfda"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a51289aefecd7c90a500668c36d2ccfda">copy</a> (T &amp;lhs, const T &amp;rhs) noexcept</td></tr>
 <tr class="separator:a51289aefecd7c90a500668c36d2ccfda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="aa6835452eb3e548becf9fedf6a977416" name="aa6835452eb3e548becf9fedf6a977416"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6835452eb3e548becf9fedf6a977416">&#9670;&#160;</a></span>add() <span class="overload">[1/4]</span></h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Collection of basic arithmetic operations on vectors, SIMD accelerated where possible. </p>
+<p>On macOS this will use Accelerate's vDSP library for SIMD intrinsics. On Windows, Marvin has an optional dependency on Intel's IPP library. If it's found by CMake, these functions will use the IPP implementations of these functions. If it's <em>not</em> found, it will use the fallback implementations, which are simple for loops. <br  />
+ If you're struggling to get IPP installed, Sudara has a great <a href="https://melatonin.dev/blog/using-intel-performance-primitives-ipp-with-juce-and-cmake/">blog post</a> detailing the hoops you need to jump through to get it up and running. <br  />
+</p>
+<p>Note that even when using SIMD, it's not guaranteed to be faster than what the compiler might generate with a for loop - I'd recommend benchmarking on the platform you're targeting with the kind of data you'll be using, and choosing whether to use these functions accordingly. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a5da9a5b05086f32f729c1edafb044f17" name="a5da9a5b05086f32f729c1edafb044f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5da9a5b05086f32f729c1edafb044f17">&#9670;&#160;</a></span>add() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -177,7 +178,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to add the value of <code>scalar</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Adds the value of <code>scalar</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to add to each element of <code>arr</code>. </td></tr>
@@ -187,14 +188,13 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
 
 </div>
 </div>
-<a id="ad9be64e672966224d57e50cf4349131a" name="ad9be64e672966224d57e50cf4349131a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9be64e672966224d57e50cf4349131a">&#9670;&#160;</a></span>add() <span class="overload">[2/4]</span></h2>
+<a id="a3e1dd0df572c01fb04ce2a8e31f0eeec" name="a3e1dd0df572c01fb04ce2a8e31f0eeec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1dd0df572c01fb04ce2a8e31f0eeec">&#9670;&#160;</a></span>add() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -207,7 +207,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span>&#160;)</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -216,7 +216,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to add the values of <code>rhs</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Adds the values of <code>rhs</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>The source array-like. </td></tr>
@@ -232,7 +232,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;NumericType T&gt; </div>
+template&lt;FloatType T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -259,7 +259,7 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to add the value of <code>scalar</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Adds the value of <code>scalar</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to add to each element of <code>arr</code>. </td></tr>
@@ -276,7 +276,7 @@ template&lt;NumericType T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;NumericType T&gt; </div>
+template&lt;FloatType T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -303,7 +303,7 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to add the values of <code>rhs</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Adds the values of <code>rhs</code> to the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>A raw pointer to the source array-like. </td></tr>
@@ -342,7 +342,7 @@ template&lt;ArrayLike T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Wrapper around memcpy, to make it slightly harder to forget to call <code>sizeof(T)</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Copies the contents of rhs into lhs. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>The source array-like. </td></tr>
@@ -358,7 +358,7 @@ template&lt;ArrayLike T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;NumericType T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -385,7 +385,7 @@ template&lt;typename T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Wrapper around <code>std::memcpy</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Copies the contents of rhs into lhs. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>A raw pointer to the destination array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>A raw pointer to the source array-like. </td></tr>
@@ -396,14 +396,13 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a64058f13be000757b57345446bc0fa0d" name="a64058f13be000757b57345446bc0fa0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64058f13be000757b57345446bc0fa0d">&#9670;&#160;</a></span>divide() <span class="overload">[1/4]</span></h2>
+<a id="a692202aed193961aaf07a8f2a77d04df" name="a692202aed193961aaf07a8f2a77d04df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a692202aed193961aaf07a8f2a77d04df">&#9670;&#160;</a></span>divide() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -425,7 +424,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt;</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to divide the values of <code>lhs</code> by the value of <code>scalar</code>, and stores the result in <code>lhs</code>. Note that because AVX and MSSE4.2 don't support int division ops, the constraint on T here is stricter than on other vecops. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Divides the values of <code>lhs</code> by the value of <code>scalar</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to divide each element in <code>arr</code> by. </td></tr>
@@ -435,14 +434,13 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt;</div>
 
 </div>
 </div>
-<a id="ae27dcabf1ed34edbc0f4281abb14c8d3" name="ae27dcabf1ed34edbc0f4281abb14c8d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae27dcabf1ed34edbc0f4281abb14c8d3">&#9670;&#160;</a></span>divide() <span class="overload">[2/4]</span></h2>
+<a id="a94c023c4aac11c4bfa7eefaa4ca95df3" name="a94c023c4aac11c4bfa7eefaa4ca95df3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c023c4aac11c4bfa7eefaa4ca95df3">&#9670;&#160;</a></span>divide() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -464,7 +462,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt;</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to divide the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. Note that because AVX and MSSE4.2 don't support int division ops, the constraint on T here is stricter than on other vecops. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Divides the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>The source array-like. </td></tr>
@@ -507,7 +505,7 @@ template&lt;FloatType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to divide the values of <code>lhs</code> by the value of <code>scalar</code>, and stores the result in <code>lhs</code>. Note that because AVX and MSSE4.2 don't support int division ops, the constraint on T here is stricter than on other vecops. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Divides the values of <code>lhs</code> by the value of <code>scalar</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to divide each element in <code>arr</code> by. </td></tr>
@@ -551,7 +549,7 @@ template&lt;FloatType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to divide the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. Note that because AVX and MSSE4.2 don't support int division ops, the constraint on T here is stricter than on other vecops. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Divides the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>A raw pointer to the source array-like. </td></tr>
@@ -562,14 +560,13 @@ template&lt;FloatType T&gt; </div>
 
 </div>
 </div>
-<a id="acbd0e5d5cbd6c08b7d8290d0a9af48fe" name="acbd0e5d5cbd6c08b7d8290d0a9af48fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbd0e5d5cbd6c08b7d8290d0a9af48fe">&#9670;&#160;</a></span>multiply() <span class="overload">[1/4]</span></h2>
+<a id="aa802b2a6ac0582073db4cd6e39ec963d" name="aa802b2a6ac0582073db4cd6e39ec963d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa802b2a6ac0582073db4cd6e39ec963d">&#9670;&#160;</a></span>multiply() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -591,7 +588,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to multiply the values of <code>lhs</code> by the value of <code>scalar</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Multiplies the values of <code>lhs</code> by the value of <code>scalar</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to multiply each element in <code>arr</code> by. </td></tr>
@@ -601,14 +598,13 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
 
 </div>
 </div>
-<a id="a31abf83dd0c8e6cae218e3497f3a6ca5" name="a31abf83dd0c8e6cae218e3497f3a6ca5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31abf83dd0c8e6cae218e3497f3a6ca5">&#9670;&#160;</a></span>multiply() <span class="overload">[2/4]</span></h2>
+<a id="acdf35eb0b5361b7abea34d51973762f2" name="acdf35eb0b5361b7abea34d51973762f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdf35eb0b5361b7abea34d51973762f2">&#9670;&#160;</a></span>multiply() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -630,7 +626,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to multiply the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Multiplies the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>The source array-like. </td></tr>
@@ -646,7 +642,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;NumericType T&gt; </div>
+template&lt;FloatType T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -673,7 +669,7 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to multiply the values of <code>lhs</code> by value of <code>scalar</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Multiplies the values of <code>lhs</code> by value of <code>scalar</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to multiply each element in <code>arr</code> by. </td></tr>
@@ -690,7 +686,7 @@ template&lt;NumericType T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;NumericType T&gt; </div>
+template&lt;FloatType T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -717,7 +713,7 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to multiply the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Multiplies the values of <code>lhs</code> by the values of <code>rhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>A raw pointer to the source array-like. </td></tr>
@@ -728,14 +724,13 @@ template&lt;NumericType T&gt; </div>
 
 </div>
 </div>
-<a id="a52d7ac99dc87db4bc89a420dade183b6" name="a52d7ac99dc87db4bc89a420dade183b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52d7ac99dc87db4bc89a420dade183b6">&#9670;&#160;</a></span>subtract() <span class="overload">[1/4]</span></h2>
+<a id="a145097f53bb59c1a05d7d0f806f8be1d" name="a145097f53bb59c1a05d7d0f806f8be1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a145097f53bb59c1a05d7d0f806f8be1d">&#9670;&#160;</a></span>subtract() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -757,7 +752,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to subtract the value of <code>scalar</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Subtracts the value of <code>scalar</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to subtract from each element in <code>arr</code>. </td></tr>
@@ -767,14 +762,14 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
 
 </div>
 </div>
-<a id="a46c33fb0c85b3009bb717a6791cebea9" name="a46c33fb0c85b3009bb717a6791cebea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46c33fb0c85b3009bb717a6791cebea9">&#9670;&#160;</a></span>subtract() <span class="overload">[2/4]</span></h2>
+<a id="a89da0b7bba08c77af4ca8f5d27654227" name="a89da0b7bba08c77af4ca8f5d27654227"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89da0b7bba08c77af4ca8f5d27654227">&#9670;&#160;</a></span>subtract() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;ArrayLike T&gt; <br />
-requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integral_v&lt;typename T::value_type&gt;</div>
+template&lt;FloatArrayLike T&gt; <br />
+requires std::is_floating_point_v&lt;typename T::value_type&gt;</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -796,7 +791,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to subtract the values of <code>rhs</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Subtracts the values of <code>rhs</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. <code>lhs.size()</code> <b>must</b> == <code>rhs.size()</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The destination array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>The source array-like. </td></tr>
@@ -812,7 +807,7 @@ requires std::is_floating_point_v&lt;typename T::value_type&gt; || std::is_integ
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;NumericType T&gt; </div>
+template&lt;FloatType T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -839,7 +834,7 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to subtract the value of <code>scalar</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Subtracts the value of <code>scalar</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arr</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">scalar</td><td>The value to subtract from each element in <code>arr</code>. </td></tr>
@@ -856,7 +851,7 @@ template&lt;NumericType T&gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;NumericType T&gt; </div>
+template&lt;FloatType T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -883,7 +878,7 @@ template&lt;NumericType T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Uses SIMD operations to subtract the values of <code>rhs</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Subtracts the values of <code>rhs</code> from the values of <code>lhs</code>, and stores the result in <code>lhs</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>A raw pointer to the dest array-like. </td></tr>
     <tr><td class="paramname">rhs</td><td>A raw pointer to the source array-like. </td></tr>
