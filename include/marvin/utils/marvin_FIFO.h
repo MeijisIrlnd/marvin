@@ -17,10 +17,10 @@ namespace marvin::utils::fifos {
     /**
         \brief A thread-safe, realtime-safe single producer single consumer fifo.
 
-        A wrapper around [cameron314's readerwriterqueue](https://github.com/cameron314/readerwriterqueue)<br>.
+        A wrapper around [cameron314's readerwriterqueue](https://github.com/cameron314/readerwriterqueue).<br>
         Suitable for passing data between two threads. If the queue is full, pushing will have no effect, and if the queue is empty,
         popping will return a `std::nullopt`. <br>
-        `T` <b>must</b> be default-constructible, copy constructible and move constructible.<br>.
+        `T` <b>must</b> be default-constructible, copy constructible and move constructible.<br>
         To empty the queue in a single loop:
         ```cpp
         class SomeClass {
