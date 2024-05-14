@@ -19,7 +19,7 @@ project(
 if(APPLE)
     EXECUTE_PROCESS( COMMAND uname -m COMMAND tr -d '\n' OUTPUT_VARIABLE ARCHITECTURE)
     if(${ARCHITECTURE} STREQUAL "arm64")
-        set(MARVIN_SIMD_FLAGS -mfpu=neon)
+        # set(MARVIN_SIMD_FLAGS -march=native)
     else() 
         set(MARVIN_SIMD_FLAGS -msse4.2 -mavx -march=native)
     endif()
