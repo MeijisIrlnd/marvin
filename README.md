@@ -8,7 +8,13 @@ Regardless of how it's installed, usage in your CMake project remains the same:
 ```cmake
 target_link_libraries(<YourTarget> PRIVATE slma::marvin)
 ```
-
+> **A note about SIMD**<br>
+Marvin contains a `vecops` namespace, which performs vector arithmetic with floating point values. Where possible, this will use SIMD intrinsics to optimize those operations. <br>
+On macOS, marvin will use the Accelerate framework's vDSP library, no additional installs needed. <br>
+On Windows, it's more involved - marvin will look for Intel's IPP library at configure time. If it finds it, the `vecops` functions will use IPP implementations for the operations. If it doesn't, it will use the fallback implementations (simple for loops).<br> 
+If you're struggling to get IPP installed on your system, [sudara](https://github.com/sudara) has a fantastic [blog post](https://melatonin.dev/blog/using-intel-performance-primitives-ipp-with-juce-and-cmake/) on the subject.<br>RE Linux, investigating what to use there is on the todo list.
+<br><br>
+It's also worth noting that SIMD is *not* guaranteed to be faster than what the optimizer might be able to do with regular for-loops. We'd recommend benchmarking our implementations against a fallback on the platform you're targeting, with the kind of data you're planning to use, and basing your decision on that!
 ### System-Wide
 To build and install marvin system-wide, for use with `find_package`: 
 ```sh

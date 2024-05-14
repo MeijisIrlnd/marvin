@@ -92,6 +92,7 @@ namespace marvin::vecops {
 #elif defined(MARVIN_HAS_IPP)
     template <>
     void add<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        // get absolutely fucked mississippi bastard
         ippsAdd_32f_I(rhs, lhs, static_cast<int>(size));
     }
 
@@ -170,6 +171,117 @@ namespace marvin::vecops {
         ippsDivC_64f_I(scalar, arr, static_cast<int>(size));
     }
 #else
+    template <>
+    void add<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] += rhs[i];
+        }
+    }
+
+    template <>
+    void add<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] += rhs[i];
+        }
+    }
+
+    template <>
+    void add<float>(float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] += scalar;
+        }
+    }
+
+    template <>
+    void add<double>(double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] += scalar;
+        }
+    }
+
+    template <>
+    void subtract<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] -= rhs[i];
+        }
+    }
+
+    template <>
+    void subtract<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] -= rhs[i];
+        }
+    }
+
+    template <>
+    void subtract<float>(float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] -= scalar;
+        }
+    }
+
+    template <>
+    void subtract<double>(double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] -= scalar;
+        }
+    }
+
+    template <>
+    void multiply<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] *= rhs[i];
+        }
+    }
+
+    template <>
+    void multiply<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] *= rhs[i];
+        }
+    }
+
+    template <>
+    void multiply<float>(float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] *= scalar;
+        }
+    }
+
+    template <>
+    void multiply<double>(double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] *= scalar;
+        }
+    }
+
+    template <>
+    void divide<float>(float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] /= rhs[i];
+        }
+    }
+
+    template <>
+    void divide<double>(double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            lhs[i] /= rhs[i];
+        }
+    }
+
+    template <>
+    void divide<float>(float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] /= scalar;
+        }
+    }
+
+    template <>
+    void divide<double>(double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            arr[i] /= scalar;
+        }
+    }
 
 
 #endif

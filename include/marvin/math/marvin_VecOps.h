@@ -11,15 +11,27 @@
 #define MARVIN_SIMDOPS_H
 #include <marvin/library/marvin_Concepts.h>
 #include <marvin/library/marvin_Literals.h>
-#include <marvin/utils/marvin_DisableWarnings.h>
-#include <marvin/utils/marvin_ReenableWarnings.h>
 #include <type_traits>
 #include <cstring>
 #include <cassert>
+/**
+    \brief Collection of basic arithmetic operations on vectors, SIMD accelerated where possible.
+
+    On macOS this will use Accelerate's vDSP library for SIMD intrinsics. On Windows, Marvin has an optional
+    dependency on Intel's IPP library. If it's found by CMake, these functions will use the IPP implementations of
+    these functions. If it's *not* found, it will use the fallback implementations, which are simple for loops. <br>
+    If you're struggling to get IPP installed, Sudara has a great [blog post](https://melatonin.dev/blog/using-intel-performance-primitives-ipp-with-juce-and-cmake/)
+    detailing the hoops you need to jump through to get it up and running. <br>
+
+    Note that even when using SIMD,
+    it's not guaranteed to be faster than what the compiler might generate with a for loop - I'd
+    recommend benchmarking on the platform you're targeting with the kind of data you'll be using, and
+    choosing whether to use these functions accordingly.
+*/
 namespace marvin::vecops {
 
     /**
-        Uses SIMD operations to add the values of `rhs` to the values of `lhs`, and
+        Adds the values of `rhs` to the values of `lhs`, and
         stores the result in `lhs`.
         \param lhs A raw pointer to the dest array-like.
         \param rhs A raw pointer to the source array-like.
@@ -28,7 +40,7 @@ namespace marvin::vecops {
     template <FloatType T>
     void add(T* lhs, const T* rhs, size_t size) noexcept;
     /**
-        Uses SIMD operations to add the value of `scalar` to the values of `lhs`,
+        Adds the value of `scalar` to the values of `lhs`,
         and stores the result in `lhs`.
         \param arr A raw pointer to the dest array-like.
         \param scalar The value to add to each element of `arr`.
@@ -37,7 +49,7 @@ namespace marvin::vecops {
     template <FloatType T>
     void add(T* arr, T scalar, size_t size) noexcept;
     /**
-        Uses SIMD operations to add the values of `rhs` to the values of `lhs`, and
+        Adds the values of `rhs` to the values of `lhs`, and
         stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`.
         \param lhs The destination array-like.
         \param rhs The source array-like.
@@ -49,7 +61,7 @@ namespace marvin::vecops {
     }
 
     /**
-        Uses SIMD operations to add the value of `scalar` to the values of `lhs`,
+        Adds the value of `scalar` to the values of `lhs`,
         and stores the result in `lhs`.
         \param arr The destination array-like.
         \param scalar The value to add to each element of `arr`.
@@ -60,7 +72,7 @@ namespace marvin::vecops {
     }
 
     /**
-        Uses SIMD operations to subtract the values of `rhs` from the values of `lhs`, and
+        Subtracts the values of `rhs` from the values of `lhs`, and
         stores the result in `lhs`.
         \param lhs A raw pointer to the dest array-like.
         \param rhs A raw pointer to the source array-like.
@@ -69,7 +81,7 @@ namespace marvin::vecops {
     template <FloatType T>
     void subtract(T* lhs, const T* rhs, size_t size) noexcept;
     /**
-        Uses SIMD operations to subtract the value of `scalar` from the values of `lhs`, and
+        Subtracts the value of `scalar` from the values of `lhs`, and
         stores the result in `lhs`.
         \param arr A raw pointer to the dest array-like.
         \param scalar The value to subtract from each element in `arr`.
@@ -79,7 +91,7 @@ namespace marvin::vecops {
     void subtract(T* arr, T scalar, size_t size) noexcept;
 
     /**
-        Uses SIMD operations to subtract the values of `rhs` from the values of `lhs`, and
+        Subtracts the values of `rhs` from the values of `lhs`, and
         stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`.
         \param lhs The destination array-like.
         \param rhs The source array-like.
@@ -92,7 +104,7 @@ namespace marvin::vecops {
     }
 
     /**
-        Uses SIMD operations to subtract the value of `scalar` from the values of `lhs`, and
+        Subtracts the value of `scalar` from the values of `lhs`, and
         stores the result in `lhs`.
         \param arr The destination array-like.
         \param scalar The value to subtract from each element in `arr`.
@@ -103,7 +115,7 @@ namespace marvin::vecops {
     }
 
     /**
-        Uses SIMD operations to multiply the values of `lhs` by the values of `rhs`, and
+        Multiplies the values of `lhs` by the values of `rhs`, and
         stores the result in `lhs`.
         \param lhs A raw pointer to the dest array-like.
         \param rhs A raw pointer to the source array-like.
@@ -113,7 +125,7 @@ namespace marvin::vecops {
     void multiply(T* lhs, const T* rhs, size_t size) noexcept;
 
     /**
-        Uses SIMD operations to multiply the values of `lhs` by value of `scalar`, and
+        Multiplies the values of `lhs` by value of `scalar`, and
         stores the result in `lhs`.
         \param arr A raw pointer to the dest array-like.
         \param scalar The value to multiply each element in `arr` by.
@@ -123,7 +135,7 @@ namespace marvin::vecops {
     void multiply(T* arr, T scalar, size_t size) noexcept;
 
     /**
-        Uses SIMD operations to multiply the values of `lhs` by the values of `rhs`, and
+        Multiplies the values of `lhs` by the values of `rhs`, and
         stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`.
         \param lhs The destination array-like.
         \param rhs The source array-like.
@@ -135,7 +147,7 @@ namespace marvin::vecops {
     }
 
     /**
-        Uses SIMD operations to multiply the values of `lhs` by the value of `scalar`, and
+        Multiplies the values of `lhs` by the value of `scalar`, and
         stores the result in `lhs`.
         \param arr The destination array-like.
         \param scalar The value to multiply each element in `arr` by.
@@ -146,9 +158,8 @@ namespace marvin::vecops {
     }
 
     /**
-        Uses SIMD operations to divide the values of `lhs` by the values of `rhs`, and
-        stores the result in `lhs`. Note that because AVX and MSSE4.2 don't support int division ops,
-        the constraint on T here is stricter than on other vecops.
+        Divides the values of `lhs` by the values of `rhs`, and
+        stores the result in `lhs`.
         \param lhs A raw pointer to the dest array-like.
         \param rhs A raw pointer to the source array-like.
         \param size The number of elements in `lhs` and `rhs`.
@@ -157,9 +168,8 @@ namespace marvin::vecops {
     void divide(T* lhs, const T* rhs, size_t size) noexcept;
 
     /**
-        Uses SIMD operations to divide the values of `lhs` by the value of `scalar`, and
-        stores the result in `lhs`. Note that because AVX and MSSE4.2 don't support int division ops,
-        the constraint on T here is stricter than on other vecops.
+        Divides the values of `lhs` by the value of `scalar`, and
+        stores the result in `lhs`.
         \param arr A raw pointer to the dest array-like.
         \param scalar The value to divide each element in `arr` by.
         \param size The number of elements in `lhs` and `rhs`.
@@ -168,9 +178,8 @@ namespace marvin::vecops {
     void divide(T* arr, T scalar, size_t size) noexcept;
 
     /**
-        Uses SIMD operations to divide the values of `lhs` by the values of `rhs`, and
-        stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`. Note that because AVX and MSSE4.2 don't support int division ops,
-        the constraint on T here is stricter than on other vecops.
+        Divides the values of `lhs` by the values of `rhs`, and
+        stores the result in `lhs`. `lhs.size()` <b>must</b> == `rhs.size()`.
         \param lhs The destination array-like.
         \param rhs The source array-like.
     */
@@ -181,9 +190,8 @@ namespace marvin::vecops {
     }
 
     /**
-        Uses SIMD operations to divide the values of `lhs` by the value of `scalar`, and
-        stores the result in `lhs`. Note that because AVX and MSSE4.2 don't support int division ops,
-        the constraint on T here is stricter than on other vecops.
+        Divides the values of `lhs` by the value of `scalar`, and
+        stores the result in `lhs`.
         \param arr The destination array-like.
         \param scalar The value to divide each element in `arr` by.
     */
