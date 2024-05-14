@@ -45,7 +45,7 @@ namespace marvin {
     };
 
     /**
-        \brief
+        \brief Constrains T to be an Array like, with a Float-like value type.
     */
     template <class T>
     concept FloatArrayLike = requires {
