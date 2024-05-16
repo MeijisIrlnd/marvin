@@ -1,5 +1,6 @@
 set(MARVIN_TEST_SOURCE 
     ${CMAKE_CURRENT_SOURCE_DIR}/audio_basics/marvin_AudioBufferTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/audio_basics/marvin_SwapBufferTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLineTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APFTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPFTests.cpp

@@ -20,4 +20,26 @@ namespace marvin::utils {
         T min;
         T max;
     };
+
+    /**
+        Equality operator overload for Range<T>.
+        \param lhs a const lvalue ref of type Range<T>
+        \param rhs a const lvalue ref of type Range<T>
+        \return true if lhs.min == rhs.min, and lhs.max == rhs.max, false otherwise.
+    */
+    template <NumericType T>
+    bool operator==(const Range<T>& lhs, const Range<T>& rhs) {
+        return (lhs.min == rhs.min) && (lhs.max == rhs.max);
+    }
+
+    /**
+        Inequality operator overload for Range<T>
+        \param lhs A const lvalue ref of type Range<T>.
+        \param rhs A const rvalue ref of type Range<T>.
+        \return true if lhs.min != rhs.min or lhs.max != rhs.max, false otherwise.
+    */
+    template <NumericType T>
+    bool operator!=(const Range<T>& lhs, const Range<T>& rhs) {
+        return !(lhs == rhs);
+    }
 } // namespace marvin::utils
