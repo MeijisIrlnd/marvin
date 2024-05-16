@@ -10,6 +10,7 @@
 
 set(MARVIN_HEADERS 
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/audio_basics/marvin_BufferView.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/marvin/audio_basics/marvin_SwapBuffer.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/marvin_DelayLine.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/spectral/marvin_FFT.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/filters/marvin_APF.h
