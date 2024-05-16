@@ -14,10 +14,19 @@
 #include <memory>
 #include <cmath>
 #include <cassert>
+#include <vector>
+#include <span>
+#include <complex>
+#if defined(MARVIN_MACOS)
+#include <Accelerate/Accelerate.h>
+#endif
+#if defined(MARVIN_HAS_IPP)
 #include <ippcore.h>
 #include <ipps.h>
 #include <ippcore_l.h>
 #include <ipptypes.h>
+#endif
+
 namespace marvin::dsp::spectral {
     template <FloatType SampleType>
     class ImplBase {
@@ -42,12 +51,94 @@ namespace marvin::dsp::spectral {
 #if defined(MARVIN_MACOS)
 
     template <FloatType SampleType>
-    class Impl final : public ImplBase<SampleType> {
+    class FFT<SampleType>::Impl final : public ImplBase<SampleType> {
     public:
-        ~Impl() noexcept override = default;
+        explicit Impl(size_t order) : ImplBase<SampleType>(order) {
+            if constexpr (std::is_same_v<SampleType, float>) {
+                m_setup = vDSP_create_fftsetup(this->m_order, kFFTRadix2);
+            } else {
+                m_setup = vDSP_create_fftsetupD(this->m_order, kFFTRadix2);
+            }
+            m_vdspBuff.realp = new SampleType[this->m_n / 2];
+            m_vdspBuff.imagp = new SampleType[this->m_n / 2];
+            m_forwardInternal.resize(this->m_n + 2);
+            m_inverseInternal.resize(this->m_n);
+            std::fill(m_forwardInternal.begin(), m_forwardInternal.end(), static_cast<SampleType>(0.0));
+            std::fill(m_inverseInternal.begin(), m_inverseInternal.end(), static_cast<SampleType>(0.0));
+        }
+
+        ~Impl() noexcept override {
+            if (m_setup) {
+                if constexpr (std::is_same_v<SampleType, float>) {
+                    vDSP_destroy_fftsetup(m_setup);
+                } else {
+                    vDSP_destroy_fftsetupD(m_setup);
+                }
+            }
+            if (m_vdspBuff.realp) {
+                delete[] m_vdspBuff.realp;
+            }
+            if (m_vdspBuff.imagp) {
+                delete[] m_vdspBuff.imagp;
+            }
+        }
+
+        void performForwardTransform(std::span<SampleType> source, std::span<std::complex<SampleType>> dest) override {
+            if constexpr (std::is_same_v<SampleType, float>) {
+                vDSP_ctoz((DSPComplex*)source.data(), 2, &m_vdspBuff, 1, this->m_n / 2);
+                vDSP_fft_zrip(m_setup, &m_vdspBuff, 1, this->m_order, kFFTDirection_Forward);
+                auto asInterleaved = math::complexViewToInterleaved<SampleType>(dest);
+                vDSP_ztoc(&m_vdspBuff, 1, (DSPComplex*)asInterleaved.data(), 1, this->m_n / 2);
+
+            } else {
+                vDSP_ctozD((DSPDoubleComplex*)source.data(), 2, &m_vdspBuff, 1, this->m_n / 2);
+                vDSP_fft_zripD(m_setup, &m_vdspBuff, 1, this->m_order, kFFTDirection_Forward);
+                auto asInterleaved = math::complexViewToInterleaved<SampleType>(dest);
+                vDSP_ztocD(&m_vdspBuff, 1, (DSPDoubleComplex*)asInterleaved.data(), 1, this->m_n / 2);
+            }
+            // rearrange so we match the IPP impl, and have DC 0, RE, IM, RE, IM, ... NY, 0
+            const auto nyquistV = dest.front().imag();
+            dest[0] = { dest.front().real(), static_cast<SampleType>(0.0) };
+            dest[dest.size() - 1] = nyquistV;
+        }
+
+        [[nodiscard]] std::span<std::complex<SampleType>> performForwardTransform(std::span<SampleType> source) override {
+            auto asComplexView = math::interleavedToComplexView<SampleType>(m_forwardInternal);
+            performForwardTransform(source, asComplexView);
+            return asComplexView;
+        }
+
+        void performInverseTransform(std::span<std::complex<SampleType>> source, std::span<SampleType> dest) override {
+            // put the nyquist back where vDSP expects it..
+            source[0] = { source[0].real(), source[source.size() - 1].real() };
+            source[source.size() - 1] = static_cast<SampleType>(0);
+            auto asInterleaved = math::complexViewToInterleaved<SampleType>(source);
+            if constexpr (std::is_same_v<SampleType, float>) {
+                vDSP_ctoz((DSPComplex*)asInterleaved.data(), 1, &m_vdspBuff, 1, this->m_n / 2);
+                vDSP_fft_zrip(m_setup, &m_vdspBuff, 1, this->m_order, kFFTDirection_Inverse);
+                vDSP_ztoc(&m_vdspBuff, 1, (DSPComplex*)dest.data(), 1, this->m_n);
+            } else {
+                vDSP_ctozD((DSPDoubleComplex*)asInterleaved.data(), 1, &m_vdspBuff, 1, this->m_n / 2);
+                vDSP_fft_zripD(m_setup, &m_vdspBuff, 1, this->m_order, kFFTDirection_Inverse);
+                vDSP_ztocD(&m_vdspBuff, 1, (DSPDoubleComplex*)dest.data(), 1, this->m_n);
+            }
+        }
+
+        [[nodiscard]] std::span<SampleType> performInverseTransform(std::span<std::complex<SampleType>> source) override {
+            performInverseTransform(source, m_inverseInternal);
+            return m_inverseInternal;
+        }
+
         [[nodiscard]] EngineType getEngineType() const noexcept override {
             return EngineType::Accelerate_FFT;
         }
+
+    private:
+        using FFTSetupType = std::conditional_t<std::is_same_v<SampleType, float>, FFTSetup, FFTSetupD>;
+        using DSPSplitBuffType = std::conditional_t<std::is_same_v<SampleType, float>, DSPSplitComplex, DSPDoubleSplitComplex>;
+        FFTSetupType m_setup;
+        DSPSplitBuffType m_vdspBuff;
+        std::vector<SampleType> m_forwardInternal, m_inverseInternal;
     };
 #elif defined(MARVIN_HAS_IPP)
 
@@ -225,4 +316,5 @@ namespace marvin::dsp::spectral {
 
     template class FFT<float>;
     template class FFT<double>;
+
 } // namespace marvin::dsp::spectral
