@@ -7,5 +7,6 @@ var searchData=
   ['_7esawoscillator_4',['~SawOscillator',['../classmarvin_1_1oscillators_1_1SawOscillator.html#a38de5fd1f013b2230f4b33d500d0110f',1,'marvin::oscillators::SawOscillator']]],
   ['_7esineoscillator_5',['~SineOscillator',['../classmarvin_1_1oscillators_1_1SineOscillator.html#ac01900ac6ab6e49ecb707c36596c9a3e',1,'marvin::oscillators::SineOscillator']]],
   ['_7esquareoscillator_6',['~SquareOscillator',['../classmarvin_1_1oscillators_1_1SquareOscillator.html#a15680e0f6b66bc0f1ce64a2e79bc9f6d',1,'marvin::oscillators::SquareOscillator']]],
-  ['_7etrioscillator_7',['~TriOscillator',['../classmarvin_1_1oscillators_1_1TriOscillator.html#aabc0b3474f69b397c70c5df9083600f0',1,'marvin::oscillators::TriOscillator']]]
+  ['_7eswapbuffer_7',['~SwapBuffer',['../classmarvin_1_1audiobasics_1_1SwapBuffer.html#a13467f0e273ad52cd78fad866b0e2a4c',1,'marvin::audiobasics::SwapBuffer']]],
+  ['_7etrioscillator_8',['~TriOscillator',['../classmarvin_1_1oscillators_1_1TriOscillator.html#aabc0b3474f69b397c70c5df9083600f0',1,'marvin::oscillators::TriOscillator']]]
 ];

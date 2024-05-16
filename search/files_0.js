@@ -18,5 +18,6 @@ var searchData=
   ['marvin_5frbjcoefficients_2eh_15',['marvin_RBJCoefficients.h',['../marvin__RBJCoefficients_8h.html',1,'']]],
   ['marvin_5fsmoothedbiquadcoefficients_2eh_16',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
   ['marvin_5fsmoothedvalue_2eh_17',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]],
-  ['marvin_5fvecops_2eh_18',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]]
+  ['marvin_5fswapbuffer_2eh_18',['marvin_SwapBuffer.h',['../marvin__SwapBuffer_8h.html',1,'']]],
+  ['marvin_5fvecops_2eh_19',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]]
 ];

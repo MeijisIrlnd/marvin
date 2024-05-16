@@ -79,7 +79,8 @@ $(function() {
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">marvin::utils Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -114,6 +115,15 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:a561daf68b83f068162d1ef3582e6d89a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum to configure SmoothedValue to either use linear smoothing, or exponential (lowpass) smoothing.  <a href="#a561daf68b83f068162d1ef3582e6d89a">More...</a><br /></td></tr>
 <tr class="separator:a561daf68b83f068162d1ef3582e6d89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ae2d15f145c12a7695807dd2eed24b827" id="r_ae2d15f145c12a7695807dd2eed24b827"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:ae2d15f145c12a7695807dd2eed24b827"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae2d15f145c12a7695807dd2eed24b827">operator==</a> (const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="separator:ae2d15f145c12a7695807dd2eed24b827"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12bbf2c5a95257bd58ba02a26cdc8fd7" id="r_a12bbf2c5a95257bd58ba02a26cdc8fd7"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
+<tr class="memitem:a12bbf2c5a95257bd58ba02a26cdc8fd7"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a12bbf2c5a95257bd58ba02a26cdc8fd7">operator!=</a> (const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;rhs)</td></tr>
+<tr class="separator:a12bbf2c5a95257bd58ba02a26cdc8fd7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a561daf68b83f068162d1ef3582e6d89a" name="a561daf68b83f068162d1ef3582e6d89a"></a>
@@ -141,6 +151,69 @@ Enumerations</h2></td></tr>
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a561daf68b83f068162d1ef3582e6d89aa32a843da6ea40ab3b17a3421ccdf671b" name="a561daf68b83f068162d1ef3582e6d89aa32a843da6ea40ab3b17a3421ccdf671b"></a>Linear&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a561daf68b83f068162d1ef3582e6d89aac1e19c09f700938f0ff7f1fd4722a3ac" name="a561daf68b83f068162d1ef3582e6d89aac1e19c09f700938f0ff7f1fd4722a3ac"></a>Exponential&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a12bbf2c5a95257bd58ba02a26cdc8fd7" name="a12bbf2c5a95257bd58ba02a26cdc8fd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12bbf2c5a95257bd58ba02a26cdc8fd7">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;NumericType T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool marvin::utils::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>lhs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inequality operator overload for Range&lt;T&gt; </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>A const lvalue ref of type Range&lt;T&gt;. </td></tr>
+    <tr><td class="paramname">rhs</td><td>A const rvalue ref of type Range&lt;T&gt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if lhs.min != rhs.min or lhs.max != rhs.max, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ae2d15f145c12a7695807dd2eed24b827" name="ae2d15f145c12a7695807dd2eed24b827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2d15f145c12a7695807dd2eed24b827">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;NumericType T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool marvin::utils::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>lhs</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Equality operator overload for Range&lt;T&gt;. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>a const lvalue ref of type Range&lt;T&gt; </td></tr>
+    <tr><td class="paramname">rhs</td><td>a const lvalue ref of type Range&lt;T&gt; </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if lhs.min == rhs.min, and lhs.max == rhs.max, false otherwise. </dd></dl>
 
 </div>
 </div>
