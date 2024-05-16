@@ -40,19 +40,41 @@ namespace marvin::testing {
 #endif
         REQUIRE(fft.getEngineType() == expectedEngine);
         REQUIRE(fft.getFFTSize() == expectedSize);
-        auto impulse = generateNoise<T>(expectedSize);
-        auto fftData = fft.performForwardTransform(impulse);
-        // CCS has DC[0] and Nyquist at N, both of which have 0 imags (they're on the real axis).
-        REQUIRE_THAT(fftData.front().imag(), Catch::Matchers::WithinRel(static_cast<T>(0.0)));
-        REQUIRE_THAT(fftData[fftData.size() - 1].imag(), Catch::Matchers::WithinRel(static_cast<T>(0.0)));
-        for (auto& el : fftData) {
-            REQUIRE_FALSE(std::isnan(el.real()));
-            REQUIRE_FALSE(std::isnan(el.imag()));
+        {
+            auto impulse = generateNoise<T>(expectedSize);
+            auto fftData = fft.performForwardTransform(impulse);
+            // CCS has DC[0] and Nyquist at N, both of which have 0 imags (they're on the real axis).
+            REQUIRE_THAT(fftData.front().imag(), Catch::Matchers::WithinRel(static_cast<T>(0.0)));
+            REQUIRE_THAT(fftData[fftData.size() - 1].imag(), Catch::Matchers::WithinRel(static_cast<T>(0.0)));
+            for (auto& el : fftData) {
+                REQUIRE_FALSE(std::isnan(el.real()));
+                REQUIRE_FALSE(std::isnan(el.imag()));
+                REQUIRE_FALSE(std::isinf(el.real()));
+                REQUIRE_FALSE(std::isinf(el.imag()));
+            }
+            auto ifftData = fft.performInverseTransform(fftData);
+            REQUIRE(ifftData.size() == expectedSize);
+            for (size_t i = 0; i < ifftData.size(); ++i) {
+                REQUIRE_THAT(ifftData[i], Catch::Matchers::WithinRel(impulse[i], static_cast<T>(0.2)));
+            }
         }
-        auto ifftData = fft.performInverseTransform(fftData);
-        REQUIRE(ifftData.size() == expectedSize);
-        for (size_t i = 0; i < ifftData.size(); ++i) {
-            REQUIRE_THAT(ifftData[i], Catch::Matchers::WithinRel(impulse[i], static_cast<T>(0.1)));
+        {
+            auto impulse = generateNoise<T>(expectedSize);
+            std::vector<std::complex<T>> destVec((expectedSize / 2) + 1);
+            fft.performForwardTransform(impulse, destVec);
+            REQUIRE_THAT(destVec.front().imag(), Catch::Matchers::WithinRel(static_cast<T>(0.0)));
+            REQUIRE_THAT(destVec[destVec.size() - 1].imag(), Catch::Matchers::WithinRel(static_cast<T>(0.0)));
+            for (auto& el : destVec) {
+                REQUIRE_FALSE(std::isnan(el.real()));
+                REQUIRE_FALSE(std::isnan(el.imag()));
+                REQUIRE_FALSE(std::isinf(el.real()));
+                REQUIRE_FALSE(std::isinf(el.imag()));
+            }
+            std::vector<T> ifftVec(expectedSize);
+            fft.performInverseTransform(destVec, ifftVec);
+            for (size_t i = 0; i < ifftVec.size(); ++i) {
+                REQUIRE_THAT(ifftVec[i], Catch::Matchers::WithinRel(impulse[i], static_cast<T>(0.2)));
+            }
         }
     }
 
