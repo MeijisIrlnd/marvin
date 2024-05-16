@@ -11,6 +11,7 @@
 set(MARVIN_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/audio_basics/marvin_BufferView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLine.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/spectral/marvin_FFT.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APF.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPF.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_VecOps.cpp

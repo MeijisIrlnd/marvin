@@ -13,6 +13,9 @@
 #include <readerwriterqueue.h>
 #include <optional>
 #include <type_traits>
+/**
+    \brief Various thread safe fifos.
+*/
 namespace marvin::utils::fifos {
     /**
         \brief A thread-safe, realtime-safe single producer single consumer fifo.
