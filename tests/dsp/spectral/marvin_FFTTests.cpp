@@ -13,8 +13,10 @@
 #include <marvin/library/marvin_Literals.h>
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
+#include <vector>
 namespace marvin::testing {
     static std::random_device rd{};
+
     template <FloatType T>
     std::vector<T> generateNoise(size_t N) {
         std::vector<T> vec;
