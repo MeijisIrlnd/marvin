@@ -48,7 +48,7 @@ namespace marvin::dsp::spectral {
         const size_t m_order;
         const size_t m_n;
     };
-#if defined(MARVIN_MACOS)
+#if defined(MARVIN_MACOS) && !defined(MARVIN_FORCE_FALLBACK_FFT)
 
     template <FloatType SampleType>
     class FFT<SampleType>::Impl final : public ImplBase<SampleType> {
@@ -140,7 +140,7 @@ namespace marvin::dsp::spectral {
         DSPSplitBuffType m_vdspBuff;
         std::vector<SampleType> m_forwardInternal, m_inverseInternal;
     };
-#elif defined(MARVIN_HAS_IPP)
+#elif defined(MARVIN_HAS_IPP) && !defined(MARVIN_FORCE_FALLBACK_FFT)
 
     template <FloatType SampleType>
     class FFT<SampleType>::Impl final : public ImplBase<SampleType> {
@@ -266,12 +266,35 @@ namespace marvin::dsp::spectral {
 #else
 
     template <FloatType SampleType>
-    class Impl final : public ImplBase<SampleType> {
+    class FFT<SampleType>::Impl final : public ImplBase<SampleType> {
     public:
-        ~Impl() noexcept override = default;
-        [[nodiscard]] EngineType getEngineType() const noexcept override {
-            return EngineEngineType::Fallback_FFT;
+        explicit Impl(size_t order) : ImplBase<SampleType>(order) {
         }
+
+        ~Impl() noexcept override = default;
+        void performForwardTransform(std::span<SampleType> source, std::span<std::complex<SampleType>> dest) override {
+        }
+
+        std::span<std::complex<SampleType>> performForwardTransform(std::span<SampleType> source) override {
+            performForwardTransform(source, m_fwdInternalBuff);
+            return m_fwdInternalBuff;
+        }
+
+        void performInverseTransform(std::span<std::complex<SampleType>> source, std::span<SampleType> dest) override {
+        }
+
+        std::span<SampleType> performInverseTransform(std::span<std::complex<SampleType>> source) override {
+            performInverseTransform(source, m_invInternalBuff);
+        }
+
+
+        [[nodiscard]] EngineType getEngineType() const noexcept override {
+            return EngineType::Fallback_FFT;
+        }
+
+    private:
+        std::vector<std::complex<SampleType>> m_fwdInternalBuff{};
+        std::vector<SampleType> m_invInternalBuff{};
     };
 #endif
 
