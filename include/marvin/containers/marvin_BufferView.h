@@ -12,7 +12,7 @@
 #define MARVIN_BUFFER_H
 #include "marvin/library/marvin_Concepts.h"
 #include <span>
-namespace marvin::audiobasics {
+namespace marvin::containers {
     /**
         \brief Trivially copyable view into a preallocated SampleType**.
 
@@ -68,5 +68,5 @@ namespace marvin::audiobasics {
         size_t m_nChannels;
         size_t m_nSamples;
     };
-} // namespace marvin::audiobasics
+} // namespace marvin::containers
 #endif

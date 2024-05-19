@@ -9,10 +9,10 @@
 //
 // ========================================================================================================
 
-#include "marvin/audio_basics/marvin_BufferView.h"
+#include "marvin/containers/marvin_BufferView.h"
 #include "marvin/library/marvin_Concepts.h"
 #include <cassert>
-namespace marvin::audiobasics {
+namespace marvin::containers {
     template <FloatType SampleType>
     BufferView<SampleType>::BufferView(SampleType* const* samples, size_t nChannels, size_t nSamples) : m_samples(samples),
                                                                                                         m_nChannels(nChannels),
@@ -53,4 +53,4 @@ namespace marvin::audiobasics {
 
     template struct BufferView<float>;
     template struct BufferView<double>;
-} // namespace marvin::audiobasics
+} // namespace marvin::containers
