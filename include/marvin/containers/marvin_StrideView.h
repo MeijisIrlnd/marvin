@@ -22,27 +22,26 @@ namespace marvin::containers {
         A `Stride` of 2 would mean iterating over the `StrideView` would return every second value. Stride <b>cannot</b> == 0.<br>
         Does <b>not</b> require Stride to be even.
         Usage Example:
-        ```
-            int main() {
+
+        ```cpp
                 std::vector<int> vec{ 0, 1, 2, 3, 4, 5, 6, 7 };
                 marvin::utils::StrideView<int, 2> evenView{ vec };
                 for(const auto& el : evenView) {
                     std::cout << el << "\n";
                 }
-                // Prints [0, 2, 4, 6]
+                => [0, 2, 4, 6]
 
-                // You can also use it with a pointer offset, assuming you calculate size properly...
                 auto* offsetPtr = vec.data() + 1;
                 const auto size = vec.size() - 1;
                 marvin::containers::StrideView<int, 2> oddView{ offsetPtr, size };
                 for(const auto& el : oddView) {
                     std::cout << el << "\n";
                 }
-                // Prints [1, 3, 5, 7]
-                return 0;
-            }
+                => [1, 3, 5, 7]
 
-        ```
+            ```
+
+
     */
     template <typename T, size_t Stride>
     requires(Stride > 0)

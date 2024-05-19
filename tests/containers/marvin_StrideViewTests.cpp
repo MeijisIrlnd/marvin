@@ -14,15 +14,18 @@
 #include <catch2/catch_test_macros.hpp>
 #include <fmt/core.h>
 #include <iostream>
+#include <array>
+
 namespace marvin::testing {
     struct IterTestStruct {
+        IterTestStruct() = default;
         [[nodiscard]] bool doSomething() {
             return true;
         }
     };
 
     void verifyComparisons() {
-        std::array<IterTestStruct, 20> testStructArr;
+        std::array<IterTestStruct, 20> testStructArr{};
         containers::StrideView<IterTestStruct, 2> testStructView{ testStructArr };
         REQUIRE((*testStructView.begin()).doSomething());
         REQUIRE(testStructView.begin()->doSomething());
@@ -76,7 +79,7 @@ namespace marvin::testing {
         std::span<T> sp{ arr };
         // Fucking apple clang..
         auto* vecBegin = &(*vec.begin());
-        std::span<T> vecIterView{ vecBegin, N / Stride };
+        std::span<T> vecIterView{ vecBegin, N / 2 };
         containers::StrideView<T, Stride> vecView{ vec };
         containers::StrideView<T, Stride> arrayView{ arr };
         containers::StrideView<T, Stride> spanView{ sp };
