@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>marvin: /home/runner/work/marvin/marvin/include/marvin/utils/marvin_MixMatrix.h Source File</title>
+<title>marvin: /home/runner/work/marvin/marvin/include/marvin/math/marvin_MixMatrix.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,7 +77,7 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_63d3c5a3cefee5603dd1e6121bc136b7.html">marvin</a></li><li class="navelem"><a class="el" href="dir_add5ed9a5579230060b179ad87171b7e.html">utils</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_63d3c5a3cefee5603dd1e6121bc136b7.html">marvin</a></li><li class="navelem"><a class="el" href="dir_3038c33c4b635123c458166dc108dcd4.html">math</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -100,22 +100,22 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="marvin__VecOps_8h.html">marvin/math/marvin_VecOps.h</a>&quot;</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1utils.html">marvin::utils</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1math.html">marvin::math</a> {</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">template</span> &lt;FloatType SampleType, <span class="keywordtype">int</span> size&gt;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">requires</span>(size &gt;= 1)</div>
 <div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Householder.html">   30</a></span>    <span class="keyword">class</span> <a class="code hl_class" href="classmarvin_1_1utils_1_1Householder.html">Householder</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1Householder.html">   30</a></span>    <span class="keyword">class</span> <a class="code hl_class" href="classmarvin_1_1math_1_1Householder.html">Householder</a> {</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> SampleType multiplier{ -2.0 / size };</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Householder.html#a68b70639276ee219890db2738ebc699e">   38</a></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1Householder.html#a68b70639276ee219890db2738ebc699e">inPlace</a>(SampleType* arr) {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1Householder.html#a686d49ea1e1788c040449b83cac5671c">   38</a></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1math_1_1Householder.html#a686d49ea1e1788c040449b83cac5671c">inPlace</a>(SampleType* arr) {</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            SampleType sum = 0;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; ++i) {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                sum += arr[i];</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            }</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            sum *= multiplier;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_function" href="namespacemarvin_1_1vecops.html#a0666a6ca3f7004aaa746f7d7950707b8">vecops::add</a>(arr, sum, size);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <a class="code hl_function" href="namespacemarvin_1_1math_1_1vecops.html#a723ffb525a7fe290c56da3671f773f7d">vecops::add</a>(arr, sum, size);</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
 </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    };</div>
@@ -124,17 +124,17 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">template</span> &lt;FloatType SampleType, <span class="keywordtype">int</span> size&gt;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keyword">requires</span>(isPowerOfTwo&lt;size&gt;())</div>
 <div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Hadamard.html">   60</a></span>    <span class="keyword">class</span> <a class="code hl_class" href="classmarvin_1_1utils_1_1Hadamard.html">Hadamard</a> {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1Hadamard.html">   60</a></span>    <span class="keyword">class</span> <a class="code hl_class" href="classmarvin_1_1math_1_1Hadamard.html">Hadamard</a> {</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Hadamard.html#ab70b4bebb1d045f25a6eff9d8bf0fd1c">   66</a></span>        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1Hadamard.html#ab70b4bebb1d045f25a6eff9d8bf0fd1c">recursiveUnscaled</a>(SampleType* data) {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1Hadamard.html#a41604cbb76da29c7a256222462cb50de">   66</a></span>        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1math_1_1Hadamard.html#a41604cbb76da29c7a256222462cb50de">recursiveUnscaled</a>(SampleType* data) {</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (size &lt;= 1)</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">else</span> {</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="keyword">constexpr</span> <span class="keywordtype">int</span> hSize = size / 2;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="comment">// Two (unscaled) Hadamards of half the size</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <a class="code hl_function" href="classmarvin_1_1utils_1_1Hadamard.html#ab70b4bebb1d045f25a6eff9d8bf0fd1c">Hadamard&lt;SampleType, hSize&gt;::recursiveUnscaled</a>(data);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <a class="code hl_function" href="classmarvin_1_1utils_1_1Hadamard.html#ab70b4bebb1d045f25a6eff9d8bf0fd1c">Hadamard&lt;SampleType, hSize&gt;::recursiveUnscaled</a>(data + hSize);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <a class="code hl_function" href="classmarvin_1_1math_1_1Hadamard.html#a41604cbb76da29c7a256222462cb50de">Hadamard&lt;SampleType, hSize&gt;::recursiveUnscaled</a>(data);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <a class="code hl_function" href="classmarvin_1_1math_1_1Hadamard.html#a41604cbb76da29c7a256222462cb50de">Hadamard&lt;SampleType, hSize&gt;::recursiveUnscaled</a>(data + hSize);</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                <span class="comment">// Combine the two halves using sum/difference</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; hSize; ++i) {</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                    SampleType a = data[i];</div>
@@ -146,26 +146,26 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        }</div>
 </div>
 <div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classmarvin_1_1utils_1_1Hadamard.html#a1afd4fdc3c3f98dc22dbcd2960856c0e">   87</a></span>        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1utils_1_1Hadamard.html#a1afd4fdc3c3f98dc22dbcd2960856c0e">inPlace</a>(SampleType* data) {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classmarvin_1_1math_1_1Hadamard.html#a685e62612c1517508a24b96f82afd810">   87</a></span>        <span class="keyword">static</span> <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classmarvin_1_1math_1_1Hadamard.html#a685e62612c1517508a24b96f82afd810">inPlace</a>(SampleType* data) {</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            recursiveUnscaled(data);</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keyword">auto</span> scalingFactor = <span class="keyword">static_cast&lt;</span>SampleType<span class="keyword">&gt;</span>(std::sqrt(1.0 / size));</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <a class="code hl_function" href="namespacemarvin_1_1vecops.html#a06c5b6348eec1981ce0da39dd6ed59fa">vecops::multiply</a>(data, scalingFactor, size);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <a class="code hl_function" href="namespacemarvin_1_1math_1_1vecops.html#a2845f70102fa5d759018ecea01b3c962">vecops::multiply</a>(data, scalingFactor, size);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
 </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    };</div>
 </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>} <span class="comment">// namespace marvin::utils</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>} <span class="comment">// namespace marvin::math</span></div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="aclassmarvin_1_1utils_1_1Hadamard_html"><div class="ttname"><a href="classmarvin_1_1utils_1_1Hadamard.html">marvin::utils::Hadamard</a></div><div class="ttdoc">A helper class to apply an NxN Hadamard matrix to a given input array-like.</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:60</div></div>
-<div class="ttc" id="aclassmarvin_1_1utils_1_1Hadamard_html_a1afd4fdc3c3f98dc22dbcd2960856c0e"><div class="ttname"><a href="classmarvin_1_1utils_1_1Hadamard.html#a1afd4fdc3c3f98dc22dbcd2960856c0e">marvin::utils::Hadamard::inPlace</a></div><div class="ttdeci">static void inPlace(SampleType *data)</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:87</div></div>
-<div class="ttc" id="aclassmarvin_1_1utils_1_1Hadamard_html_ab70b4bebb1d045f25a6eff9d8bf0fd1c"><div class="ttname"><a href="classmarvin_1_1utils_1_1Hadamard.html#ab70b4bebb1d045f25a6eff9d8bf0fd1c">marvin::utils::Hadamard::recursiveUnscaled</a></div><div class="ttdeci">static void recursiveUnscaled(SampleType *data)</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:66</div></div>
-<div class="ttc" id="aclassmarvin_1_1utils_1_1Householder_html"><div class="ttname"><a href="classmarvin_1_1utils_1_1Householder.html">marvin::utils::Householder</a></div><div class="ttdoc">A helper class to apply an NxN Householder matrix to a given input array-like.</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:30</div></div>
-<div class="ttc" id="aclassmarvin_1_1utils_1_1Householder_html_a68b70639276ee219890db2738ebc699e"><div class="ttname"><a href="classmarvin_1_1utils_1_1Householder.html#a68b70639276ee219890db2738ebc699e">marvin::utils::Householder::inPlace</a></div><div class="ttdeci">static void inPlace(SampleType *arr)</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:38</div></div>
+<div class="ttc" id="aclassmarvin_1_1math_1_1Hadamard_html"><div class="ttname"><a href="classmarvin_1_1math_1_1Hadamard.html">marvin::math::Hadamard</a></div><div class="ttdoc">A helper class to apply an NxN Hadamard matrix to a given input array-like.</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:60</div></div>
+<div class="ttc" id="aclassmarvin_1_1math_1_1Hadamard_html_a41604cbb76da29c7a256222462cb50de"><div class="ttname"><a href="classmarvin_1_1math_1_1Hadamard.html#a41604cbb76da29c7a256222462cb50de">marvin::math::Hadamard::recursiveUnscaled</a></div><div class="ttdeci">static void recursiveUnscaled(SampleType *data)</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:66</div></div>
+<div class="ttc" id="aclassmarvin_1_1math_1_1Hadamard_html_a685e62612c1517508a24b96f82afd810"><div class="ttname"><a href="classmarvin_1_1math_1_1Hadamard.html#a685e62612c1517508a24b96f82afd810">marvin::math::Hadamard::inPlace</a></div><div class="ttdeci">static void inPlace(SampleType *data)</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:87</div></div>
+<div class="ttc" id="aclassmarvin_1_1math_1_1Householder_html"><div class="ttname"><a href="classmarvin_1_1math_1_1Householder.html">marvin::math::Householder</a></div><div class="ttdoc">A helper class to apply an NxN Householder matrix to a given input array-like.</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:30</div></div>
+<div class="ttc" id="aclassmarvin_1_1math_1_1Householder_html_a686d49ea1e1788c040449b83cac5671c"><div class="ttname"><a href="classmarvin_1_1math_1_1Householder.html#a686d49ea1e1788c040449b83cac5671c">marvin::math::Householder::inPlace</a></div><div class="ttdeci">static void inPlace(SampleType *arr)</div><div class="ttdef"><b>Definition</b> marvin_MixMatrix.h:38</div></div>
 <div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
 <div class="ttc" id="amarvin__VecOps_8h_html"><div class="ttname"><a href="marvin__VecOps_8h.html">marvin_VecOps.h</a></div></div>
-<div class="ttc" id="anamespacemarvin_1_1utils_html"><div class="ttname"><a href="namespacemarvin_1_1utils.html">marvin::utils</a></div><div class="ttdef"><b>Definition</b> marvin_SmoothedValue.h:14</div></div>
-<div class="ttc" id="anamespacemarvin_1_1vecops_html_a0666a6ca3f7004aaa746f7d7950707b8"><div class="ttname"><a href="namespacemarvin_1_1vecops.html#a0666a6ca3f7004aaa746f7d7950707b8">marvin::vecops::add</a></div><div class="ttdeci">void add(T *lhs, const T *rhs, size_t size) noexcept</div></div>
-<div class="ttc" id="anamespacemarvin_1_1vecops_html_a06c5b6348eec1981ce0da39dd6ed59fa"><div class="ttname"><a href="namespacemarvin_1_1vecops.html#a06c5b6348eec1981ce0da39dd6ed59fa">marvin::vecops::multiply</a></div><div class="ttdeci">void multiply(T *lhs, const T *rhs, size_t size) noexcept</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_1_1vecops_html_a2845f70102fa5d759018ecea01b3c962"><div class="ttname"><a href="namespacemarvin_1_1math_1_1vecops.html#a2845f70102fa5d759018ecea01b3c962">marvin::math::vecops::multiply</a></div><div class="ttdeci">void multiply(T *lhs, const T *rhs, size_t size) noexcept</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_1_1vecops_html_a723ffb525a7fe290c56da3671f773f7d"><div class="ttname"><a href="namespacemarvin_1_1math_1_1vecops.html#a723ffb525a7fe290c56da3671f773f7d">marvin::math::vecops::add</a></div><div class="ttdeci">void add(T *lhs, const T *rhs, size_t size) noexcept</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html"><div class="ttname"><a href="namespacemarvin_1_1math.html">marvin::math</a></div><div class="ttdoc">Math helper functions and classes.</div><div class="ttdef"><b>Definition</b> marvin_Math.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
