@@ -5,5 +5,6 @@ var searchData=
   ['inplace_2',['inPlace',['../classmarvin_1_1utils_1_1Householder.html#a68b70639276ee219890db2738ebc699e',1,'marvin::utils::Householder::inPlace()'],['../classmarvin_1_1utils_1_1Hadamard.html#a1afd4fdc3c3f98dc22dbcd2960856c0e',1,'marvin::utils::Hadamard::inPlace()']]],
   ['interpolate_3',['interpolate',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#a19b54592b7f6cf979e876851a0575db5',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
   ['ispoweroftwo_4',['isPowerOfTwo',['../namespacemarvin.html#aef211161dc3b68ddd015a4b477d815c1',1,'marvin']]],
-  ['issmoothing_5',['isSmoothing',['../classmarvin_1_1utils_1_1SmoothedValue.html#a115608c69142ce963bd6ddba217a9686',1,'marvin::utils::SmoothedValue']]]
+  ['issmoothing_5',['isSmoothing',['../classmarvin_1_1utils_1_1SmoothedValue.html#a115608c69142ce963bd6ddba217a9686',1,'marvin::utils::SmoothedValue']]],
+  ['iterator_6',['iterator',['../classmarvin_1_1containers_1_1StrideView_1_1iterator.html#ae1d45a1fbd2df7d4ea291e838122f7fe',1,'marvin::containers::StrideView::iterator::iterator()=delete'],['../classmarvin_1_1containers_1_1StrideView_1_1iterator.html#a4f452a14176184fd0ac5cba18f84c30e',1,'marvin::containers::StrideView::iterator::iterator(pointer ptr)']]]
 ];

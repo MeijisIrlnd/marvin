@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['latticeapf_0',['LatticeAPF',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html',1,'marvin::dsp::filters']]],
-  ['leakyintegrator_1',['LeakyIntegrator',['../classmarvin_1_1math_1_1LeakyIntegrator.html',1,'marvin::math']]],
-  ['lpf_2',['LPF',['../classmarvin_1_1dsp_1_1filters_1_1LPF.html',1,'marvin::dsp::filters']]]
+  ['hadamard_0',['Hadamard',['../classmarvin_1_1utils_1_1Hadamard.html',1,'marvin::utils']]],
+  ['householder_1',['Householder',['../classmarvin_1_1utils_1_1Householder.html',1,'marvin::utils']]]
 ];

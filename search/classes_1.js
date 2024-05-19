@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['delayline_0',['DelayLine',['../classmarvin_1_1dsp_1_1DelayLine.html',1,'marvin::dsp']]],
-  ['delayline_3c_20sampletype_2c_20delaylineinterpolationtype_3a_3alinear_20_3e_1',['DelayLine&lt; SampleType, DelayLineInterpolationType::Linear &gt;',['../classmarvin_1_1dsp_1_1DelayLine.html',1,'marvin::dsp']]]
+  ['const_5fiterator_0',['const_iterator',['../classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html',1,'marvin::containers::StrideView']]]
 ];

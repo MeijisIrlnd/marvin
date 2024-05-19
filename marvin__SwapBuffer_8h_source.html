@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>marvin: /home/runner/work/marvin/marvin/include/marvin/audio_basics/marvin_SwapBuffer.h Source File</title>
+<title>marvin: /home/runner/work/marvin/marvin/include/marvin/containers/marvin_SwapBuffer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,7 +77,7 @@ $(function() { codefold.init(0); });
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_63d3c5a3cefee5603dd1e6121bc136b7.html">marvin</a></li><li class="navelem"><a class="el" href="dir_468d487364e938f5efb0948fe4c7edcd.html">audio_basics</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_63d3c5a3cefee5603dd1e6121bc136b7.html">marvin</a></li><li class="navelem"><a class="el" href="dir_0155d88500dc390e6400ff1d17e78ae9.html">containers</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -102,7 +102,8 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;span&gt;</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1audiobasics.html">marvin::audiobasics</a> {</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1audiobasics.html">   19</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacemarvin_1_1audiobasics.html">marvin::audiobasics</a> {</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">requires</span> std::is_default_constructible_v&lt;T&gt; &amp;&amp;</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>             std::is_copy_constructible_v&lt;T&gt; &amp;&amp;</div>
@@ -183,6 +184,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    };</div>
 </div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>} <span class="comment">// namespace marvin::audiobasics</span></div>
+</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassmarvin_1_1audiobasics_1_1SwapBuffer_html"><div class="ttname"><a href="classmarvin_1_1audiobasics_1_1SwapBuffer.html">marvin::audiobasics::SwapBuffer</a></div><div class="ttdoc">Convenience type to handle the concept of an &quot;active&quot; buffer, and a &quot;back&quot; buffer.</div><div class="ttdef"><b>Definition</b> marvin_SwapBuffer.h:28</div></div>
 <div class="ttc" id="aclassmarvin_1_1audiobasics_1_1SwapBuffer_html_a045364c9e3e6bde300db8c3e4da71be1"><div class="ttname"><a href="classmarvin_1_1audiobasics_1_1SwapBuffer.html#a045364c9e3e6bde300db8c3e4da71be1">marvin::audiobasics::SwapBuffer::reserve</a></div><div class="ttdeci">void reserve(size_t toReserve)</div><div class="ttdef"><b>Definition</b> marvin_SwapBuffer.h:81</div></div>
@@ -198,7 +200,7 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aclassmarvin_1_1audiobasics_1_1SwapBuffer_html_acb330543b3a2ea49d703921834b4e829"><div class="ttname"><a href="classmarvin_1_1audiobasics_1_1SwapBuffer.html#acb330543b3a2ea49d703921834b4e829">marvin::audiobasics::SwapBuffer::resize</a></div><div class="ttdeci">void resize(size_t newSize)</div><div class="ttdef"><b>Definition</b> marvin_SwapBuffer.h:91</div></div>
 <div class="ttc" id="aclassmarvin_1_1audiobasics_1_1SwapBuffer_html_af8c17facded00a54d947453ddabc53ad"><div class="ttname"><a href="classmarvin_1_1audiobasics_1_1SwapBuffer.html#af8c17facded00a54d947453ddabc53ad">marvin::audiobasics::SwapBuffer::SwapBuffer</a></div><div class="ttdeci">SwapBuffer(const SwapBuffer&lt; T &gt; &amp;other)=default</div></div>
 <div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
-<div class="ttc" id="anamespacemarvin_1_1audiobasics_html"><div class="ttname"><a href="namespacemarvin_1_1audiobasics.html">marvin::audiobasics</a></div><div class="ttdef"><b>Definition</b> marvin_BufferView.h:15</div></div>
+<div class="ttc" id="anamespacemarvin_1_1audiobasics_html"><div class="ttname"><a href="namespacemarvin_1_1audiobasics.html">marvin::audiobasics</a></div><div class="ttdef"><b>Definition</b> marvin_SwapBuffer.h:19</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
