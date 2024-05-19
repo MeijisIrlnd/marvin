@@ -6,6 +6,7 @@ if(Doxygen_FOUND)
     doxygen_add_docs(
         marvin_docs 
         ${MARVIN_HEADERS}
+        ${CMAKE_CURRENT_SOURCE_DIR}/marvin_NamespaceDocs.h
         USE_STAMP_FILE
     )
 endif()

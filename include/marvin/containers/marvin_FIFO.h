@@ -13,7 +13,7 @@
 #include <readerwriterqueue.h>
 #include <optional>
 #include <type_traits>
-namespace marvin::utils::fifos {
+namespace marvin::containers::fifos {
     /**
         \brief A thread-safe, realtime-safe single producer single consumer fifo.
 
@@ -84,5 +84,5 @@ namespace marvin::utils::fifos {
     private:
         moodycamel::ReaderWriterQueue<T> m_queue;
     };
-} // namespace marvin::utils::fifos
+} // namespace marvin::containers::fifos
 #endif

@@ -8,7 +8,7 @@
 //
 // ========================================================================================================
 
-#include <marvin/utils/marvin_FIFO.h>
+#include <marvin/containers/marvin_FIFO.h>
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
 #include <type_traits>
@@ -17,7 +17,7 @@ namespace marvin::testing {
     template <typename T>
     void testSPSCSingleThreaded(std::vector<T>&& data) {
         SECTION("Test push and emplace") {
-            utils::fifos::SPSC<T> fifo{ data.size() };
+            containers::fifos::SPSC<T> fifo{ data.size() };
             for (auto& d : data) {
                 auto tcpy = d;
                 fifo.tryPush(std::move(tcpy));
@@ -38,7 +38,7 @@ namespace marvin::testing {
             REQUIRE(!popped);
         }
         SECTION("Test empty queue") {
-            utils::fifos::SPSC<T> fifo{ data.size() };
+            containers::fifos::SPSC<T> fifo{ data.size() };
             for (auto& d : data) {
                 auto tcpy = d;
                 fifo.tryPush(std::move(tcpy));
@@ -53,8 +53,8 @@ namespace marvin::testing {
     void testSPSCMultiThreaded(std::vector<T>&& data) {
         std::vector<T> dequeuedData;
         std::atomic_bool threadShouldExit{ false };
-        marvin::utils::fifos::SPSC<T> fifo{ data.size() };
-        auto threadTask = [](std::atomic_bool& shouldExitSignal, marvin::utils::fifos::SPSC<T>& fifo, std::vector<T>& dequeuedData) -> void {
+        marvin::containers::fifos::SPSC<T> fifo{ data.size() };
+        auto threadTask = [](std::atomic_bool& shouldExitSignal, marvin::containers::fifos::SPSC<T>& fifo, std::vector<T>& dequeuedData) -> void {
             do {
                 std::optional<T> dr;
                 size_t idx{ 0 };

@@ -16,7 +16,7 @@
 #include <ipp.h>
 #endif
 
-namespace marvin::vecops {
+namespace marvin::math::vecops {
 #if defined(MARVIN_MACOS)
     template <>
     void add<float>(float* lhs, const float* rhs, size_t size) noexcept {
@@ -297,4 +297,4 @@ namespace marvin::vecops {
 #endif
 
 
-} // namespace marvin::vecops
+} // namespace marvin::math::vecops

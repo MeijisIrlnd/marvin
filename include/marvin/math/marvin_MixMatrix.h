@@ -14,7 +14,7 @@
 #include "marvin/math/marvin_VecOps.h"
 #include <cmath>
 
-namespace marvin::utils {
+namespace marvin::math {
     /**
         \brief A helper class to apply an NxN Householder matrix to a given input array-like.
 
@@ -90,5 +90,5 @@ namespace marvin::utils {
             vecops::multiply(data, scalingFactor, size);
         }
     };
-} // namespace marvin::utils
+} // namespace marvin::math
 #endif
