@@ -84,15 +84,18 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Non owning view into an array-like, with a configurable step size.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="marvin__StrideView_8h_source.html">marvin_StrideView.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html">const_iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom <a class="el" href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html" title="Custom const_iterator for a StrideView.">const_iterator</a> for a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html">StrideView</a>.  <a href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom <a class="el" href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html" title="Custom const_iterator for a StrideView.">const_iterator</a> for a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html" title="Non owning view into an array-like, with a configurable step size.">StrideView</a>.  <a href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmarvin_1_1containers_1_1StrideView_1_1iterator.html">iterator</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom iterator for <a class="el" href="classmarvin_1_1containers_1_1StrideView.html">StrideView</a>.  <a href="classmarvin_1_1containers_1_1StrideView_1_1iterator.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Custom iterator for <a class="el" href="classmarvin_1_1containers_1_1StrideView.html" title="Non owning view into an array-like, with a configurable step size.">StrideView</a>.  <a href="classmarvin_1_1containers_1_1StrideView_1_1iterator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -127,23 +130,26 @@ requires std::is_same_v&lt;typename Iter::value_type, T&gt;</td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t Stride&gt;<br />
 requires (Stride &gt; 0)<br />
-class marvin::containers::StrideView&lt; T, Stride &gt;</div><pre class="fragment">    \brief Non owning view into an array-like, with a configurable step size.
-
-    Essentially exists because std::ranges::views isn't implemented (or at least isn't widespread) on Apple Clang at the time of writing.
-    A `Stride` of 2 would mean iterating over the `StrideView` would return every second value. Stride &lt;b&gt;cannot&lt;/b&gt; == 0.&lt;br&gt;
-    Does &lt;b&gt;not&lt;/b&gt; require Stride to be even.
-    Usage Example:
-    ```
-        int main() {
-            std::vector&lt;int&gt; vec{ 0, 1, 2, 3, 4, 5, 6, 7 };
-            marvin::utils::StrideView&lt;int, 2&gt; evenView{ vec };
-            for(const auto&amp; el : evenView) {
-                std::cout &lt;&lt; el &lt;&lt; "\n";
-            }
-</pre><p> Prints [0, 2, 4, 6]</p>
-<p>You can also use it with a pointer offset, assuming you calculate size properly... auto* offsetPtr = vec.data() + 1; const auto size = vec.size() - 1; marvin::containers::StrideView&lt;int, 2&gt; oddView{ offsetPtr, size }; for(const auto&amp; el : oddView) { std::cout &lt;&lt; el &lt;&lt; "\n"; } Prints [1, 3, 5, 7] return 0; }</p>
-<p>``` </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+class marvin::containers::StrideView&lt; T, Stride &gt;</div><p>Non owning view into an array-like, with a configurable step size. </p>
+<p>Essentially exists because std::ranges::views isn't implemented (or at least isn't widespread) on Apple Clang at the time of writing. A <code>Stride</code> of 2 would mean iterating over the <code><a class="el" href="classmarvin_1_1containers_1_1StrideView.html" title="Non owning view into an array-like, with a configurable step size.">StrideView</a></code> would return every second value. Stride <b>cannot</b> == 0.<br  />
+ Does <b>not</b> require Stride to be even. Usage Example:</p>
+<div class="fragment"><div class="line">std::vector&lt;int&gt; vec{ 0, 1, 2, 3, 4, 5, 6, 7 };</div>
+<div class="line">marvin::utils::StrideView&lt;int, 2&gt; evenView{ vec };</div>
+<div class="line"><span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; el : evenView) {</div>
+<div class="line">    std::cout &lt;&lt; el &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">}</div>
+<div class="line">=&gt; [0, 2, 4, 6]</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">auto</span>* offsetPtr = vec.data() + 1;</div>
+<div class="line"><span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_function" href="#a4b0e8fe21818606d9b0116063c7536ab">size</a> = vec.size() - 1;</div>
+<div class="line"><a class="code hl_class" href="classmarvin_1_1containers_1_1StrideView.html">marvin::containers::StrideView&lt;int, 2&gt;</a> oddView{ offsetPtr, <a class="code hl_function" href="#a4b0e8fe21818606d9b0116063c7536ab">size</a> };</div>
+<div class="line"><span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; el : oddView) {</div>
+<div class="line">    std::cout &lt;&lt; el &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">}</div>
+<div class="line">=&gt; [1, 3, 5, 7]</div>
+<div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html">marvin::containers::StrideView</a></div><div class="ttdoc">Non owning view into an array-like, with a configurable step size.</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:48</div></div>
+<div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html_a4b0e8fe21818606d9b0116063c7536ab"><div class="ttname"><a href="#a4b0e8fe21818606d9b0116063c7536ab">marvin::containers::StrideView::size</a></div><div class="ttdeci">size_t size() const noexcept</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:516</div></div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a766009059a2ab89358e8d6b64b69a034" name="a766009059a2ab89358e8d6b64b69a034"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a766009059a2ab89358e8d6b64b69a034">&#9670;&#160;</a></span>StrideView() <span class="overload">[1/3]</span></h2>
 
@@ -172,7 +178,7 @@ template&lt;typename T , size_t Stride&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructs a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html">StrideView</a> with a <code>T*</code> and <code>size</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructs a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html" title="Non owning view into an array-like, with a configurable step size.">StrideView</a> with a <code>T*</code> and <code>size</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>A T* to the data to wrap. </td></tr>
     <tr><td class="paramname">size</td><td>The number of elements to wrap. </td></tr>
@@ -213,7 +219,7 @@ requires std::is_same_v&lt;typename Iter::value_type, T&gt;</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructs a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html">StrideView</a> from a start and end iterator. The passed iterators must satisfy <code>std::input_or_output_iterator</code>, and must have a ::value_type typedef that is the same as T. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructs a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html" title="Non owning view into an array-like, with a configurable step size.">StrideView</a> from a start and end iterator. The passed iterators must satisfy <code>std::input_or_output_iterator</code>, and must have a ::value_type typedef that is the same as T. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">begin</td><td>The start iterator. </td></tr>
     <tr><td class="paramname">end</td><td>The sentinel iterator. </td></tr>
@@ -247,7 +253,7 @@ template&lt;typename T , size_t Stride&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Constructs a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html">StrideView</a> with any array-like that can bind to <code>std::span</code>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructs a <a class="el" href="classmarvin_1_1containers_1_1StrideView.html" title="Non owning view into an array-like, with a configurable step size.">StrideView</a> with any array-like that can bind to <code>std::span</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arrayLike</td><td>A span to bind to. </td></tr>
   </table>
