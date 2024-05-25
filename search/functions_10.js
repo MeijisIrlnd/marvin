@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['_7elatticeapf_0',['~LatticeAPF',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a51ba10ffb356a6fd3c5fff8908db18fd',1,'marvin::dsp::filters::LatticeAPF']]],
-  ['_7enoiseoscillator_1',['~NoiseOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1NoiseOscillator.html#a13a82fe53fce1ed144943145ae925907',1,'marvin::dsp::oscillators::NoiseOscillator']]],
-  ['_7eoscillatorbase_2',['~OscillatorBase',['../classmarvin_1_1dsp_1_1oscillators_1_1OscillatorBase.html#a68f3f714f51d447872f30aaa6b6356d0',1,'marvin::dsp::oscillators::OscillatorBase']]],
-  ['_7epulseoscillator_3',['~PulseOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1PulseOscillator.html#ae85bb28bfa45ccef21f572baad46d535',1,'marvin::dsp::oscillators::PulseOscillator']]],
-  ['_7esawoscillator_4',['~SawOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1SawOscillator.html#af4bbf616af5bc98327b15b7a10836023',1,'marvin::dsp::oscillators::SawOscillator']]],
-  ['_7esineoscillator_5',['~SineOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1SineOscillator.html#ab23dae7fbc55fe9da8e26eada295adf4',1,'marvin::dsp::oscillators::SineOscillator']]],
-  ['_7esquareoscillator_6',['~SquareOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1SquareOscillator.html#abe20d23ac4302b50fe496e8a8a0228a2',1,'marvin::dsp::oscillators::SquareOscillator']]],
-  ['_7eswapbuffer_7',['~SwapBuffer',['../classmarvin_1_1containers_1_1SwapBuffer.html#ad45640bc6d74dd806b999fd1ae660914',1,'marvin::containers::SwapBuffer']]],
-  ['_7etrioscillator_8',['~TriOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1TriOscillator.html#a60140b17f8f9db8bbde272ae5033d1e5',1,'marvin::dsp::oscillators::TriOscillator']]]
+  ['tap_0',['tap',['../classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html#a95465a08f4f4cdba56144b5128f8e9f9',1,'marvin::dsp::filters::LatticeAPF']]],
+  ['target_1',['target',['../classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html#ad37122727b33c2ee6a0d39be163f7052',1,'marvin::dsp::filters::SmoothedBiquadCoefficients']]],
+  ['trypop_2',['tryPop',['../classmarvin_1_1containers_1_1fifos_1_1SPSC.html#ae0438c6dc0b0019887d81d9aa1e184e5',1,'marvin::containers::fifos::SPSC']]],
+  ['trypush_3',['tryPush',['../classmarvin_1_1containers_1_1fifos_1_1SPSC.html#a2acb3e27a2dc5bf8e821d6c219ad7b20',1,'marvin::containers::fifos::SPSC']]]
 ];

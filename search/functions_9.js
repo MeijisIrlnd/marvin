@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['multioscillator_0',['MultiOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#a8e89b3210455031f37a67615ab30191e',1,'marvin::dsp::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd)'],['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#a200a15a396e0b96b77ca30befe3548dc',1,'marvin::dsp::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd, SHAPE shape)']]],
-  ['multiply_1',['multiply',['../namespacemarvin_1_1math_1_1vecops.html#a2845f70102fa5d759018ecea01b3c962',1,'marvin::math::vecops::multiply(T *lhs, const T *rhs, size_t size) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a3984f4b762b221de1f7f87f14cd214e6',1,'marvin::math::vecops::multiply(T *arr, T scalar, size_t size) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a44926d08fce64b70b50fe48c0f48bd37',1,'marvin::math::vecops::multiply(T &amp;lhs, const T &amp;rhs) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a3f143c994f28843ece109a61e0666b9b',1,'marvin::math::vecops::multiply(T &amp;arr, typename T::value_type scalar) noexcept']]]
+  ['lerp_0',['lerp',['../namespacemarvin_1_1math.html#a67212a8a8c4d308a97bb2e4ea34e7c39',1,'marvin::math']]],
+  ['lowpass_1',['lowpass',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#a5ed1fba46fb2848e5ded1cc2ce87e149',1,'marvin::dsp::filters::rbj']]],
+  ['lowshelf_2',['lowShelf',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html#a1a49a07a7ad1da784d475d0a6ff5777d',1,'marvin::dsp::filters::rbj']]]
 ];

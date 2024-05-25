@@ -9,6 +9,7 @@ var searchData=
   ['marvin_3a_3adsp_3a_3aoscillators_6',['oscillators',['../namespacemarvin_1_1dsp_1_1oscillators.html',1,'marvin::dsp']]],
   ['marvin_3a_3alibrary_7',['library',['../namespacemarvin_1_1library.html',1,'marvin']]],
   ['marvin_3a_3amath_8',['math',['../namespacemarvin_1_1math.html',1,'marvin']]],
-  ['marvin_3a_3amath_3a_3avecops_9',['vecops',['../namespacemarvin_1_1math_1_1vecops.html',1,'marvin::math']]],
-  ['marvin_3a_3autils_10',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
+  ['marvin_3a_3amath_3a_3ainterpolators_9',['interpolators',['../namespacemarvin_1_1math_1_1interpolators.html',1,'marvin::math']]],
+  ['marvin_3a_3amath_3a_3avecops_10',['vecops',['../namespacemarvin_1_1math_1_1vecops.html',1,'marvin::math']]],
+  ['marvin_3a_3autils_11',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
 ];
