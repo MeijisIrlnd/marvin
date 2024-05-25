@@ -22,10 +22,10 @@ namespace marvin::math::interpolators {
         In its present form, this could be a free function, but it's left as a class to keep the option of optimizing with
         a precalculated sinc lookup table open.<br>
         Input should contain `N - 1` `history` samples, followed by the latest sample. For example, in the case of `N=4`,
-        The input should be in the form `[x[n-3], x[n-2], x[n-1], x[n]]`. <br>In the case of `N=8`, it would look like
+        The input should be in the form `[x[n-3], x[n-2], x[n-1], x[n]]`. <br>In the case of `N=8`, it should be in the form
         `[x[n-7], x[n-6], x[n-5], x[n-4], x[n-3], x[n-2], x[n-1], x[n]]`.<br>
         The interpolator will introduce `N / 2` samples of latency (determined by assuming a fixed ratio of `0`,
-        and counting the number of samples it takes an impulse to be output). For example, for a signal
+        and counting the number of samples it takes an impulse to be output). For example, a signal
         `[a, b, c, d, e, f, g, .......]`, with `N=4` would be output as
         `[0, 0, a, b, c, d ......]`. <br>
         To really belabour the point, the inputs passed to the interpolator for the above impulse and `N=4` would be:
@@ -56,7 +56,7 @@ namespace marvin::math::interpolators {
             auto pos{ 0.0 }, prevPos{ 0.0 };
             for(auto i = 0_sz; i < destSize; ++i) {
                 auto truncatedDelta = static_cast<int>(pos) - static_cast<int>(prevPos);
-                if(truncatedDelta >= 1) { // Note that if the sample rates are significantly different (ie 44100 -> 22050), then truncated delta could potentially be >= 2. In that case, the check above will need to account for multiple samples being added and removed from the resampling block at once, rather than assuming a single sample delta. This could be achieved in a while loop, for example, but is left out for the sake of brevity, and is why the function is called "upsample" instead of "resample".
+                if(truncatedDelta >= 1) { // Note that if the sample rates are significantly different (ie 44100 -> 22050), then truncated delta could potentially be >= 2. In that case, the condition will need to account for multiple samples being added and removed from the resampling block at once, rather than assuming a single sample delta. This could be achieved in a while loop, for example, but is left out for the sake of brevity, and is why the function is called "upsample" instead of "resample".
                     std::rotate(resamplingBlock.begin(), resamplingBlock.begin() + 1, resamplingBlock.end()); // [a, b, c, d] -> [b, c, d, a]
                     const auto next = source[static_cast<size_t>(pos)];
                     resamplingBlock[resamplingBlock.size() - 1] = next; // [b, c, d, a] -> [b, c, d, e]
@@ -77,7 +77,7 @@ namespace marvin::math::interpolators {
         /**
             Performs the interpolation. See the detailed description for an explanation of the formatting needed for `sampleContext`.
             \param sampleContext An array like containing `N-1` previous samples, followed by the current sample. <b>Must</b> be the same size as `N`.
-            \param ratio The 0 to 1 subsample position of the interpolation. For an input block `[a b c d]`, When ratio = 0, the output will be all `b`. When ratio = 1, the output will be all `c`.
+            \param ratio The 0 to 1 subsample position of the interpolation. For an input block `[a b c d]`, when ratio = 0, the output will be `b`. When ratio = 1, the output will be `c`.
             When ratio = 0.5, the output will be the sinc interpolated midpoint between `b` and `c`, which is left to the reader's imagination.
             \return The next interpolated sample.
 
