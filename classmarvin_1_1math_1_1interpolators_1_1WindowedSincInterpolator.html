@@ -112,8 +112,8 @@ requires (N % 2 == 0)<br />
 class marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N &gt;</div><p>A windowed sinc interpolator, suitable for use in a realtime context. </p>
 <p>In its present form, this could be a free function, but it's left as a class to keep the option of optimizing with a precalculated sinc lookup table open.<br  />
  Input should contain <code>N - 1</code> <code>history</code> samples, followed by the latest sample. For example, in the case of <code>N=4</code>, The input should be in the form <code>[x[n-3], x[n-2], x[n-1], x[n]]</code>. <br  />
-In the case of <code>N=8</code>, it would look like <code>[x[n-7], x[n-6], x[n-5], x[n-4], x[n-3], x[n-2], x[n-1], x[n]]</code>.<br  />
- The interpolator will introduce <code>N / 2</code> samples of latency (determined by assuming a fixed ratio of <code>0</code>, and counting the number of samples it takes an impulse to be output). For example, for a signal <code>[a, b, c, d, e, f, g, .......]</code>, with <code>N=4</code> would be output as <code>[0, 0, a, b, c, d ......]</code>. <br  />
+In the case of <code>N=8</code>, it should be in the form <code>[x[n-7], x[n-6], x[n-5], x[n-4], x[n-3], x[n-2], x[n-1], x[n]]</code>.<br  />
+ The interpolator will introduce <code>N / 2</code> samples of latency (determined by assuming a fixed ratio of <code>0</code>, and counting the number of samples it takes an impulse to be output). For example, a signal <code>[a, b, c, d, e, f, g, .......]</code>, with <code>N=4</code> would be output as <code>[0, 0, a, b, c, d ......]</code>. <br  />
  To really belabour the point, the inputs passed to the interpolator for the above impulse and <code>N=4</code> would be:</p>
 <div class="fragment"><div class="line">[0, 0, 0, a] =&gt; 0 <span class="comment">// we have no history, so use zeroes.</span></div>
 <div class="line">[0, 0, a, b] =&gt; 0</div>
@@ -136,7 +136,7 @@ In the case of <code>N=8</code>, it would look like <code>[x[n-7], x[n-6], x[n-5
 <div class="line">    <span class="keyword">auto</span> pos{ 0.0 }, prevPos{ 0.0 };</div>
 <div class="line">    <span class="keywordflow">for</span>(<span class="keyword">auto</span> i = 0_sz; i &lt; destSize; ++i) {</div>
 <div class="line">        <span class="keyword">auto</span> truncatedDelta = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(pos) - <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(prevPos);</div>
-<div class="line">        <span class="keywordflow">if</span>(truncatedDelta &gt;= 1) { <span class="comment">// Note that if the sample rates are significantly different (ie 44100 -&gt; 22050), then truncated delta could potentially be &gt;= 2. In that case, the check above will need to account for multiple samples being added and removed from the resampling block at once, rather than assuming a single sample delta. This could be achieved in a while loop, for example, but is left out for the sake of brevity, and is why the function is called &quot;upsample&quot; instead of &quot;resample&quot;.</span></div>
+<div class="line">        <span class="keywordflow">if</span>(truncatedDelta &gt;= 1) { <span class="comment">// Note that if the sample rates are significantly different (ie 44100 -&gt; 22050), then truncated delta could potentially be &gt;= 2. In that case, the condition will need to account for multiple samples being added and removed from the resampling block at once, rather than assuming a single sample delta. This could be achieved in a while loop, for example, but is left out for the sake of brevity, and is why the function is called &quot;upsample&quot; instead of &quot;resample&quot;.</span></div>
 <div class="line">            std::rotate(resamplingBlock.begin(), resamplingBlock.begin() + 1, resamplingBlock.end()); <span class="comment">// [a, b, c, d] -&gt; [b, c, d, a]</span></div>
 <div class="line">            <span class="keyword">const</span> <span class="keyword">auto</span> next = source[<span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(pos)];</div>
 <div class="line">            resamplingBlock[resamplingBlock.size() - 1] = next; <span class="comment">// [b, c, d, a] -&gt; [b, c, d, e]</span></div>
@@ -180,7 +180,7 @@ template&lt;FloatType SampleType, size_t N&gt; </div>
 <p>Performs the interpolation. See the detailed description for an explanation of the formatting needed for <code>sampleContext</code>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sampleContext</td><td>An array like containing <code>N-1</code> previous samples, followed by the current sample. <b>Must</b> be the same size as <code>N</code>. </td></tr>
-    <tr><td class="paramname">ratio</td><td>The 0 to 1 subsample position of the interpolation. For an input block <code>[a b c d]</code>, When ratio = 0, the output will be all <code>b</code>. When ratio = 1, the output will be all <code>c</code>. When ratio = 0.5, the output will be the sinc interpolated midpoint between <code>b</code> and <code>c</code>, which is left to the reader's imagination. </td></tr>
+    <tr><td class="paramname">ratio</td><td>The 0 to 1 subsample position of the interpolation. For an input block <code>[a b c d]</code>, when ratio = 0, the output will be <code>b</code>. When ratio = 1, the output will be <code>c</code>. When ratio = 0.5, the output will be the sinc interpolated midpoint between <code>b</code> and <code>c</code>, which is left to the reader's imagination. </td></tr>
   </table>
   </dd>
 </dl>
