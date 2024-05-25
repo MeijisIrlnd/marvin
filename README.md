@@ -75,7 +75,7 @@ While dependencies are kept to a minimum, marvin depends on a few libraries, whi
 - [fmtlib/fmt](https://github.com/fmtlib/fmt), for nice string interpolation
 - [adamstark/AudioFile](https://github.com/adamstark/AudioFile), for simple file reading/writing in some of the `MARVIN_ANALYSIS` functions.
 
-Additionally, special thanks to [Ryan](https://github.com/ryanjeffares) and [Ben](https://github.com/benthevining) for their advice, check out what they're working on!
+Additionally, special thanks to [Ryan](https://github.com/ryanjeffares), [Ben](https://github.com/benthevining) and [Geraint](https://signalsmith-audio.co.uk/) for their advice, check out what they're working on!
 
 ## Contributing
 Contributions are more than appreciated - if you'd like to open a PR with bugfixes or features, please open an issue, and link to the issue your PR solves in the PR's description. I'd also ask that you compile with `/W4 /WX` with MSVC, or `-Wall -Wextra -Werror` on GNU-like compilers, and that you use the included `.clang-format` file to keep the styling consistent. Other than that, have at it!
