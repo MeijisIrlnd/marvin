@@ -423,7 +423,7 @@ namespace marvin::testing {
             testAdd<float, 17>();
             testAdd<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Add") {
             benchmarkAdd<float, 32>();
             benchmarkAdd<double, 32>();
@@ -443,7 +443,7 @@ namespace marvin::testing {
             testSubtract<float, 17>();
             testSubtract<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Subtract") {
             benchmarkSubtract<float, 32>();
             benchmarkSubtract<double, 32>();
@@ -463,7 +463,7 @@ namespace marvin::testing {
             testMultiply<float, 17>();
             testMultiply<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Multiply") {
             benchmarkMultiply<float, 32>();
             benchmarkMultiply<double, 32>();
@@ -483,7 +483,7 @@ namespace marvin::testing {
             testDivide<float, 17>();
             testDivide<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Divide") {
             benchmarkDivide<float, 32>();
             benchmarkDivide<double, 32>();

@@ -16,6 +16,7 @@ set(MARVIN_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPF.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_VecOps.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegrator.cpp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_Utils.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValue.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_Random.cpp
     PARENT_SCOPE

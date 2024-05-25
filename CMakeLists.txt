@@ -20,9 +20,14 @@ if(APPLE)
     set(MARVIN_EXTRA_DEFS MARVIN_MACOS)
     set(MARVIN_EXTRA_LINK_LIBS "-framework Accelerate")
 else()
+    if(WIN32) 
+        set(MARVIN_EXTRA_DEFS MARVIN_WINDOWS)
+    elseif(UNIX)
+        set(MARVIN_EXTRA_DEFS MARVIN_LINUX)
+    endif()
     find_package(IPP)
     if(IPP_FOUND) 
-        set(MARVIN_EXTRA_DEFS MARVIN_HAS_IPP)
+        set(MARVIN_EXTRA_DEFS ${MARVIN_EXTRA_DEFS} MARVIN_HAS_IPP)
         set(MARVIN_EXTRA_LINK_LIBS IPP::ippcore IPP::ipps IPP::ippi)
     endif()
 endif()
@@ -43,13 +48,6 @@ set(MIPP_STATIC_LIB OFF)
 set(MIPP_EXAMPLES_EXE OFF)
 set(MIPP_TESTS_EXE OFF)
 include(FetchContent)
-FetchContent_Declare( 
-    mipp
-    GIT_REPOSITORY https://github.com/MeijisIrlnd/MIPP.git
-    GIT_TAG IncludeFix
-    GIT_SHALLOW OFF 
-)
-FetchContent_MakeAvailable(mipp)
 
 FetchContent_Declare( 
     readerwriterqueue
@@ -122,31 +120,45 @@ cpack_add_component(
     DESCRIPTION "A pure C++ dsp helper library"
 )
 
-include(FetchContent)
-FetchContent_Declare(
-    Catch2
-    GIT_REPOSITORY https://github.com/catchorg/Catch2.git
-    GIT_TAG v3.0.1 # or a later release
-    GIT_SHALLOW ON
-    # FIND_PACKAGE_ARGS 3.0.1 GLOBAL
-)
-FetchContent_MakeAvailable(Catch2)
+# Set up testing
+if(MARVIN_TESTING)
+    message(STATUS "Marvin tests enabled")
+    include(FetchContent)
+    FetchContent_Declare(
+        Catch2
+        GIT_REPOSITORY https://github.com/catchorg/Catch2.git
+        GIT_TAG v3.0.1 # or a later release
+        GIT_SHALLOW ON
+        # FIND_PACKAGE_ARGS 3.0.1 GLOBAL
+    )
+    FetchContent_MakeAvailable(Catch2)
 
-FetchContent_Declare( 
-    fmt 
-    GIT_REPOSITORY https://github.com/fmtlib/fmt
-    GIT_SHALLOW ON 
-)
-FetchContent_MakeAvailable(fmt) 
+    FetchContent_Declare( 
+        fmt 
+        GIT_REPOSITORY https://github.com/fmtlib/fmt
+        GIT_SHALLOW ON 
+    )
+    FetchContent_MakeAvailable(fmt) 
+    FetchContent_Declare( 
+        AudioFile 
+        GIT_REPOSITORY https://github.com/adamstark/AudioFile.git
+        GIT_SHALLOW ON
+    )
 
-add_executable(marvin-tests ${MARVIN_TEST_SOURCE})
-target_include_directories(marvin-tests PRIVATE include)
-target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin fmt)
-target_compile_definitions(marvin-tests PRIVATE FMT_HEADER_ONLY)
-if(${BENCHMARK}) 
-    target_compile_definitions(marvin-tests PRIVATE MARVIN_BENCHMARK)
+    FetchContent_MakeAvailable(AudioFile)
+
+    add_executable(marvin-tests ${MARVIN_TEST_SOURCE})
+    target_include_directories(marvin-tests PRIVATE include)
+    target_link_libraries(marvin-tests PRIVATE Catch2::Catch2WithMain marvin fmt AudioFile)
+    target_compile_definitions(marvin-tests PRIVATE FMT_HEADER_ONLY)
+    if(${MARVIN_TESTING_ANALYSIS}) 
+        target_compile_definitions(marvin-tests PRIVATE MARVIN_ANALYSIS)
+        file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/tests/resources/break.wav DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+    endif()
+    add_dependencies(marvin-tests marvin)
+else() 
+    message(STATUS "Marvin tests disabled")
 endif()
-add_dependencies(marvin-tests marvin)
 
 
 

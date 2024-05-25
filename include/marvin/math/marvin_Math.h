@@ -13,6 +13,7 @@
 #include "marvin/library/marvin_Concepts.h"
 #include <cmath>
 #include <algorithm>
+#include <numbers>
 
 namespace marvin::math {
 
@@ -75,6 +76,16 @@ namespace marvin::math {
         // (v_n . (mx - mn)) + mn = v
         const auto rescaled = (normalised * (newMax - newMin)) + newMin;
         return rescaled;
+    }
+
+    template <FloatType T>
+    [[nodiscard]] T sinc(T x) noexcept {
+        static constexpr auto epsilon{ static_cast<T>(1e-6) };
+        if (std::abs(x) < epsilon) {
+            return static_cast<T>(1.0);
+        }
+        const auto xPi = x * std::numbers::pi_v<T>;
+        return std::sin(xPi) / xPi;
     }
 
 } // namespace marvin::math
