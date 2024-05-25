@@ -60,7 +60,10 @@ As previously mentioned, test coverage is a work-in-progress. However, to build 
 ```cmake
 mkdir build
 cd build 
-cmake .. -DMARVIN_TESTING
+# Configure just the unit tests...
+cmake .. -DMARVIN_TESTING=ON
+#...or configure the unit tests and the extras...
+cmake .. -DMARVIN_TESTING=ON -DMARVIN_TESTING_ANALYSIS=ON
 cmake --build . --target marvin-tests
 ```
 
