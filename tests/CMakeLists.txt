@@ -15,6 +15,7 @@ set(MARVIN_TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegratorTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_VecOpsTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_WindowedSincInterpolatorTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_UtilsTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValueTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_RandomTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FIFOTests.cpp

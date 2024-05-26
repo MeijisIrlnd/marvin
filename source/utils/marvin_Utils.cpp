@@ -10,7 +10,7 @@
 #include <marvin/utils/marvin_Utils.h>
 
 #if defined(MARVIN_MACOS)
-
+#include <mach-o/dyld.h>
 #elif defined(MARVIN_WINDOWS)
 #include <windows.h>
 #elif defined(MARVIN_LINUX)
@@ -18,10 +18,15 @@
 #endif
 namespace marvin::utils {
     std::optional<std::string> getCurrentExecutablePath() {
-#if defined(MARVIN_MACOS)
-        return {};
-#elif defined(MARVIN_WINDOWS)
         constexpr static auto maxLength{ 512 };
+#if defined(MARVIN_MACOS)
+        char data[maxLength];
+        std::uint32_t length{ sizeof(data) };
+        const auto resCode = _NSGetExecutablePath(data, &length);
+        if(resCode != 0) return {};
+        std::string res = data;
+        return res;
+#elif defined(MARVIN_WINDOWS)
         char data[maxLength];
         auto dest = (LPSTR)data;
         GetModuleFileName(nullptr, dest, maxLength);
