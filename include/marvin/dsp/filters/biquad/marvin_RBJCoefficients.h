@@ -91,7 +91,7 @@ namespace marvin::dsp::filters::rbj {
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
-        const auto alpha = sinOmega * sinh(log2Over2 * bandwidth * (omega / sinOmega));
+        const auto alpha = sinOmega * std::sinh<SampleType>(log2Over2 * bandwidth * (omega / sinOmega));
         const auto a0 = (sinOmega / static_cast<SampleType>(2.0)) * (peakGain * alpha);
         const auto a1 = static_cast<SampleType>(0.0);
         const auto a2 = static_cast<SampleType>(-1.0) * (sinOmega / static_cast<SampleType>(2.0));
@@ -123,7 +123,7 @@ namespace marvin::dsp::filters::rbj {
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
-        const auto alpha = sinOmega * sinh(log2Over2 * bandwidth * (omega / sinOmega));
+        const auto alpha = sinOmega * std::sinh(log2Over2 * bandwidth * (omega / sinOmega));
         const auto a0 = alpha;
         const auto a1 = static_cast<SampleType>(0.0);
         const auto a2 = static_cast<SampleType>(-1.0) * alpha;
@@ -156,7 +156,7 @@ namespace marvin::dsp::filters::rbj {
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
-        const auto alpha = sinOmega * sinh(log2Over2 * bandwidth * (omega / sinOmega));
+        const auto alpha = sinOmega * std::sinh(log2Over2 * bandwidth * (omega / sinOmega));
         const auto a0 = static_cast<SampleType>(1.0);
         const auto a1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto a2 = static_cast<SampleType>(1.0);
@@ -187,7 +187,7 @@ namespace marvin::dsp::filters::rbj {
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
-        const auto alpha = sinOmega * sinh(log2Over2 * q * (omega / sinOmega));
+        const auto alpha = sinOmega * std::sinh(log2Over2 * q * (omega / sinOmega));
         const auto a0 = static_cast<SampleType>(1.0) - alpha;
         const auto a1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto a2 = static_cast<SampleType>(1.0) + alpha;
@@ -221,7 +221,7 @@ namespace marvin::dsp::filters::rbj {
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
-        const auto alpha = sinOmega * sinh(log2Over2 * bandwidth * (omega / sinOmega));
+        const auto alpha = sinOmega * std::sinh(log2Over2 * bandwidth * (omega / sinOmega));
         const auto a0 = static_cast<SampleType>(1.0) + (alpha * A);
         const auto a1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto a2 = static_cast<SampleType>(1.0) - (alpha * A);
