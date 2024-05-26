@@ -19,7 +19,7 @@
 #endif
 namespace marvin::utils {
     std::optional<std::string> getCurrentExecutablePath() {
-        constexpr static auto maxLength{ 512 };
+        [[maybe_unused]] constexpr static auto maxLength{ 512 };
 #if defined(MARVIN_MACOS)
         char data[maxLength];
         std::uint32_t length{ sizeof(data) };
