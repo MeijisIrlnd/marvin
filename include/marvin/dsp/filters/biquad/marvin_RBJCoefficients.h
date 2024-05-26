@@ -91,7 +91,7 @@ namespace marvin::dsp::filters::rbj {
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);
-        const auto alpha = sinOmega * std::sinh<SampleType>(log2Over2 * bandwidth * (omega / sinOmega));
+        const auto alpha = sinOmega * std::sinh(log2Over2 * bandwidth * (omega / sinOmega));
         const auto a0 = (sinOmega / static_cast<SampleType>(2.0)) * (peakGain * alpha);
         const auto a1 = static_cast<SampleType>(0.0);
         const auto a2 = static_cast<SampleType>(-1.0) * (sinOmega / static_cast<SampleType>(2.0));
@@ -151,8 +151,7 @@ namespace marvin::dsp::filters::rbj {
     [[nodiscard]] BiquadCoefficients<SampleType> notch(double sampleRate, SampleType centreFrequency, SampleType bandwidth) noexcept {
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
         const auto fs{ static_cast<SampleType>(sampleRate) };
-        const auto ffs{ static_cast<float>(sampleRate) };
-        const auto omega{ twoPi * (centreFrequency / ffs) };
+        const auto omega{ twoPi * (centreFrequency / fs) };
         const auto cosOmega = std::cos(omega);
         const auto sinOmega = std::sin(omega);
         const auto log2Over2 = std::log(static_cast<SampleType>(2.0)) / static_cast<SampleType>(2.0);

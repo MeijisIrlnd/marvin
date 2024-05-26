@@ -11,6 +11,7 @@
 set(MARVIN_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_BufferView.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLine.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_RBJCoefficients.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/oscillators/marvin_Oscillator.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APF.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPF.cpp
