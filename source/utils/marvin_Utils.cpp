@@ -14,7 +14,8 @@
 #elif defined(MARVIN_WINDOWS)
 #include <windows.h>
 #elif defined(MARVIN_LINUX)
-
+#include <filesystem>
+#include <system_error>
 #endif
 namespace marvin::utils {
     std::optional<std::string> getCurrentExecutablePath() {
@@ -23,7 +24,7 @@ namespace marvin::utils {
         char data[maxLength];
         std::uint32_t length{ sizeof(data) };
         const auto resCode = _NSGetExecutablePath(data, &length);
-        if(resCode != 0) return {};
+        if (resCode != 0) return {};
         std::string res = data;
         return res;
 #elif defined(MARVIN_WINDOWS)
@@ -36,8 +37,13 @@ namespace marvin::utils {
             return {};
         }
         return cpy;
+
 #elif defined(MARVIN_LINUX)
-        return {};
+        std::error_code errorCode;
+        auto pathRes = std::filesystem::canonical("/proc/self/exe", errorCode);
+        if (errorCode) return {};
+        auto strPath = pathRes.string();
+        return strPath;
 #else
         return {};
 #endif

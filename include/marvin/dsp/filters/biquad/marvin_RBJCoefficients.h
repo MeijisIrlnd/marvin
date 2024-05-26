@@ -35,7 +35,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = static_cast<SampleType>(1.0) + alpha;
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) - alpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -66,7 +66,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = static_cast<SampleType>(1.0) + alpha;
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) - alpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -98,7 +98,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = static_cast<SampleType>(1.0) + alpha;
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) - alpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -130,7 +130,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = static_cast<SampleType>(1.0) + alpha;
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) - alpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -163,7 +163,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = static_cast<SampleType>(1.0) + alpha;
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) - alpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -194,7 +194,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = static_cast<SampleType>(1.0) + alpha;
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) - alpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -228,7 +228,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = static_cast<SampleType>(1.0) + (alpha / A);
         const auto b1 = static_cast<SampleType>(-2.0) * cosOmega;
         const auto b2 = static_cast<SampleType>(1.0) - (alpha / A);
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -268,7 +268,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = (A + static_cast<SampleType>(1.0)) + ((A - static_cast<SampleType>(1.0)) * cosOmega) + twoRootAAlpha;
         const auto b1 = static_cast<SampleType>(-2.0) * ((A - static_cast<SampleType>(1.0)) + ((A + static_cast<SampleType>(1.0)) * cosOmega));
         const auto b2 = (A + static_cast<SampleType>(1.0)) + ((A - static_cast<SampleType>(1.0)) * cosOmega) - twoRootAAlpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
@@ -302,7 +302,7 @@ namespace marvin::dsp::filters::rbj {
         const auto b0 = (A + static_cast<SampleType>(1.0)) - (A - static_cast<SampleType>(1.0)) * cosOmega + twoRootAAlpha;
         const auto b1 = static_cast<SampleType>(2.0) * ((A - static_cast<SampleType>(1.0)) - (A + static_cast<SampleType>(1.0)) * cosOmega);
         const auto b2 = (A + static_cast<SampleType>(1.0)) - (A - static_cast<SampleType>(1.0)) * cosOmega - twoRootAAlpha;
-        return {
+        return BiquadCoefficients<SampleType>{
             .a0 = a0,
             .a1 = a1,
             .a2 = a2,
