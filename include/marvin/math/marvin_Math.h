@@ -16,6 +16,7 @@
 #include <span>
 #include <complex>
 #include <cassert>
+#include <numbers>
 
 namespace marvin::math {
 
@@ -109,6 +110,16 @@ namespace marvin::math {
         std::span<T> interleavedView{ reinterpret_cast<T*>(data.data()), data.size() * 2 };
         return interleavedView;
     }
+    template <FloatType T>
+    [[nodiscard]] T sinc(T x) noexcept {
+        static constexpr auto epsilon{ static_cast<T>(1e-6) };
+        if (std::abs(x) < epsilon) {
+            return static_cast<T>(1.0);
+        }
+        const auto xPi = x * std::numbers::pi_v<T>;
+        return std::sin(xPi) / xPi;
+    }
+
 } // namespace marvin::math
 
 #endif

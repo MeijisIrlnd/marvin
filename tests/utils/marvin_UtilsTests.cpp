@@ -8,26 +8,15 @@
 //
 // ========================================================================================================
 
-#include <marvin/library/marvin_Concepts.h>
-#include <marvin/math/marvin_Math.h>
 #include <marvin/utils/marvin_Utils.h>
 #include <catch2/catch_test_macros.hpp>
-namespace marvin::testing {
-    template <FloatType T>
-    void testLerp(){
-
-    };
-
-    TEST_CASE("Test lerp") {
+#include <catch2/matchers/catch_matchers_floating_point.hpp>
+#include <iostream>
+namespace marvin::testing { 
+    TEST_CASE("Test getCurrentExecutablePath()") { 
+        const auto pathRes = utils::getCurrentExecutablePath();
+        REQUIRE(pathRes);
+        std::cout << *pathRes << "\n";
     }
 
-    TEST_CASE("Test Sinc") {
-        std::vector<float> results{};
-        for (auto i = -16; i <= 16; ++i) {
-            const auto sinced = math::sinc(static_cast<float>(i));
-            results.emplace_back(sinced);
-        }
-        marvin::utils::writeToCsv<float>("C:/Users/Syl/Desktop/SincGraph.csv", results);
-    }
-
-} // namespace marvin::testing
+}

@@ -16,7 +16,7 @@
 #include <span>
 #include <cassert>
 
-namespace marvin::audiobasics {
+namespace marvin::containers {
     /**
         \brief Convenience type to handle the concept of an "active" buffer, and a "back" buffer.
 
@@ -126,5 +126,5 @@ namespace marvin::audiobasics {
         std::vector<T> m_b;
         bool m_aIsFrontBuffer{ true };
     };
-} // namespace marvin::audiobasics
+} // namespace marvin::containers
 #endif

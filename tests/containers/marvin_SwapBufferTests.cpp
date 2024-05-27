@@ -9,7 +9,7 @@
 // ========================================================================================================
 
 #include <concepts>
-#include <marvin/audio_basics/marvin_SwapBuffer.h>
+#include <marvin/containers/marvin_SwapBuffer.h>
 #include <marvin/utils/marvin_Range.h>
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
@@ -22,7 +22,7 @@ namespace marvin::testing {
              std::is_move_constructible_v<T> &&
              std::equality_comparable<T>
     void testSwapBuffer(T fillA, T fillB) {
-        audiobasics::SwapBuffer<T> swapBuffer{ N };
+        containers::SwapBuffer<T> swapBuffer{ N };
 
         REQUIRE(swapBuffer.size() == N);
         REQUIRE(swapBuffer.getFrontBuffer().size() == N);
@@ -68,7 +68,7 @@ namespace marvin::testing {
         REQUIRE(swapBuffer.getFrontBuffer().size() == N / 2);
         REQUIRE(swapBuffer.getBackBuffer().size() == N / 2);
         {
-            audiobasics::SwapBuffer<T> test{};
+            containers::SwapBuffer<T> test{};
             REQUIRE(test.size() == 0);
             test.reserve(N);
             REQUIRE(test.size() == 0);

@@ -8,12 +8,12 @@
 //
 // ========================================================================================================
 
-#include "marvin/oscillators/marvin_Oscillator.h"
+#include "marvin/dsp/oscillators/marvin_Oscillator.h"
 #include <numbers>
 #include <cmath>
 #include <random>
 
-namespace marvin::oscillators {
+namespace marvin::dsp::oscillators {
     template <FloatType SampleType>
     SampleType polyBlep(SampleType t, SampleType phaseIncrement) noexcept {
         const auto dt = phaseIncrement;
@@ -320,4 +320,4 @@ namespace marvin::oscillators {
     template class NoiseOscillator<double>;
     template class MultiOscillator<float, Bandlimiting::Off>;
     template class MultiOscillator<float, Bandlimiting::On>;
-} // namespace marvin::oscillators
+} // namespace marvin::dsp::oscillators

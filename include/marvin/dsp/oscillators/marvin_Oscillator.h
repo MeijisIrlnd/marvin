@@ -14,7 +14,7 @@
 #include "marvin/library/marvin_PropagateConst.h"
 #include "marvin/math/marvin_LeakyIntegrator.h"
 #include "marvin/utils/marvin_Random.h"
-namespace marvin::oscillators {
+namespace marvin::dsp::oscillators {
 
     /**
         \brief Enum to configure PolyBLEP or BLAMP where applicable, to classes deriving from marvin::oscillators::OscillatorBase.
@@ -249,5 +249,5 @@ namespace marvin::oscillators {
         PulseOscillator<SampleType, Bandlimit> m_pulse;
         NoiseOscillator<SampleType> m_noise;
     };
-} // namespace marvin::oscillators
+} // namespace marvin::dsp::oscillators
 #endif

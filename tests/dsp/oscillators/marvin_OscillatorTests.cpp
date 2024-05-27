@@ -8,7 +8,7 @@
 //
 // ========================================================================================================
 
-#include "marvin/oscillators/marvin_Oscillator.h"
+#include "marvin/dsp/oscillators/marvin_Oscillator.h"
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
@@ -48,12 +48,12 @@ namespace marvin::testing {
     }
 
 
-    void initialiseOsc(oscillators::OscillatorBase<float>* oscillator, float frequency, double sampleRate) {
+    void initialiseOsc(dsp::oscillators::OscillatorBase<float>* oscillator, float frequency, double sampleRate) {
         oscillator->initialise(sampleRate);
         oscillator->setFrequency(frequency);
     }
 
-    void initialiseMultiOsc(oscillators::MultiOscillator<float>& osc, float frequency, float pulsewidth, double sampleRate) {
+    void initialiseMultiOsc(dsp::oscillators::MultiOscillator<float>& osc, float frequency, float pulsewidth, double sampleRate) {
         osc.initialise(sampleRate);
         osc.setFrequency(frequency);
         osc.setPulsewidth(pulsewidth);
@@ -62,7 +62,7 @@ namespace marvin::testing {
     static auto rd = std::random_device();
 
     TEST_CASE("Test oscillators") {
-        using namespace oscillators;
+        using namespace dsp::oscillators;
         constexpr auto sampleRate{ 44100.0 };
         constexpr auto frequency{ 1.0f };
         constexpr auto numIterations{ 100 };

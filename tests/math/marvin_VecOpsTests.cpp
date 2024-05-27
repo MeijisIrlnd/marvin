@@ -36,12 +36,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::add(lhsArr, rhsArr);
+            marvin::math::vecops::add(lhsArr, rhsArr);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(2.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
-            marvin::vecops::add(lhsArr, static_cast<T>(5.0));
+            marvin::math::vecops::add(lhsArr, static_cast<T>(5.0));
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(5.0)));
             }
@@ -52,12 +52,12 @@ namespace marvin::testing {
             rhsVec.resize(N);
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(0.0));
             std::fill(rhsVec.begin(), rhsVec.end(), static_cast<T>(-1.0));
-            marvin::vecops::add(lhsVec, rhsVec);
+            marvin::math::vecops::add(lhsVec, rhsVec);
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-1.0f)));
             }
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(0.0));
-            marvin::vecops::add(lhsVec, static_cast<T>(10.0));
+            marvin::math::vecops::add(lhsVec, static_cast<T>(10.0));
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(10.0)));
             }
@@ -68,12 +68,12 @@ namespace marvin::testing {
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(-10.0));
             std::span<T, N> lhsView{ lhsArr.data(), N };
             std::span<T, N> rhsView{ rhsArr.data(), N };
-            marvin::vecops::add(lhsView, rhsView);
+            marvin::math::vecops::add(lhsView, rhsView);
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-10.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
-            marvin::vecops::add(lhsView, static_cast<T>(100.0));
+            marvin::math::vecops::add(lhsView, static_cast<T>(100.0));
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(100.0)));
             }
@@ -83,12 +83,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(30.0));
-            marvin::vecops::add(lhsArr.data(), rhsArr.data(), N);
+            marvin::math::vecops::add(lhsArr.data(), rhsArr.data(), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(30.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
-            marvin::vecops::add(lhsArr.data(), static_cast<T>(15.0), N);
+            marvin::math::vecops::add(lhsArr.data(), static_cast<T>(15.0), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(15.0)));
             }
@@ -108,7 +108,7 @@ namespace marvin::testing {
         };
         std::fill(lhs.begin(), lhs.end(), static_cast<T>(0.0));
         BENCHMARK(fmt::format("Add SIMD: std::array<{}, {}>", typeName, N)) {
-            vecops::add(lhs, rhs);
+            math::vecops::add(lhs, rhs);
         };
     }
     template <NumericType T, size_t N>
@@ -118,12 +118,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::subtract(lhsArr, rhsArr);
+            marvin::math::vecops::subtract(lhsArr, rhsArr);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-2.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
-            marvin::vecops::subtract(lhsArr, static_cast<T>(5.0));
+            marvin::math::vecops::subtract(lhsArr, static_cast<T>(5.0));
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-5.0)));
             }
@@ -134,12 +134,12 @@ namespace marvin::testing {
             rhsVec.resize(N);
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(0.0));
             std::fill(rhsVec.begin(), rhsVec.end(), static_cast<T>(-1.0));
-            marvin::vecops::subtract(lhsVec, rhsVec);
+            marvin::math::vecops::subtract(lhsVec, rhsVec);
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(1.0)));
             }
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(0.0));
-            marvin::vecops::subtract(lhsVec, static_cast<T>(10.0));
+            marvin::math::vecops::subtract(lhsVec, static_cast<T>(10.0));
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-10.0)));
             }
@@ -150,12 +150,12 @@ namespace marvin::testing {
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(-10.0));
             std::span<T, N> lhsView{ lhsArr.data(), N };
             std::span<T, N> rhsView{ rhsArr.data(), N };
-            marvin::vecops::add(lhsView, rhsView);
+            marvin::math::vecops::add(lhsView, rhsView);
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-10.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
-            marvin::vecops::subtract(lhsView, static_cast<T>(100.0));
+            marvin::math::vecops::subtract(lhsView, static_cast<T>(100.0));
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-100.0)));
             }
@@ -165,12 +165,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(30.0));
-            marvin::vecops::subtract(lhsArr.data(), rhsArr.data(), N);
+            marvin::math::vecops::subtract(lhsArr.data(), rhsArr.data(), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-30.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
-            marvin::vecops::subtract(lhsArr.data(), static_cast<T>(15.0), N);
+            marvin::math::vecops::subtract(lhsArr.data(), static_cast<T>(15.0), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-15.0)));
             }
@@ -190,7 +190,7 @@ namespace marvin::testing {
         };
         std::fill(lhs.begin(), lhs.end(), static_cast<T>(0.0));
         BENCHMARK(fmt::format("Subtract SIMD: std::array<{}, {}>", typeName, N)) {
-            vecops::subtract(lhs, rhs);
+            math::vecops::subtract(lhs, rhs);
         };
     }
 
@@ -201,12 +201,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(2.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::multiply(lhsArr, rhsArr);
+            marvin::math::vecops::multiply(lhsArr, rhsArr);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(4.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::multiply(lhsArr, static_cast<T>(5.0));
+            marvin::math::vecops::multiply(lhsArr, static_cast<T>(5.0));
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(10.0)));
             }
@@ -217,12 +217,12 @@ namespace marvin::testing {
             rhsVec.resize(N);
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(2.0));
             std::fill(rhsVec.begin(), rhsVec.end(), static_cast<T>(-1.0));
-            marvin::vecops::multiply(lhsVec, rhsVec);
+            marvin::math::vecops::multiply(lhsVec, rhsVec);
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-2.0)));
             }
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(2.0));
-            marvin::vecops::multiply(lhsVec, static_cast<T>(10.0));
+            marvin::math::vecops::multiply(lhsVec, static_cast<T>(10.0));
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(20.0)));
             }
@@ -233,12 +233,12 @@ namespace marvin::testing {
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(-10.0));
             std::span<T, N> lhsView{ lhsArr.data(), N };
             std::span<T, N> rhsView{ rhsArr.data(), N };
-            marvin::vecops::multiply(lhsView, rhsView);
+            marvin::math::vecops::multiply(lhsView, rhsView);
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(-20.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::multiply(lhsView, static_cast<T>(100.0));
+            marvin::math::vecops::multiply(lhsView, static_cast<T>(100.0));
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(200.0)));
             }
@@ -248,12 +248,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(2.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(30.0));
-            marvin::vecops::multiply(lhsArr.data(), rhsArr.data(), N);
+            marvin::math::vecops::multiply(lhsArr.data(), rhsArr.data(), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(60.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::multiply(lhsArr.data(), static_cast<T>(15.0), N);
+            marvin::math::vecops::multiply(lhsArr.data(), static_cast<T>(15.0), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(30.0)));
             }
@@ -273,7 +273,7 @@ namespace marvin::testing {
         };
         std::fill(lhs.begin(), lhs.end(), static_cast<T>(2.0));
         BENCHMARK(fmt::format("Multiply SIMD: std::array<{}, {}>", typeName, N)) {
-            vecops::subtract(lhs, rhs);
+            math::vecops::subtract(lhs, rhs);
         };
     }
     template <FloatType T, size_t N>
@@ -283,12 +283,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(8.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::divide(lhsArr, rhsArr);
+            marvin::math::vecops::divide(lhsArr, rhsArr);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(4.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(15.0));
-            marvin::vecops::divide(lhsArr, static_cast<T>(5.0));
+            marvin::math::vecops::divide(lhsArr, static_cast<T>(5.0));
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(3.0)));
             }
@@ -299,12 +299,12 @@ namespace marvin::testing {
             rhsVec.resize(N);
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(2.0));
             std::fill(rhsVec.begin(), rhsVec.end(), static_cast<T>(1.0));
-            marvin::vecops::divide(lhsVec, rhsVec);
+            marvin::math::vecops::divide(lhsVec, rhsVec);
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(2.0)));
             }
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(10.0));
-            marvin::vecops::divide(lhsVec, static_cast<T>(2.5));
+            marvin::math::vecops::divide(lhsVec, static_cast<T>(2.5));
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(4.0)));
             }
@@ -315,12 +315,12 @@ namespace marvin::testing {
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(16.0));
             std::span<T, N> lhsView{ lhsArr.data(), N };
             std::span<T, N> rhsView{ rhsArr.data(), N };
-            marvin::vecops::divide(lhsView, rhsView);
+            marvin::math::vecops::divide(lhsView, rhsView);
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(2.0)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(1000.0));
-            marvin::vecops::divide(lhsView, static_cast<T>(100.0));
+            marvin::math::vecops::divide(lhsView, static_cast<T>(100.0));
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(10.0)));
             }
@@ -330,12 +330,12 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(1.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(10.0));
-            marvin::vecops::divide(lhsArr.data(), rhsArr.data(), N);
+            marvin::math::vecops::divide(lhsArr.data(), rhsArr.data(), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(0.1)));
             }
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::divide(lhsArr.data(), static_cast<T>(4.0), N);
+            marvin::math::vecops::divide(lhsArr.data(), static_cast<T>(4.0), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(0.5)));
             }
@@ -355,7 +355,7 @@ namespace marvin::testing {
         };
         std::fill(lhs.begin(), lhs.end(), static_cast<T>(2.0));
         BENCHMARK(fmt::format("Divide SIMD: std::array<{}, {}>", typeName, N)) {
-            vecops::subtract(lhs, rhs);
+            math::vecops::subtract(lhs, rhs);
         };
     }
 
@@ -366,7 +366,7 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(0.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(2.0));
-            marvin::vecops::copy(lhsArr, rhsArr);
+            marvin::math::vecops::copy(lhsArr, rhsArr);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(2.0)));
             }
@@ -377,7 +377,7 @@ namespace marvin::testing {
             rhsVec.resize(N);
             std::fill(lhsVec.begin(), lhsVec.end(), static_cast<T>(2.0));
             std::fill(rhsVec.begin(), rhsVec.end(), static_cast<T>(1.0));
-            marvin::vecops::copy(lhsVec, rhsVec);
+            marvin::math::vecops::copy(lhsVec, rhsVec);
             for (const auto& el : lhsVec) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(1.0)));
             }
@@ -388,7 +388,7 @@ namespace marvin::testing {
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(16.0));
             std::span<T, N> lhsView{ lhsArr.data(), N };
             std::span<T, N> rhsView{ rhsArr.data(), N };
-            marvin::vecops::copy(lhsView, rhsView);
+            marvin::math::vecops::copy(lhsView, rhsView);
             for (const auto& el : lhsView) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(16.0)));
             }
@@ -398,7 +398,7 @@ namespace marvin::testing {
             std::array<T, N> lhsArr, rhsArr;
             std::fill(lhsArr.begin(), lhsArr.end(), static_cast<T>(1.0));
             std::fill(rhsArr.begin(), rhsArr.end(), static_cast<T>(10.0));
-            marvin::vecops::copy(lhsArr.data(), rhsArr.data(), N);
+            marvin::math::vecops::copy(lhsArr.data(), rhsArr.data(), N);
             for (const auto& el : lhsArr) {
                 REQUIRE_THAT(el, Catch::Matchers::WithinRel(static_cast<T>(10.0)));
             }
@@ -423,7 +423,7 @@ namespace marvin::testing {
             testAdd<float, 17>();
             testAdd<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Add") {
             benchmarkAdd<float, 32>();
             benchmarkAdd<double, 32>();
@@ -443,7 +443,7 @@ namespace marvin::testing {
             testSubtract<float, 17>();
             testSubtract<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Subtract") {
             benchmarkSubtract<float, 32>();
             benchmarkSubtract<double, 32>();
@@ -463,7 +463,7 @@ namespace marvin::testing {
             testMultiply<float, 17>();
             testMultiply<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Multiply") {
             benchmarkMultiply<float, 32>();
             benchmarkMultiply<double, 32>();
@@ -483,7 +483,7 @@ namespace marvin::testing {
             testDivide<float, 17>();
             testDivide<double, 17>();
         }
-#if defined(MARVIN_BENCHMARK)
+#if defined(MARVIN_ANALYSIS)
         SECTION("Benchmark Divide") {
             benchmarkDivide<float, 32>();
             benchmarkDivide<double, 32>();
