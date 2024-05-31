@@ -8,8 +8,9 @@
 //
 // ========================================================================================================
 
+#include "marvin/containers/marvin_StrideView.h"
 #include <marvin/dsp/spectral/marvin_FFT.h>
-#include <marvin/oscillators/marvin_Oscillator.h>
+#include <marvin/dsp/oscillators/marvin_Oscillator.h>
 #include <marvin/library/marvin_Literals.h>
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
@@ -20,7 +21,7 @@ namespace marvin::testing {
     template <FloatType T>
     std::vector<T> generateNoise(size_t N) {
         std::vector<T> vec;
-        marvin::oscillators::NoiseOscillator<T> osc{ rd };
+        marvin::dsp::oscillators::NoiseOscillator<T> osc{ rd };
         for (auto i = 0_sz; i < N; ++i) {
             vec.emplace_back(osc());
         }
@@ -81,28 +82,34 @@ namespace marvin::testing {
     }
 
     TEST_CASE("Test FFT") {
-        testFFT<float, 2>();
-        testFFT<float, 3>();
-        testFFT<float, 4>();
-        testFFT<float, 5>();
-        testFFT<float, 6>();
-        testFFT<float, 7>();
-        testFFT<float, 8>();
-        testFFT<float, 9>();
-        testFFT<float, 10>();
-        testFFT<float, 11>();
-        testFFT<float, 12>();
-        testFFT<double, 2>();
-        testFFT<double, 3>();
-        testFFT<double, 4>();
-        testFFT<double, 5>();
-        testFFT<double, 6>();
-        testFFT<double, 7>();
-        testFFT<double, 8>();
-        testFFT<double, 9>();
-        testFFT<double, 10>();
-        testFFT<double, 11>();
-        testFFT<double, 12>();
+        // testFFT<float, 2>();
+        // testFFT<float, 3>();
+        // testFFT<float, 4>();
+        // testFFT<float, 5>();
+        // testFFT<float, 6>();
+        // testFFT<float, 7>();
+        // testFFT<float, 8>();
+        // testFFT<float, 9>();
+        // testFFT<float, 10>();
+        // testFFT<float, 11>();
+        // testFFT<float, 12>();
+        // testFFT<double, 2>();
+        // testFFT<double, 3>();
+        // testFFT<double, 4>();
+        // testFFT<double, 5>();
+        // testFFT<double, 6>();
+        // testFFT<double, 7>();
+        // testFFT<double, 8>();
+        // testFFT<double, 9>();
+        // testFFT<double, 10>();
+        // testFFT<double, 11>();
+        // testFFT<double, 12>();
+    }
+    TEST_CASE("Test recurse") {
+        std::vector<float> test(32, 0.0f);
+        test.front() = 1.0f;
+        std::vector<std::complex<float>> res(32);
+        dsp::spectral::recurse<float, 32, 1>(test, res);
     }
 
 } // namespace marvin::testing

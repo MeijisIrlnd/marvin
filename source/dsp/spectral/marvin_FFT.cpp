@@ -9,6 +9,7 @@
 // ========================================================================================================
 
 #include "marvin/dsp/spectral/marvin_FFT.h"
+#include "marvin/containers/marvin_StrideView.h"
 #include "marvin/library/marvin_Literals.h"
 #include "marvin/math/marvin_Math.h"
 #include <memory>
@@ -287,7 +288,7 @@ namespace marvin::dsp::spectral {
         }
 
         ~Impl() noexcept override = default;
-        void performForwardTransform(std::span<SampleType> source, std::span<std::complex<SampleType>> dest) override {
+        void performForwardTransform([[maybe_unused]] std::span<SampleType> source, [[maybe_unused]] std::span<std::complex<SampleType>> dest) override {
         }
 
         std::span<std::complex<SampleType>> performForwardTransform(std::span<SampleType> source) override {
@@ -295,11 +296,12 @@ namespace marvin::dsp::spectral {
             return m_fwdInternalBuff;
         }
 
-        void performInverseTransform(std::span<std::complex<SampleType>> source, std::span<SampleType> dest) override {
+        void performInverseTransform([[maybe_unused]] std::span<std::complex<SampleType>> source, [[maybe_unused]] std::span<SampleType> dest) override {
         }
 
         std::span<SampleType> performInverseTransform(std::span<std::complex<SampleType>> source) override {
             performInverseTransform(source, m_invInternalBuff);
+            return m_invInternalBuff;
         }
 
 

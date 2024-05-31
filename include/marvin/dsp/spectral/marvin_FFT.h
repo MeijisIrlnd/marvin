@@ -11,9 +11,11 @@
 #ifndef MARVIN_FFT_H
 #define MARVIN_FFT_H
 #include "marvin/library/marvin_Concepts.h"
+#include "marvin/containers/marvin_StrideView.h"
 #include <memory>
 #include <span>
 #include <complex>
+#include <numbers>
 namespace marvin::dsp::spectral {
     /**
         \brief Enum for the available fft backends.
@@ -26,6 +28,31 @@ namespace marvin::dsp::spectral {
         Fallback_FFT
     };
 
+
+    template <FloatType SampleType, int N, size_t Stride>
+    void recurse(std::span<SampleType> samples, std::span<std::complex<SampleType>> dest) {
+        if constexpr (N <= 1)
+            return;
+        else {
+            constexpr static auto newStride = Stride * 2;
+            recurse<SampleType, N / 2, newStride>(samples, dest);
+            std::span<SampleType> odds{ samples.data() + 1, samples.size() };
+            std::span<std::complex<SampleType>> oddDest{ dest.data() + 1, dest.size() };
+            recurse<SampleType, N / 2, newStride>(odds, oddDest);
+            marvin::containers::StrideView<SampleType, Stride> evenView{ samples };
+            marvin::containers::StrideView<SampleType, Stride> oddView{ odds };
+            marvin::containers::StrideView<std::complex<SampleType>, Stride> destView{ dest };
+            [[maybe_unused]] const auto stride = Stride;
+            [[maybe_unused]] const auto n = N;
+            for (auto m = 0; m < N; ++m) {
+                const auto aliasedIndex = m % (N / 2);
+                const auto period = static_cast<SampleType>(m) / static_cast<SampleType>(N);
+                const auto twiddle = std::exp(static_cast<SampleType>(-2.0) * std::numbers::pi_v<SampleType> * period);
+                const auto res = evenView[aliasedIndex] + twiddle * oddView[aliasedIndex];
+                destView[m] = res;
+            }
+        }
+    }
 
     /**
         \brief Class for performing forward and inverse real only fast fourier transforms.
