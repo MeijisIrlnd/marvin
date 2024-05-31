@@ -11,5 +11,6 @@ var searchData=
   ['marvin_3a_3amath_8',['math',['../namespacemarvin_1_1math.html',1,'marvin']]],
   ['marvin_3a_3amath_3a_3ainterpolators_9',['interpolators',['../namespacemarvin_1_1math_1_1interpolators.html',1,'marvin::math']]],
   ['marvin_3a_3amath_3a_3avecops_10',['vecops',['../namespacemarvin_1_1math_1_1vecops.html',1,'marvin::math']]],
-  ['marvin_3a_3autils_11',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
+  ['marvin_3a_3amath_3a_3awindows_11',['windows',['../namespacemarvin_1_1math_1_1windows.html',1,'marvin::math']]],
+  ['marvin_3a_3autils_12',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.11.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>marvin: marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N &gt; Class Template Reference</title>
+<title>marvin: marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N, WindowType &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -92,26 +92,29 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N, WindowType &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>A windowed sinc interpolator, suitable for use in a realtime context.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="marvin__WindowedSincInterpolator_8h_source.html">marvin_WindowedSincInterpolator.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="marvin__Interpolators_8h_source.html">marvin_Interpolators.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2ebcbeabd6422a43035c570116079586" id="r_a2ebcbeabd6422a43035c570116079586"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ebcbeabd6422a43035c570116079586">interpolate</a> (std::span&lt; SampleType &gt; sampleContext, SampleType ratio)</td></tr>
-<tr class="separator:a2ebcbeabd6422a43035c570116079586"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f24fc23aee0a0a53ad5212f463f688" id="r_aa0f24fc23aee0a0a53ad5212f463f688"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0f24fc23aee0a0a53ad5212f463f688">WindowedSincInterpolator</a> ()</td></tr>
+<tr class="separator:aa0f24fc23aee0a0a53ad5212f463f688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3063de6f2f0c3b8933738cbe519e325" id="r_aa3063de6f2f0c3b8933738cbe519e325"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa3063de6f2f0c3b8933738cbe519e325">WindowedSincInterpolator</a> (SampleType alpha)</td></tr>
+<tr class="separator:aa3063de6f2f0c3b8933738cbe519e325"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c030f406864b19878c8406d0cc3f34a" id="r_a3c030f406864b19878c8406d0cc3f34a"><td class="memItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c030f406864b19878c8406d0cc3f34a">interpolate</a> (std::span&lt; SampleType &gt; sampleContext, SampleType ratio)</td></tr>
+<tr class="separator:a3c030f406864b19878c8406d0cc3f34a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType, size_t N&gt;<br />
+<div class="textblock"><div class="compoundTemplParams">template&lt;FloatType SampleType, size_t N, <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58">windows::WindowType</a> WindowType&gt;<br />
 requires (N % 2 == 0)<br />
-class marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N &gt;</div><p>A windowed sinc interpolator, suitable for use in a realtime context. </p>
-<p>In its present form, this could be a free function, but it's left as a class to keep the option of optimizing with a precalculated sinc lookup table open.<br  />
- Input should contain <code>N - 1</code> <code>history</code> samples, followed by the latest sample. For example, in the case of <code>N=4</code>, The input should be in the form <code>[x[n-3], x[n-2], x[n-1], x[n]]</code>. <br  />
+class marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N, WindowType &gt;</div><p>A windowed sinc interpolator, suitable for use in a realtime context. </p>
+<p>Uses a lookup table precomputed at construction time for optimization purposes, and bakes the selected window function into the lookup table. For a non-integer subsample, the resulting point on the Sinc curve will be a lerp between the closest two points in the table. Input should contain <code>N - 1</code> <code>history</code> samples, followed by the latest sample. For example, in the case of <code>N=4</code>, The input should be in the form <code>[x[n-3], x[n-2], x[n-1], x[n]]</code>. <br  />
 In the case of <code>N=8</code>, it should be in the form <code>[x[n-7], x[n-6], x[n-5], x[n-4], x[n-3], x[n-2], x[n-1], x[n]]</code>.<br  />
  The interpolator will introduce <code>N / 2</code> samples of latency (determined by assuming a fixed ratio of <code>0</code>, and counting the number of samples it takes an impulse to be output). For example, a signal <code>[a, b, c, d, e, f, g, .......]</code>, with <code>N=4</code> would be output as <code>[0, 0, a, b, c, d ......]</code>. <br  />
  To really belabour the point, the inputs passed to the interpolator for the above impulse and <code>N=4</code> would be:</p>
@@ -148,20 +151,82 @@ In the case of <code>N=8</code>, it should be in the form <code>[x[n-7], x[n-6],
 <div class="line">        pos += increment;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --> </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2ebcbeabd6422a43035c570116079586" name="a2ebcbeabd6422a43035c570116079586"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ebcbeabd6422a43035c570116079586">&#9670;&#160;</a></span>interpolate()</h2>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa0f24fc23aee0a0a53ad5212f463f688" name="aa0f24fc23aee0a0a53ad5212f463f688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0f24fc23aee0a0a53ad5212f463f688">&#9670;&#160;</a></span>WindowedSincInterpolator() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;FloatType SampleType, size_t N&gt; </div>
+template&lt;FloatType SampleType, size_t N, <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58">windows::WindowType</a> WindowType&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">SampleType <a class="el" href="classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html">marvin::math::interpolators::WindowedSincInterpolator</a>&lt; SampleType, N &gt;::interpolate </td>
+          <td class="memname"><a class="el" href="classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html">marvin::math::interpolators::WindowedSincInterpolator</a>&lt; SampleType, N, WindowType &gt;::WindowedSincInterpolator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a <a class="el" href="classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html" title="A windowed sinc interpolator, suitable for use in a realtime context.">WindowedSincInterpolator</a> with a sine window applied to the lookup table. </p>
+
+</div>
+</div>
+<a id="aa3063de6f2f0c3b8933738cbe519e325" name="aa3063de6f2f0c3b8933738cbe519e325"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3063de6f2f0c3b8933738cbe519e325">&#9670;&#160;</a></span>WindowedSincInterpolator() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType, size_t N, <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58">windows::WindowType</a> WindowType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html">marvin::math::interpolators::WindowedSincInterpolator</a>&lt; SampleType, N, WindowType &gt;::WindowedSincInterpolator </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Constructs a <a class="el" href="classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html" title="A windowed sinc interpolator, suitable for use in a realtime context.">WindowedSincInterpolator</a> with a tukey window applied to the lookup table. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">alpha</td><td>At 0, the window is rectangular, and at 1, the window is a hann window. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3c030f406864b19878c8406d0cc3f34a" name="a3c030f406864b19878c8406d0cc3f34a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c030f406864b19878c8406d0cc3f34a">&#9670;&#160;</a></span>interpolate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType, size_t N, <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58">windows::WindowType</a> WindowType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType <a class="el" href="classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html">marvin::math::interpolators::WindowedSincInterpolator</a>&lt; SampleType, N, WindowType &gt;::interpolate </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; SampleType &gt;</td>          <td class="paramname"><span class="paramname"><em>sampleContext</em></span>, </td>
         </tr>
@@ -189,7 +254,7 @@ template&lt;FloatType SampleType, size_t N&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/runner/work/marvin/marvin/include/marvin/math/<a class="el" href="marvin__WindowedSincInterpolator_8h_source.html">marvin_WindowedSincInterpolator.h</a></li>
+<li>/home/runner/work/marvin/marvin/include/marvin/math/<a class="el" href="marvin__Interpolators_8h_source.html">marvin_Interpolators.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
