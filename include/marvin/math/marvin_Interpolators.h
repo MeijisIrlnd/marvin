@@ -119,36 +119,12 @@ namespace marvin::math::interpolators {
             constexpr static auto halfN = static_cast<int>(N) / 2;
             for (auto i = 0_sz; i < N; ++i) {
                 auto n = static_cast<int>(i) - static_cast<int>(halfN);
-                const auto offsetN = static_cast<SampleType>(n) + inverseRatio;
-                const auto windowedSinc = lookupSinc(n, inverseRatio);
+                const auto windowedSinc = lookupSinc(static_cast<SampleType>(n), inverseRatio);
                 const auto res = sampleContext[i] * windowedSinc;
                 sum += res;
             }
-            // for (auto n = -halfN; n < halfN; ++n) {
-            //     const auto actualIndex = static_cast<size_t>(n + halfN);
-            //     const auto windowedSinc = lookupSinc(n + inverseRatio);
-            //     const auto res = sampleContext[actualIndex] * windowedSinc;
-            //     sum += res;
-            // }
             return sum;
         }
-
-        // [[nodiscard]] SampleType interpolate(std::span<SampleType> sampleContext, SampleType ratio) {
-        //     assert(sampleContext.size() == N);
-        //     auto sum = static_cast<SampleType>(0.0);
-        //     // Multiply all elements in sampleContext by our sinc window..
-        //     for (auto i = 0_sz; i < N; ++i) {
-        //         const auto n = static_cast<int>(i) - static_cast<int>(N / 2);
-        //         const auto offsetN{ static_cast<SampleType>(n) + (static_cast<SampleType>(1.0) - ratio) };
-        //         // const auto window = windows::tukey(offsetN, static_cast<SampleType>(N), static_cast<SampleType>(1.0));
-        //         const auto window = windows::tukey(static_cast<SampleType>(i), static_cast<SampleType>(N), static_cast<SampleType>(0.2));
-        //         // const auto window = windows::sine(static_cast<SampleType>(n), static_cast<SampleType>(N));
-        //         const auto res = math::sinc(offsetN) * window;
-        //         const auto windowedSample = sampleContext[i] * res;
-        //         sum += windowedSample;
-        //     }
-        //     return sum;
-        // }
 
     private:
         void fillLookupTable(std::function<SampleType(SampleType)>&& windowFunction) {
