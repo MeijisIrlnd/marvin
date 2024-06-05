@@ -51,6 +51,7 @@ namespace marvin {
     concept FloatArrayLike = requires {
         ArrayLike<T>;
         FloatType<typename T::value_type>;
+        std::is_floating_point_v<typename T::value_type>;
     };
 
     /**

@@ -24,22 +24,21 @@ namespace marvin::testing {
     static std::random_device s_rd;
 
     // OLD IMPL: USEFUL TO COMPARE WITH
-    // [[nodiscard]] SampleType interpolate(std::span<SampleType> sampleContext, SampleType ratio) {
-    //     assert(sampleContext.size() == N);
-    //     auto sum = static_cast<SampleType>(0.0);
-    //     // Multiply all elements in sampleContext by our sinc window..
-    //     for (auto i = 0_sz; i < N; ++i) {
-    //         const auto n = static_cast<int>(i) - static_cast<int>(N / 2);
-    //         const auto offsetN{ static_cast<SampleType>(n) + (static_cast<SampleType>(1.0) - ratio) };
-    //         // const auto window = windows::tukey(offsetN, static_cast<SampleType>(N), static_cast<SampleType>(1.0));
-    //         const auto window = windows::tukey(static_cast<SampleType>(i), static_cast<SampleType>(N), static_cast<SampleType>(0.2));
-    //         // const auto window = windows::sine(static_cast<SampleType>(n), static_cast<SampleType>(N));
-    //         const auto res = math::sinc(offsetN) * window;
-    //         const auto windowedSample = sampleContext[i] * res;
-    //         sum += windowedSample;
-    //     }
-    //     return sum;
-    // }
+    template <FloatType SampleType, size_t N>
+    [[nodiscard]] SampleType naiveInterpolate(std::span<SampleType> sampleContext, SampleType ratio) {
+        assert(sampleContext.size() == N);
+        auto sum = static_cast<SampleType>(0.0);
+        // Multiply all elements in sampleContext by our sinc window..
+        for (auto i = 0_sz; i < N; ++i) {
+            const auto n = static_cast<int>(i) - static_cast<int>(N / 2);
+            const auto offsetN{ static_cast<SampleType>(n) + (static_cast<SampleType>(1.0) - ratio) };
+            const auto window = math::windows::tukey(static_cast<SampleType>(i), static_cast<SampleType>(N), static_cast<SampleType>(0.2));
+            const auto res = math::sinc(offsetN) * window;
+            const auto windowedSample = sampleContext[i] * res;
+            sum += windowedSample;
+        }
+        return sum;
+    }
 
     void resampleFile(std::string&& source, std::string&& dest, double newSampleRate) {
         constexpr static auto N{ 32 };
@@ -138,7 +137,7 @@ namespace marvin::testing {
         std::vector<T> summed(noiseA.size());
         std::vector<T> summedInterpolated{};
         std::memcpy(summed.data(), noiseA.data(), sizeof(T) * noiseA.size());
-        math::vecops::add(summed, noiseB);
+        math::vecops::add<T>(summed, noiseB);
         // Now - sinc interpolate both vectors..
         math::interpolators::WindowedSincInterpolator<T, Width, math::windows::WindowType::Tukey> interpolator{ static_cast<T>(0.2) };
         auto beginA = noiseA.begin();
@@ -163,6 +162,26 @@ namespace marvin::testing {
         }
     }
 
+    template <FloatType T, size_t Width, size_t OversamplingFactor>
+    void compareWithNaiveImplementation() {
+        constexpr static auto N = Width * 4;
+        constexpr static auto Increment = static_cast<T>(1.0) / static_cast<T>(OversamplingFactor);
+        auto signal = generateInterpolationNoise<T, N>(Width - 1);
+        math::interpolators::WindowedSincInterpolator<T, Width, math::windows::WindowType::Tukey> interpolator{ static_cast<T>(0.2) };
+        auto begin = signal.begin();
+        auto* beginPtr = &(*begin);
+        for (auto i = 0; i < Width * 2; ++i) {
+            auto startPtr = beginPtr + static_cast<std::ptrdiff_t>(i);
+            std::span<T> view{ startPtr, Width };
+            for (auto i = 0_sz; i < OversamplingFactor; ++i) {
+                const auto currentRatio = Increment * static_cast<T>(i);
+                const auto interpolated = interpolator.interpolate(view, currentRatio);
+                const auto naiveInterpolated = interpolator.interpolate(view, currentRatio);
+                REQUIRE_THAT(interpolated, Catch::Matchers::WithinRel(naiveInterpolated));
+            }
+        }
+    }
+
     TEST_CASE("Test WindowedSincInterpolator") {
 #if defined(MARVIN_ANALYSIS)
         const auto exePathOpt = utils::getCurrentExecutablePath();
@@ -182,6 +201,12 @@ namespace marvin::testing {
         sineDest += "/Sine_resampled.wav";
         resampleFile(sineWav.string(), sineDest.string(), 24750.0);
 #endif
+        compareWithNaiveImplementation<float, 8, 10>();
+        compareWithNaiveImplementation<float, 4, 19>();
+        compareWithNaiveImplementation<float, 6, 2>();
+        compareWithNaiveImplementation<float, 12, 1>();
+        compareWithNaiveImplementation<float, 32, 11>();
+        compareWithNaiveImplementation<float, 64, 4>();
         testWindowedSincInterpolatorWithImpulse<float, 8, 2>();
         testWindowedSincInterpolatorWithImpulse<float, 4, 10>();
         testWindowedSincInterpolatorWithImpulse<float, 6, 10>();
@@ -205,26 +230,32 @@ namespace marvin::testing {
         testLinearity<float, 32, 2>();
         testLinearity<float, 32, 90>();
 
-        // testWindowedSincInterpolatorWithImpulse<double, 4, 10>();
-        // testWindowedSincInterpolatorWithImpulse<double, 6, 10>();
-        // testWindowedSincInterpolatorWithImpulse<double, 8, 10>();
-        // testWindowedSincInterpolatorWithImpulse<double, 16, 10>();
-        // testWindowedSincInterpolatorWithImpulse<double, 32, 10>();
-        // testLinearity<double, 4, 10>();
-        // testLinearity<double, 4, 20>();
-        // testLinearity<double, 4, 2>();
-        // testLinearity<double, 4, 90>();
-        // testLinearity<double, 8, 10>();
-        // testLinearity<double, 8, 20>();
-        // testLinearity<double, 8, 2>();
-        // testLinearity<double, 8, 90>();
-        // testLinearity<double, 12, 10>();
-        // testLinearity<double, 12, 20>();
-        // testLinearity<double, 12, 2>();
-        // testLinearity<double, 12, 90>();
-        // testLinearity<double, 32, 10>();
-        // testLinearity<double, 32, 20>();
-        // testLinearity<double, 32, 2>();
-        // testLinearity<double, 32, 90>();
+        compareWithNaiveImplementation<double, 8, 10>();
+        compareWithNaiveImplementation<double, 4, 19>();
+        compareWithNaiveImplementation<double, 6, 2>();
+        compareWithNaiveImplementation<double, 12, 1>();
+        compareWithNaiveImplementation<double, 32, 11>();
+        compareWithNaiveImplementation<double, 64, 4>();
+        testWindowedSincInterpolatorWithImpulse<double, 4, 10>();
+        testWindowedSincInterpolatorWithImpulse<double, 6, 10>();
+        testWindowedSincInterpolatorWithImpulse<double, 8, 10>();
+        testWindowedSincInterpolatorWithImpulse<double, 16, 10>();
+        testWindowedSincInterpolatorWithImpulse<double, 32, 10>();
+        testLinearity<double, 4, 10>();
+        testLinearity<double, 4, 20>();
+        testLinearity<double, 4, 2>();
+        testLinearity<double, 4, 90>();
+        testLinearity<double, 8, 10>();
+        testLinearity<double, 8, 20>();
+        testLinearity<double, 8, 2>();
+        testLinearity<double, 8, 90>();
+        testLinearity<double, 12, 10>();
+        testLinearity<double, 12, 20>();
+        testLinearity<double, 12, 2>();
+        testLinearity<double, 12, 90>();
+        testLinearity<double, 32, 10>();
+        testLinearity<double, 32, 20>();
+        testLinearity<double, 32, 2>();
+        testLinearity<double, 32, 90>();
     }
 } // namespace marvin::testing

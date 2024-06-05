@@ -19,6 +19,7 @@ set(MARVIN_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_Utils.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValue.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_Random.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_Stopwatch.cpp
     PARENT_SCOPE
 )
 

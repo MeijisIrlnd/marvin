@@ -100,6 +100,7 @@ namespace marvin::math::vecops {
     }
 
 #elif defined(MARVIN_HAS_IPP)
+
     template <>
     void add<float>(float* lhs, const float* rhs, size_t size) noexcept {
         // get absolutely fucked mississippi bastard
@@ -109,6 +110,16 @@ namespace marvin::math::vecops {
     template <>
     void add<double>(double* lhs, const double* rhs, size_t size) noexcept {
         ippsAdd_64f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void add<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        ippsAdd_32f(lhs, rhs, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void add<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        ippsAdd_64f(lhs, rhs, dest, static_cast<int>(size));
     }
 
     template <>
@@ -122,6 +133,16 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void add<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        ippsAddC_32f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void add<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        ippsAddC_64f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
     void subtract<float>(float* lhs, const float* rhs, size_t size) noexcept {
         ippsSub_32f_I(rhs, lhs, static_cast<int>(size));
     }
@@ -129,6 +150,16 @@ namespace marvin::math::vecops {
     template <>
     void subtract<double>(double* lhs, const double* rhs, size_t size) noexcept {
         ippsSub_64f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void subtract<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        ippsSub_32f(rhs, lhs, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void subtract<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        ippsSub_64f(rhs, lhs, dest, static_cast<int>(size));
     }
 
     template <>
@@ -142,6 +173,16 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void subtract<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        ippsSubC_32f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void subtract<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        ippsSubC_64f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
     void multiply<float>(float* lhs, const float* rhs, size_t size) noexcept {
         ippsMul_32f_I(rhs, lhs, static_cast<int>(size));
     }
@@ -149,6 +190,16 @@ namespace marvin::math::vecops {
     template <>
     void multiply<double>(double* lhs, const double* rhs, size_t size) noexcept {
         ippsMul_64f_I(rhs, lhs, static_cast<int>(size));
+    }
+
+    template <>
+    void multiply<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        ippsMul_32f(lhs, rhs, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void multiply<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        ippsMul_64f(lhs, rhs, dest, static_cast<int>(size));
     }
 
     template <>
@@ -162,6 +213,16 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void multiply<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        ippsMulC_32f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void multiply<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        ippsMulC_64f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
     void divide<float>(float* lhs, const float* rhs, size_t size) noexcept {
         ippsDiv_32f_I(rhs, lhs, static_cast<int>(size));
     }
@@ -172,6 +233,16 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void divide<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        ippsDiv_32f(rhs, lhs, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void divide<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        ippsDiv_64f(rhs, lhs, dest, static_cast<int>(size));
+    }
+
+    template <>
     void divide<float>(float* arr, float scalar, size_t size) noexcept {
         ippsDivC_32f_I(scalar, arr, static_cast<int>(size));
     }
@@ -179,6 +250,30 @@ namespace marvin::math::vecops {
     template <>
     void divide<double>(double* arr, double scalar, size_t size) noexcept {
         ippsDivC_64f_I(scalar, arr, static_cast<int>(size));
+    }
+
+    template <>
+    void divide<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        ippsDivC_32f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
+    void divide<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        ippsDivC_64f(arr, scalar, dest, static_cast<int>(size));
+    }
+
+    template <>
+    float sum<float>(const float* arr, size_t size) noexcept {
+        auto res{ 0.0f };
+        ippsSum_32f(arr, static_cast<int>(size), &res, IppHintAlgorithm::ippAlgHintNone);
+        return res;
+    }
+
+    template <>
+    double sum<double>(const double* arr, size_t size) noexcept {
+        auto res{ 0.0 };
+        ippsSum_64f(arr, static_cast<int>(size), &res);
+        return res;
     }
 #else
     template <>
@@ -196,6 +291,21 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void add<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] + rhs[i];
+        }
+    }
+
+    template <>
+    void add<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] + rhs[i];
+        }
+    }
+
+
+    template <>
     void add<float>(float* arr, float scalar, size_t size) noexcept {
         for (auto i = 0_sz; i < size; ++i) {
             arr[i] += scalar;
@@ -206,6 +316,20 @@ namespace marvin::math::vecops {
     void add<double>(double* arr, double scalar, size_t size) noexcept {
         for (auto i = 0_sz; i < size; ++i) {
             arr[i] += scalar;
+        }
+    }
+
+    template <>
+    void add<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] + scalar;
+        }
+    }
+
+    template <>
+    void add<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] + scalar;
         }
     }
 
@@ -224,6 +348,20 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void subtract<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] - rhs[i];
+        }
+    }
+
+    template <>
+    void subtract<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] - rhs[i];
+        }
+    }
+
+    template <>
     void subtract<float>(float* arr, float scalar, size_t size) noexcept {
         for (auto i = 0_sz; i < size; ++i) {
             arr[i] -= scalar;
@@ -234,6 +372,20 @@ namespace marvin::math::vecops {
     void subtract<double>(double* arr, double scalar, size_t size) noexcept {
         for (auto i = 0_sz; i < size; ++i) {
             arr[i] -= scalar;
+        }
+    }
+
+    template <>
+    void subtract<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] - scalar;
+        }
+    }
+
+    template <>
+    void subtract<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] - scalar;
         }
     }
 
@@ -252,6 +404,20 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void multiply<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] * rhs[i];
+        }
+    }
+
+    template <>
+    void multiply<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] * rhs[i];
+        }
+    }
+
+    template <>
     void multiply<float>(float* arr, float scalar, size_t size) noexcept {
         for (auto i = 0_sz; i < size; ++i) {
             arr[i] *= scalar;
@@ -262,6 +428,20 @@ namespace marvin::math::vecops {
     void multiply<double>(double* arr, double scalar, size_t size) noexcept {
         for (auto i = 0_sz; i < size; ++i) {
             arr[i] *= scalar;
+        }
+    }
+
+    template <>
+    void multiply<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] * scalar;
+        }
+    }
+
+    template <>
+    void multiply<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] * scalar;
         }
     }
 
@@ -280,6 +460,20 @@ namespace marvin::math::vecops {
     }
 
     template <>
+    void divide<float>(float* dest, const float* lhs, const float* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] / rhs[i];
+        }
+    }
+
+    template <>
+    void divide<double>(double* dest, const double* lhs, const double* rhs, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = lhs[i] / rhs[i];
+        }
+    }
+
+    template <>
     void divide<float>(float* arr, float scalar, size_t size) noexcept {
         for (auto i = 0_sz; i < size; ++i) {
             arr[i] /= scalar;
@@ -293,7 +487,37 @@ namespace marvin::math::vecops {
         }
     }
 
+    template <>
+    void divide<float>(float* dest, const float* arr, float scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] / scalar;
+        }
+    }
 
+    template <>
+    void divide<double>(double* dest, const double* arr, double scalar, size_t size) noexcept {
+        for (auto i = 0_sz; i < size; ++i) {
+            dest[i] = arr[i] / scalar;
+        }
+    }
+
+    template <>
+    float sum<float>(float* arr, size_t size) noexcept {
+        auto res{ 0.0f };
+        for (auto i = 0_sz; i < size; ++i) {
+            res += arr[i];
+        }
+        return res;
+    }
+
+    template <>
+    double sum<double>(double* arr, size_t size) noexcept {
+        auto res{ 0.0f };
+        for (auto i = 0_sz; i < size; ++i) {
+            res += arr[i];
+        }
+        return res;
+    }
 #endif
 
 

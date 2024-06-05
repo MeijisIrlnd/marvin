@@ -14,16 +14,18 @@
 #include <marvin/library/marvin_Literals.h>
 #include <marvin/math/marvin_Math.h>
 #include <marvin/math/marvin_Windows.h>
+#include <marvin/math/marvin_VecOps.h>
 #include <span>
 #include <cassert>
 #include <vector>
 #include <functional>
+#include <array>
 namespace marvin::math::interpolators {
     /**
         \brief A windowed sinc interpolator, suitable for use in a realtime context.
 
         Uses a lookup table precomputed at construction time for optimization purposes, and bakes the selected window function into the lookup table.
-        For a non-integer subsample, the resulting point on the Sinc curve will be a lerp between the closest two points in the table.
+        For a non-integer subsample, the resulting point on the Sinc curve will be a lerp between the closest two points in the table (which is 10x oversampled).
         Input should contain `N - 1` `history` samples, followed by the latest sample. For example, in the case of `N=4`,
         The input should be in the form `[x[n-3], x[n-2], x[n-1], x[n]]`. <br>In the case of `N=8`, it should be in the form
         `[x[n-7], x[n-6], x[n-5], x[n-4], x[n-3], x[n-2], x[n-1], x[n]]`.<br>
@@ -114,56 +116,93 @@ namespace marvin::math::interpolators {
         */
         [[nodiscard]] SampleType interpolate(std::span<SampleType> sampleContext, SampleType ratio) {
             assert(sampleContext.size() == N);
-            auto sum = static_cast<SampleType>(0.0);
+            constexpr static auto increment{ static_cast<SampleType>(1.0) / static_cast<SampleType>(m_oversamplingFactor) };
             const auto inverseRatio = static_cast<SampleType>(1.0) - ratio;
-            constexpr static auto halfN = static_cast<int>(N) / 2;
-            for (auto i = 0_sz; i < N; ++i) {
-                auto n = static_cast<int>(i) - static_cast<int>(halfN);
-                const auto windowedSinc = lookupSinc(static_cast<SampleType>(n), inverseRatio);
-                const auto res = sampleContext[i] * windowedSinc;
-                sum += res;
-            }
-            return sum;
+            fillContiguousArrays(inverseRatio);
+            const auto nearestSubsample = ratio / increment;
+            const auto lerpFrac = nearestSubsample - std::floor(nearestSubsample);
+            math::vecops::multiply<SampleType>(m_working, m_deltas, lerpFrac);
+            math::vecops::add<SampleType>(m_currentSincPoints, m_currentSamplesBelow, m_working);
+            math::vecops::multiply<SampleType>(m_working.data(), sampleContext.data(), m_currentSincPoints.data(), m_working.size());
+            const auto res = math::vecops::sum<SampleType>(m_working);
+            return res;
         }
 
     private:
+        constexpr static auto m_oversamplingFactor{ 10 };
         void fillLookupTable(std::function<SampleType(SampleType)>&& windowFunction) {
-            m_lut.reserve(N + 2);
-            m_lut.resize(N);
+            constexpr static auto size{ N * m_oversamplingFactor };
+            constexpr static auto paddedSize{ size + 2 };
             constexpr static auto halfWidth{ N / 2 };
+            constexpr static auto increment = static_cast<SampleType>(1.0) / static_cast<SampleType>(m_oversamplingFactor);
+            m_lut.reserve(paddedSize);
+            m_lut.resize(size);
             for (auto i = 0_sz; i < N; ++i) {
-                const auto n{ static_cast<int>(i) - static_cast<int>(halfWidth) };
-                const auto window = windowFunction(static_cast<SampleType>(i));
-                const auto sincRes = sinc(static_cast<SampleType>(n));
-                const auto windowedSinc = sincRes * window;
-                m_lut[i] = windowedSinc;
+                const auto integern = static_cast<SampleType>(i) - static_cast<SampleType>(halfWidth);
+                for (auto subsample = 0_sz; subsample < m_oversamplingFactor; ++subsample) {
+                    const auto pos{ increment * static_cast<SampleType>(subsample) };
+                    const auto window = windowFunction(static_cast<SampleType>(i) + pos);
+                    const auto n = integern + pos;
+                    const auto sincRes = sinc(n);
+                    const auto windowedSinc = sincRes * window;
+                    const auto currentIdx{ (i * m_oversamplingFactor) + subsample };
+                    m_lut[currentIdx] = windowedSinc;
+                }
             }
-            const auto start = m_lut.front();
             const auto end = m_lut[m_lut.size() - 1];
-            m_lut.emplace_back(end);
-            m_lut.emplace_back(start);
-            std::rotate(m_lut.begin(), m_lut.end() - 1, m_lut.end()); // [ x x x x e s ] -> [s x x x x e]
+            for (auto i = 0; i < m_oversamplingFactor; ++i) {
+                m_lut.emplace_back(end);
+            }
         }
 
+        void fillContiguousArrays(SampleType frac) {
+            constexpr static auto increment{ static_cast<SampleType>(1.0) / static_cast<SampleType>(m_oversamplingFactor) };
+            const auto nearestSubsample = std::floor(frac / increment);
+            auto subsampleIndex{ static_cast<size_t>(nearestSubsample) };
+            std::vector<size_t> indicesBelow{}, indicesAbove{};
+            for (auto i = 0_sz; i < N; ++i) {
+                const auto below = m_lut[subsampleIndex];
+                const auto above = m_lut[subsampleIndex + 1];
+                const auto delta = above - below;
+                m_currentSamplesBelow[i] = below;
+                m_currentSamplesAbove[i] = above;
+                m_deltas[i] = delta;
+                subsampleIndex += m_oversamplingFactor;
+            }
+        }
 
         [[nodiscard]] SampleType lookupSinc(SampleType x, SampleType frac) {
-            constexpr static auto halfN{ static_cast<int>(N / 2) };
-            const auto nBelow = static_cast<int>(std::floor(x));
-            const auto nAbove = static_cast<int>(nBelow) + 1;
-            const auto ratio = frac;
-            // const auto ratio = x - static_cast<SampleType>(nBelow);
-            // So this is now in range -N to N
-            // translating this to an actual index into the LUT means just adding (N / 2)..
-            // LUT has an extra point at the start compared to what we actually expect....
-            const auto idxBelow = static_cast<size_t>(nBelow + halfN) + 1;
-            const auto idxAbove = static_cast<size_t>(nAbove + halfN) + 1;
-            const auto start = m_lut[idxBelow];
-            const auto end = m_lut[idxAbove];
-            const auto interpolated = math::lerp<SampleType>(start, end, ratio);
+            constexpr static auto increment{ static_cast<SampleType>(1.0) / static_cast<SampleType>(m_oversamplingFactor) };
+            // Inverse ratio here, because our contiguous arrays have already taken into account the initial inverse ratio..
+            const auto nearestSubsample = (static_cast<SampleType>(1.0) - frac) / increment;
+            const auto subsampleRatio = nearestSubsample - std::floor(nearestSubsample);
+            const auto idxX = static_cast<size_t>(x);
+            const auto below = m_currentSamplesBelow[idxX];
+            const auto above = m_currentSamplesAbove[idxX];
+            const auto interpolated = math::lerp<SampleType>(below, above, subsampleRatio);
             return interpolated;
         }
 
+        // [[nodiscard]] SampleType lookupSinc(SampleType x, SampleType frac) {
+        //     constexpr static auto increment{ static_cast<SampleType>(1.0) / static_cast<SampleType>(m_oversamplingFactor) };
+        //     const auto nearestSubsample = frac / increment;
+        //     const auto subsampleRatio = nearestSubsample - std::floor(nearestSubsample);
+        //     const auto indexBelow = (x * static_cast<SampleType>(m_oversamplingFactor)) + std::floor(nearestSubsample);
+        //     const auto indexAbove = indexBelow + 1;
+        //     const auto paddedIndexBelow = static_cast<size_t>(indexBelow);
+        //     const auto paddedIndexAbove = static_cast<size_t>(indexAbove);
+        //     const auto sampleBelow = m_lut[paddedIndexBelow];
+        //     const auto sampleAbove = m_lut[paddedIndexAbove];
+        //     const auto interpolated = math::lerp<SampleType>(sampleBelow, sampleAbove, subsampleRatio);
+        //     return interpolated;
+        // }
+
         std::vector<SampleType> m_lut;
+        std::array<SampleType, N> m_currentSamplesBelow{};
+        std::array<SampleType, N> m_currentSamplesAbove{};
+        std::array<SampleType, N> m_deltas{};
+        std::array<SampleType, N> m_working{};
+        std::array<SampleType, N> m_currentSincPoints{};
     };
 } // namespace marvin::math::interpolators
 

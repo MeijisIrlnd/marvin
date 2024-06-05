@@ -59,7 +59,16 @@ namespace marvin::containers {
 
         ~SwapBuffer() noexcept = default;
 
-        SwapBuffer& operator=(const SwapBuffer<T>& other) = default;
+        SwapBuffer& operator=(const SwapBuffer<T>& other) {
+            if (&other != this) {
+                m_a.resize(other.m_a.size());
+                m_b.resize(other.m_b.size());
+                std::memcpy(m_a.data(), other.m_a.data(), sizeof(T) * other.m_a.size());
+                std::memcpy(m_b.data(), other.m_b.data(), sizeof(T) * other.m_b.size());
+                m_aIsFrontBuffer = other.m_aIsFrontBuffer;
+            }
+            return *this;
+        }
         SwapBuffer& operator=(SwapBuffer<T>&& other) noexcept = default;
 
         /**
