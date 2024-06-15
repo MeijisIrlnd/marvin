@@ -122,12 +122,9 @@ class marvin::containers::fifos::SPSC&lt; T &gt;</div><p>A thread-safe, realtime
  To empty the queue in a single loop: </p><div class="fragment"><div class="line"><span class="keyword">class </span>SomeClass {</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line">    <span class="keywordtype">void</span> emptyQueue() {</div>
-<div class="line">        std::optional&lt;int&gt; current{ };</div>
-<div class="line">        <span class="keywordflow">do</span> {</div>
-<div class="line">            current = m_fifo.tryPop();</div>
-<div class="line">            <span class="keywordflow">if</span>(!current) <span class="keywordflow">continue</span>;</div>
-<div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;Dequeued &quot;</span> &lt;&lt; *current &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// Or do something meaningful with the data here...</span></div>
-<div class="line">        } <span class="keywordflow">while</span>(current);</div>
+<div class="line">        <span class="keywordflow">while</span>(std::optional&lt;int&gt; current = m_fifo.tryPop()) {</div>
+<div class="line">          std::cout &lt;&lt; <span class="stringliteral">&quot;Dequeued &quot;</span> &lt;&lt; *current &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// Or do something meaningful with the data here...</span></div>
+<div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line">    marvin::utils::fifos::SPSC&lt;int&gt; m_fifo;</div>
