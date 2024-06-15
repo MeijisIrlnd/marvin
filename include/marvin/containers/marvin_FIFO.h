@@ -26,12 +26,9 @@ namespace marvin::containers::fifos {
         class SomeClass {
         public:
             void emptyQueue() {
-                std::optional<int> current{ };
-                do {
-                    current = m_fifo.tryPop();
-                    if(!current) continue;
-                    std::cout << "Dequeued " << *current << "\n"; // Or do something meaningful with the data here...
-                } while(current);
+                while(std::optional<int> current = m_fifo.tryPop()) {
+                  std::cout << "Dequeued " << *current << "\n"; // Or do something meaningful with the data here...
+                }
             }
         private:
             marvin::utils::fifos::SPSC<int> m_fifo;
