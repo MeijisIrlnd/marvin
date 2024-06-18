@@ -18,6 +18,7 @@
 #include <vector>
 #include <span>
 #include <complex>
+#include <iostream>
 #if defined(MARVIN_MACOS)
 #include <Accelerate/Accelerate.h>
 #endif
@@ -280,7 +281,22 @@ namespace marvin::dsp::spectral {
         IppsBufferType* m_invScratchBuff{ nullptr };
     };
 #else
+    template <FloatType SampleType>
+    struct FFTConfig {
+        explicit FFTConfig(size_t order_) : order(order_),
+                                            length(2 << order_) {
+            twiddleFactors.reserve(length);
+            const auto singleSamplePhase = static_cast<SampleType>(-2.0) * std::numbers::pi_v<SampleType> / static_cast<SampleType>(length);
+            for (auto i = 0_sz; i < length; ++i) {
+                const auto phase = singleSamplePhase * static_cast<SampleType>(i);
+                twiddleFactors.emplace_back({ std::cos(phase), std::sin(phase) });
+            }
+        }
 
+        const size_t order;
+        const size_t length;
+        std::vector<std::complex<SampleType>> twiddleFactors;
+    };
     template <FloatType SampleType>
     class FFT<SampleType>::Impl final : public ImplBase<SampleType> {
     public:
@@ -309,7 +325,23 @@ namespace marvin::dsp::spectral {
             return EngineType::Fallback_FFT;
         }
 
+
     private:
+        template <size_t N, size_t Stride>
+        void butterfly(marvin::containers::StrideView<SampleType, Stride> x) {
+            if constexpr (N == 1) {
+                for (auto& el : x) {
+                    std::cout << el << "\n";
+                }
+            } else {
+                // generate a new stride view..
+                constexpr auto nextN = N / 2;
+                constexpr auto nextStride = Stride * 2;
+                marvin::containers::StrideView<SampleType, nextStride> evenView{ x.underlying() };
+                butterfly<nextN, nextStride>(evenView);
+            }
+        }
+
         std::vector<std::complex<SampleType>> m_fwdInternalBuff{};
         std::vector<SampleType> m_invInternalBuff{};
     };
@@ -353,6 +385,7 @@ namespace marvin::dsp::spectral {
     void FFT<SampleType>::performInverseTransform(std::span<std::complex<SampleType>> source, std::span<SampleType> dest) {
         m_impl->performInverseTransform(source, dest);
     }
+
 
     template class FFT<float>;
     template class FFT<double>;

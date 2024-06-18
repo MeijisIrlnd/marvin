@@ -15,9 +15,39 @@
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
 #include <vector>
+#include <iostream>
 namespace marvin::testing {
     static std::random_device rd{};
+    static int s_iterCount{ 0 };
 
+    template <FloatType SampleType, size_t N, size_t Stride, size_t StartOffset = 0>
+    void butterfly(marvin::containers::StrideView<SampleType, Stride> x, std::span<std::complex<SampleType>> results, bool even = true) {
+        constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
+        if constexpr (N == 1) {
+            return;
+        } else {
+            // generate a new stride view..
+            constexpr auto nextN = N / 2;
+            constexpr auto nextStride = Stride * 2;
+            marvin::containers::StrideView<SampleType, nextStride> evenView{ x.underlying().data(), x.underlying().size() };
+            auto offsetIt = x.begin() + static_cast<std::ptrdiff_t>(1);
+            auto* offsetPtr = &(*offsetIt);
+            marvin::containers::StrideView<SampleType, nextStride> oddView{ offsetPtr, x.underlying().size() };
+            butterfly<SampleType, nextN, nextStride, StartOffset>(evenView, results);
+            butterfly<SampleType, nextN, nextStride, StartOffset + Stride>(oddView, results, false);
+            std::cout << "==========================\n";
+            for (auto i = 0_sz; i < evenView.size(); ++i) {
+                const auto x_even = evenView[i];
+                const auto x_odd = oddView[i];
+                std::cout << "Pairing " << x_even << " with " << x_odd << "\n";
+                std::cout << "Start Offset + Stride " << StartOffset + (i * Stride) << "\n";
+                const auto twiddleFrac = static_cast<SampleType>(i) / static_cast<SampleType>(N);
+                const auto exponent = -1 * twoPi * twiddleFrac;
+                std::complex<SampleType> tf{ std::cos(exponent), std::sin(exponent) };
+                const auto res = x_even + (tf * x_odd);
+            }
+        }
+    }
     template <FloatType T>
     std::vector<T> generateNoise(size_t N) {
         std::vector<T> vec;
@@ -105,11 +135,17 @@ namespace marvin::testing {
         // testFFT<double, 11>();
         // testFFT<double, 12>();
     }
+
     TEST_CASE("Test recurse") {
-        std::vector<float> test(32, 0.0f);
-        test.front() = 1.0f;
-        std::vector<std::complex<float>> res(32);
-        dsp::spectral::recurse<float, 32, 1>(test, res);
+        std::vector<float> test(8, 0.0f);
+        test[0] = 1.0f;
+        for (auto i = 0_sz; i < 8; ++i) {
+            test[i] = static_cast<float>(i);
+        }
+        std::vector<std::complex<float>> resVec(8, { 0.0f, 0.0f });
+        butterfly<float, 8>(containers::StrideView<float, 1>{ test }, resVec);
+        // std::vector<std::complex<float>> res(32);
+        // dsp::spectral::recurse<float, 32, 1>(test, res);
     }
 
 } // namespace marvin::testing
