@@ -34,6 +34,7 @@ set(MARVIN_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_SmoothedValue.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_Random.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_Range.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/marvin/utils/marvin_MemoryPool.h
     PARENT_SCOPE
 )
 
