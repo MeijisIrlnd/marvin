@@ -12,24 +12,26 @@
 #define MARVIN_CONCEPTS_H
 #include <type_traits>
 #include <cstddef>
+#include <complex>
 namespace marvin {
+
     /**
         \brief Contrains T to be either a float or a double.
     */
     template <class T>
-    concept FloatType = requires {
-        std::is_floating_point_v<T>;
-    };
+    concept FloatType = std::is_floating_point_v<T>;
 
+    template <class T>
+    concept ComplexFloatType = std::same_as<T, std::complex<float>> || std::same_as<T, std::complex<double>>;
+
+    template <class T>
+    concept RealOrComplexFloatType = FloatType<T> || ComplexFloatType<T>;
 
     /**
         \brief Constrains T to be any numeric type.
     */
     template <class T>
-    concept NumericType = requires {
-        std::is_integral_v<T> ||
-            std::is_floating_point_v<T>;
-    };
+    concept NumericType = std::is_integral_v<T> || std::is_floating_point_v<T>;
 
 
     /**
@@ -49,8 +51,9 @@ namespace marvin {
     */
     template <class T>
     concept FloatArrayLike = requires {
-        ArrayLike<T>;
-        FloatType<typename T::value_type>;
+        typename T::value_type;
+        requires ArrayLike<T>;
+        requires FloatType<typename T::value_type>;
     };
 
     /**
