@@ -34,7 +34,7 @@ namespace marvin::dsp::spectral {
     template <RealOrComplexFloatType SampleType, NormalisationType Normalisation>
     class ImplBase {
     public:
-        using ValueType = getValueType<SampleType>::ValueType;
+        using ValueType = typename getValueType<SampleType>::ValueType;
         explicit ImplBase(size_t order) : m_order(order), m_n(static_cast<size_t>(std::pow(2, static_cast<int>(order)))) {
         }
 
@@ -54,21 +54,23 @@ namespace marvin::dsp::spectral {
     };
 #if defined(MARVIN_MACOS) && !defined(MARVIN_FORCE_FALLBACK_FFT)
 
-    template <FloatType SampleType>
-    class FFT<SampleType>::Impl final : public ImplBase<SampleType> {
+    template <RealOrComplexFloatType SampleType, NormalisationType Normalisation>
+    class FFT<SampleType, Normalisation>::Impl final : public ImplBase<SampleType, Normalisation> {
     public:
-        explicit Impl(size_t order) : ImplBase<SampleType>(order),
+        explicit Impl(size_t order) : ImplBase<SampleType, Normalisation>(order),
                                       m_inverseScalingFactor(static_cast<SampleType>(1.0) / static_cast<SampleType>(this->m_n)) {
-            if constexpr (std::is_same_v<SampleType, float>) {
+            if constexpr (std::is_same_v<ValueType, float>) {
                 m_setup = vDSP_create_fftsetup(this->m_order, kFFTRadix2);
             } else {
                 m_setup = vDSP_create_fftsetupD(this->m_order, kFFTRadix2);
             }
-            m_fwdBuff.realp = new SampleType[this->m_n / 2];
-            m_fwdBuff.imagp = new SampleType[this->m_n / 2];
-            m_invBuff.realp = new SampleType[this->m_n / 2];
-            m_invBuff.imagp = new SampleType[this->m_n / 2];
-            m_forwardInternal.resize(this->m_n + 2);
+            const auto Size = ComplexFloatType<SampleType> ? this->m_n : this->m_n / 2;
+            m_fwdBuff.realp = new ValueType[Size];
+            m_fwdBuff.imagp = new ValueType[Size];
+            m_invBuff.realp = new ValueType[Size];
+            m_invBuff.imagp = new ValueType[Size];
+
+            m_forwardInternal.resize(Size);
             m_inverseInternal.resize(this->m_n);
             std::fill(m_forwardInternal.begin(), m_forwardInternal.end(), static_cast<SampleType>(0.0));
             std::fill(m_inverseInternal.begin(), m_inverseInternal.end(), static_cast<SampleType>(0.0));
@@ -76,7 +78,7 @@ namespace marvin::dsp::spectral {
 
         ~Impl() noexcept override {
             if (m_setup) {
-                if constexpr (std::is_same_v<SampleType, float>) {
+                if constexpr (std::same_as<ValueType, float>) {
                     vDSP_destroy_fftsetup(m_setup);
                 } else {
                     vDSP_destroy_fftsetupD(m_setup);
@@ -96,51 +98,94 @@ namespace marvin::dsp::spectral {
             }
         }
 
-        void performRealOnlyForwardTransform(std::span<SampleType> source, std::span<std::complex<SampleType>> dest) override {
-            if constexpr (std::is_same_v<SampleType, float>) {
-                vDSP_ctoz((DSPComplex*)source.data(), 2, &m_fwdBuff, 1, this->m_n / 2);
-                vDSP_fft_zrip(m_setup, &m_fwdBuff, 1, this->m_order, kFFTDirection_Forward);
-                auto asInterleaved = math::complexViewToInterleaved(dest);
-                vDSP_ztoc(&m_fwdBuff, 1, (DSPComplex*)asInterleaved.data(), 2, this->m_n / 2);
-                vDSP_vsmul(asInterleaved.data(), 1, &m_forwardScalingFactor, asInterleaved.data(), 1, this->m_n);
+        void forward(std::span<SampleType> source, std::span<std::complex<ValueType>> dest) override {
+            if constexpr (ComplexFloatType<SampleType>) {
+                if constexpr (std::same_as<ValueType, float>) {
+                    vDSP_ctoz(reinterpret_cast<DSPComplex*>(source.data()), 2, &m_fwdBuff, 1, this->m_n);
+                    vDSP_fft_zip(m_setup, &m_fwdBuff, 1, this->m_order, kFFTDirection_Forward);
+                    auto asInterleaved = math::complexViewToInterleaved(dest);
+                    vDSP_ztoc(&m_fwdBuff, 1, (DSPComplex*)asInterleaved.data(), 2, this->m_n);
+                    if constexpr (Normalisation == NormalisationType::One_Over_N) {
+                        // vDSP_vsmul(asInterleaved.data(), 1, &m_forwardScalingFactor, asInterleaved.data(), 1, this->m_n * 2);
+                    }
+
+                } else {
+                    vDSP_ctozD(reinterpret_cast<DSPDoubleComplex*>(source.data()), 2, &m_fwdBuff, 1, this->m_n);
+                    vDSP_fft_zipD(m_setup, &m_fwdBuff, 1, this->m_order, kFFTDirection_Forward);
+                    auto asInterleaved = math::complexViewToInterleaved(dest);
+                    vDSP_ztocD(&m_fwdBuff, 1, (DSPDoubleComplex*)asInterleaved.data(), 2, this->m_n);
+                    if constexpr (Normalisation == NormalisationType::One_Over_N) {
+                        // vDSP_vsmulD(asInterleaved.data(), 1, &m_forwardScalingFactor, asInterleaved.data(), 1, this->m_n * 2);
+                    }
+                }
             } else {
-                vDSP_ctozD((DSPDoubleComplex*)source.data(), 2, &m_fwdBuff, 1, this->m_n / 2);
-                vDSP_fft_zripD(m_setup, &m_fwdBuff, 1, this->m_order, kFFTDirection_Forward);
-                auto asInterleaved = math::complexViewToInterleaved(dest);
-                vDSP_ztocD(&m_fwdBuff, 1, (DSPDoubleComplex*)asInterleaved.data(), 2, this->m_n / 2);
-                vDSP_vsmulD(asInterleaved.data(), 1, &m_forwardScalingFactor, asInterleaved.data(), 1, this->m_n);
+                if constexpr (std::same_as<ValueType, float>) {
+                    vDSP_ctoz((DSPComplex*)source.data(), 2, &m_fwdBuff, 1, this->m_n / 2);
+                    vDSP_fft_zrip(m_setup, &m_fwdBuff, 1, this->m_order, kFFTDirection_Forward);
+                    auto asInterleaved = math::complexViewToInterleaved(dest);
+                    vDSP_ztoc(&m_fwdBuff, 1, (DSPComplex*)asInterleaved.data(), 2, this->m_n / 2);
+                    if constexpr (Normalisation == NormalisationType::One_Over_N) {
+                        vDSP_vsmul(asInterleaved.data(), 1, &m_forwardScalingFactor, asInterleaved.data(), 1, this->m_n);
+                    }
+
+                } else {
+                    vDSP_ctozD((DSPDoubleComplex*)source.data(), 2, &m_fwdBuff, 1, this->m_n / 2);
+                    vDSP_fft_zripD(m_setup, &m_fwdBuff, 1, this->m_order, kFFTDirection_Forward);
+                    auto asInterleaved = math::complexViewToInterleaved(dest);
+                    vDSP_ztocD(&m_fwdBuff, 1, (DSPDoubleComplex*)asInterleaved.data(), 2, this->m_n / 2);
+                    vDSP_vsmulD(asInterleaved.data(), 1, &m_forwardScalingFactor, asInterleaved.data(), 1, this->m_n);
+                }
+                dest[dest.size() - 1] = dest[0].imag();
+                dest[0] = { dest[0].real(), static_cast<ValueType>(0.0) };
             }
-            // CCS format (Apple store DC and Nyquist at 0)
-            dest[dest.size() - 1] = dest[0].imag();
-            dest[0] = { dest[0].real(), static_cast<SampleType>(0.0) };
         }
 
-        [[nodiscard]] std::span<std::complex<SampleType>> performRealOnlyForwardTransform(std::span<SampleType> source) override {
-            auto asComplexView = math::interleavedToComplexView<SampleType>(m_forwardInternal);
-            performRealOnlyForwardTransform(source, asComplexView);
-            return asComplexView;
+        std::span<std::complex<ValueType>> forward(std::span<SampleType> source) override {
+            forward(source, m_forwardInternal);
+            return m_forwardInternal;
         }
 
-        void performInverseTransform(std::span<std::complex<SampleType>> source, std::span<SampleType> dest) override {
-            // move nyquist home :)
-            source[0] = { source[0].real(), source[source.size() - 1].real() };
-            source[source.size() - 1] = static_cast<SampleType>(0.0);
+        void inverse(std::span<std::complex<ValueType>> source, std::span<SampleType> dest) override {
             auto asInterleaved = math::complexViewToInterleaved(source);
-            if constexpr (std::is_same_v<SampleType, float>) {
-                vDSP_ctoz((DSPComplex*)asInterleaved.data(), 2, &m_invBuff, 1, this->m_n / 2);
-                vDSP_fft_zrip(m_setup, &m_invBuff, 1, this->m_order, kFFTDirection_Inverse);
-                vDSP_ztoc(&m_invBuff, 1, (DSPComplex*)dest.data(), 2, this->m_n / 2);
-                vDSP_vsmul(dest.data(), 1, &m_inverseScalingFactor, dest.data(), 1, this->m_n);
+            if constexpr (ComplexFloatType<SampleType>) {
+                if constexpr (std::same_as<ValueType, float>) {
+                    vDSP_ctoz((DSPComplex*)asInterleaved.data(), 2, &m_invBuff, 1, this->m_n);
+                    vDSP_fft_zip(m_setup, &m_invBuff, 1, this->m_order, kFFTDirection_Inverse);
+                    vDSP_ztoc(&m_invBuff, 1, (DSPComplex*)dest.data(), 2, this->m_n);
+                    if constexpr (Normalisation == NormalisationType::None) {
+                        // TODO:
+                    }
+                } else {
+                    vDSP_ctozD((DSPDoubleComplex*)asInterleaved.data(), 2, &m_invBuff, 1, this->m_n);
+                    vDSP_fft_zipD(m_setup, &m_invBuff, 1, this->m_order, kFFTDirection_Inverse);
+                    vDSP_ztocD(&m_invBuff, 1, (DSPDoubleComplex*)dest.data(), 2, this->m_n);
+                    if constexpr (Normalisation == NormalisationType::None) {
+                        // TODO:
+                    }
+                }
             } else {
-                vDSP_ctozD((DSPDoubleComplex*)asInterleaved.data(), 2, &m_invBuff, 1, this->m_n / 2);
-                vDSP_fft_zripD(m_setup, &m_invBuff, 1, this->m_order, kFFTDirection_Inverse);
-                vDSP_ztocD(&m_invBuff, 1, (DSPDoubleComplex*)dest.data(), 2, this->m_n / 2);
-                vDSP_vsmulD(dest.data(), 1, &m_inverseScalingFactor, dest.data(), 1, this->m_n);
+                source[0] = { source[0].real(), source[source.size() - 1].real() };
+                source[source.size() - 1] = static_cast<ValueType>(0.0);
+                if constexpr (std::same_as<ValueType, float>) {
+                    vDSP_ctoz((DSPComplex*)asInterleaved.data(), 2, &m_invBuff, 1, this->m_n / 2);
+                    vDSP_fft_zrip(m_setup, &m_invBuff, 1, this->m_order, kFFTDirection_Inverse);
+                    vDSP_ztoc(&m_invBuff, 1, (DSPComplex*)dest.data(), 2, this->m_n / 2);
+                    if constexpr (Normalisation == NormalisationType::None) {
+                        vDSP_vsmul(dest.data(), 1, &m_inverseScalingFactor, dest.data(), 1, this->m_n);
+                    }
+                } else {
+                    vDSP_ctozD((DSPDoubleComplex*)asInterleaved.data(), 2, &m_invBuff, 1, this->m_n / 2);
+                    vDSP_fft_zripD(m_setup, &m_invBuff, 1, this->m_order, kFFTDirection_Inverse);
+                    vDSP_ztocD(&m_invBuff, 1, (DSPDoubleComplex*)dest.data(), 2, this->m_n / 2);
+                    if constexpr (Normalisation == NormalisationType::None) {
+                        vDSP_vsmulD(dest.data(), 1, &m_inverseScalingFactor, dest.data(), 1, this->m_n);
+                    }
+                }
             }
         }
 
-        [[nodiscard]] std::span<SampleType> performInverseTransform(std::span<std::complex<SampleType>> source) override {
-            performInverseTransform(source, m_inverseInternal);
+        std::span<SampleType> inverse(std::span<std::complex<ValueType>> source) override {
+            inverse(source, m_inverseInternal);
             return m_inverseInternal;
         }
 
@@ -149,15 +194,16 @@ namespace marvin::dsp::spectral {
         }
 
     private:
-        using FFTSetupType = std::conditional_t<std::is_same_v<SampleType, float>, FFTSetup, FFTSetupD>;
-        using DSPSplitBuffType = std::conditional_t<std::is_same_v<SampleType, float>, DSPSplitComplex, DSPDoubleSplitComplex>;
+        using FFTSetupType = std::conditional_t<std::is_same_v<ValueType, float>, FFTSetup, FFTSetupD>;
+        using DSPSplitBuffType = std::conditional_t<std::is_same_v<ValueType, float>, DSPSplitComplex, DSPDoubleSplitComplex>;
         FFTSetupType m_setup;
         DSPSplitBuffType m_fwdBuff;
         DSPSplitBuffType m_invBuff;
         // https://developer.apple.com/documentation/accelerate/fast_fourier_transforms/data_packing_for_fourier_transforms
         constexpr static auto m_forwardScalingFactor{ static_cast<SampleType>(0.5) };
         const SampleType m_inverseScalingFactor;
-        std::vector<SampleType> m_forwardInternal, m_inverseInternal;
+        std::vector<SampleType> m_inverseInternal;
+        std::vector<std::complex<ValueType>> m_forwardInternal;
     };
 #elif defined(MARVIN_HAS_IPP) && !defined(MARVIN_FORCE_FALLBACK_FFT)
 

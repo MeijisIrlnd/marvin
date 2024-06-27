@@ -51,17 +51,6 @@ namespace marvin::dsp::spectral {
         using ValueType = typename T::value_type;
     };
 
-    // template <typename T, class = void>
-    // struct getValueType {
-    //     using type = T;
-    // };
-
-    // template <typename T>
-    // struct getValueType<T, std::void_t<typename T::value_type>> {
-    //     using type = T::value_type;
-    // }
-
-
     /**
         \brief Class for performing forward and inverse real only fast fourier transforms.
 
@@ -73,7 +62,7 @@ namespace marvin::dsp::spectral {
     template <RealOrComplexFloatType SampleType, NormalisationType Normalisation = NormalisationType::One_Over_N>
     class FFT final {
     public:
-        using ValueType = getValueType<SampleType>::ValueType;
+        using ValueType = typename getValueType<SampleType>::ValueType;
 
         /**
             Constructs an instance of `FFT`, with the specified order.
