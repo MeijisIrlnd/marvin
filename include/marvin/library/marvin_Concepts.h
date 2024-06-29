@@ -10,9 +10,12 @@
 
 #ifndef MARVIN_CONCEPTS_H
 #define MARVIN_CONCEPTS_H
+#include <iterator>
 #include <type_traits>
 #include <cstddef>
 #include <complex>
+#include <span>
+#include <vector>
 namespace marvin {
 
     /**
@@ -38,12 +41,14 @@ namespace marvin {
         \brief Constrains T to a type that defines a const_iterator as a child, has an implementation of `operator[](size_t)` and has a `.size()` member.
     */
     template <class T>
-    concept ArrayLike = requires(T a) {
-        typename T::iterator;
+    concept ArrayLike = requires(T a, size_t i) {
         typename T::value_type;
-        a.operator[](0);
-        a.data();
-        a.size();
+        typename T::iterator;
+        requires std::contiguous_iterator<typename T::iterator>;
+        requires !std::same_as<std::string, T>;
+        { a.size() } -> std::same_as<size_t>;
+        { a[i] } -> std::same_as<typename T::value_type&>;
+        { a.data() } -> std::same_as<typename T::value_type*>;
     };
 
     /**
@@ -51,7 +56,6 @@ namespace marvin {
     */
     template <class T>
     concept FloatArrayLike = requires {
-        typename T::value_type;
         requires ArrayLike<T>;
         requires FloatType<typename T::value_type>;
     };
@@ -61,6 +65,7 @@ namespace marvin {
     */
     template <class T>
     concept SmartPointerType = requires(T a) {
+        typename T::element_type;
         a.get();
         a.reset();
         a.operator*();
