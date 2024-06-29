@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['windowedsincinterpolator_0',['WindowedSincInterpolator',['../classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html',1,'marvin::math::interpolators::WindowedSincInterpolator&lt; SampleType, N, WindowType &gt;'],['../classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html#aa0f24fc23aee0a0a53ad5212f463f688',1,'marvin::math::interpolators::WindowedSincInterpolator::WindowedSincInterpolator()'],['../classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html#aa3063de6f2f0c3b8933738cbe519e325',1,'marvin::math::interpolators::WindowedSincInterpolator::WindowedSincInterpolator(SampleType alpha)']]],
-  ['windowtype_1',['WindowType',['../namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58',1,'marvin::math::windows']]],
-  ['writetocsv_2',['writeToCsv',['../namespacemarvin_1_1utils.html#a9482d99c0766254d8e4b1f4a8b867d04',1,'marvin::utils']]]
+  ['value_5ftype_0',['value_type',['../classmarvin_1_1containers_1_1StrideView_1_1iterator.html#a5a7f53e70f45c76015373bdedf8dc4d2',1,'marvin::containers::StrideView::iterator::value_type'],['../classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html#ae03584532ee33fda305e6405257b79f8',1,'marvin::containers::StrideView::const_iterator::value_type']]],
+  ['valuetype_1',['ValueType',['../structmarvin_1_1dsp_1_1spectral_1_1getValueType.html#a047654f8a88c5a2e70535c74a0806bf0',1,'marvin::dsp::spectral::getValueType::ValueType'],['../structmarvin_1_1dsp_1_1spectral_1_1getValueType_3_01T_01_4.html#a756e3db9008b4daee87b6ddea106f31b',1,'marvin::dsp::spectral::getValueType&lt; T &gt;::ValueType'],['../classmarvin_1_1dsp_1_1spectral_1_1FFT.html#a5c6fad0e04ab40fcd85f5eb61c2f94a3',1,'marvin::dsp::spectral::FFT::ValueType']]]
 ];

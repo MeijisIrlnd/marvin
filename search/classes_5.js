@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['iterator_0',['iterator',['../classmarvin_1_1containers_1_1StrideView_1_1iterator.html',1,'marvin::containers::StrideView']]]
+  ['hadamard_0',['Hadamard',['../classmarvin_1_1math_1_1Hadamard.html',1,'marvin::math']]],
+  ['householder_1',['Householder',['../classmarvin_1_1math_1_1Householder.html',1,'marvin::math']]]
 ];

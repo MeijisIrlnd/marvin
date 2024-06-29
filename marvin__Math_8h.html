@@ -98,6 +98,9 @@ $(function(){ initResizable(false); });
 <div class="textblock"><code>#include &quot;<a class="el" href="marvin__Concepts_8h_source.html">marvin/library/marvin_Concepts.h</a>&quot;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;span&gt;</code><br />
+<code>#include &lt;complex&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;numbers&gt;</code><br />
 </div>
 <p><a href="marvin__Math_8h_source.html">Go to the source code of this file.</a></p>
@@ -125,6 +128,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a593ac57e25503d44c65ffe3e068d9df9" id="r_a593ac57e25503d44c65ffe3e068d9df9"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a593ac57e25503d44c65ffe3e068d9df9"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math.html#a593ac57e25503d44c65ffe3e068d9df9">marvin::math::remap</a> (T x, T srcMin, T srcMax, T newMin, T newMax)</td></tr>
 <tr class="separator:a593ac57e25503d44c65ffe3e068d9df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30692b1ae3ffdf4fd7de93cb86579c79" id="r_a30692b1ae3ffdf4fd7de93cb86579c79"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
+<tr class="memitem:a30692b1ae3ffdf4fd7de93cb86579c79"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; std::complex&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math.html#a30692b1ae3ffdf4fd7de93cb86579c79">marvin::math::interleavedToComplexView</a> (std::span&lt; T &gt; data)</td></tr>
+<tr class="separator:a30692b1ae3ffdf4fd7de93cb86579c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f791d02adbe01af8c996c8b5b436f75" id="r_a3f791d02adbe01af8c996c8b5b436f75"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
+<tr class="memitem:a3f791d02adbe01af8c996c8b5b436f75"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math.html#a3f791d02adbe01af8c996c8b5b436f75">marvin::math::complexViewToInterleaved</a> (std::span&lt; std::complex&lt; T &gt; &gt; data)</td></tr>
+<tr class="separator:a3f791d02adbe01af8c996c8b5b436f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af31b72b955255e60690b6caec77f0dda" id="r_af31b72b955255e60690b6caec77f0dda"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:af31b72b955255e60690b6caec77f0dda"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math.html#af31b72b955255e60690b6caec77f0dda">marvin::math::sinc</a> (T x) noexcept</td></tr>
 <tr class="separator:af31b72b955255e60690b6caec77f0dda"><td class="memSeparator" colspan="2">&#160;</td></tr>

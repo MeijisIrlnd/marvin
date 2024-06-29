@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['windowedsincinterpolator_0',['WindowedSincInterpolator',['../classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html#aa0f24fc23aee0a0a53ad5212f463f688',1,'marvin::math::interpolators::WindowedSincInterpolator::WindowedSincInterpolator()'],['../classmarvin_1_1math_1_1interpolators_1_1WindowedSincInterpolator.html#aa3063de6f2f0c3b8933738cbe519e325',1,'marvin::math::interpolators::WindowedSincInterpolator::WindowedSincInterpolator(SampleType alpha)']]],
-  ['writetocsv_1',['writeToCsv',['../namespacemarvin_1_1utils.html#a9482d99c0766254d8e4b1f4a8b867d04',1,'marvin::utils']]]
+  ['underlying_0',['underlying',['../classmarvin_1_1containers_1_1StrideView.html#a6d389b73c3c7c4ee9dfb9b57d65d6fd2',1,'marvin::containers::StrideView']]]
 ];

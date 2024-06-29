@@ -99,11 +99,8 @@ $(function(){ initResizable(false); });
 <p><code>#include &lt;<a class="el" href="marvin__Concepts_8h_source.html">marvin_Concepts.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmarvin_1_1NumericType.html">marvin::NumericType</a> =  <span class="keyword">requires</span> {</div>
-<div class="line">        std::is_integral_v&lt;T&gt; ||</div>
-<div class="line">            std::is_floating_point_v&lt;T&gt;;</div>
-<div class="line">    }</div>
-<div class="ttc" id="aconceptmarvin_1_1NumericType_html"><div class="ttname"><a href="conceptmarvin_1_1NumericType.html">marvin::NumericType</a></div><div class="ttdoc">Constrains T to be any numeric type.</div><div class="ttdef"><b>Definition</b> marvin_Concepts.h:29</div></div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptmarvin_1_1NumericType.html">marvin::NumericType</a> =  std::is_integral_v&lt;T&gt; || std::is_floating_point_v&lt;T&gt;</div>
+<div class="ttc" id="aconceptmarvin_1_1NumericType_html"><div class="ttname"><a href="conceptmarvin_1_1NumericType.html">marvin::NumericType</a></div><div class="ttdoc">Constrains T to be any numeric type.</div><div class="ttdef"><b>Definition</b> marvin_Concepts.h:34</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Constrains T to be any numeric type. </p>
 </div></div><!-- contents -->

@@ -7,10 +7,11 @@ var searchData=
   ['marvin_3a_3adsp_3a_3afilters_4',['filters',['../namespacemarvin_1_1dsp_1_1filters.html',1,'marvin::dsp']]],
   ['marvin_3a_3adsp_3a_3afilters_3a_3arbj_5',['rbj',['../namespacemarvin_1_1dsp_1_1filters_1_1rbj.html',1,'marvin::dsp::filters']]],
   ['marvin_3a_3adsp_3a_3aoscillators_6',['oscillators',['../namespacemarvin_1_1dsp_1_1oscillators.html',1,'marvin::dsp']]],
-  ['marvin_3a_3alibrary_7',['library',['../namespacemarvin_1_1library.html',1,'marvin']]],
-  ['marvin_3a_3amath_8',['math',['../namespacemarvin_1_1math.html',1,'marvin']]],
-  ['marvin_3a_3amath_3a_3ainterpolators_9',['interpolators',['../namespacemarvin_1_1math_1_1interpolators.html',1,'marvin::math']]],
-  ['marvin_3a_3amath_3a_3avecops_10',['vecops',['../namespacemarvin_1_1math_1_1vecops.html',1,'marvin::math']]],
-  ['marvin_3a_3amath_3a_3awindows_11',['windows',['../namespacemarvin_1_1math_1_1windows.html',1,'marvin::math']]],
-  ['marvin_3a_3autils_12',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
+  ['marvin_3a_3adsp_3a_3aspectral_7',['spectral',['../namespacemarvin_1_1dsp_1_1spectral.html',1,'marvin::dsp']]],
+  ['marvin_3a_3alibrary_8',['library',['../namespacemarvin_1_1library.html',1,'marvin']]],
+  ['marvin_3a_3amath_9',['math',['../namespacemarvin_1_1math.html',1,'marvin']]],
+  ['marvin_3a_3amath_3a_3ainterpolators_10',['interpolators',['../namespacemarvin_1_1math_1_1interpolators.html',1,'marvin::math']]],
+  ['marvin_3a_3amath_3a_3avecops_11',['vecops',['../namespacemarvin_1_1math_1_1vecops.html',1,'marvin::math']]],
+  ['marvin_3a_3amath_3a_3awindows_12',['windows',['../namespacemarvin_1_1math_1_1windows.html',1,'marvin::math']]],
+  ['marvin_3a_3autils_13',['utils',['../namespacemarvin_1_1utils.html',1,'marvin']]]
 ];

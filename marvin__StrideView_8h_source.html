@@ -504,13 +504,19 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>        }</div>
 </div>
 <div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span> </div>
-<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>        std::span&lt;T&gt; m_internalView{};</div>
-<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span>    };</div>
+<div class="foldopen" id="foldopen00607" data-start="{" data-end="}">
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno"><a class="line" href="classmarvin_1_1containers_1_1StrideView.html#a6d389b73c3c7c4ee9dfb9b57d65d6fd2">  607</a></span>        [[nodiscard]] std::span&lt;T&gt; <a class="code hl_function" href="classmarvin_1_1containers_1_1StrideView.html#a6d389b73c3c7c4ee9dfb9b57d65d6fd2">underlying</a>() {</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span>            <span class="keywordflow">return</span> m_internalView;</div>
+<div class="line"><a id="l00609" name="l00609"></a><span class="lineno">  609</span>        }</div>
 </div>
-<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>} <span class="comment">// namespace marvin::containers</span></div>
-<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span> </div>
-<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span> </div>
+<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span>        std::span&lt;T&gt; m_internalView{};</div>
+<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>    };</div>
+</div>
+<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>} <span class="comment">// namespace marvin::containers</span></div>
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span> </div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_1_1const__iterator_html"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html">marvin::containers::StrideView::const_iterator</a></div><div class="ttdoc">Custom const_iterator for a StrideView.</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:268</div></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_1_1const__iterator_html_a01ff902b46a6bc5c11665cf11b7993bc"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html#a01ff902b46a6bc5c11665cf11b7993bc">marvin::containers::StrideView::const_iterator::operator+</a></div><div class="ttdeci">friend const_iterator operator+(difference_type n, const const_iterator &amp;iter)</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:450</div></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_1_1const__iterator_html_a12d66edf831aeec4957931d7f7945d90"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html#a12d66edf831aeec4957931d7f7945d90">marvin::containers::StrideView::const_iterator::operator!=</a></div><div class="ttdeci">friend bool operator!=(const const_iterator &amp;lhs, const const_iterator &amp;rhs)</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:388</div></div>
@@ -566,6 +572,7 @@ $(function(){ initResizable(false); });
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html">marvin::containers::StrideView</a></div><div class="ttdoc">Non owning view into an array-like, with a configurable step size.</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:48</div></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html_a426da8444ea8d2795e98e40749b351ac"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html#a426da8444ea8d2795e98e40749b351ac">marvin::containers::StrideView::operator[]</a></div><div class="ttdeci">const T &amp; operator[](size_t idx) const</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:538</div></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html_a4b0e8fe21818606d9b0116063c7536ab"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html#a4b0e8fe21818606d9b0116063c7536ab">marvin::containers::StrideView::size</a></div><div class="ttdeci">size_t size() const noexcept</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:516</div></div>
+<div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html_a6d389b73c3c7c4ee9dfb9b57d65d6fd2"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html#a6d389b73c3c7c4ee9dfb9b57d65d6fd2">marvin::containers::StrideView::underlying</a></div><div class="ttdeci">std::span&lt; T &gt; underlying()</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:607</div></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html_a714651b1f62cba68749a5968245fcb02"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html#a714651b1f62cba68749a5968245fcb02">marvin::containers::StrideView::end</a></div><div class="ttdeci">const_iterator end() const</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:585</div></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html_a766009059a2ab89358e8d6b64b69a034"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html#a766009059a2ab89358e8d6b64b69a034">marvin::containers::StrideView::StrideView</a></div><div class="ttdeci">StrideView(T *data, size_t size)</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:487</div></div>
 <div class="ttc" id="aclassmarvin_1_1containers_1_1StrideView_html_a805122e752adbbede17c9c7e47b66e5f"><div class="ttname"><a href="classmarvin_1_1containers_1_1StrideView.html#a805122e752adbbede17c9c7e47b66e5f">marvin::containers::StrideView::cend</a></div><div class="ttdeci">const_iterator cend() const</div><div class="ttdef"><b>Definition</b> marvin_StrideView.h:596</div></div>

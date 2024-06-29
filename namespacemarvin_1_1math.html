@@ -136,6 +136,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a593ac57e25503d44c65ffe3e068d9df9" id="r_a593ac57e25503d44c65ffe3e068d9df9"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:a593ac57e25503d44c65ffe3e068d9df9"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a593ac57e25503d44c65ffe3e068d9df9">remap</a> (T x, T srcMin, T srcMax, T newMin, T newMax)</td></tr>
 <tr class="separator:a593ac57e25503d44c65ffe3e068d9df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30692b1ae3ffdf4fd7de93cb86579c79" id="r_a30692b1ae3ffdf4fd7de93cb86579c79"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
+<tr class="memitem:a30692b1ae3ffdf4fd7de93cb86579c79"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; std::complex&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a30692b1ae3ffdf4fd7de93cb86579c79">interleavedToComplexView</a> (std::span&lt; T &gt; data)</td></tr>
+<tr class="separator:a30692b1ae3ffdf4fd7de93cb86579c79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f791d02adbe01af8c996c8b5b436f75" id="r_a3f791d02adbe01af8c996c8b5b436f75"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
+<tr class="memitem:a3f791d02adbe01af8c996c8b5b436f75"><td class="memTemplItemLeft" align="right" valign="top">std::span&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3f791d02adbe01af8c996c8b5b436f75">complexViewToInterleaved</a> (std::span&lt; std::complex&lt; T &gt; &gt; data)</td></tr>
+<tr class="separator:a3f791d02adbe01af8c996c8b5b436f75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af31b72b955255e60690b6caec77f0dda" id="r_af31b72b955255e60690b6caec77f0dda"><td class="memTemplParams" colspan="2">template&lt;FloatType T&gt; </td></tr>
 <tr class="memitem:af31b72b955255e60690b6caec77f0dda"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af31b72b955255e60690b6caec77f0dda">sinc</a> (T x) noexcept</td></tr>
 <tr class="separator:af31b72b955255e60690b6caec77f0dda"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,6 +149,41 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Math helper functions and classes. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a3f791d02adbe01af8c996c8b5b436f75" name="a3f791d02adbe01af8c996c8b5b436f75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f791d02adbe01af8c996c8b5b436f75">&#9670;&#160;</a></span>complexViewToInterleaved()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; T &gt; marvin::math::complexViewToInterleaved </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; std::complex&lt; T &gt; &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Takes an array-like of <code>std::complex&lt;T&gt;</code>s of size <code>N</code>, and creates a non owning view treating the packed complex data as an interleaved stream of reals, represented as <code>[re, im, re, im... im]</code> of size <code>N*2</code>. Uses terrifying reinterpret-cast shennanigans to do so, and <b>absolutely requires the caller to ensure that <code>data.size()</code> is even<b>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The data to create the view into. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A non owning view treating the data as an interleaved stream of reals <code>data.size() * 2</code> points long. </dd></dl>
+<p></b></b></p>
+
+</div>
+</div>
 <a id="a4a3d40e45bbeb22d6a4566c0f155a292" name="a4a3d40e45bbeb22d6a4566c0f155a292"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4a3d40e45bbeb22d6a4566c0f155a292">&#9670;&#160;</a></span>dbToGain()</h2>
 
@@ -218,6 +259,42 @@ template&lt;FloatType T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The converted level in decibels. </dd></dl>
+
+</div>
+</div>
+<a id="a30692b1ae3ffdf4fd7de93cb86579c79" name="a30692b1ae3ffdf4fd7de93cb86579c79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30692b1ae3ffdf4fd7de93cb86579c79">&#9670;&#160;</a></span>interleavedToComplexView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; std::complex&lt; T &gt; &gt; marvin::math::interleavedToComplexView </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Takes an array-like of complexes represented as <code>[re, im, re, im, ... im]</code> of size <code>N</code> and creates a non-owning view treating the interleaved stream as an array-like of type <code>std::complex&lt;T&gt;</code> <code>N/2</code> points long, with no copies or allocations.<br  />
+ Uses terrifying reinterpret-cast shennanigans to do so, and <b>absolutely requires the caller to ensure that <code>data.size()</code> is even<b>. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>The data to create a view into. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A non owning view treating data as an array-like&lt;std::complex&lt;T&gt;&gt; <code>data.size() / 2</code> points long. </dd></dl>
+<p></b></b></p>
 
 </div>
 </div>

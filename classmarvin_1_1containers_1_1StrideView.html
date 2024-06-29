@@ -139,6 +139,8 @@ requires std::is_same_v&lt;typename Iter::value_type, T&gt;</td></tr>
 <tr class="separator:a714651b1f62cba68749a5968245fcb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a805122e752adbbede17c9c7e47b66e5f" id="r_a805122e752adbbede17c9c7e47b66e5f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmarvin_1_1containers_1_1StrideView_1_1const__iterator.html">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a805122e752adbbede17c9c7e47b66e5f">cend</a> () const</td></tr>
 <tr class="separator:a805122e752adbbede17c9c7e47b66e5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d389b73c3c7c4ee9dfb9b57d65d6fd2" id="r_a6d389b73c3c7c4ee9dfb9b57d65d6fd2"><td class="memItemLeft" align="right" valign="top">std::span&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d389b73c3c7c4ee9dfb9b57d65d6fd2">underlying</a> ()</td></tr>
+<tr class="separator:a6d389b73c3c7c4ee9dfb9b57d65d6fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t Stride&gt;<br />
@@ -537,6 +539,34 @@ template&lt;typename T , size_t Stride&gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Retrieves the number of elements in the view (with respect to <code>Stride</code>). </p><dl class="section return"><dt>Returns</dt><dd>The number of elements in the view. </dd></dl>
+
+</div>
+</div>
+<a id="a6d389b73c3c7c4ee9dfb9b57d65d6fd2" name="a6d389b73c3c7c4ee9dfb9b57d65d6fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d389b73c3c7c4ee9dfb9b57d65d6fd2">&#9670;&#160;</a></span>underlying()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , size_t Stride&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; T &gt; <a class="el" href="classmarvin_1_1containers_1_1StrideView.html">marvin::containers::StrideView</a>&lt; T, Stride &gt;::underlying </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retrieves the underlying data for the current view. </p><dl class="section return"><dt>Returns</dt><dd>The wrapped data. </dd></dl>
 
 </div>
 </div>
