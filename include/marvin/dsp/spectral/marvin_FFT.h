@@ -34,12 +34,6 @@ namespace marvin::dsp::spectral {
         Inverse
     };
 
-    enum class NormalisationType {
-        None,
-        One_Over_N
-    };
-
-
     template <typename T>
     struct getValueType {
         using ValueType = T;
@@ -59,7 +53,7 @@ namespace marvin::dsp::spectral {
         - On Windows, if Intel's IPP was found, will use the IPP implementation.
         - Also on Windows, if Intel's IPP was *not* found, will use the (slow and rough and ready) fallback.
     */
-    template <RealOrComplexFloatType SampleType, NormalisationType Normalisation = NormalisationType::One_Over_N>
+    template <RealOrComplexFloatType SampleType>
     class FFT final {
     public:
         using ValueType = typename getValueType<SampleType>::ValueType;

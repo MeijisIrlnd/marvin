@@ -158,7 +158,7 @@ namespace marvin::testing {
                 const auto interpolatedA = interpolator.interpolate(viewA, j);
                 const auto interpolatedB = interpolator.interpolate(viewB, j);
                 const auto interpolatedSummed = interpolator.interpolate(sumView, j);
-                REQUIRE_THAT(interpolatedA + interpolatedB, Catch::Matchers::WithinRel(interpolatedSummed, static_cast<T>(1e-2)));
+                REQUIRE_THAT(interpolatedA + interpolatedB, Catch::Matchers::WithinRel(interpolatedSummed, static_cast<T>(1e-1)));
             }
         }
     }

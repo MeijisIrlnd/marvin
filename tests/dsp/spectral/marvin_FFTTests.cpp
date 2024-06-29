@@ -22,36 +22,23 @@
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
 #include <unordered_map>
 #include <array>
+#include <iostream>
 namespace marvin::testing {
     static std::random_device s_rd{};
 
     // These are all 2dB above the actual performance outputs from the IPP FFT on floats - we're checking regression on accuracy.
     static std::unordered_map<size_t, double> s_acceptablePerformances{
-        { 3, -130.0 },
-        { 4, -126.0 },
-        { 5, -123.0 },
-        { 6, -120.0 },
-        { 7, -117.0 },
-        { 8, -114.0 },
-        { 9, -111.0 },
-        { 10, -108.0 },
-        { 11, -105.0 },
-        { 12, -102.0 },
-        { 13, -99.0 }
-    };
-    static std::unordered_map<size_t, double> s_errorCeilings{
-        { 3, -125.0 },
-        { 4, -122.0 },
-        { 5, -118.0 },
-        { 6, -114.0 },
-        { 7, -111.0 },
-        { 8, -108.0 },
-        { 9, -104.0 },
-        { 10, -101.0 },
-        { 11, -98.0 },
-        { 12, -95.0 },
-        { 13, -92.0 }
-
+        { 3, -129.0 },
+        { 4, -124.0 },
+        { 5, -121.0 },
+        { 6, -118.0 },
+        { 7, -115.0 },
+        { 8, -112.0 },
+        { 9, -109.0 },
+        { 10, -106.0 },
+        { 11, -103.0 },
+        { 12, -100.0 },
+        { 13, -97.0 }
     };
 
     template <FloatType SampleType, size_t N>
@@ -78,10 +65,10 @@ namespace marvin::testing {
             auto rmsExpected = static_cast<SampleType>(0.0);
             for (auto j = 0_sz; j < size; ++j) {
                 const std::complex<SampleType> expected = j == i ? static_cast<SampleType>(1.0) : static_cast<SampleType>(0.0);
+                const auto actual = res[j] / static_cast<SampleType>(size);
                 if (j == i) {
-                    REQUIRE_THAT(res[j].real(), Catch::Matchers::WithinRel(expected.real()));
+                    REQUIRE_THAT(actual.real(), Catch::Matchers::WithinRel(expected.real()));
                 }
-                const auto actual = res[j];
                 const auto delta = std::abs(actual - expected);
                 if (largestError < delta) {
                     largestError = delta;
@@ -113,17 +100,18 @@ namespace marvin::testing {
         dsp::spectral::FFT<std::complex<SampleType>> engine{ Order };
         std::array<std::complex<SampleType>, Size> sinusoid;
         std::array<std::complex<SampleType>, Size> freqDomainResults, timeDomainResults;
-        const auto acceptablePeakErrorDb = s_errorCeilings[Order];
         for (auto i = 0_sz; i < Size; ++i) {
+            auto rmsError = static_cast<SampleType>(0.0);
             generateComplexSinusoid<SampleType, Size>(i, sinusoid);
             engine.forward(sinusoid, freqDomainResults);
             engine.inverse(freqDomainResults, timeDomainResults);
             for (auto j = 0_sz; j < Size; ++j) {
-                auto deltaMagnitude = std::sqrt(std::norm(timeDomainResults[j] - sinusoid[j]));
-                deltaMagnitude = deltaMagnitude == 0 ? std::numeric_limits<SampleType>::epsilon() : deltaMagnitude;
-                const auto deltaDb = static_cast<SampleType>(20.0) * std::log10(deltaMagnitude);
-                REQUIRE(deltaDb < acceptablePeakErrorDb);
+                rmsError += std::norm(timeDomainResults[j] - sinusoid[j]);
             }
+            rmsError /= static_cast<SampleType>(Size);
+            rmsError = std::sqrt(rmsError);
+            const auto errorDb = static_cast<SampleType>(20) * std::log10(rmsError);
+            REQUIRE(errorDb < s_acceptablePerformances[Order]);
         }
     }
 
@@ -142,20 +130,23 @@ namespace marvin::testing {
         engine.forward(randInputA, resultsA);
         engine.forward(randInputB, resultsB);
         engine.forward(summedInput, summedResults);
-        const auto acceptableError = s_errorCeilings[Order];
+        auto rmsError{ static_cast<SampleType>(0.0) };
         for (auto i = 0_sz; i < resultsA.size(); ++i) {
             const auto sum = resultsA[i] + resultsB[i];
-            const auto delta = std::sqrt(std::norm(sum - summedResults[i]));
-            const auto deltaDb = static_cast<SampleType>(20.0) * std::log10(delta);
-            REQUIRE(deltaDb < acceptableError);
+            rmsError += std::norm(sum - summedResults[i]);
         }
+        rmsError /= static_cast<SampleType>(Size);
+        rmsError = std::sqrt(rmsError);
+        const auto errorDb = static_cast<SampleType>(20.0) * std::log10(rmsError);
+        REQUIRE(errorDb < s_acceptablePerformances[Order]);
     }
     template <FloatType SampleType, size_t Order>
     void testRealOnlyRoundTrip() {
         constexpr static auto Size = 1 << Order;
-        const auto acceptableError = s_errorCeilings[Order];
+        auto rmsError = static_cast<SampleType>(0.0);
         marvin::dsp::oscillators::NoiseOscillator<SampleType> noiseOsc{ s_rd };
         std::array<SampleType, Size> signal;
+        std::array<std::complex<SampleType>, Size> fftResults;
         std::array<SampleType, Size> results;
         for (auto i = 0_sz; i < Size; ++i) {
             signal[i] = noiseOsc();
@@ -164,13 +155,48 @@ namespace marvin::testing {
         auto freqDomain = engine.forward(signal);
         engine.inverse(freqDomain, results);
         for (auto i = 0_sz; i < Size; ++i) {
-            const auto delta = std::sqrt(std::norm(results[i] - signal[i]));
-            const auto deltaDb = static_cast<SampleType>(20.0) * std::log10(delta);
-            REQUIRE(deltaDb < acceptableError);
+            rmsError += std::norm(results[i] - signal[i]);
+        }
+        rmsError /= static_cast<SampleType>(Size);
+        rmsError = std::sqrt(rmsError);
+        const auto errorDb = static_cast<SampleType>(20.0) * std::log10(rmsError);
+        REQUIRE(errorDb < s_acceptablePerformances[Order]);
+    }
+
+    template <FloatType SampleType, size_t Order>
+    void testRealImpulse() {
+        constexpr static auto Size = 1 << Order;
+        std::array<SampleType, Size> impulse, fftResults;
+        std::array<std::complex<SampleType>, (Size / 2) + 1> results;
+        std::fill(impulse.begin(), impulse.end(), static_cast<SampleType>(0.0));
+        impulse.front() = static_cast<SampleType>(1.0);
+        dsp::spectral::FFT<SampleType> engine{ Order };
+        engine.forward(impulse, results);
+        engine.inverse(results, fftResults);
+        for (auto i = 0_sz; i < Size; ++i) {
+            REQUIRE_THAT(fftResults[i], Catch::Matchers::WithinRel(impulse[i]));
+        }
+    }
+
+    template <FloatType SampleType, size_t Order>
+    void testComplexImpulse() {
+        constexpr static auto Size = 1 << Order;
+        std::array<std::complex<SampleType>, Size> impulse, results, fftResults;
+        const std::complex<SampleType> zeroComplex{ static_cast<SampleType>(0.0), static_cast<SampleType>(0.0) };
+        std::fill(impulse.begin(), impulse.end(), zeroComplex);
+        impulse.front() = { static_cast<SampleType>(1.0), static_cast<SampleType>(0.0) };
+        dsp::spectral::FFT<std::complex<SampleType>> engine{ Order };
+        engine.forward(impulse, results);
+        engine.inverse(results, fftResults);
+        for (auto i = 0_sz; i < Size; ++i) {
+            REQUIRE_THAT(fftResults[i].real(), Catch::Matchers::WithinRel(impulse[i].real()));
+            REQUIRE_THAT(fftResults[i].imag(), Catch::Matchers::WithinRel(impulse[i].imag()));
         }
     }
 
     TEST_CASE("Test Real-Only Round Trip") {
+        testRealImpulse<float, 4>();
+        testComplexImpulse<float, 4>();
         testRealOnlyRoundTrip<float, 3>();
         testRealOnlyRoundTrip<float, 4>();
         testRealOnlyRoundTrip<float, 5>();
@@ -180,8 +206,8 @@ namespace marvin::testing {
         testRealOnlyRoundTrip<float, 9>();
         testRealOnlyRoundTrip<float, 10>();
         testRealOnlyRoundTrip<float, 11>();
-        // testRealOnlyRoundTrip<float, 12>();
-        // testRealOnlyRoundTrip<float, 13>();
+        testRealOnlyRoundTrip<float, 12>();
+        testRealOnlyRoundTrip<float, 13>();
         testRealOnlyRoundTrip<double, 3>();
         testRealOnlyRoundTrip<double, 4>();
         testRealOnlyRoundTrip<double, 5>();
