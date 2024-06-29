@@ -226,14 +226,13 @@ namespace marvin::dsp::spectral {
     class FFT<SampleType>::Impl final : public ImplBase<SampleType> {
     public:
         explicit Impl(size_t order) : ImplBase<SampleType>(order) {
-            constexpr static auto normFlag = Normalisation == NormalisationType::None ? IPP_FFT_NODIV_BY_ANY : IPP_FFT_DIV_FWD_BY_N;
             Ipp8u* initBuffer{ nullptr };
             int fftSpecSize, fftInitBuffSize, fftWorkBuffSize;
             [[maybe_unused]] IppStatus status;
             if constexpr (std::same_as<ValueType, float>) {
                 if constexpr (ComplexFloatType<SampleType>) {
                     m_state.fwdScratchBuff = ippsMalloc_32fc(this->m_n + 2);
-                    status = ippsFFTGetSize_C_32fc(this->m_order, normFlag, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    status = ippsFFTGetSize_C_32fc(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_C_32fc*)m_state.specBuff;
@@ -243,14 +242,14 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_C_32fc(&m_state.spec, this->m_order, normFlag, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_C_32fc(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
                     }
                 } else {
                     m_state.fwdScratchBuff = ippsMalloc_32f(this->m_n + 2);
-                    status = ippsFFTGetSize_R_32f(this->m_order, normFlag, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    status = ippsFFTGetSize_R_32f(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_R_32f*)m_state.specBuff;
@@ -260,7 +259,7 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_R_32f(&m_state.spec, this->m_order, normFlag, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_R_32f(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
@@ -269,7 +268,7 @@ namespace marvin::dsp::spectral {
             } else {
                 if constexpr (ComplexFloatType<SampleType>) {
                     m_state.fwdScratchBuff = ippsMalloc_64fc(this->m_n + 2);
-                    status = ippsFFTGetSize_C_64fc(this->m_order, normFlag, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    status = ippsFFTGetSize_C_64fc(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_C_64fc*)m_state.specBuff;
@@ -279,7 +278,7 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_C_64fc(&m_state.spec, this->m_order, normFlag, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_C_64fc(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
@@ -287,7 +286,7 @@ namespace marvin::dsp::spectral {
 
                 } else {
                     m_state.fwdScratchBuff = ippsMalloc_64f(this->m_n + 2);
-                    status = ippsFFTGetSize_R_64f(this->m_order, normFlag, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    status = ippsFFTGetSize_R_64f(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_R_64f*)m_state.specBuff;
@@ -297,7 +296,7 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_R_64f(&m_state.spec, this->m_order, normFlag, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_R_64f(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
@@ -350,12 +349,14 @@ namespace marvin::dsp::spectral {
         }
 
         std::span<std::complex<ValueType>> forward(std::span<SampleType> source) override {
-            std::span<std::complex<ValueType>> complexView{ reinterpret_cast<std::complex<ValueType>*>(m_state.fwdScratchBuff), this->m_n };
-            forward(source, complexView);
             if constexpr (ComplexFloatType<SampleType>) {
+                std::span<std::complex<ValueType>> complexView{ reinterpret_cast<std::complex<ValueType>*>(m_state.fwdScratchBuff), this->m_n };
+                forward(source, complexView);
                 return complexView;
             } else {
-                return { complexView.data(), (this->m_n / 2) + 1 };
+                std::span<std::complex<ValueType>> complexView{ reinterpret_cast<std::complex<ValueType>*>(m_state.fwdScratchBuff), (this->m_n / 2) + 1 };
+                forward(source, complexView);
+                return complexView;
             }
         }
 
@@ -431,14 +432,7 @@ namespace marvin::dsp::spectral {
                 fillComplexScratch(source);
                 butterfly<1, false>(this->m_n, m_complexScratchBuff, m_forwardInternalBuff, m_workingBuff);
                 // Only need (N / 2) + 1 values....
-                std::memcpy(dest.data(), m_forwardInternalBuff.data(), sizeof(std::complex<ValueType>) * (this->m_n / 2) + 1);
-            }
-
-            if constexpr (Normalisation == NormalisationType::One_Over_N) {
-                const auto factor = static_cast<ValueType>(1.0) / static_cast<ValueType>(this->m_n);
-                for (auto i = 0_sz; i < dest.size(); ++i) {
-                    dest[i] *= factor;
-                }
+                std::memcpy(dest.data(), m_forwardInternalBuff.data(), sizeof(std::complex<ValueType>) * ((this->m_n / 2) + 1));
             }
         }
 
@@ -454,33 +448,17 @@ namespace marvin::dsp::spectral {
         }
 
         void inverse(std::span<std::complex<ValueType>> source, std::span<SampleType> dest) override {
+            const auto normalisationFactor = static_cast<ValueType>(1.0) / static_cast<ValueType>(this->m_n);
             if constexpr (ComplexFloatType<SampleType>) {
                 assert(source.size() == dest.size());
                 assert(dest.size() == this->m_n);
-                if constexpr (Normalisation == NormalisationType::None) {
-                    const auto factor = static_cast<ValueType>(1.0) / static_cast<ValueType>(this->m_n);
-                    for (auto i = 0_sz; i < source.size(); ++i) {
-                        m_complexScratchBuff[i] = source[i] * factor;
-                    }
-                    // And the transform gets performed with the scratch buff..
-                    butterfly<1, true>(this->m_n, m_complexScratchBuff, dest, m_workingBuff);
-                } else {
-                    butterfly<1, true>(this->m_n, source, dest, m_workingBuff);
-                }
-
-
+                auto interleavedDest = marvin::math::complexViewToInterleaved(dest);
+                butterfly<1, true>(this->m_n, source, dest, m_workingBuff);
+                math::vecops::multiply(interleavedDest.data(), normalisationFactor, this->m_n * 2);
             } else {
                 assert(source.size() == (this->m_n / 2) + 1);
                 assert(dest.size() == this->m_n);
-                // Normalise source...
-                if constexpr (Normalisation == NormalisationType::None) {
-                    const auto factor = static_cast<ValueType>(1.0) / static_cast<ValueType>(this->m_n);
-                    for (auto i = 0_sz; i < source.size(); ++i) {
-                        m_complexScratchBuff[i] = source[i] * factor;
-                    }
-                } else {
-                    std::memcpy(m_complexScratchBuff.data(), source.data(), sizeof(std::complex<ValueType>) * source.size());
-                }
+                std::memcpy(m_complexScratchBuff.data(), source.data(), sizeof(std::complex<ValueType>) * source.size());
                 // Now - the remaining values should be conjugated..
                 const auto nyquistIdx{ this->m_n / 2 };
                 for (auto i = 1_sz; i < this->m_n / 2; ++i) {
@@ -490,7 +468,7 @@ namespace marvin::dsp::spectral {
                 }
                 butterfly<1, true>(this->m_n, m_complexScratchBuff, m_inverseComplexBuff, m_workingBuff);
                 for (auto i = 0_sz; i < this->m_n; ++i) {
-                    dest[i] = m_inverseComplexBuff[i].real();
+                    dest[i] = m_inverseComplexBuff[i].real() * normalisationFactor;
                 }
             }
         }

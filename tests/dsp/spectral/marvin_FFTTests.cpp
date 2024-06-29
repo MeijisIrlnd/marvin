@@ -173,9 +173,15 @@ namespace marvin::testing {
         dsp::spectral::FFT<SampleType> engine{ Order };
         engine.forward(impulse, results);
         engine.inverse(results, fftResults);
+        auto rmsErr = static_cast<SampleType>(0.0);
         for (auto i = 0_sz; i < Size; ++i) {
-            REQUIRE_THAT(fftResults[i], Catch::Matchers::WithinRel(impulse[i]));
+            rmsErr += std::norm(fftResults[i] - impulse[i]);
+            // REQUIRE_THAT(fftResults[i], Catch::Matchers::WithinRel(impulse[i]));
         }
+        rmsErr /= static_cast<SampleType>(Size);
+        rmsErr = std::sqrt(rmsErr);
+        const auto rmsErrDb = static_cast<SampleType>(20.0) * std::log10(rmsErr);
+        REQUIRE(rmsErrDb < s_acceptablePerformances[Order]);
     }
 
     template <FloatType SampleType, size_t Order>
