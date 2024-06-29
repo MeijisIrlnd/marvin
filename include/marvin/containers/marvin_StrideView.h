@@ -600,6 +600,14 @@ namespace marvin::containers {
             return endIt;
         }
 
+        /**
+            Retrieves the underlying data for the current view.
+            \return The wrapped data.
+        */
+        [[nodiscard]] std::span<T> underlying() {
+            return m_internalView;
+        }
+
     private:
         std::span<T> m_internalView{};
     };

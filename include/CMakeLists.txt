@@ -15,6 +15,7 @@ set(MARVIN_HEADERS
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/containers/marvin_FIFO.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/containers/marvin_FixedCircularBuffer.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/marvin_DelayLine.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/spectral/marvin_FFT.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/filters/marvin_APF.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/filters/marvin_LPF.h
     ${CMAKE_CURRENT_SOURCE_DIR}/marvin/dsp/filters/biquad/marvin_BiquadCoefficients.h

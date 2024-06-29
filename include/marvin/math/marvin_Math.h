@@ -13,6 +13,9 @@
 #include "marvin/library/marvin_Concepts.h"
 #include <cmath>
 #include <algorithm>
+#include <span>
+#include <complex>
+#include <cassert>
 #include <numbers>
 
 namespace marvin::math {
@@ -78,6 +81,35 @@ namespace marvin::math {
         return rescaled;
     }
 
+    /**
+        Takes an array-like of complexes represented as `[re, im, re, im, ... im]` of size `N` and creates
+        a non-owning view treating the interleaved stream as an array-like of type `std::complex<T>` `N/2` points long,
+        with no copies or allocations.<br>
+        Uses terrifying reinterpret-cast shennanigans to do so, and <b>absolutely requires the caller to ensure that
+        `data.size()` is even<b>.
+        \param data The data to create a view into.
+        \return A non owning view treating data as an array-like<std::complex<T>> `data.size() / 2` points long.
+    */
+    template <FloatType T>
+    [[nodiscard]] std::span<std::complex<T>> interleavedToComplexView(std::span<T> data) {
+        assert(data.size() % 2 == 0);
+        std::span<std::complex<T>> complexView{ reinterpret_cast<std::complex<T>*>(data.data()), data.size() / 2 };
+        return complexView;
+    }
+
+    /**
+        Takes an array-like of `std::complex<T>`s of size `N`, and creates a non owning view treating the packed complex data as an interleaved
+        stream of reals, represented as `[re, im, re, im... im]` of size `N*2`.
+        Uses terrifying reinterpret-cast shennanigans to do so, and <b>absolutely requires the caller to ensure that
+        `data.size()` is even<b>.
+        \param data The data to create the view into.
+        \return A non owning view treating the data as an interleaved stream of reals `data.size() * 2` points long.
+     */
+    template <FloatType T>
+    [[nodiscard]] std::span<T> complexViewToInterleaved(std::span<std::complex<T>> data) {
+        std::span<T> interleavedView{ reinterpret_cast<T*>(data.data()), data.size() * 2 };
+        return interleavedView;
+    }
     template <FloatType T>
     [[nodiscard]] T sinc(T x) noexcept {
         static constexpr auto epsilon{ static_cast<T>(1e-6) };
