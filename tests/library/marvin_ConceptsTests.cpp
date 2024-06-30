@@ -11,6 +11,7 @@
 #include <catch2/catch_test_macros.hpp>
 #include <marvin/library/marvin_Concepts.h>
 #include <span>
+#include <memory>
 #include <array>
 namespace marvin::testing {
     TEST_CASE("Assert FloatType") {
