@@ -30,7 +30,7 @@ namespace marvin::containers {
     }
 
     template <FloatType SampleType>
-    SampleType* const* BufferView<SampleType>::getArrayOfReadPointers() const noexcept {
+    const SampleType* const* BufferView<SampleType>::getArrayOfReadPointers() const noexcept {
         return m_samples;
     }
 

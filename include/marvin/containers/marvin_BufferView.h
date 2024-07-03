@@ -42,7 +42,7 @@ namespace marvin::containers {
             Returns a read only pointer to the underlying buffer
             \return an immutable pointer to the underlying buffer
         */
-        SampleType* const* getArrayOfReadPointers() const noexcept;
+        const SampleType* const* getArrayOfReadPointers() const noexcept;
         /**
             Returns a mutable pointer to the underlying buffer
             \return a mutable pointer to the underlying bufffer.
