@@ -3,7 +3,7 @@ var searchData=
   ['gaintodb_0',['gainToDb',['../namespacemarvin_1_1math.html#aa1bc6e54bd3d8abb587555b24648353b',1,'marvin::math']]],
   ['generate_1',['generate',['../classmarvin_1_1utils_1_1Random.html#ae64dd30118e742a805770b3cdba3b42f',1,'marvin::utils::Random']]],
   ['get_2',['get',['../classmarvin_1_1library_1_1PropagateConst.html#acb8104a4a6dbf10a979bd490e3fc99cc',1,'marvin::library::PropagateConst::get()'],['../classmarvin_1_1library_1_1PropagateConst.html#a4bd97a733ab2d96a96a7971204ab4630',1,'marvin::library::PropagateConst::get() const']]],
-  ['getarrayofreadpointers_3',['getArrayOfReadPointers',['../structmarvin_1_1containers_1_1BufferView.html#a5c95dbc0e30a71c6b80f78152b9ede8f',1,'marvin::containers::BufferView']]],
+  ['getarrayofreadpointers_3',['getArrayOfReadPointers',['../structmarvin_1_1containers_1_1BufferView.html#a6b8352188eef40456bc4fd483f833111',1,'marvin::containers::BufferView']]],
   ['getarrayofwritepointers_4',['getArrayOfWritePointers',['../structmarvin_1_1containers_1_1BufferView.html#a7a8eb948535412ea473e217bcfe39f48',1,'marvin::containers::BufferView']]],
   ['getbackbuffer_5',['getBackBuffer',['../classmarvin_1_1containers_1_1SwapBuffer.html#acc0786e26b4f5e01fe90355929ae521f',1,'marvin::containers::SwapBuffer']]],
   ['getcurrentexecutablepath_6',['getCurrentExecutablePath',['../namespacemarvin_1_1utils.html#add35e5f1d6e4660dcc48439f5bb1509a',1,'marvin::utils']]],
