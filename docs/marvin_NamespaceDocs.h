@@ -57,6 +57,11 @@ namespace marvin {
             choosing whether to use these functions accordingly.
         */
         namespace vecops {}
+        /**
+            \brief Various windowing functions. An interactive graph with more intuition than the textual documentation can give can be found [here](https://www.desmos.com/calculator/lwbvvnjoaf)
+
+         */
+        namespace windows {}
     } // namespace math
     /**
         \brief Utility helper functions and classes.
