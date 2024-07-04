@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fallback_5ffft_0',['Fallback_FFT',['../namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8a796fb3911ecb98c7373716cbe5d70375',1,'marvin::dsp::spectral']]]
+  ['cosinesum_0',['CosineSum',['../namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58aff6515b2beac74a8d6313fb9cc579ce7',1,'marvin::math::windows']]]
 ];

@@ -95,11 +95,21 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">marvin::math::windows Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Various windowing functions. An interactive graph with more intuition than the textual documentation can give can be found <a href="https://www.desmos.com/calculator/lwbvvnjoaf">here</a>  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ac849a14617e4474c653fd66547db8d58" id="r_ac849a14617e4474c653fd66547db8d58"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac849a14617e4474c653fd66547db8d58">WindowType</a> { <a class="el" href="#ac849a14617e4474c653fd66547db8d58a6ca9e2d793f678aba7c1b19526592a46">Sine</a>
+<tr class="memitem:ac849a14617e4474c653fd66547db8d58" id="r_ac849a14617e4474c653fd66547db8d58"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac849a14617e4474c653fd66547db8d58">WindowType</a> { <br />
+&#160;&#160;<a class="el" href="#ac849a14617e4474c653fd66547db8d58a6ca9e2d793f678aba7c1b19526592a46">Sine</a>
 , <a class="el" href="#ac849a14617e4474c653fd66547db8d58ae64282abbecb575a17b762eb0138273b">Tukey</a>
+, <a class="el" href="#ac849a14617e4474c653fd66547db8d58a7c83be4d47a76f1b8b9657d7e6a00c00">BlackmanHarris</a>
+, <a class="el" href="#ac849a14617e4474c653fd66547db8d58aff6515b2beac74a8d6313fb9cc579ce7">CosineSum</a>
+, <br />
+&#160;&#160;<a class="el" href="#ac849a14617e4474c653fd66547db8d58a0218ace760f65b32ad5b254bf7a95ab5">Hann</a>
+, <a class="el" href="#ac849a14617e4474c653fd66547db8d58a718179b3bcff69a9d3f010aca0e9901a">Hamming</a>
+<br />
  }</td></tr>
 <tr class="separator:ac849a14617e4474c653fd66547db8d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -111,8 +121,22 @@ Functions</h2></td></tr>
 <tr class="memitem:adc37f3055a2d4b788ebb0415fde9e9c9" id="r_adc37f3055a2d4b788ebb0415fde9e9c9"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
 <tr class="memitem:adc37f3055a2d4b788ebb0415fde9e9c9"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adc37f3055a2d4b788ebb0415fde9e9c9">tukey</a> (SampleType n, SampleType N, SampleType alpha)</td></tr>
 <tr class="separator:adc37f3055a2d4b788ebb0415fde9e9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478bc2e574a36a1e1a6a6ab9edd29b65" id="r_a478bc2e574a36a1e1a6a6ab9edd29b65"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a478bc2e574a36a1e1a6a6ab9edd29b65"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a478bc2e574a36a1e1a6a6ab9edd29b65">blackmanHarris</a> (SampleType n, SampleType N)</td></tr>
+<tr class="separator:a478bc2e574a36a1e1a6a6ab9edd29b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a224366c4eac9fb994c301a68cc384" id="r_a00a224366c4eac9fb994c301a68cc384"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a00a224366c4eac9fb994c301a68cc384"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a00a224366c4eac9fb994c301a68cc384">cosineSum</a> (SampleType n, SampleType N, SampleType alpha)</td></tr>
+<tr class="separator:a00a224366c4eac9fb994c301a68cc384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b0f4e506555cbf059716b84966c599d" id="r_a8b0f4e506555cbf059716b84966c599d"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a8b0f4e506555cbf059716b84966c599d"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8b0f4e506555cbf059716b84966c599d">hann</a> (SampleType n, SampleType N)</td></tr>
+<tr class="separator:a8b0f4e506555cbf059716b84966c599d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be1a2f895faae28c033eabac1835b95" id="r_a7be1a2f895faae28c033eabac1835b95"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a7be1a2f895faae28c033eabac1835b95"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7be1a2f895faae28c033eabac1835b95">hamming</a> (SampleType n, SampleType N)</td></tr>
+<tr class="separator:a7be1a2f895faae28c033eabac1835b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Various windowing functions. An interactive graph with more intuition than the textual documentation can give can be found <a href="https://www.desmos.com/calculator/lwbvvnjoaf">here</a> </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ac849a14617e4474c653fd66547db8d58" name="ac849a14617e4474c653fd66547db8d58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac849a14617e4474c653fd66547db8d58">&#9670;&#160;</a></span>WindowType</h2>
 
@@ -136,11 +160,179 @@ Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac849a14617e4474c653fd66547db8d58a6ca9e2d793f678aba7c1b19526592a46" name="ac849a14617e4474c653fd66547db8d58a6ca9e2d793f678aba7c1b19526592a46"></a>Sine&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="ac849a14617e4474c653fd66547db8d58ae64282abbecb575a17b762eb0138273b" name="ac849a14617e4474c653fd66547db8d58ae64282abbecb575a17b762eb0138273b"></a>Tukey&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac849a14617e4474c653fd66547db8d58a7c83be4d47a76f1b8b9657d7e6a00c00" name="ac849a14617e4474c653fd66547db8d58a7c83be4d47a76f1b8b9657d7e6a00c00"></a>BlackmanHarris&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac849a14617e4474c653fd66547db8d58aff6515b2beac74a8d6313fb9cc579ce7" name="ac849a14617e4474c653fd66547db8d58aff6515b2beac74a8d6313fb9cc579ce7"></a>CosineSum&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac849a14617e4474c653fd66547db8d58a0218ace760f65b32ad5b254bf7a95ab5" name="ac849a14617e4474c653fd66547db8d58a0218ace760f65b32ad5b254bf7a95ab5"></a>Hann&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac849a14617e4474c653fd66547db8d58a718179b3bcff69a9d3f010aca0e9901a" name="ac849a14617e4474c653fd66547db8d58a718179b3bcff69a9d3f010aca0e9901a"></a>Hamming&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a478bc2e574a36a1e1a6a6ab9edd29b65" name="a478bc2e574a36a1e1a6a6ab9edd29b65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a478bc2e574a36a1e1a6a6ab9edd29b65">&#9670;&#160;</a></span>blackmanHarris()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType marvin::math::windows::blackmanHarris </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>N</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A Blackman-Harris window. Very similar to a hamming / hann window, but reduces sidelobes at the cost of extra sinc terms. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The current index into the window. </td></tr>
+    <tr><td class="paramname">N</td><td>The total number of points in the window. <code>n</code> will be normalised by this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A point <code>n/N</code> of the way along the Blackman-Harris window. </dd></dl>
+
+</div>
+</div>
+<a id="a00a224366c4eac9fb994c301a68cc384" name="a00a224366c4eac9fb994c301a68cc384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00a224366c4eac9fb994c301a68cc384">&#9670;&#160;</a></span>cosineSum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType marvin::math::windows::cosineSum </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>N</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>alpha</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Generalised form of cosine sum family windows, used by both hann and hamming.<br  />
+Implemented as <code>w[n] = a - (1-a) cos(2pi n/N)</code>.<br  />
+As the alpha parameter affects the boundaries of the window, you're probably better of using <code>hann</code> or <code>hamming</code> instead. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The current index into the window. </td></tr>
+    <tr><td class="paramname">N</td><td>The total number of points in the window. <code>n</code> will be normalised by this. </td></tr>
+    <tr><td class="paramname">alpha</td><td><a href="https://www.desmos.com/calculator/u3q0adsogp">Affects the level of the start and end points</a> - a value of 0.5 will set w[0] and w[1] to 0, anything below 0.5 will drop the start and end points below 0, and anything above 0.5 will raise the start and end points above 0. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A point <code>n/N</code> of the way along the window. </dd></dl>
+
+</div>
+</div>
+<a id="a7be1a2f895faae28c033eabac1835b95" name="a7be1a2f895faae28c033eabac1835b95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7be1a2f895faae28c033eabac1835b95">&#9670;&#160;</a></span>hamming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType marvin::math::windows::hamming </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>N</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A specific case of a cosine sum window with an alpha of 25/46. Does <em>not</em> go to zero, but cancels the first sidelobe. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The current index into the window. </td></tr>
+    <tr><td class="paramname">N</td><td>The total number of points in the window. <code>n</code> will be normalised by this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A point <code>n/N</code> of the way along the window. </dd></dl>
+
+</div>
+</div>
+<a id="a8b0f4e506555cbf059716b84966c599d" name="a8b0f4e506555cbf059716b84966c599d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b0f4e506555cbf059716b84966c599d">&#9670;&#160;</a></span>hann()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;FloatType SampleType&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SampleType marvin::math::windows::hann </td>
+          <td>(</td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SampleType</td>          <td class="paramname"><span class="paramname"><em>N</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>A specific case of a cosine sum window with an alpha of 0.5, which goes to 0 at its boundaries, with about -18dB/8ve sidelobe rolloff in the frequency domain. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>The current index into the window. </td></tr>
+    <tr><td class="paramname">N</td><td>The total number of points in the window. <code>n</code> will be normalised by this. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A point <code>n/N</code> of the way along the window. </dd></dl>
+
+</div>
+</div>
 <a id="a4939c967efe179e65412d86fc064b29d" name="a4939c967efe179e65412d86fc064b29d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4939c967efe179e65412d86fc064b29d">&#9670;&#160;</a></span>sine()</h2>
 

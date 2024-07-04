@@ -8,5 +8,7 @@ var searchData=
   ['begin_5',['begin',['../classmarvin_1_1containers_1_1StrideView.html#ad9eb1c57ae577a378322225c3707503c',1,'marvin::containers::StrideView::begin()'],['../classmarvin_1_1containers_1_1StrideView.html#ad16dff206a78e7268f279bc71c22829f',1,'marvin::containers::StrideView::begin() const']]],
   ['biquad_6',['Biquad',['../classmarvin_1_1dsp_1_1filters_1_1Biquad.html',1,'marvin::dsp::filters']]],
   ['biquadcoefficients_7',['BiquadCoefficients',['../structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html',1,'marvin::dsp::filters']]],
-  ['bufferview_8',['BufferView',['../structmarvin_1_1containers_1_1BufferView.html',1,'marvin::containers::BufferView&lt; SampleType &gt;'],['../structmarvin_1_1containers_1_1BufferView.html#a2619bfffb10e61e489c698673a017352',1,'marvin::containers::BufferView::BufferView()']]]
+  ['blackmanharris_8',['BlackmanHarris',['../namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58a7c83be4d47a76f1b8b9657d7e6a00c00',1,'marvin::math::windows']]],
+  ['blackmanharris_9',['blackmanHarris',['../namespacemarvin_1_1math_1_1windows.html#a478bc2e574a36a1e1a6a6ab9edd29b65',1,'marvin::math::windows']]],
+  ['bufferview_10',['BufferView',['../structmarvin_1_1containers_1_1BufferView.html',1,'marvin::containers::BufferView&lt; SampleType &gt;'],['../structmarvin_1_1containers_1_1BufferView.html#a2619bfffb10e61e489c698673a017352',1,'marvin::containers::BufferView::BufferView()']]]
 ];

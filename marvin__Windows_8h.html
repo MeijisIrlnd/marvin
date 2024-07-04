@@ -111,12 +111,20 @@ Namespaces</h2></td></tr>
 <tr class="memdesc:namespacemarvin_1_1math"><td class="mdescLeft">&#160;</td><td class="mdescRight">Math helper functions and classes. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html">marvin::math::windows</a></td></tr>
+<tr class="memdesc:namespacemarvin_1_1math_1_1windows"><td class="mdescLeft">&#160;</td><td class="mdescRight">Various windowing functions. An interactive graph with more intuition than the textual documentation can give can be found <a href="https://www.desmos.com/calculator/lwbvvnjoaf">here</a> <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ac849a14617e4474c653fd66547db8d58" id="r_ac849a14617e4474c653fd66547db8d58"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58">marvin::math::windows::WindowType</a> { <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58a6ca9e2d793f678aba7c1b19526592a46">marvin::math::windows::Sine</a>
+<tr class="memitem:ac849a14617e4474c653fd66547db8d58" id="r_ac849a14617e4474c653fd66547db8d58"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58">marvin::math::windows::WindowType</a> { <br />
+&#160;&#160;<a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58a6ca9e2d793f678aba7c1b19526592a46">marvin::math::windows::Sine</a>
 , <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58ae64282abbecb575a17b762eb0138273b">marvin::math::windows::Tukey</a>
+, <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58a7c83be4d47a76f1b8b9657d7e6a00c00">marvin::math::windows::BlackmanHarris</a>
+, <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58aff6515b2beac74a8d6313fb9cc579ce7">marvin::math::windows::CosineSum</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58a0218ace760f65b32ad5b254bf7a95ab5">marvin::math::windows::Hann</a>
+, <a class="el" href="namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58a718179b3bcff69a9d3f010aca0e9901a">marvin::math::windows::Hamming</a>
+<br />
  }</td></tr>
 <tr class="separator:ac849a14617e4474c653fd66547db8d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -128,6 +136,18 @@ Functions</h2></td></tr>
 <tr class="memitem:adc37f3055a2d4b788ebb0415fde9e9c9" id="r_adc37f3055a2d4b788ebb0415fde9e9c9"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
 <tr class="memitem:adc37f3055a2d4b788ebb0415fde9e9c9"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html#adc37f3055a2d4b788ebb0415fde9e9c9">marvin::math::windows::tukey</a> (SampleType n, SampleType N, SampleType alpha)</td></tr>
 <tr class="separator:adc37f3055a2d4b788ebb0415fde9e9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a478bc2e574a36a1e1a6a6ab9edd29b65" id="r_a478bc2e574a36a1e1a6a6ab9edd29b65"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a478bc2e574a36a1e1a6a6ab9edd29b65"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html#a478bc2e574a36a1e1a6a6ab9edd29b65">marvin::math::windows::blackmanHarris</a> (SampleType n, SampleType N)</td></tr>
+<tr class="separator:a478bc2e574a36a1e1a6a6ab9edd29b65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00a224366c4eac9fb994c301a68cc384" id="r_a00a224366c4eac9fb994c301a68cc384"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a00a224366c4eac9fb994c301a68cc384"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html#a00a224366c4eac9fb994c301a68cc384">marvin::math::windows::cosineSum</a> (SampleType n, SampleType N, SampleType alpha)</td></tr>
+<tr class="separator:a00a224366c4eac9fb994c301a68cc384"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b0f4e506555cbf059716b84966c599d" id="r_a8b0f4e506555cbf059716b84966c599d"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a8b0f4e506555cbf059716b84966c599d"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html#a8b0f4e506555cbf059716b84966c599d">marvin::math::windows::hann</a> (SampleType n, SampleType N)</td></tr>
+<tr class="separator:a8b0f4e506555cbf059716b84966c599d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7be1a2f895faae28c033eabac1835b95" id="r_a7be1a2f895faae28c033eabac1835b95"><td class="memTemplParams" colspan="2">template&lt;FloatType SampleType&gt; </td></tr>
+<tr class="memitem:a7be1a2f895faae28c033eabac1835b95"><td class="memTemplItemLeft" align="right" valign="top">SampleType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacemarvin_1_1math_1_1windows.html#a7be1a2f895faae28c033eabac1835b95">marvin::math::windows::hamming</a> (SampleType n, SampleType N)</td></tr>
+<tr class="separator:a7be1a2f895faae28c033eabac1835b95"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

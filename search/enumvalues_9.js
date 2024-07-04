@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['triangle_0',['TRIANGLE',['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#ad7492517f8f7f16386bf07a546ccdd02a9bcd89070cae224dce305f5011659ef4',1,'marvin::dsp::oscillators::MultiOscillator']]],
-  ['tukey_1',['Tukey',['../namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58ae64282abbecb575a17b762eb0138273b',1,'marvin::math::windows']]]
+  ['off_0',['Off',['../namespacemarvin_1_1dsp_1_1oscillators.html#a9141a533fa45877c05b1f363a719d564ad15305d7a4e34e02489c74a5ef542f36',1,'marvin::dsp::oscillators']]],
+  ['on_1',['On',['../namespacemarvin_1_1dsp_1_1oscillators.html#a9141a533fa45877c05b1f363a719d564a521c36a31c2762741cf0f8890cbe05e3',1,'marvin::dsp::oscillators']]]
 ];

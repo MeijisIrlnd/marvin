@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['exponential_0',['Exponential',['../namespacemarvin_1_1utils.html#a561daf68b83f068162d1ef3582e6d89aac1e19c09f700938f0ff7f1fd4722a3ac',1,'marvin::utils']]]
+  ['blackmanharris_0',['BlackmanHarris',['../namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58a7c83be4d47a76f1b8b9657d7e6a00c00',1,'marvin::math::windows']]]
 ];
