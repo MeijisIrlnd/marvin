@@ -79,6 +79,12 @@ namespace marvin::dsp::filters {
         };
     }
 
+    template <FloatType SampleType>
+    void SVF<SampleType>::reset() {
+        m_s1 = static_cast<SampleType>(0.0);
+        m_s2 = static_cast<SampleType>(0.0);
+    }
+
     template class SVF<float>;
     template class SVF<double>;
 } // namespace marvin::dsp::filters
