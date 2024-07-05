@@ -8,6 +8,7 @@ set(MARVIN_TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/oscillators/marvin_OscillatorTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APFTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPFTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_SVFTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_BiquadTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_SmoothedBiquadCoefficientsTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_ConceptsTests.cpp
