@@ -68,15 +68,53 @@ namespace marvin::dsp::filters {
         const auto bandShelf = x + (m_k * normalisedBandpass);
         const auto lowShelf = x + (m_k * lp);
         const auto highShelf = x + (m_k * hp);
+        const auto notch = x - normalisedBandpass;
+        const auto allpass = x - (static_cast<SampleType>(2.0) * normalisedBandpass);
         return {
             .highpass = hp,
             .bandpass = bp,
             .lowpass = lp,
             .normalisedBandpass = normalisedBandpass,
-            .bandshelf = bandShelf,
+            .bandShelf = bandShelf,
             .lowShelf = lowShelf,
-            .highShelf = highShelf
+            .highShelf = highShelf,
+            .notch = notch,
+            .allpass = allpass
         };
+    }
+
+    template <FloatType SampleType>
+    SampleType SVF<SampleType>::operator()(FilterType type, SampleType x) {
+        const auto res = operator()(x);
+        switch (type) {
+            case FilterType::Highpass: {
+                return res.highpass;
+            }
+            case FilterType::Bandpass: {
+                return res.bandpass;
+            }
+            case FilterType::Lowpass: {
+                return res.lowpass;
+            }
+            case FilterType::NormalisedBandpass: {
+                return res.normalisedBandpass;
+            }
+            case FilterType::BandShelf: {
+                return res.bandShelf;
+            }
+            case FilterType::LowShelf: {
+                return res.lowShelf;
+            }
+            case FilterType::HighShelf: {
+                return res.highShelf;
+            }
+            case FilterType::Notch: {
+                return res.notch;
+            }
+            case FilterType::Allpass: {
+                return res.allpass;
+            }
+        }
     }
 
     template <FloatType SampleType>

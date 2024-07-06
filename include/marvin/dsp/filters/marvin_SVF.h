@@ -25,9 +25,11 @@ namespace marvin::dsp::filters {
         SampleType bandpass;
         SampleType lowpass;
         SampleType normalisedBandpass;
-        SampleType bandshelf;
+        SampleType bandShelf;
         SampleType lowShelf;
         SampleType highShelf;
+        SampleType notch;
+        SampleType allpass;
     };
 
     /**
@@ -36,6 +38,21 @@ namespace marvin::dsp::filters {
     template <FloatType SampleType>
     class SVF {
     public:
+        /**
+            Represents the available filter types the SVF can process.
+         */
+        enum class FilterType {
+            Highpass,
+            Bandpass,
+            Lowpass,
+            NormalisedBandpass,
+            BandShelf,
+            LowShelf,
+            HighShelf,
+            Notch,
+            Allpass
+        };
+
         /**
             Initialises the filter. This <b>must</b> be called before calling `setFrequency()` or `operator()`.
             \param sampleRate The sample rate the filter should process at.
@@ -61,12 +78,19 @@ namespace marvin::dsp::filters {
         void setGainDb(SampleType newGainDb);
 
         /**
-            Processes a sample through the filter.
+            Processes a sample through the filter, and returns the input filtered through each filter type (with an SVF this is relatively cheap, and allows for custom switching algorithms on the user side).
             \param x The sample to process.
-            \return An `SVFResult<SampleType>` containing the filtered results for each filter type.\n
-            Because in a state variable filter, all distinct types are processed at once, all of the options are returned.
+            \return An `SVFResult<SampleType>` containing the filtered results for each filter type.
          */
         [[nodiscard]] SVFResult<SampleType> operator()(SampleType x);
+
+        /**
+            Processes a sample through the filter, with a single given filter type.
+            \param type The FilterType to use.
+            \param x The sample to process.
+            \return The filtered sample.
+         */
+        [[nodiscard]] SampleType operator()(FilterType type, SampleType x);
 
         /**
             Resets the filter to its initial state.

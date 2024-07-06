@@ -14,7 +14,6 @@
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
 #include <numbers>
 #include <random>
-#include <iostream>
 namespace marvin::testing {
     [[nodiscard]] float getPhaseIncrement(float frequency, double sampleRate) noexcept {
         const auto period = 1.0f / frequency;
@@ -76,12 +75,12 @@ namespace marvin::testing {
             PulseOscillator<float, Bandlimiting::Off> pulse;
             NoiseOscillator<float> noise{ rd };
 
-            MultiOscillator<float, Bandlimiting::Off> multiSine{ rd, MultiOscillator<float>::SHAPE::SINE };
-            MultiOscillator<float, Bandlimiting::Off> multiTri{ rd, MultiOscillator<float>::SHAPE::TRIANGLE };
-            MultiOscillator<float, Bandlimiting::Off> multiSaw{ rd, MultiOscillator<float>::SHAPE::SAW };
-            MultiOscillator<float, Bandlimiting::Off> multiSquare{ rd, MultiOscillator<float>::SHAPE::SQUARE };
-            MultiOscillator<float, Bandlimiting::Off> multiPulse{ rd, MultiOscillator<float>::SHAPE::PULSE };
-            MultiOscillator<float, Bandlimiting::Off> multiNoise{ rd, MultiOscillator<float>::SHAPE::NOISE };
+            MultiOscillator<float, Bandlimiting::Off> multiSine{ rd, MultiOscillator<float>::Shape::Sine };
+            MultiOscillator<float, Bandlimiting::Off> multiTri{ rd, MultiOscillator<float>::Shape::Triangle };
+            MultiOscillator<float, Bandlimiting::Off> multiSaw{ rd, MultiOscillator<float>::Shape::Saw };
+            MultiOscillator<float, Bandlimiting::Off> multiSquare{ rd, MultiOscillator<float>::Shape::Square };
+            MultiOscillator<float, Bandlimiting::Off> multiPulse{ rd, MultiOscillator<float>::Shape::Pulse };
+            MultiOscillator<float, Bandlimiting::Off> multiNoise{ rd, MultiOscillator<float>::Shape::Noise };
 
             initialiseOsc(&sine, frequency, sampleRate);
             initialiseOsc(&tri, frequency, sampleRate);

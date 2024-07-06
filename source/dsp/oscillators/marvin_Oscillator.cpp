@@ -194,12 +194,12 @@ namespace marvin::dsp::oscillators {
     }
 
     template <FloatType SampleType, Bandlimiting Blep>
-    MultiOscillator<SampleType, Blep>::MultiOscillator(std::random_device& rd) : m_shape(SHAPE::SINE),
+    MultiOscillator<SampleType, Blep>::MultiOscillator(std::random_device& rd) : m_shape(Shape::Sine),
                                                                                  m_noise(rd) {
     }
 
     template <FloatType SampleType, Bandlimiting Blep>
-    MultiOscillator<SampleType, Blep>::MultiOscillator(std::random_device& rd, SHAPE shape) : m_shape(shape),
+    MultiOscillator<SampleType, Blep>::MultiOscillator(std::random_device& rd, Shape shape) : m_shape(shape),
                                                                                               m_noise(rd) {
     }
 
@@ -218,27 +218,27 @@ namespace marvin::dsp::oscillators {
     SampleType MultiOscillator<SampleType, Blep>::operator()() noexcept {
         SampleType v{ static_cast<SampleType>(0.0) };
         switch (m_shape) {
-            case SHAPE::SINE: {
+            case Shape::Sine: {
                 v = m_sine(m_phase);
                 break;
             }
-            case SHAPE::TRIANGLE: {
+            case Shape::Triangle: {
                 v = m_tri(m_phase);
                 break;
             }
-            case SHAPE::SAW: {
+            case Shape::Saw: {
                 v = m_saw(m_phase);
                 break;
             }
-            case SHAPE::SQUARE: {
+            case Shape::Square: {
                 v = m_square(m_phase);
                 break;
             }
-            case SHAPE::PULSE: {
+            case Shape::Pulse: {
                 v = m_pulse(m_phase);
                 break;
             }
-            case SHAPE::NOISE: {
+            case Shape::Noise: {
                 v = m_noise(m_phase);
                 break;
             }
@@ -260,7 +260,7 @@ namespace marvin::dsp::oscillators {
     }
 
     template <FloatType SampleType, Bandlimiting Blep>
-    void MultiOscillator<SampleType, Blep>::setShape(SHAPE shape) {
+    void MultiOscillator<SampleType, Blep>::setShape(Shape shape) {
         m_shape = shape;
     }
 

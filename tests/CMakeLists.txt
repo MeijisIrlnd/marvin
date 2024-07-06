@@ -4,7 +4,7 @@ set(MARVIN_TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_StrideViewTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_FixedCircularBufferTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLineTests.cpp
-    # ${CMAKE_CURRENT_SOURCE_DIR}/dsp/spectral/marvin_FFTTests.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/spectral/marvin_FFTTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/oscillators/marvin_OscillatorTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APFTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPFTests.cpp

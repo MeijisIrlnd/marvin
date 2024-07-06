@@ -178,13 +178,13 @@ namespace marvin::dsp::oscillators {
         /**
             The available shapes to set the MultiOsc to use.
         */
-        enum class SHAPE {
-            SINE,
-            TRIANGLE,
-            SAW,
-            SQUARE,
-            PULSE,
-            NOISE
+        enum class Shape {
+            Sine,
+            Triangle,
+            Saw,
+            Square,
+            Pulse,
+            Noise
         };
         /**
             As NoiseOscillator requires a `std::random_device` parameter in its constructor, it's also needed here to forward to the internal instance of NoiseOscillator.
@@ -197,7 +197,7 @@ namespace marvin::dsp::oscillators {
             \param rd The seed generator for the internal NoiseOscillator to use.
             \param shape The shape the MultiOscillator should be configured to use.
         */
-        explicit MultiOscillator(std::random_device& rd, SHAPE shape);
+        explicit MultiOscillator(std::random_device& rd, Shape shape);
 
         /**
             Initialises all child oscillators. Make sure to call this before any calls to the call operator.
@@ -218,7 +218,7 @@ namespace marvin::dsp::oscillators {
             Configures the shape the MultiOscillator should output. Note that the internal shape variable is not atomic, and is read directly on the audio thread - so make sure this function is called on the audio thread, or that the audio thread is <b>not</b> running when this function is called.
             \param shape The shape the MultiOscillator should output.
         */
-        void setShape(SHAPE shape);
+        void setShape(Shape shape);
         /**
             Sets the frequency the MultiOscillator should output. This propagates to all internal oscillators. Note that the internal `phaseIncrement` variable this function sets is not atomic, so ensure this function is either called on the audio thread, or that the audio thread is <b>not</b> running when this function is called.
             \param newFrequency The frequency the MultiOscillator should process at.
@@ -238,7 +238,7 @@ namespace marvin::dsp::oscillators {
     private:
         void incrementPhase() noexcept;
         double m_sampleRate{};
-        SHAPE m_shape{ SHAPE::SINE };
+        Shape m_shape{ Shape::Sine };
         SampleType m_phase{ static_cast<SampleType>(0.0) };
         SampleType m_phaseIncrement{ static_cast<SampleType>(0.0) };
         SampleType m_phaseOffset{ static_cast<SampleType>(0.0) };
