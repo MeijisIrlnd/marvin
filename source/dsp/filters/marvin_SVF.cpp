@@ -114,6 +114,7 @@ namespace marvin::dsp::filters {
             case FilterType::Allpass: {
                 return res.allpass;
             }
+            default: return x;
         }
     }
 
