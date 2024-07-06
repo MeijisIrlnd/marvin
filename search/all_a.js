@@ -48,12 +48,13 @@ var searchData=
   ['marvin_5fsmoothedbiquadcoefficients_2eh_45',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
   ['marvin_5fsmoothedvalue_2eh_46',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]],
   ['marvin_5fstrideview_2eh_47',['marvin_StrideView.h',['../marvin__StrideView_8h.html',1,'']]],
-  ['marvin_5fswapbuffer_2eh_48',['marvin_SwapBuffer.h',['../marvin__SwapBuffer_8h.html',1,'']]],
-  ['marvin_5futils_2eh_49',['marvin_Utils.h',['../marvin__Utils_8h.html',1,'']]],
-  ['marvin_5fvecops_2eh_50',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]],
-  ['marvin_5fwindows_2eh_51',['marvin_Windows.h',['../marvin__Windows_8h.html',1,'']]],
-  ['max_52',['max',['../structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175',1,'marvin::utils::Range']]],
-  ['min_53',['min',['../structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c',1,'marvin::utils::Range']]],
-  ['multioscillator_54',['MultiOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html',1,'marvin::dsp::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt;'],['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#a8e89b3210455031f37a67615ab30191e',1,'marvin::dsp::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd)'],['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#a200a15a396e0b96b77ca30befe3548dc',1,'marvin::dsp::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd, SHAPE shape)']]],
-  ['multiply_55',['multiply',['../namespacemarvin_1_1math_1_1vecops.html#a2845f70102fa5d759018ecea01b3c962',1,'marvin::math::vecops::multiply(T *lhs, const T *rhs, size_t size) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a3984f4b762b221de1f7f87f14cd214e6',1,'marvin::math::vecops::multiply(T *arr, T scalar, size_t size) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a44926d08fce64b70b50fe48c0f48bd37',1,'marvin::math::vecops::multiply(T &amp;lhs, const T &amp;rhs) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a3f143c994f28843ece109a61e0666b9b',1,'marvin::math::vecops::multiply(T &amp;arr, typename T::value_type scalar) noexcept']]]
+  ['marvin_5fsvf_2eh_48',['marvin_SVF.h',['../marvin__SVF_8h.html',1,'']]],
+  ['marvin_5fswapbuffer_2eh_49',['marvin_SwapBuffer.h',['../marvin__SwapBuffer_8h.html',1,'']]],
+  ['marvin_5futils_2eh_50',['marvin_Utils.h',['../marvin__Utils_8h.html',1,'']]],
+  ['marvin_5fvecops_2eh_51',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]],
+  ['marvin_5fwindows_2eh_52',['marvin_Windows.h',['../marvin__Windows_8h.html',1,'']]],
+  ['max_53',['max',['../structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175',1,'marvin::utils::Range']]],
+  ['min_54',['min',['../structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c',1,'marvin::utils::Range']]],
+  ['multioscillator_55',['MultiOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html',1,'marvin::dsp::oscillators::MultiOscillator&lt; SampleType, Bandlimit &gt;'],['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#a8e89b3210455031f37a67615ab30191e',1,'marvin::dsp::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd)'],['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#ae3e20a3990019f8edc376dce506e566a',1,'marvin::dsp::oscillators::MultiOscillator::MultiOscillator(std::random_device &amp;rd, Shape shape)']]],
+  ['multiply_56',['multiply',['../namespacemarvin_1_1math_1_1vecops.html#a2845f70102fa5d759018ecea01b3c962',1,'marvin::math::vecops::multiply(T *lhs, const T *rhs, size_t size) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a3984f4b762b221de1f7f87f14cd214e6',1,'marvin::math::vecops::multiply(T *arr, T scalar, size_t size) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a44926d08fce64b70b50fe48c0f48bd37',1,'marvin::math::vecops::multiply(T &amp;lhs, const T &amp;rhs) noexcept'],['../namespacemarvin_1_1math_1_1vecops.html#a3f143c994f28843ece109a61e0666b9b',1,'marvin::math::vecops::multiply(T &amp;arr, typename T::value_type scalar) noexcept']]]
 ];

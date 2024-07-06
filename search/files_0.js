@@ -23,8 +23,9 @@ var searchData=
   ['marvin_5fsmoothedbiquadcoefficients_2eh_20',['marvin_SmoothedBiquadCoefficients.h',['../marvin__SmoothedBiquadCoefficients_8h.html',1,'']]],
   ['marvin_5fsmoothedvalue_2eh_21',['marvin_SmoothedValue.h',['../marvin__SmoothedValue_8h.html',1,'']]],
   ['marvin_5fstrideview_2eh_22',['marvin_StrideView.h',['../marvin__StrideView_8h.html',1,'']]],
-  ['marvin_5fswapbuffer_2eh_23',['marvin_SwapBuffer.h',['../marvin__SwapBuffer_8h.html',1,'']]],
-  ['marvin_5futils_2eh_24',['marvin_Utils.h',['../marvin__Utils_8h.html',1,'']]],
-  ['marvin_5fvecops_2eh_25',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]],
-  ['marvin_5fwindows_2eh_26',['marvin_Windows.h',['../marvin__Windows_8h.html',1,'']]]
+  ['marvin_5fsvf_2eh_23',['marvin_SVF.h',['../marvin__SVF_8h.html',1,'']]],
+  ['marvin_5fswapbuffer_2eh_24',['marvin_SwapBuffer.h',['../marvin__SwapBuffer_8h.html',1,'']]],
+  ['marvin_5futils_2eh_25',['marvin_Utils.h',['../marvin__Utils_8h.html',1,'']]],
+  ['marvin_5fvecops_2eh_26',['marvin_VecOps.h',['../marvin__VecOps_8h.html',1,'']]],
+  ['marvin_5fwindows_2eh_27',['marvin_Windows.h',['../marvin__Windows_8h.html',1,'']]]
 ];
