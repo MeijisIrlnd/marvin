@@ -231,8 +231,8 @@ namespace marvin::dsp::spectral {
             [[maybe_unused]] IppStatus status;
             if constexpr (std::same_as<ValueType, float>) {
                 if constexpr (ComplexFloatType<SampleType>) {
-                    m_state.fwdScratchBuff = ippsMalloc_32fc(this->m_n + 2);
-                    status = ippsFFTGetSize_C_32fc(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    m_state.fwdScratchBuff = ippsMalloc_32fc(static_cast<int>(this->m_n) + 2);
+                    status = ippsFFTGetSize_C_32fc(static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_C_32fc*)m_state.specBuff;
@@ -242,14 +242,14 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_C_32fc(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_C_32fc(&m_state.spec, static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
                     }
                 } else {
-                    m_state.fwdScratchBuff = ippsMalloc_32f(this->m_n + 2);
-                    status = ippsFFTGetSize_R_32f(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    m_state.fwdScratchBuff = ippsMalloc_32f(static_cast<int>(this->m_n) + 2);
+                    status = ippsFFTGetSize_R_32f(static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_R_32f*)m_state.specBuff;
@@ -259,7 +259,7 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_R_32f(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_R_32f(&m_state.spec, static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
@@ -267,8 +267,8 @@ namespace marvin::dsp::spectral {
                 }
             } else {
                 if constexpr (ComplexFloatType<SampleType>) {
-                    m_state.fwdScratchBuff = ippsMalloc_64fc(this->m_n + 2);
-                    status = ippsFFTGetSize_C_64fc(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    m_state.fwdScratchBuff = ippsMalloc_64fc(static_cast<int>(this->m_n) + 2);
+                    status = ippsFFTGetSize_C_64fc(static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_C_64fc*)m_state.specBuff;
@@ -278,15 +278,15 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_C_64fc(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_C_64fc(&m_state.spec, static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
                     }
 
                 } else {
-                    m_state.fwdScratchBuff = ippsMalloc_64f(this->m_n + 2);
-                    status = ippsFFTGetSize_R_64f(this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
+                    m_state.fwdScratchBuff = ippsMalloc_64f(static_cast<int>(this->m_n) + 2);
+                    status = ippsFFTGetSize_R_64f(static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, &fftSpecSize, &fftInitBuffSize, &fftWorkBuffSize);
                     assert(status == ippStsNoErr);
                     m_state.specBuff = ippsMalloc_8u(fftSpecSize);
                     m_state.spec = (IppsFFTSpec_R_64f*)m_state.specBuff;
@@ -296,7 +296,7 @@ namespace marvin::dsp::spectral {
                     if (fftWorkBuffSize != 0) {
                         m_state.workBuff = ippsMalloc_8u(fftWorkBuffSize);
                     }
-                    status = ippsFFTInit_R_64f(&m_state.spec, this->m_order, IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
+                    status = ippsFFTInit_R_64f(&m_state.spec, static_cast<int>(this->m_order), IPP_FFT_DIV_INV_BY_N, ippAlgHintNone, m_state.specBuff, initBuffer);
                     assert(status == ippStsNoErr);
                     if (initBuffer) {
                         ippFree(initBuffer);
