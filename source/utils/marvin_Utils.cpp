@@ -8,6 +8,7 @@
 //
 // ========================================================================================================
 #include <marvin/utils/marvin_Utils.h>
+#include <fstream>
 
 #if defined(MARVIN_MACOS)
 #include <mach-o/dyld.h>
@@ -47,6 +48,17 @@ namespace marvin::utils {
 #else
         return {};
 #endif
+    }
+
+
+    bool readBinaryFile(const std::string& path, std::vector<char>& data) {
+        std::ifstream inStream{ path, std::ios::binary | std::ios::ate };
+        if (!inStream.is_open()) return false;
+        const auto size = inStream.tellg();
+        data.resize(size);
+        inStream.seekg(0, std::ios::beg);
+        inStream.read(data.data(), size);
+        return inStream.good();
     }
 
 } // namespace marvin::utils

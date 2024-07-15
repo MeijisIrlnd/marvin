@@ -16,6 +16,7 @@
 #include <fstream>
 #include <sstream>
 #include <optional>
+#include <vector>
 
 namespace marvin::utils {
 
@@ -44,6 +45,8 @@ namespace marvin::utils {
         \return An optional containing the full path to the current executable file if no errors occured, std::nullopt otherwise.
     */
     [[nodiscard]] std::optional<std::string> getCurrentExecutablePath();
+
+    bool readBinaryFile(const std::string& path, std::vector<char>& data);
 
 } // namespace marvin::utils
 #endif
