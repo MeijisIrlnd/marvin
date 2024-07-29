@@ -42,6 +42,7 @@ set(MARVIN_INSTALL_DEST "${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
         CACHE STRING "Path where package files will be installed, relative to the install prefix"
 )
 if(MSVC) 
+    message(STATUS "MSVC-Like")
     set(MARVIN_WARNING_FLAGS "/W4 /WX")
 else() 
     # Need no unused command line arg because not all TU-s need -mfpu=neon

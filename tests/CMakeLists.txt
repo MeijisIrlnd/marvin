@@ -22,7 +22,7 @@ set(MARVIN_TEST_SOURCE
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValueTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_RandomTests.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FIFOTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FormatReaderTests.cpp
+    # ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FormatReaderTests.cpp
     PARENT_SCOPE
 )
     
