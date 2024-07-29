@@ -36,6 +36,15 @@ namespace marvin {
     template <class T>
     concept NumericType = std::is_integral_v<T> || std::is_floating_point_v<T>;
 
+    /**
+        \brief Constrains T to be a fixed width signed int.
+     */
+    template <class T>
+    concept FixedWidthSignedInteger = std::same_as<std::int8_t, T> ||
+                                      std::same_as<std::int16_t, T> ||
+                                      std::same_as<std::int32_t, T> ||
+                                      std::same_as<std::int64_t, T>;
+
 
     /**
         \brief Constrains T to a type that defines a const_iterator as a child, has an implementation of `operator[](size_t)` and has a `.size()` member.
