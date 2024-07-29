@@ -37,7 +37,7 @@ namespace marvin::dsp::filters {
     template <FloatType SampleType>
     void SVF<SampleType>::setGainDb(SampleType newGainDb) {
         const auto exponent = newGainDb / static_cast<SampleType>(20.0);
-        const auto lhs = std::pow(10, exponent);
+        const auto lhs = std::pow(static_cast<SampleType>(10.0), exponent);
         m_k = lhs - static_cast<SampleType>(1.0);
     }
 
