@@ -8,6 +8,8 @@
 //
 // ========================================================================================================
 
+#ifndef MARVIN_RANGE_H
+#define MARVIN_RANGE_H
 #include "marvin/library/marvin_Concepts.h"
 namespace marvin::utils {
     /**
@@ -43,3 +45,4 @@ namespace marvin::utils {
         return !(lhs == rhs);
     }
 } // namespace marvin::utils
+#endif
