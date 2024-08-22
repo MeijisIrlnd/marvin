@@ -14,6 +14,7 @@
 #include <type_traits>
 #include <cstddef>
 #include <complex>
+#include <concepts>
 #include <span>
 #include <vector>
 namespace marvin {
