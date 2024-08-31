@@ -36,7 +36,7 @@ namespace marvin::math {
     /**
      * \brief Class to handle mapping from one range to another (warped) range, based on the reciprocal function 1/x.
      *
-     * Shamelessly lifted from Signalsmith's Reciprocal class from his dsp library - all credit here to Signalsmith Audio.
+     * Shamelessly lifted (with permission) from Signalsmith's Reciprocal class from his dsp library - all credit here to Signalsmith Audio.
      */
     template <FloatType T>
     class Reciprocal final {
