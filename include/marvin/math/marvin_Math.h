@@ -63,6 +63,20 @@ namespace marvin::math {
     }
 
     /**
+     * Takes a value in range 0 to 1, and rescales it to be in range `newMin` to `newMax`.
+     * \param x The value to remap.
+     * \param newMin The new range's min.
+     * \param newMax The new range's max.
+     * \return The rescaled value.
+     */
+    template <FloatType T>
+    [[nodiscard]] T remap(T x, T newMin, T newMax) {
+        // (v_n . (mx - mn)) + mn = v
+        const auto rescaled = (x * (newMax - newMin)) + newMin;
+        return rescaled;
+    }
+
+    /**
         Takes a value in range `srcMin` to `srcMax`, normalises it, and rescales it to be in range
         `newMin` to `newMax`
         \param x The value to remap.
@@ -76,9 +90,7 @@ namespace marvin::math {
     [[nodiscard]] T remap(T x, T srcMin, T srcMax, T newMin, T newMax) {
         // (v - mn) / (mx - mn) == v_n
         const auto normalised = (x - srcMin) / (srcMax - srcMin);
-        // (v_n . (mx - mn)) + mn = v
-        const auto rescaled = (normalised * (newMax - newMin)) + newMin;
-        return rescaled;
+        return remap<T>(x, newMin, newMax);
     }
 
     /**
