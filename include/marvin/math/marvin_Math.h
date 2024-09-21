@@ -90,7 +90,7 @@ namespace marvin::math {
     [[nodiscard]] T remap(T x, T srcMin, T srcMax, T newMin, T newMax) {
         // (v - mn) / (mx - mn) == v_n
         const auto normalised = (x - srcMin) / (srcMax - srcMin);
-        return remap<T>(x, newMin, newMax);
+        return remap<T>(normalised, newMin, newMax);
     }
 
     /**
