@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['normalisedbandpass_0',['normalisedBandpass',['../structmarvin_1_1dsp_1_1filters_1_1SVFResult.html#aded88e35933d10bb8e4b46a2942e85e2',1,'marvin::dsp::filters::SVFResult']]],
-  ['notch_1',['notch',['../structmarvin_1_1dsp_1_1filters_1_1SVFResult.html#abe540699d1380e009c83b32fb2c2285b',1,'marvin::dsp::filters::SVFResult']]]
+  ['m_5fphase_0',['m_phase',['../classmarvin_1_1dsp_1_1oscillators_1_1OscillatorBase.html#a69fef5c911de40b184cb9db4f1e09152',1,'marvin::dsp::oscillators::OscillatorBase']]],
+  ['m_5fphaseincrement_1',['m_phaseIncrement',['../classmarvin_1_1dsp_1_1oscillators_1_1OscillatorBase.html#a88f893e7d68b25f40c4b8a76ee881f57',1,'marvin::dsp::oscillators::OscillatorBase']]],
+  ['m_5fphaseoffset_2',['m_phaseOffset',['../classmarvin_1_1dsp_1_1oscillators_1_1OscillatorBase.html#a4398d26aebc713930d84e3baf613540f',1,'marvin::dsp::oscillators::OscillatorBase']]],
+  ['m_5fsamplerate_3',['m_sampleRate',['../classmarvin_1_1dsp_1_1oscillators_1_1OscillatorBase.html#aeda9311fddbfda679da8b0ab3eba85f3',1,'marvin::dsp::oscillators::OscillatorBase']]],
+  ['max_4',['max',['../structmarvin_1_1math_1_1ReciprocalRange.html#afb642c15fb328fab66024de61d96c782',1,'marvin::math::ReciprocalRange::max'],['../structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175',1,'marvin::utils::Range::max']]],
+  ['min_5',['min',['../structmarvin_1_1math_1_1ReciprocalRange.html#a3de30db37c91e0a73a493a347d2e3483',1,'marvin::math::ReciprocalRange::min'],['../structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c',1,'marvin::utils::Range::min']]]
 ];
