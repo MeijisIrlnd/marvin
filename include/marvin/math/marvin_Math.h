@@ -11,6 +11,7 @@
 #ifndef MARVIN_MATH_H
 #define MARVIN_MATH_H
 #include "marvin/library/marvin_Concepts.h"
+#include "marvin/utils/marvin_Range.h"
 #include <cmath>
 #include <algorithm>
 #include <span>
