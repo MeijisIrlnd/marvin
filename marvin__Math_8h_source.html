@@ -162,47 +162,64 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
 </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
-<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a30692b1ae3ffdf4fd7de93cb86579c79">  106</a></span>    [[nodiscard]] std::span&lt;std::complex&lt;T&gt;&gt; <a class="code hl_function" href="namespacemarvin_1_1math.html#a30692b1ae3ffdf4fd7de93cb86579c79">interleavedToComplexView</a>(std::span&lt;T&gt; data) {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        assert(data.size() % 2 == 0);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        std::span&lt;std::complex&lt;T&gt;&gt; complexView{ <span class="keyword">reinterpret_cast&lt;</span>std::complex&lt;T&gt;*<span class="keyword">&gt;</span>(data.data()), data.size() / 2 };</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">return</span> complexView;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a9a83022d44fec7d077403f697e4970bb">  104</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#a8622695b9c617d47eb67981b8aebf619">remap</a>(T x, <a class="code hl_struct" href="structmarvin_1_1utils_1_1Range.html">marvin::utils::Range&lt;T&gt;</a> srcRange, <a class="code hl_struct" href="structmarvin_1_1utils_1_1Range.html">marvin::utils::Range&lt;T&gt;</a> newRange) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacemarvin_1_1math.html#a8622695b9c617d47eb67981b8aebf619">remap&lt;T&gt;</a>(x, srcRange.<a class="code hl_variable" href="structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c">min</a>, srcRange.<a class="code hl_variable" href="structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175">max</a>, newRange.<a class="code hl_variable" href="structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c">min</a>, newRange.<a class="code hl_variable" href="structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175">max</a>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
 </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
-<div class="foldopen" id="foldopen00121" data-start="{" data-end="}">
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a3f791d02adbe01af8c996c8b5b436f75">  121</a></span>    [[nodiscard]] std::span&lt;T&gt; <a class="code hl_function" href="namespacemarvin_1_1math.html#a3f791d02adbe01af8c996c8b5b436f75">complexViewToInterleaved</a>(std::span&lt;std::complex&lt;T&gt;&gt; data) {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        std::span&lt;T&gt; interleavedView{ <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(data.data()), data.size() * 2 };</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">return</span> interleavedView;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    }</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a6bed62982f4cf09b0bd8d96f5d832f1b">  115</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#a8622695b9c617d47eb67981b8aebf619">remap</a>(T x, <a class="code hl_struct" href="structmarvin_1_1utils_1_1Range.html">marvin::utils::Range&lt;T&gt;</a> newRange) {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacemarvin_1_1math.html#a8622695b9c617d47eb67981b8aebf619">remap&lt;T&gt;</a>(x, newRange.<a class="code hl_variable" href="structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c">min</a>, newRange.<a class="code hl_variable" href="structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175">max</a>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
 </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
-<div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#af31b72b955255e60690b6caec77f0dda">  126</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#af31b72b955255e60690b6caec77f0dda">sinc</a>(T x) <span class="keyword">noexcept</span> {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> epsilon{ <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1e-6) };</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">if</span> (std::abs(x) &lt; epsilon) {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1.0);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keyword">const</span> <span class="keyword">auto</span> xPi = x * std::numbers::pi_v&lt;T&gt;;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> std::sin(xPi) / xPi;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00129" data-start="{" data-end="}">
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a30692b1ae3ffdf4fd7de93cb86579c79">  129</a></span>    [[nodiscard]] std::span&lt;std::complex&lt;T&gt;&gt; <a class="code hl_function" href="namespacemarvin_1_1math.html#a30692b1ae3ffdf4fd7de93cb86579c79">interleavedToComplexView</a>(std::span&lt;T&gt; data) {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        assert(data.size() % 2 == 0);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        std::span&lt;std::complex&lt;T&gt;&gt; complexView{ <span class="keyword">reinterpret_cast&lt;</span>std::complex&lt;T&gt;*<span class="keyword">&gt;</span>(data.data()), data.size() / 2 };</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="keywordflow">return</span> complexView;</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
 </div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>} <span class="comment">// namespace marvin::math</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#a3f791d02adbe01af8c996c8b5b436f75">  144</a></span>    [[nodiscard]] std::span&lt;T&gt; <a class="code hl_function" href="namespacemarvin_1_1math.html#a3f791d02adbe01af8c996c8b5b436f75">complexViewToInterleaved</a>(std::span&lt;std::complex&lt;T&gt;&gt; data) {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        std::span&lt;T&gt; interleavedView{ <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(data.data()), data.size() * 2 };</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        <span class="keywordflow">return</span> interleavedView;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
 </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keyword">template</span> &lt;FloatType T&gt;</div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="namespacemarvin_1_1math.html#af31b72b955255e60690b6caec77f0dda">  149</a></span>    [[nodiscard]] T <a class="code hl_function" href="namespacemarvin_1_1math.html#af31b72b955255e60690b6caec77f0dda">sinc</a>(T x) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keyword">auto</span> epsilon{ <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1e-6) };</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        <span class="keywordflow">if</span> (std::abs(x) &lt; epsilon) {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1.0);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <span class="keyword">const</span> <span class="keyword">auto</span> xPi = x * std::numbers::pi_v&lt;T&gt;;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        <span class="keywordflow">return</span> std::sin(xPi) / xPi;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    }</div>
+</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>} <span class="comment">// namespace marvin::math</span></div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="amarvin__Concepts_8h_html"><div class="ttname"><a href="marvin__Concepts_8h.html">marvin_Concepts.h</a></div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html"><div class="ttname"><a href="namespacemarvin_1_1math.html">marvin::math</a></div><div class="ttdoc">Math helper functions and classes.</div><div class="ttdef"><b>Definition</b> marvin_Math.h:21</div></div>
-<div class="ttc" id="anamespacemarvin_1_1math_html_a30692b1ae3ffdf4fd7de93cb86579c79"><div class="ttname"><a href="namespacemarvin_1_1math.html#a30692b1ae3ffdf4fd7de93cb86579c79">marvin::math::interleavedToComplexView</a></div><div class="ttdeci">std::span&lt; std::complex&lt; T &gt; &gt; interleavedToComplexView(std::span&lt; T &gt; data)</div><div class="ttdef"><b>Definition</b> marvin_Math.h:106</div></div>
-<div class="ttc" id="anamespacemarvin_1_1math_html_a3f791d02adbe01af8c996c8b5b436f75"><div class="ttname"><a href="namespacemarvin_1_1math.html#a3f791d02adbe01af8c996c8b5b436f75">marvin::math::complexViewToInterleaved</a></div><div class="ttdeci">std::span&lt; T &gt; complexViewToInterleaved(std::span&lt; std::complex&lt; T &gt; &gt; data)</div><div class="ttdef"><b>Definition</b> marvin_Math.h:121</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html_a30692b1ae3ffdf4fd7de93cb86579c79"><div class="ttname"><a href="namespacemarvin_1_1math.html#a30692b1ae3ffdf4fd7de93cb86579c79">marvin::math::interleavedToComplexView</a></div><div class="ttdeci">std::span&lt; std::complex&lt; T &gt; &gt; interleavedToComplexView(std::span&lt; T &gt; data)</div><div class="ttdef"><b>Definition</b> marvin_Math.h:129</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html_a3f791d02adbe01af8c996c8b5b436f75"><div class="ttname"><a href="namespacemarvin_1_1math.html#a3f791d02adbe01af8c996c8b5b436f75">marvin::math::complexViewToInterleaved</a></div><div class="ttdeci">std::span&lt; T &gt; complexViewToInterleaved(std::span&lt; std::complex&lt; T &gt; &gt; data)</div><div class="ttdef"><b>Definition</b> marvin_Math.h:144</div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html_a4a3d40e45bbeb22d6a4566c0f155a292"><div class="ttname"><a href="namespacemarvin_1_1math.html#a4a3d40e45bbeb22d6a4566c0f155a292">marvin::math::dbToGain</a></div><div class="ttdeci">T dbToGain(T db, T referenceMinDb=static_cast&lt; T &gt;(-100.0))</div><div class="ttdef"><b>Definition</b> marvin_Math.h:43</div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html_a67212a8a8c4d308a97bb2e4ea34e7c39"><div class="ttname"><a href="namespacemarvin_1_1math.html#a67212a8a8c4d308a97bb2e4ea34e7c39">marvin::math::lerp</a></div><div class="ttdeci">T lerp(T start, T end, T ratio) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:31</div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html_a8622695b9c617d47eb67981b8aebf619"><div class="ttname"><a href="namespacemarvin_1_1math.html#a8622695b9c617d47eb67981b8aebf619">marvin::math::remap</a></div><div class="ttdeci">T remap(T x, T newMin, T newMax)</div><div class="ttdef"><b>Definition</b> marvin_Math.h:73</div></div>
 <div class="ttc" id="anamespacemarvin_1_1math_html_aa1bc6e54bd3d8abb587555b24648353b"><div class="ttname"><a href="namespacemarvin_1_1math.html#aa1bc6e54bd3d8abb587555b24648353b">marvin::math::gainToDb</a></div><div class="ttdeci">T gainToDb(T gain, T minusInfDb=static_cast&lt; T &gt;(-100.0)) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:58</div></div>
-<div class="ttc" id="anamespacemarvin_1_1math_html_af31b72b955255e60690b6caec77f0dda"><div class="ttname"><a href="namespacemarvin_1_1math.html#af31b72b955255e60690b6caec77f0dda">marvin::math::sinc</a></div><div class="ttdeci">T sinc(T x) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:126</div></div>
+<div class="ttc" id="anamespacemarvin_1_1math_html_af31b72b955255e60690b6caec77f0dda"><div class="ttname"><a href="namespacemarvin_1_1math.html#af31b72b955255e60690b6caec77f0dda">marvin::math::sinc</a></div><div class="ttdeci">T sinc(T x) noexcept</div><div class="ttdef"><b>Definition</b> marvin_Math.h:149</div></div>
+<div class="ttc" id="astructmarvin_1_1utils_1_1Range_html"><div class="ttname"><a href="structmarvin_1_1utils_1_1Range.html">marvin::utils::Range</a></div><div class="ttdoc">POD type that represents a range of values, for classes requiring a min and a max.</div><div class="ttdef"><b>Definition</b> marvin_Range.h:21</div></div>
+<div class="ttc" id="astructmarvin_1_1utils_1_1Range_html_a39231b7dba2ae081ec28ebe1248f9175"><div class="ttname"><a href="structmarvin_1_1utils_1_1Range.html#a39231b7dba2ae081ec28ebe1248f9175">marvin::utils::Range::max</a></div><div class="ttdeci">T max</div><div class="ttdef"><b>Definition</b> marvin_Range.h:23</div></div>
+<div class="ttc" id="astructmarvin_1_1utils_1_1Range_html_aed9c1b198944fc7be0a6f8461414e27c"><div class="ttname"><a href="structmarvin_1_1utils_1_1Range.html#aed9c1b198944fc7be0a6f8461414e27c">marvin::utils::Range::min</a></div><div class="ttdeci">T min</div><div class="ttdef"><b>Definition</b> marvin_Range.h:22</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
