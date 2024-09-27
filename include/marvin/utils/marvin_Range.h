@@ -21,6 +21,15 @@ namespace marvin::utils {
     struct Range {
         T min;
         T max;
+
+        /**
+         * Calculates the midpoint between `min` and `max`.
+         * \return The midpoint between `min` and `max`.
+         */
+        [[nodiscard]] T midpoint() const noexcept {
+            const auto midPoint = (max - min) / static_cast<T>(2.0);
+            return midPoint;
+        }
     };
 
     /**
