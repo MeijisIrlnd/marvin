@@ -94,6 +94,29 @@ namespace marvin::math {
     }
 
     /**
+     * Takes a value in range `srcRange`, normalises it, and remaps it to be in range `newRange`.
+     * \param x The value to remap.
+     * \param srcRange The range the value is currently in.
+     * \param newRange The range to map the value into.
+     * \return The rescaled value.
+     */
+    template <FloatType T>
+    [[nodiscard]] T remap(T x, marvin::utils::Range<T> srcRange, marvin::utils::Range<T> newRange) {
+        return remap<T>(x, srcRange.min, srcRange.max, newRange.min, newRange.max);
+    }
+
+    /**
+     * Takes a value in range 0 to 1, and rescales it to be in range `newRange`.
+     * \param x The value to remap.
+     * \param newRange The range to map the value into.
+     * \return The rescaled value.
+     */
+    template <FloatType T>
+    [[nodiscard]] T remap(T x, marvin::utils::Range<T> newRange) {
+        return remap<T>(x, newRange.min, newRange.max);
+    }
+
+    /**
         Takes an array-like of complexes represented as `[re, im, re, im, ... im]` of size `N` and creates
         a non-owning view treating the interleaved stream as an array-like of type `std::complex<T>` `N/2` points long,
         with no copies or allocations.<br>
