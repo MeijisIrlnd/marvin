@@ -17,6 +17,7 @@
 #include <concepts>
 #include <span>
 #include <vector>
+#include <random>
 namespace marvin {
 
     /**
@@ -97,5 +98,10 @@ namespace marvin {
             return isPowerOfTwo<N / 2>();
         }
     }
+
+    template <class T>
+    concept RandomEngineType = std::same_as<T, std::mt19937> || std::same_as<T, std::mt19937_64> ||
+                               std::same_as<T, std::minstd_rand0> || std::same_as<T, std::minstd_rand> ||
+                               std::same_as<T, std::ranlux24_base> || std::same_as<T, std::ranlux48_base>;
 } // namespace marvin
 #endif

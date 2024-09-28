@@ -10,6 +10,14 @@
 
 #include "marvin/utils/marvin_Random.h"
 namespace marvin::utils {
-    Random::Random(std::random_device& rd) : m_rng(rd()) {
+    template <RandomEngineType Engine>
+    RandomGenerator<Engine>::RandomGenerator(std::random_device& rd) : m_rng(rd()) {
     }
+
+    template class RandomGenerator<std::mt19937>;
+    template class RandomGenerator<std::mt19937_64>;
+    template class RandomGenerator<std::minstd_rand0>;
+    template class RandomGenerator<std::minstd_rand>;
+    template class RandomGenerator<std::ranlux24_base>;
+    template class RandomGenerator<std::ranlux48_base>;
 } // namespace marvin::utils

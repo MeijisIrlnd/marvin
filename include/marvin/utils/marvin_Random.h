@@ -17,15 +17,23 @@ namespace marvin::utils {
     /**
         \brief A class for (pseudo) random number generation.
 
-        Internally, this class is just a wrapper around the `std::mt19937` Mersenne-Twister engine, for convenience and brevity of typing.
+        This class is a wrapper around the usual modern c++ random approach, with a templated Engine type.
+        Below is a copy pasted excerpt from the cppreference information about the random engine types:
+        number of trade-offs:<br><br>
+
+        The linear congruential engine (`std::minstd_rand`, `std::minstd_rand0`) is moderately fast and has a very small storage requirement for state.<br>
+        The Mersenne twister engine (`std::mt19937`, std::mt19937_64`) is slower and has greater state storage requirements but with the right parameters has the longest non-repeating sequence with the most desirable spectral characteristics (for a given definition of desirable).<br>
+        The subtract with carry engine (`std::ranlux24_base`, std::ranlux48_base`) is very fast even on processors without advanced arithmetic instruction sets, at the expense of greater state storage and sometimes less desirable spectral characteristics.<br>
+
     */
-    class Random final {
+    template <RandomEngineType Engine>
+    class RandomGenerator final {
     public:
         /**
             As it's not recommended to have multiple copies of a `std::random_device`, this class relies on one to be provided to its constructor, which is used to configure the internal `std::mt19937` rng.
             \param rd An instance of a `std::random_device` to seed the internal rng with.
         */
-        explicit Random(std::random_device& rd);
+        explicit RandomGenerator(std::random_device& rd);
 
         /**
             Generates a (pseudo) random number in the given Range. Internally uses the appropriate `std::uniform_t_distribution` depending on if T is an integral type, or a float-type.
@@ -45,8 +53,11 @@ namespace marvin::utils {
         using Distribution = std::conditional_t<std::is_floating_point_v<T>,
                                                 std::uniform_real_distribution<T>,
                                                 std::uniform_int_distribution<T>>;
-        std::mt19937 m_rng;
+        Engine m_rng;
     };
+
+    // Default, to not break existing codebases..
+    using Random = RandomGenerator<std::mt19937>;
 
 
 } // namespace marvin::utils
