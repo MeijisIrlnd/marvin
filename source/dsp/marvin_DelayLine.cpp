@@ -88,6 +88,17 @@ namespace marvin::dsp {
     }
 
     template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
+    int DelayLine<SampleType, InterpolationType>::getReadPos() const noexcept {
+        return m_readPos;
+    }
+
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
+    int DelayLine<SampleType, InterpolationType>::getWritePos() const noexcept {
+        return m_writePos;
+    }
+
+
+    template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     SampleType DelayLine<SampleType, InterpolationType>::interpolateSample() {
         if constexpr (InterpolationType == DelayLineInterpolationType::None) {
             const auto index = (m_readPos + m_delayInt) % m_totalSize;

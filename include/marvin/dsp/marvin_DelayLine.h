@@ -85,6 +85,18 @@ namespace marvin::dsp {
         */
         [[nodiscard]] SampleType popSample(SampleType delayInSamples = -1, bool updateReadPointer = true);
 
+        /**
+         * Retrieves the current position of the read head. Note that the read head runs backwards (ie towards zero).
+         * \return The current position of the read head.
+         */
+        [[nodiscard]] int getReadPos() const noexcept;
+
+        /**
+         * Retrives the current position of the write head. Note that the write head runs backwards (ie towards zero).
+         * \return The current position of the write head.
+         */
+        [[nodiscard]] int getWritePos() const noexcept;
+
     private:
         [[nodiscard]] SampleType interpolateSample();
         void updateInternalVariables();
