@@ -27,6 +27,7 @@ set(MARVIN_HEADERS
         ${CMAKE_CURRENT_SOURCE_DIR}/marvin/library/marvin_Concepts.h
         ${CMAKE_CURRENT_SOURCE_DIR}/marvin/library/marvin_PropagateConst.h
         ${CMAKE_CURRENT_SOURCE_DIR}/marvin/math/marvin_Math.h
+        ${CMAKE_CURRENT_SOURCE_DIR}/marvin/math/marvin_Conversions.h
         ${CMAKE_CURRENT_SOURCE_DIR}/marvin/math/marvin_Reciprocal.h
         ${CMAKE_CURRENT_SOURCE_DIR}/marvin/math/marvin_Windows.h
         ${CMAKE_CURRENT_SOURCE_DIR}/marvin/math/marvin_Interpolators.h

@@ -34,34 +34,6 @@ namespace marvin::math {
         return interpolated;
     }
 
-    /**
-        Converts from decibels to gain.
-        \param db The level in decibels.
-        \param referenceMinDb The level in decibels that should correspond to 0 gain. Optional, defaults to -100dB.
-        \return The level in decibels converted to a 0 to 1 gain.
-    */
-    template <FloatType T>
-    [[nodiscard]] T dbToGain(T db, T referenceMinDb = static_cast<T>(-100.0)) {
-        if (db > referenceMinDb) {
-            return std::pow(static_cast<T>(10.0), db * static_cast<T>(0.05));
-        } else {
-            return static_cast<T>(0.0);
-        }
-    }
-
-    /**
-        Converts from gain to decibels.
-        \param gain The 0 to 1 gain to convert.
-        \param minusInfDb The level in decibels that should correspond to 0 gain. Optional, defaults to -100dB.
-        \return The converted level in decibels.
-    */
-    template <FloatType T>
-    [[nodiscard]] T gainToDb(T gain, T minusInfDb = static_cast<T>(-100.0)) noexcept {
-        const auto clamped = std::clamp(gain, static_cast<T>(0.0), static_cast<T>(1.0));
-        if (clamped <= 0.0f) return minusInfDb;
-        const auto db = std::max(static_cast<T>(20.0) * std::log10(clamped), minusInfDb);
-        return db;
-    }
 
     /**
      * Takes a value in range 0 to 1, and rescales it to be in range `newMin` to `newMax`.
