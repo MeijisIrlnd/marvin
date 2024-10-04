@@ -1,15 +1,21 @@
+// ========================================================================================================
+//  _______ _______ ______ ___ ___ _______ _______
+// |   |   |   _   |   __ \   |   |_     _|    |  |
+// |       |       |      <   |   |_|   |_|       |
+// |__|_|__|___|___|___|__|\_____/|_______|__|____|
 //
-// Created by Syl Morrison on 04/10/2024.
+// This file is part of the Marvin open source library and is licensed under the terms of the MIT License.
 //
+// ========================================================================================================
 
-#ifndef INFERNO_MARVIN_CONVERSIONS_H
-#define INFERNO_MARVIN_CONVERSIONS_H
+#ifndef MARVIN_CONVERSIONS_H
+#define MARVIN_CONVERSIONS_H
 #include <marvin/library/marvin_Concepts.h>
 namespace marvin::math {
 
     /**
-     * Converts a time in ms to seconds
-     * \param ms Time in ms.
+     * Converts a time in milliseconds to seconds
+     * \param ms Time in milliseconds.
      * \return Time in seconds.
      */
     template <FloatType T>

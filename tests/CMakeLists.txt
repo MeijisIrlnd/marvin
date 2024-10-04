@@ -1,28 +1,29 @@
-set(MARVIN_TEST_SOURCE 
-    ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_AudioBufferTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_SwapBufferTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_StrideViewTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_FixedCircularBufferTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLineTests.cpp
-    # ${CMAKE_CURRENT_SOURCE_DIR}/dsp/spectral/marvin_FFTTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/oscillators/marvin_OscillatorTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APFTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPFTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_SVFTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_BiquadTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_SmoothedBiquadCoefficientsTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_ConceptsTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_PropagateConstTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_MathTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_WindowsTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegratorTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_VecOpsTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_WindowedSincInterpolatorTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_UtilsTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValueTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_RandomTests.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FIFOTests.cpp
-    # ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FormatReaderTests.cpp
-    PARENT_SCOPE
+set(MARVIN_TEST_SOURCE
+        ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_AudioBufferTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_SwapBufferTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_StrideViewTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/containers/marvin_FixedCircularBufferTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/marvin_DelayLineTests.cpp
+        # ${CMAKE_CURRENT_SOURCE_DIR}/dsp/spectral/marvin_FFTTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/oscillators/marvin_OscillatorTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APFTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPFTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_SVFTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_BiquadTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_SmoothedBiquadCoefficientsTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_ConceptsTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_PropagateConstTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_MathTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_ConversionTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_WindowsTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_LeakyIntegratorTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_VecOpsTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_WindowedSincInterpolatorTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_UtilsTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValueTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_RandomTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FIFOTests.cpp
+        # ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FormatReaderTests.cpp
+        PARENT_SCOPE
 )
     

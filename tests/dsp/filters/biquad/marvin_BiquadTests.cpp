@@ -14,6 +14,7 @@
 #include <marvin/dsp/filters/biquad/marvin_Biquad.h>
 #include <marvin/dsp/filters/biquad/marvin_RBJCoefficients.h>
 #include <marvin/math/marvin_Math.h>
+#include <marvin/math/marvin_Conversions.h>
 #include <catch2/catch_test_macros.hpp>
 #include <fmt/format.h>
 #include <iostream>
