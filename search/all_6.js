@@ -14,8 +14,10 @@ var searchData=
   ['getmaximumdelayinsamples_11',['getMaximumDelayInSamples',['../classmarvin_1_1dsp_1_1DelayLine.html#ae2438994c586fc568fa952af1728e020',1,'marvin::dsp::DelayLine']]],
   ['getnumchannels_12',['getNumChannels',['../structmarvin_1_1containers_1_1BufferView.html#ad3dea043fb077d4c5f0365cf1e999df4',1,'marvin::containers::BufferView']]],
   ['getnumsamples_13',['getNumSamples',['../structmarvin_1_1containers_1_1BufferView.html#aea666b0b126d02e58d302bf884200a0e',1,'marvin::containers::BufferView']]],
-  ['getremainingsamples_14',['getRemainingSamples',['../classmarvin_1_1utils_1_1SmoothedValue.html#a83cf07f07698cda928c8e576e5faff88',1,'marvin::utils::SmoothedValue']]],
-  ['gettargetvalue_15',['getTargetValue',['../classmarvin_1_1utils_1_1SmoothedValue.html#a88ee864101dfdc9f24846af37a25df2d',1,'marvin::utils::SmoothedValue']]],
-  ['getvaluetype_16',['getValueType',['../structmarvin_1_1dsp_1_1spectral_1_1getValueType.html',1,'marvin::dsp::spectral']]],
-  ['getvaluetype_3c_20t_20_3e_17',['getValueType&lt; T &gt;',['../structmarvin_1_1dsp_1_1spectral_1_1getValueType_3_01T_01_4.html',1,'marvin::dsp::spectral']]]
+  ['getreadpos_14',['getReadPos',['../classmarvin_1_1dsp_1_1DelayLine.html#a6662ea4cd0c15793b78442902f84e22e',1,'marvin::dsp::DelayLine']]],
+  ['getremainingsamples_15',['getRemainingSamples',['../classmarvin_1_1utils_1_1SmoothedValue.html#a83cf07f07698cda928c8e576e5faff88',1,'marvin::utils::SmoothedValue']]],
+  ['gettargetvalue_16',['getTargetValue',['../classmarvin_1_1utils_1_1SmoothedValue.html#a88ee864101dfdc9f24846af37a25df2d',1,'marvin::utils::SmoothedValue']]],
+  ['getvaluetype_17',['getValueType',['../structmarvin_1_1dsp_1_1spectral_1_1getValueType.html',1,'marvin::dsp::spectral']]],
+  ['getvaluetype_3c_20t_20_3e_18',['getValueType&lt; T &gt;',['../structmarvin_1_1dsp_1_1spectral_1_1getValueType_3_01T_01_4.html',1,'marvin::dsp::spectral']]],
+  ['getwritepos_19',['getWritePos',['../classmarvin_1_1dsp_1_1DelayLine.html#a481af5120d328adb36a956db06fdbe55',1,'marvin::dsp::DelayLine']]]
 ];
