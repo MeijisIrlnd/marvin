@@ -53,5 +53,37 @@ namespace marvin::utils {
     bool operator!=(const Range<T>& lhs, const Range<T>& rhs) {
         return !(lhs == rhs);
     }
+
+    template <NumericType T>
+    Range<T> operator+(const Range<T>& other, T constant) {
+        return {
+            .min = other.min + constant,
+            .max = other.max + constant
+        };
+    }
+
+    template <NumericType T>
+    Range<T> operator-(const Range<T>& other, T constant) {
+        return {
+            .min = other.min - constant,
+            .max = other.max - constant
+        };
+    }
+
+    template <NumericType T>
+    Range<T> operator*(const Range<T>& other, T constant) {
+        return {
+            .min = other.min * constant,
+            .max = other.max * constant
+        };
+    }
+
+    template <NumericType T>
+    Range<T> operator/(const Range<T>& other, T constant) {
+        return {
+            .min = other.min / constant,
+            .max = other.max / constant
+        };
+    }
 } // namespace marvin::utils
 #endif

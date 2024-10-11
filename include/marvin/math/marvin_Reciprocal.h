@@ -33,6 +33,43 @@ namespace marvin::math {
         T max;
     };
 
+    template <FloatType T>
+    ReciprocalRange<T> operator+(const ReciprocalRange<T>& other, T constant) {
+        return {
+            .min = other.min + constant,
+            .centre = other.centre + constant,
+            .max = other.max + constant
+        };
+    }
+
+    template <FloatType T>
+    ReciprocalRange<T> operator-(const ReciprocalRange<T>& other, T constant) {
+        return {
+            .min = other.min - constant,
+            .centre = other.centre - constant,
+            .max = other.max - constant
+        };
+    }
+
+    template <FloatType T>
+    ReciprocalRange<T> operator*(const ReciprocalRange<T>& other, T constant) {
+        return {
+            .min = other.min * constant,
+            .centre = other.centre * constant,
+            .max = other.max * constant
+        };
+    }
+
+    template <FloatType T>
+    ReciprocalRange<T> operator/(const ReciprocalRange<T>& other, T constant) {
+        return {
+            .min = other.min / constant,
+            .centre = other.centre / constant,
+            .max = other.max / constant
+        };
+    }
+
+
     /**
      * \brief Class to handle mapping from one range to another (warped) range, based on the reciprocal function 1/x.
      *
