@@ -10,6 +10,7 @@
 
 #ifndef MARVIN_MATHWINDOWS_H
 #define MARVIN_MATHWINDOWS_H
+#include <marvin/math/marvin_Math.h>
 #include <marvin/library/marvin_Concepts.h>
 #include <numbers>
 #include <cmath>
@@ -25,6 +26,28 @@ namespace marvin::math::windows {
         CosineSum,
         Hann,
         Hamming
+    };
+
+    template <marvin::FloatType SampleType, size_t NumPoints>
+    class PrecomputedWindow final {
+    public:
+        explicit PrecomputedWindow(std::array<SampleType, NumPoints>&& lut) : m_lut(std::move(lut)) {
+        }
+
+        [[nodiscard]] SampleType operator()(SampleType proportion) const {
+            const auto rescaled = proportion * NumPoints;
+            const auto truncated = std::trunc(rescaled);
+            const auto delta = rescaled - truncated;
+            const auto index0{ static_cast<size_t>(truncated) };
+            const auto index1 = index0 + 1;
+            const auto pointA = m_lut[index0];
+            const auto pointB = m_lut[index1];
+            const auto interpolated = marvin::math::lerp(pointA, pointB, delta);
+            return interpolated;
+        }
+
+    private:
+        std::array<SampleType, NumPoints> m_lut;
     };
 
     /**
