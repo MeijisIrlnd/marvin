@@ -28,12 +28,24 @@ namespace marvin::math::windows {
         Hamming
     };
 
+    /**
+     * \brief Helper class for cacheing a window function in a lookup table.
+     */
     template <marvin::FloatType SampleType, size_t NumPoints>
     class PrecomputedWindow final {
     public:
+        /**
+         * Constructs a PrecomputedWindow, from a preallocated array of points.
+         * \param lut A precomputed array containing the window function you want to store.
+         */
         explicit PrecomputedWindow(std::array<SampleType, NumPoints>&& lut) : m_lut(std::move(lut)) {
         }
 
+        /**
+         * Retrieves a sample a certain (0 to 1) proportion into the LUT. Will use linear interpolation between the existing points to achieve this.
+         * \param proportion A 0 to 1 propertion into the LUT.
+         * \return The (interpolated) sample in the window at the given proportion.
+         */
         [[nodiscard]] SampleType operator()(SampleType proportion) const {
             const auto rescaled = proportion * NumPoints;
             const auto truncated = std::trunc(rescaled);
