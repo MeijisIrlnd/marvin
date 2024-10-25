@@ -47,7 +47,8 @@ namespace marvin::math::windows {
          * \return The (interpolated) sample in the window at the given proportion.
          */
         [[nodiscard]] SampleType operator()(SampleType proportion) const {
-            const auto rescaled = proportion * NumPoints;
+            using namespace marvin::literals;
+            const auto rescaled = proportion * (NumPoints - 1_sz);
             const auto truncated = std::trunc(rescaled);
             const auto delta = rescaled - truncated;
             const auto index0{ static_cast<size_t>(truncated) };
@@ -71,7 +72,7 @@ namespace marvin::math::windows {
     template <FloatType SampleType>
     [[nodiscard]] SampleType sine(SampleType n, SampleType N) {
         static constexpr auto pi = std::numbers::pi_v<SampleType>;
-        const auto window = std::sin((pi * n) / N);
+        const auto window = std::sin((pi * n) / (N - 1));
         return window;
     }
 
@@ -84,10 +85,11 @@ namespace marvin::math::windows {
         \return A point n/N of the way along a tukey window, with a shape determined by `alpha`.
     */
     template <FloatType SampleType>
-    [[nodiscard]] SampleType tukey(SampleType n, SampleType N, SampleType alpha) {
+    [[nodiscard]] SampleType tukey(SampleType n, SampleType NumPoints, SampleType alpha) {
         // 0.5 * (1 - cos(2pin/alphaN)), 0 <= n <= aN / 2
         // 1, aN/2 <= n <= N / 2
         // w[N - n] = w[n], 0 <= n <= N / 2
+        const auto N{ NumPoints - 1 };
         const auto alphaN = alpha * N;
         const auto NOverTwo = N / static_cast<SampleType>(2.0);
         const auto aNOverTwo = alphaN / static_cast<SampleType>(2.0);
@@ -121,7 +123,7 @@ namespace marvin::math::windows {
         constexpr static auto twoPi{ pi * 2.0 };
         constexpr static auto fourPi{ pi * 4.0 };
         constexpr static auto sixPi{ pi * 6.0 };
-        const auto position = static_cast<double>(n) / static_cast<double>(N);
+        const auto position = static_cast<double>(n) / static_cast<double>(N - 1);
         const auto a1Term = a1 * std::cos(position * twoPi);
         const auto a2Term = a2 * std::cos(position * fourPi);
         const auto a3Term = a3 * std::cos(position * sixPi);
@@ -145,7 +147,7 @@ namespace marvin::math::windows {
         const auto a0 = alpha;
         const auto a1 = static_cast<SampleType>(1.0) - alpha;
         constexpr static auto twoPi = std::numbers::pi_v<SampleType> * static_cast<SampleType>(2.0);
-        const auto ratio = n / N;
+        const auto ratio = n / (N - 1);
         const auto cosine = std::cos(twoPi * ratio);
         const auto a1Scaled = a1 * cosine;
         const auto res = a0 - a1Scaled;
