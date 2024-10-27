@@ -19,7 +19,13 @@ project(
 if (APPLE)
     set(MARVIN_EXTRA_DEFS MARVIN_MACOS)
     set(MARVIN_EXTRA_LINK_LIBS "-framework Accelerate")
-    set(MARVIN_COMPILE_OPTS "-ffast-math")
+    set(MARVIN_COMPILE_OPTS "-ffinite-math-only"
+            "-fno-signed-zeros"
+            "-fno-trapping-math"
+            "-fassociative-math"
+            "-fno-math-errno"
+            "-freciprocal-math"
+    )
 else ()
     if (WIN32)
         set(MARVIN_EXTRA_DEFS MARVIN_WINDOWS)
