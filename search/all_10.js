@@ -5,8 +5,9 @@ var searchData=
   ['triangle_2',['Triangle',['../classmarvin_1_1dsp_1_1oscillators_1_1MultiOscillator.html#ac43911d9178f41514a0c48a9a80de28ca5e5500cb2b82eb72d550de644bd1b64b',1,'marvin::dsp::oscillators::MultiOscillator']]],
   ['trioscillator_3',['TriOscillator',['../classmarvin_1_1dsp_1_1oscillators_1_1TriOscillator.html',1,'marvin::dsp::oscillators']]],
   ['trioscillator_3c_20sampletype_2c_20bandlimiting_3a_3aoff_20_3e_4',['TriOscillator&lt; SampleType, Bandlimiting::Off &gt;',['../classmarvin_1_1dsp_1_1oscillators_1_1TriOscillator.html',1,'marvin::dsp::oscillators']]],
-  ['trypop_5',['tryPop',['../classmarvin_1_1containers_1_1fifos_1_1SPSC.html#ae0438c6dc0b0019887d81d9aa1e184e5',1,'marvin::containers::fifos::SPSC']]],
-  ['trypush_6',['tryPush',['../classmarvin_1_1containers_1_1fifos_1_1SPSC.html#a2acb3e27a2dc5bf8e821d6c219ad7b20',1,'marvin::containers::fifos::SPSC']]],
+  ['trypop_5',['tryPop',['../classmarvin_1_1containers_1_1fifos_1_1FIFO.html#ab86165f80a905bbe93cde026ff88d48e',1,'marvin::containers::fifos::FIFO']]],
+  ['trypush_6',['tryPush',['../classmarvin_1_1containers_1_1fifos_1_1FIFO.html#a2d095bf51f5b038301bd50ef0f4dccae',1,'marvin::containers::fifos::FIFO']]],
   ['tukey_7',['Tukey',['../namespacemarvin_1_1math_1_1windows.html#ac849a14617e4474c653fd66547db8d58ae64282abbecb575a17b762eb0138273b',1,'marvin::math::windows']]],
-  ['tukey_8',['tukey',['../namespacemarvin_1_1math_1_1windows.html#aa29304e3060312ec4796b6965ce5d527',1,'marvin::math::windows']]]
+  ['tukey_8',['tukey',['../namespacemarvin_1_1math_1_1windows.html#aa29304e3060312ec4796b6965ce5d527',1,'marvin::math::windows']]],
+  ['type_9',['Type',['../namespacemarvin_1_1containers_1_1fifos.html#a1c38c99f306a893f8f916dbf2e753290',1,'marvin::containers::fifos']]]
 ];
