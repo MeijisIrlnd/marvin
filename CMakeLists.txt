@@ -68,6 +68,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(readerwriterqueue)
 
+FetchContent_Declare(
+        concurrentqueue
+        GIT_REPOSITORY https://github.com/cameron314/concurrentqueue
+        GIT_SHALLOW ON
+)
+FetchContent_MakeAvailable(concurrentqueue)
+
 add_subdirectory(source)
 add_subdirectory(include)
 add_subdirectory(tests)
@@ -86,6 +93,7 @@ target_include_directories(marvin PUBLIC
 target_link_libraries(marvin PUBLIC
         ${MARVIN_EXTRA_LINK_LIBS}
         readerwriterqueue
+        concurrentqueue
 )
 
 install(DIRECTORY "include/" # source directory
