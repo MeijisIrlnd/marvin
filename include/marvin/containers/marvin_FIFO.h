@@ -11,14 +11,30 @@
 #ifndef MARVIN_FIFO_H
 #define MARVIN_FIFO_H
 #include <readerwriterqueue.h>
+#include <concurrentqueue.h>
 #include <optional>
 #include <type_traits>
 namespace marvin::containers::fifos {
     /**
-        \brief A thread-safe, realtime-safe single producer single consumer fifo.
+     * \brief Represents a FIFO's configuration.
+     */
+    enum class Type {
+        /**
+         * Single Producer, Single Consumer
+         */
+        SPSC,
+        /**
+         * Multi Producer, Multi Consumer
+         */
+        MPMC
+    };
 
-        A wrapper around [cameron314's readerwriterqueue](https://github.com/cameron314/readerwriterqueue).<br>
-        Suitable for passing data between two threads. If the queue is full, pushing will have no effect, and if the queue is empty,
+    /**
+        \brief A thread-safe, realtime-safe fifo.
+
+        Can be configured as either a single producer, single consumer queue (SPSC), a wrapper around [cameron314's readerwriterqueue](https://github.com/cameron314/readerwriterqueue),
+        or a multi producer, multi consumer queue (MPMC), a wrapper around [cameron314's concurrentqueue](https://github.com/cameron314/concurrentqueue).<br>
+        Suitable for passing data between threads. If the queue is full, pushing will have no effect, and if the queue is empty,
         popping will return a `std::nullopt`. <br>
         `T` <b>must</b> be default-constructible, copy constructible and move constructible.<br>
         To empty the queue in a single loop:
@@ -35,16 +51,17 @@ namespace marvin::containers::fifos {
         };
         ```
     */
-    template <typename T>
+    template<Type QueueType, typename T>
     requires std::is_copy_constructible_v<T> &&
              std::is_move_constructible_v<T> &&
              std::is_default_constructible_v<T>
-    class SPSC final {
+    class FIFO final {
     public:
         /**
             \param maxSize The capacity of the fifo.
         */
-        explicit SPSC(size_t maxSize) : m_queue(maxSize) {
+        explicit FIFO(size_t maxSize) : m_queue(maxSize) {
+
         }
 
         /**
@@ -79,7 +96,14 @@ namespace marvin::containers::fifos {
         }
 
     private:
-        moodycamel::ReaderWriterQueue<T> m_queue;
+        using queue_t = std::conditional_t<QueueType == Type::SPSC, moodycamel::ReaderWriterQueue<T>, moodycamel::ConcurrentQueue<T>>;
+        queue_t m_queue;
     };
+
+    template<typename T>
+    using SPSC = FIFO<Type::SPSC, T>;
+
+    template<typename T>
+    using MPMC = FIFO<Type::MPMC, T>;
 } // namespace marvin::containers::fifos
 #endif
