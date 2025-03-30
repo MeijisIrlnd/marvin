@@ -79,6 +79,7 @@ namespace marvin::containers::fifos {
             Tries to emplace an element into the back of the queue. If the queue is full, has no effect.
             Never allocates.
             \param x The value to push into the queue.
+            \return Whether the value was pushed into the queue.
         */
         bool tryPush(T&& x) noexcept {
             return m_queue.try_enqueue(std::move(x));
@@ -88,6 +89,7 @@ namespace marvin::containers::fifos {
             Tries to emplace an element into the back of the queue. If the queue is full, has no effect.
             Never allocates.
             \param x The value to push into the queue. Must be trivially copyable.
+            \return Whether the value was pushed into the queue.
         */
         bool tryPush(const T& x) noexcept(std::is_nothrow_copy_constructible_v<T>) requires std::is_trivially_copyable_v<T> {
             return m_queue.try_enqueue(x);
@@ -95,8 +97,9 @@ namespace marvin::containers::fifos {
 
         /**
             Tries to construct an element in-place into the back of the queue. If the queue is full, has no effect.
-            Never allocates. `T` must by trivially constructible from the types in `Args`.
+            Never allocates. `T` must by trivially constructible from the types in `Args`. Can only be used on an SPSC queue.
             \param args The arguments used to construct the element in-place.
+            \return Whether the value was pushed into the queue.
         */
         template<typename... Args> requires(std::is_trivially_constructible_v<T, Args...> && QueueType == Type::SPSC)
         bool tryEmplace(Args&&... args) noexcept(std::is_nothrow_constructible_v<T, Args...>) {
