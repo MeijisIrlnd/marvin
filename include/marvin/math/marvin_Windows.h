@@ -12,6 +12,7 @@
 #define MARVIN_MATHWINDOWS_H
 #include <marvin/math/marvin_Math.h>
 #include <marvin/library/marvin_Concepts.h>
+#include <marvin/library/marvin_Literals.h>
 #include <numbers>
 #include <cmath>
 namespace marvin::math::windows {
