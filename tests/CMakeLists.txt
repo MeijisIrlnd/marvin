@@ -11,6 +11,7 @@ set(MARVIN_TEST_SOURCE
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_SVFTests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_BiquadTests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_SmoothedBiquadCoefficientsTests.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_SIMDBiquadTests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_ConceptsTests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/library/marvin_PropagateConstTests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/math/marvin_MathTests.cpp
@@ -23,7 +24,6 @@ set(MARVIN_TEST_SOURCE
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_SmoothedValueTests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_RandomTests.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FIFOTests.cpp
-        # ${CMAKE_CURRENT_SOURCE_DIR}/utils/marvin_FormatReaderTests.cpp
         PARENT_SCOPE
 )
     

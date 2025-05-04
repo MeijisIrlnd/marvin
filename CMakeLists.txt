@@ -25,6 +25,7 @@ if (APPLE)
             "-fassociative-math"
             "-fno-math-errno"
             "-freciprocal-math"
+            "-ftree-vectorize"
     )
 else ()
     if (WIN32)
@@ -75,6 +76,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(concurrentqueue)
 
+# Disable xsimd unit tests
+set(BUILD_TESTS OFF)
+FetchContent_Declare(xsimd
+        GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git
+        GIT_TAG fb250213fd8c2db857fa0db05eea9b09fb1fe764
+        GIT_SHALLOW ON
+)
+FetchContent_MakeAvailable(xsimd)
+
 add_subdirectory(source)
 add_subdirectory(include)
 add_subdirectory(tests)
@@ -94,6 +104,7 @@ target_link_libraries(marvin PUBLIC
         ${MARVIN_EXTRA_LINK_LIBS}
         readerwriterqueue
         concurrentqueue
+        xsimd
 )
 
 install(DIRECTORY "include/" # source directory
