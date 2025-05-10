@@ -73,7 +73,19 @@ namespace marvin::dsp::filters {
                 // ));
                 const auto [a0, a1, a2, b0, b1, b2] = m_coeffs[stage];
                 auto& delay = m_delays[stage];
+                const auto invB0 = static_cast<SampleType>(1.0) / b0;
+                const auto a0x0 = a0 * x;
+                const auto a1x1 = a1 * delay.x_z1;
+                const auto a2x2 = a2 * delay.x_z2;
+                const auto aSum = a0x0 + a1x1 + a2x2;
+                const auto b1y1 = b1 * delay.y_z1;
+                const auto b2y2 = b2 * delay.y_z2;
+                const auto aMinusB1 = aSum - b1y1;
+                const auto aMinusB2 = aMinusB1 - b2y2;
+                const auto yOther = invB0 * aMinusB2;
+
                 const auto y = static_cast<SampleType>(1.0) / b0 * ((a0 * x) + (a1 * delay.x_z1) + (a2 * delay.x_z2) - (b1 * delay.y_z1) - (b2 * delay.y_z2));
+                // assert(yOther == y);
                 delay(x, y);
                 x = y;
             }
