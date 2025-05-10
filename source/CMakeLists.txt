@@ -20,6 +20,7 @@ set(MARVIN_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_APF.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_LPF.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/marvin_SVF.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_SIMDBiquad.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_Biquad.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_BiquadCoefficients.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/dsp/filters/biquad/marvin_RBJCoefficients.cpp
