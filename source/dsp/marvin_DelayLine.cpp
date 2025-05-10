@@ -71,7 +71,7 @@ namespace marvin::dsp {
     template <FloatType SampleType, DelayLineInterpolationType InterpolationType>
     void DelayLine<SampleType, InterpolationType>::pushSample(SampleType sample) {
         const auto writePos{ static_cast<size_t>(m_writePos) };
-        m_bufferData.at(writePos) = sample;
+        m_bufferData[writePos] = sample;
         m_writePos = (m_writePos + m_totalSize - 1) % m_totalSize;
     }
 
@@ -102,7 +102,7 @@ namespace marvin::dsp {
     SampleType DelayLine<SampleType, InterpolationType>::interpolateSample() {
         if constexpr (InterpolationType == DelayLineInterpolationType::None) {
             const auto index = (m_readPos + m_delayInt) % m_totalSize;
-            return m_bufferData.at(index);
+            return m_bufferData[index];
         } else if constexpr (InterpolationType == DelayLineInterpolationType::Linear) {
             auto index0 = m_readPos + m_delayInt;
             auto index1 = index0 + 1;
@@ -110,8 +110,8 @@ namespace marvin::dsp {
                 index0 %= m_totalSize;
                 index1 %= m_totalSize;
             }
-            const auto value0 = m_bufferData.at(index0);
-            const auto value1 = m_bufferData.at(index1);
+            const auto value0 = m_bufferData[index0];
+            const auto value1 = m_bufferData[index1];
             const auto interpolated = value0 + m_delayFrac * (value1 - value0);
             return interpolated;
         } else if constexpr (InterpolationType == DelayLineInterpolationType::Lagrange3rd) {
@@ -125,10 +125,10 @@ namespace marvin::dsp {
                 index2 %= m_totalSize;
                 index3 %= m_totalSize;
             }
-            auto sample0 = m_bufferData.at(index0);
-            auto sample1 = m_bufferData.at(index1);
-            auto sample2 = m_bufferData.at(index2);
-            auto sample3 = m_bufferData.at(index3);
+            auto sample0 = m_bufferData[index0];
+            auto sample1 = m_bufferData[index1];
+            auto sample2 = m_bufferData[index2];
+            auto sample3 = m_bufferData[index3];
 
             const auto d0 = m_delayFrac - 1.0f;
             const auto d1 = m_delayFrac - 2.0f;
