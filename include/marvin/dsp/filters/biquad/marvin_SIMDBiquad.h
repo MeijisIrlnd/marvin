@@ -9,10 +9,22 @@
 #include <marvin/library/marvin_Concepts.h>
 #include <marvin/math/marvin_VecOps.h>
 namespace marvin::dsp::filters {
+    /**
+     * \brief A SIMD optimised biquad, for running N biquads in parallel.
+     *
+     * From benchmarks, only gives a speedup in certain cases, and even in those cases, only ~100ns.
+     * That being said, a robust parallel structure for filters is arguably nicer than a std::array<filter, N>.
+     *
+     * @tparam SampleType float or double
+     * @tparam N The number of parallel biquads to process
+     */
     template <marvin::FloatType SampleType, size_t N>
     requires(N > 0)
     class SIMDBiquad final {
     public:
+        /**
+         * Constructor
+         */
         SIMDBiquad() {
             m_working.resize(N, 0.0);
             m_a0.resize(N, 0.0);
@@ -26,6 +38,11 @@ namespace marvin::dsp::filters {
             m_y2.resize(N, 0.0);
         }
 
+        /**
+         * Sets the coefficients for all filters to the ones passed to the `coeffs` arg
+         *
+         * @param coeffs A BiquadCoefficients<SampleType> containing the coeffs you want to set.
+         */
         auto setCoeffs(BiquadCoefficients<SampleType> coeffs) noexcept -> void {
             m_equalCoeffs = true;
             const auto a0 = coeffs.a0 / coeffs.b0;
@@ -55,6 +72,11 @@ namespace marvin::dsp::filters {
             }
         }
 
+        /**
+         * Sets the coefficients for a specific biquad
+         * @param index
+         * @param coeffs
+         */
         auto setCoeffs(size_t index, BiquadCoefficients<SampleType> coeffs) noexcept -> void {
             m_equalCoeffs = false;
             const auto [a0, a1, a2, b0, b1, b2] = coeffs;
@@ -65,6 +87,10 @@ namespace marvin::dsp::filters {
             m_b2[index] = b2 / b0;
         }
 
+        /**
+         * Processes all samples in x through their respective biquads, and overwrites the values in x
+         * @param x An array-like containing N samples to be filtered.
+         */
         auto operator()(std::span<SampleType, N> x) noexcept -> void {
             constexpr static auto sizeBytes = sizeof(SampleType) * N;
             std::memcpy(m_working.data(), x.data(), sizeBytes);
@@ -101,6 +127,9 @@ namespace marvin::dsp::filters {
             std::memcpy(x.data(), m_y1.data(), sizeBytes);
         }
 
+        /**
+         * Zeroes all internal state (except coefficients).
+         */
         auto reset() noexcept -> void {
             auto batch = xsimd::broadcast(0.0);
             for (size_t i = 0; i < m_vecSize; i += m_simdSize) {
