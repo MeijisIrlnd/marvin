@@ -80,7 +80,7 @@ FetchContent_MakeAvailable(concurrentqueue)
 set(BUILD_TESTS OFF)
 FetchContent_Declare(xsimd
         GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git
-        GIT_TAG fb250213fd8c2db857fa0db05eea9b09fb1fe764
+        GIT_TAG master
         GIT_SHALLOW ON
 )
 FetchContent_MakeAvailable(xsimd)
