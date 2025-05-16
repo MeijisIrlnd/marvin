@@ -15,6 +15,7 @@ var namespacemarvin_1_1dsp_1_1filters =
     [ "BiquadCoefficients", "structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients.html", "structmarvin_1_1dsp_1_1filters_1_1BiquadCoefficients" ],
     [ "LatticeAPF", "classmarvin_1_1dsp_1_1filters_1_1LatticeAPF.html", "classmarvin_1_1dsp_1_1filters_1_1LatticeAPF" ],
     [ "LPF", "classmarvin_1_1dsp_1_1filters_1_1LPF.html", "classmarvin_1_1dsp_1_1filters_1_1LPF" ],
+    [ "SIMDBiquad", "classmarvin_1_1dsp_1_1filters_1_1SIMDBiquad.html", "classmarvin_1_1dsp_1_1filters_1_1SIMDBiquad" ],
     [ "SmoothedBiquadCoefficients", "classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html", "classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients" ],
     [ "SVF", "classmarvin_1_1dsp_1_1filters_1_1SVF.html", "classmarvin_1_1dsp_1_1filters_1_1SVF" ],
     [ "SVFResult", "structmarvin_1_1dsp_1_1filters_1_1SVFResult.html", "structmarvin_1_1dsp_1_1filters_1_1SVFResult" ],

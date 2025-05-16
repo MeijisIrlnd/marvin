@@ -57,9 +57,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classmarvin_1_1dsp_1_1filters_1_1SVF.html",
-"classmarvin_1_1library_1_1PropagateConst.html#ad77bf6c16db5de00a1e4021572c226a1",
-"namespacemarvin_1_1library.html#a6f8bbf6fd45b1d8d658aa4ce25cef983"
+"classmarvin_1_1dsp_1_1filters_1_1SIMDBiquad.html",
+"classmarvin_1_1library_1_1PropagateConst.html#ac0a18a56d2adb17cd94de95c59c05e52",
+"namespacemarvin_1_1library.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

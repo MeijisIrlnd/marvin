@@ -35,6 +35,7 @@ var hierarchy =
     [ "marvin::utils::Range< T >", "structmarvin_1_1utils_1_1Range.html", null ],
     [ "marvin::math::Reciprocal< T >", "classmarvin_1_1math_1_1Reciprocal.html", null ],
     [ "marvin::math::ReciprocalRange< T >", "structmarvin_1_1math_1_1ReciprocalRange.html", null ],
+    [ "marvin::dsp::filters::SIMDBiquad< SampleType, N >", "classmarvin_1_1dsp_1_1filters_1_1SIMDBiquad.html", null ],
     [ "marvin::dsp::filters::SmoothedBiquadCoefficients< SampleType, InterpolationType, NumStages >", "classmarvin_1_1dsp_1_1filters_1_1SmoothedBiquadCoefficients.html", null ],
     [ "marvin::utils::SmoothedValue< SampleType, Type >", "classmarvin_1_1utils_1_1SmoothedValue.html", null ],
     [ "marvin::containers::StrideView< T, Stride >", "classmarvin_1_1containers_1_1StrideView.html", null ],
