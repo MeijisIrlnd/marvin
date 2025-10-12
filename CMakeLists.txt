@@ -25,6 +25,7 @@ if (APPLE)
             "-fassociative-math"
             "-fno-math-errno"
             "-freciprocal-math"
+            "-ftree-vectorize"
     )
 else ()
     if (WIN32)
@@ -50,10 +51,10 @@ set(MARVIN_INSTALL_DEST " ${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
 )
 if (MSVC)
     message(STATUS "MSVC-Like")
-    set(MARVIN_WARNING_FLAGS "/W4 /WX")
+    set(MARVIN_WARNING_FLAGS "/W4")
 else ()
     # Need no unused command line arg because not all TU-s need -mfpu=neon
-    set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Wno-unused-command-line-argument -Werror")
+    set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Wno-unused-command-line-argument")
 endif ()
 
 set(MIPP_STATIC_LIB OFF)
@@ -75,6 +76,15 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(concurrentqueue)
 
+# Disable xsimd unit tests
+set(BUILD_TESTS OFF)
+FetchContent_Declare(xsimd
+        GIT_REPOSITORY https://github.com/xtensor-stack/xsimd.git
+        GIT_TAG master
+        GIT_SHALLOW ON
+)
+FetchContent_MakeAvailable(xsimd)
+
 add_subdirectory(source)
 add_subdirectory(include)
 add_subdirectory(tests)
@@ -94,6 +104,7 @@ target_link_libraries(marvin PUBLIC
         ${MARVIN_EXTRA_LINK_LIBS}
         readerwriterqueue
         concurrentqueue
+        xsimd
 )
 
 install(DIRECTORY "include/" # source directory

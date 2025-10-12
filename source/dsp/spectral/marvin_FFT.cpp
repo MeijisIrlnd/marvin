@@ -24,10 +24,10 @@
 #include <Accelerate/Accelerate.h>
 #endif
 #if defined(MARVIN_HAS_IPP)
-#include <ippcore.h>
-#include <ipps.h>
-#include <ippcore_l.h>
-#include <ipptypes.h>
+#include <ipp/ippcore.h>
+#include <ipp/ipps.h>
+#include <ipp/ippcore_l.h>
+#include <ipp/ipptypes.h>
 #endif
 
 namespace marvin::dsp::spectral {
