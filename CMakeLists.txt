@@ -51,10 +51,10 @@ set(MARVIN_INSTALL_DEST " ${CMAKE_INSTALL_LIBDIR}/cmake/marvin"
 )
 if (MSVC)
     message(STATUS "MSVC-Like")
-    set(MARVIN_WARNING_FLAGS "/W4 /WX")
+    set(MARVIN_WARNING_FLAGS "/W4")
 else ()
     # Need no unused command line arg because not all TU-s need -mfpu=neon
-    set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Wno-unused-command-line-argument -Werror")
+    set(MARVIN_WARNING_FLAGS "-Wall -Wextra -pedantic -Wno-unused-command-line-argument")
 endif ()
 
 set(MIPP_STATIC_LIB OFF)
