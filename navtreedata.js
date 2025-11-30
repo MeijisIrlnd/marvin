@@ -59,7 +59,7 @@ var NAVTREEINDEX =
 "annotated.html",
 "classmarvin_1_1dsp_1_1filters_1_1SIMDBiquad.html",
 "classmarvin_1_1library_1_1PropagateConst.html#ac0a18a56d2adb17cd94de95c59c05e52",
-"namespacemarvin_1_1library.html"
+"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -70,8 +70,12 @@ var NAVTREEINDEX2 =
 "classmarvin_1_1math_1_1windows_1_1PrecomputedWindow.html#a9a78b1814f04e04a8d1c02f92cc65c5e":[2,0,0,3,1,0,0],
 "classmarvin_1_1utils_1_1RandomGenerator.html":[0,0,0,4,0],
 "classmarvin_1_1utils_1_1RandomGenerator.html":[2,0,0,4,0],
+"classmarvin_1_1utils_1_1RandomGenerator.html#a4e00d106770ccb626bbf3d5b98118846":[0,0,0,4,0,2],
+"classmarvin_1_1utils_1_1RandomGenerator.html#a4e00d106770ccb626bbf3d5b98118846":[2,0,0,4,0,2],
 "classmarvin_1_1utils_1_1RandomGenerator.html#a6866eeac1030b893927749724f2074aa":[0,0,0,4,0,1],
 "classmarvin_1_1utils_1_1RandomGenerator.html#a6866eeac1030b893927749724f2074aa":[2,0,0,4,0,1],
+"classmarvin_1_1utils_1_1RandomGenerator.html#a9482c67a5c4d52bafaab9a47511a7f35":[0,0,0,4,0,3],
+"classmarvin_1_1utils_1_1RandomGenerator.html#a9482c67a5c4d52bafaab9a47511a7f35":[2,0,0,4,0,3],
 "classmarvin_1_1utils_1_1RandomGenerator.html#abd6fc64c8ac2ffb8e95bfdc52b1e44d1":[0,0,0,4,0,0],
 "classmarvin_1_1utils_1_1RandomGenerator.html#abd6fc64c8ac2ffb8e95bfdc52b1e44d1":[2,0,0,4,0,0],
 "classmarvin_1_1utils_1_1SmoothedValue.html":[0,0,0,4,2],
@@ -245,9 +249,5 @@ var NAVTREEINDEX2 =
 "namespacemarvin_1_1dsp_1_1oscillators.html#a9141a533fa45877c05b1f363a719d564":[0,0,0,1,1,8],
 "namespacemarvin_1_1dsp_1_1oscillators.html#a9141a533fa45877c05b1f363a719d564a521c36a31c2762741cf0f8890cbe05e3":[0,0,0,1,1,8,1],
 "namespacemarvin_1_1dsp_1_1oscillators.html#a9141a533fa45877c05b1f363a719d564ad15305d7a4e34e02489c74a5ef542f36":[0,0,0,1,1,8,0],
-"namespacemarvin_1_1dsp_1_1spectral.html":[0,0,0,1,2],
-"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8":[0,0,0,1,2,3],
-"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8a1552849ffc42861b4e22435101f86813":[0,0,0,1,2,3,1],
-"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8a40fbdb1373db81bc08c1b98b04423f48":[0,0,0,1,2,3,0],
-"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8a796fb3911ecb98c7373716cbe5d70375":[0,0,0,1,2,3,2]
+"namespacemarvin_1_1dsp_1_1spectral.html":[0,0,0,1,2]
 };

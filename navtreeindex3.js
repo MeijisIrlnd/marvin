@@ -1,5 +1,9 @@
 var NAVTREEINDEX3 =
 {
+"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8":[0,0,0,1,2,3],
+"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8a1552849ffc42861b4e22435101f86813":[0,0,0,1,2,3,1],
+"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8a40fbdb1373db81bc08c1b98b04423f48":[0,0,0,1,2,3,0],
+"namespacemarvin_1_1dsp_1_1spectral.html#a2ffd7367d846aeb0341b2575439079a8a796fb3911ecb98c7373716cbe5d70375":[0,0,0,1,2,3,2],
 "namespacemarvin_1_1library.html":[0,0,0,2],
 "namespacemarvin_1_1library.html#a01490840c37bc786a628b3cda4512476":[0,0,0,2,21],
 "namespacemarvin_1_1library.html#a073cd2c1ede8c3d160eb5e20d68a0493":[0,0,0,2,5],

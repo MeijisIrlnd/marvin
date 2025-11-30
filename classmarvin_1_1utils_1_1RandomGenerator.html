@@ -101,6 +101,8 @@ $(function(){initNavTree('classmarvin_1_1utils_1_1RandomGenerator.html','','clas
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abd6fc64c8ac2ffb8e95bfdc52b1e44d1" id="r_abd6fc64c8ac2ffb8e95bfdc52b1e44d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd6fc64c8ac2ffb8e95bfdc52b1e44d1">RandomGenerator</a> (std::random_device &amp;rd)</td></tr>
+<tr class="memitem:a9482c67a5c4d52bafaab9a47511a7f35" id="r_a9482c67a5c4d52bafaab9a47511a7f35"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9482c67a5c4d52bafaab9a47511a7f35">setSeed</a> (std::seed_seq seedSequence) -&gt; void</td></tr>
+<tr class="memitem:a4e00d106770ccb626bbf3d5b98118846" id="r_a4e00d106770ccb626bbf3d5b98118846"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e00d106770ccb626bbf3d5b98118846">setSeed</a> (int seed) -&gt; void</td></tr>
 <tr class="memitem:a6866eeac1030b893927749724f2074aa" id="r_a6866eeac1030b893927749724f2074aa"><td class="memTemplParams" colspan="2">template&lt;NumericType T&gt; </td></tr>
 <tr class="memitem:a6866eeac1030b893927749724f2074aa template"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6866eeac1030b893927749724f2074aa">generate</a> (<a class="el" href="structmarvin_1_1utils_1_1Range.html">Range</a>&lt; T &gt; range) noexcept</td></tr>
 </table>
@@ -182,6 +184,56 @@ template&lt;NumericType T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A pseudo random number in <span class="tt">range</span>. </dd></dl>
+
+</div>
+</div>
+<a id="a4e00d106770ccb626bbf3d5b98118846" name="a4e00d106770ccb626bbf3d5b98118846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e00d106770ccb626bbf3d5b98118846">&#9670;&#160;</a></span>setSeed() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;RandomEngineType Engine&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classmarvin_1_1utils_1_1RandomGenerator.html">marvin::utils::RandomGenerator</a>&lt; Engine &gt;::setSeed </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>seed</em></span></td><td>)</td>
+          <td> -&gt;  void</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the seed for the rng to a specified int </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seed</td><td>The seed to pass to the internal rng. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9482c67a5c4d52bafaab9a47511a7f35" name="a9482c67a5c4d52bafaab9a47511a7f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9482c67a5c4d52bafaab9a47511a7f35">&#9670;&#160;</a></span>setSeed() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;RandomEngineType Engine&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto <a class="el" href="classmarvin_1_1utils_1_1RandomGenerator.html">marvin::utils::RandomGenerator</a>&lt; Engine &gt;::setSeed </td>
+          <td>(</td>
+          <td class="paramtype">std::seed_seq</td>          <td class="paramname"><span class="paramname"><em>seedSequence</em></span></td><td>)</td>
+          <td> -&gt;  void</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Sets the seed for the rng to a std::seed_seq. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seedSequence</td><td>The seed_seq to pass to the internal rng. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
