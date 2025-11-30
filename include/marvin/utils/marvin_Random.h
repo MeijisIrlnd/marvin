@@ -36,6 +36,18 @@ namespace marvin::utils {
         explicit RandomGenerator(std::random_device& rd);
 
         /**
+         * Sets the seed for the rng to a std::seed_seq.
+         * @param seedSequence The seed_seq to pass to the internal rng.
+         */
+        auto setSeed(std::seed_seq seedSequence) -> void;
+
+        /**
+         * Sets the seed for the rng to a specified int
+         * @param seed The seed to pass to the internal rng.
+         */
+        auto setSeed(int seed) -> void;
+
+        /**
             Generates a (pseudo) random number in the given Range. Internally uses the appropriate `std::uniform_t_distribution` depending on if T is an integral type, or a float-type.
             \param range An instance of the Range POD type, specifying the min and max values the rng should generate between.
             \return A pseudo random number in `range`.

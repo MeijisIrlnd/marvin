@@ -14,6 +14,17 @@ namespace marvin::utils {
     RandomGenerator<Engine>::RandomGenerator(std::random_device& rd) : m_rng(rd()) {
     }
 
+    template <RandomEngineType Engine>
+    auto RandomGenerator<Engine>::setSeed(std::seed_seq seedSequence) -> void {
+        m_rng.seed(seedSequence);
+    }
+
+    template <RandomEngineType Engine>
+    auto RandomGenerator<Engine>::setSeed(int seed) -> void {
+        m_rng.seed(seed);
+    }
+
+
     template class RandomGenerator<std::mt19937>;
     template class RandomGenerator<std::mt19937_64>;
     template class RandomGenerator<std::minstd_rand0>;
