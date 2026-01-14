@@ -16,6 +16,64 @@
 #include <cassert>
 namespace marvin::math::vecops {
 
+
+    // =============================================================================================
+    // Out of place
+    /**
+        Adds the values of `rhs` to the values of `lhs`, and
+        stores the result in `dest`.
+
+        @tparam T float or double.
+        @param lhs A raw pointer to the lhs array-like.
+        @param rhs A raw pointer to the rhs array-like.
+        @param dest A raw pointer to the dest array-like
+        @param size The number of elements in `lhs`, `rhs` and `dest`.
+    */
+    template <FloatType T>
+    auto add(const T* lhs, const T* rhs, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Adds `scalar` to the values of `arr`, and stores the result in `dest`.
+     * @tparam T float or double.
+     * @param arr A raw pointer to the array-like to operate on
+     * @param scalar The value to add to the values in `arr`
+     * @param dest A raw pointer to the destination array-like
+     * @param size The number of elements in `arr` and `dest`.
+     */
+    template <FloatType T>
+    auto add(const T* arr, T scalar, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Adds the values of `rhs` to `lhs`, and stores the result in `dest`.
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param lhs The lhs array-like
+     * @param rhs The rhs array-like
+     * @param dest The destination array-like
+     */
+    template <FloatArrayLike T>
+    auto add(const T& lhs, const T& rhs, T& dest) noexcept -> void {
+        const auto size = lhs.size();
+        assert(rhs.size() == size && dest.size() == size);
+        add(lhs.data(), rhs.data(), dest.data(), size);
+    }
+
+    /**
+     * Adds the value of `scalar` to the values in `arr`, and stores the result in `dest`.
+     *
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param arr The array-like to operate on.
+     * @param scalar The value to add to the values in `arr`
+     * @param dest The destination array-like
+     */
+    template <FloatArrayLike T>
+    auto add(const T& arr, typename T::value_type scalar, T& dest) noexcept -> void {
+        const auto size = arr.size();
+        assert(dest.size() == size);
+        add(arr.data(), scalar, dest.data(), size);
+    }
+
+    // In place
+
     /**
         Adds the values of `rhs` to the values of `lhs`, and
         stores the result in `lhs`.
@@ -55,6 +113,60 @@ namespace marvin::math::vecops {
     template <FloatArrayLike T>
     void add(T& arr, typename T::value_type scalar) noexcept {
         add(arr.data(), scalar, arr.size());
+    }
+
+    // =============================================================================================
+    /**
+        Subtracts the values of `rhs` from the values of `lhs`, and
+        stores the result in `dest`.
+
+        @tparam T float or double.
+        @param lhs A raw pointer to the lhs array-like.
+        @param rhs A raw pointer to the rhs array-like.
+        @param dest A raw pointer to the dest array-like
+        @param size The number of elements in `lhs`, `rhs` and `dest`.
+    */
+    template <FloatType T>
+    auto subtract(const T* lhs, const T* rhs, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Subtracts `scalar` from the values of `arr`, and stores the result in `dest`.
+     * @tparam T float or double.
+     * @param arr A raw pointer to the array-like to operate on
+     * @param scalar The value to subtract from the values in `arr`
+     * @param dest A raw pointer to the destination array-like
+     * @param size The number of elements in `arr` and `dest`.
+     */
+    template <FloatType T>
+    auto subtract(const T* arr, T scalar, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Subtracts the values of `rhs` from  the values in`lhs`, and stores the result in `dest`.
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param lhs The lhs array-like
+     * @param rhs The rhs array-like
+     * @param dest The destination array-like
+     */
+    template <FloatArrayLike T>
+    auto subtract(const T& lhs, const T& rhs, T& dest) noexcept -> void {
+        const auto size = lhs.size();
+        assert(rhs.size() == size && dest.size() == size);
+        subtract(lhs.data(), rhs.data(), dest.data(), size);
+    }
+
+    /**
+     * Subtracts the value of `scalar` from the values in `arr`, and stores the result in `dest`.
+     *
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param arr The array-like to operate on.
+     * @param scalar The value to subtract from the values in `arr`
+     * @param dest The destination array-like
+     */
+    template <FloatArrayLike T>
+    auto subtract(const T& arr, typename T::value_type scalar, T& dest) noexcept -> void {
+        const auto size = arr.size();
+        assert(dest.size() == size);
+        subtract(arr.data(), scalar, dest.data(), size);
     }
 
     /**
@@ -101,6 +213,60 @@ namespace marvin::math::vecops {
     }
 
     /**
+        Multiplies the values of `rhs` by the values of `lhs`, and
+        stores the result in `dest`.
+
+        @tparam T float or double.
+        @param lhs A raw pointer to the lhs array-like.
+        @param rhs A raw pointer to the rhs array-like.
+        @param dest A raw pointer to the dest array-like
+        @param size The number of elements in `lhs`, `rhs` and `dest`.
+    */
+    template <FloatType T>
+    auto multiply(const T* lhs, const T* rhs, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Multiples the values of `arr` by `scalar`, and stores the result in `dest`.
+     *
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param arr A raw pointer to the array-like to operate on.
+     * @param scalar The value to multiply the values in `arr` by.
+     * @param dest A raw pointer to the destination array-like
+     * @param size The size of `arr`, and `dest`.
+     */
+    template <FloatType T>
+    auto multiply(const T* arr, T scalar, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Multiplies the values of `rhs` by the values of `lhs`, and stores the result in `dest`.
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param lhs The lhs array-like
+     * @param rhs The rhs array-like
+     * @param dest The destination array-like
+     */
+    template <FloatArrayLike T>
+    auto multiply(const T& lhs, const T& rhs, T& dest) noexcept -> void {
+        const auto size = lhs.size();
+        assert(rhs.size() == size && dest.size() == size);
+        multiply(lhs.data(), rhs.data(), dest.data(), size);
+    }
+
+    /**
+     * Multiplies the values of `arr` by `scalar`, and stores the result in `dest`.
+     *
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param arr The array-like to operate on.
+     * @param scalar The value to multiply the values in `arr` by.
+     * @param dest The destination array-like.
+     */
+    template <FloatArrayLike T>
+    auto multiply(const T& arr, typename T::value_type scalar, T& dest) noexcept -> void {
+        const auto size = arr.size();
+        assert(dest.size() == size);
+        multiply(arr.data(), scalar, dest.data(), size);
+    }
+
+    /**
         Multiplies the values of `lhs` by the values of `rhs`, and
         stores the result in `lhs`.
         \param lhs A raw pointer to the dest array-like.
@@ -142,6 +308,61 @@ namespace marvin::math::vecops {
     void multiply(T& arr, typename T::value_type scalar) noexcept {
         multiply(arr.data(), scalar, arr.size());
     }
+
+    /**
+        Divides the values of `lhs` by the values of `rhs`, and
+        stores the result in `dest`.
+
+        @tparam T float or double.
+        @param lhs A raw pointer to the lhs array-like.
+        @param rhs A raw pointer to the rhs array-like.
+        @param dest A raw pointer to the dest array-like
+        @param size The number of elements in `lhs`, `rhs` and `dest`.
+    */
+    template <FloatType T>
+    auto divide(const T* lhs, const T* rhs, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Divides the values of `arr` by `scalar`, and stores the result in `dest`.
+     *
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param arr A raw pointer to the array-like to operate on.
+     * @param scalar The value to divide the values in `arr` by.
+     * @param dest A raw pointer to the destination array-like
+     * @param size The size of `arr` and `dest`
+     */
+    template <FloatType T>
+    auto divide(const T* arr, T scalar, T* dest, size_t size) noexcept -> void;
+
+    /**
+     * Divides the values of `lhs` by the values of `rhs`, and stores the result in `dest`.
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param lhs The lhs array-like
+     * @param rhs The rhs array-like
+     * @param dest The destination array-like
+     */
+    template <FloatArrayLike T>
+    auto divide(const T& lhs, const T& rhs, T& dest) noexcept -> void {
+        const auto size = lhs.size();
+        assert(rhs.size() == size && dest.size() == size);
+        divide(lhs.data(), rhs.data(), dest.data(), size);
+    }
+
+    /**
+     * Divides the values of `arr` by `scalar`, and stores the result in `dest`.
+     *
+     * @tparam T Any stl container of type either float or double, satisfying `ArrayLike`.
+     * @param arr The array-like to operate on.
+     * @param scalar The value to divide the values in `arr` by.
+     * @param dest The destination array-like.
+     */
+    template <FloatArrayLike T>
+    auto divide(const T& arr, typename T::value_type scalar, T& dest) noexcept -> void {
+        const auto size = arr.size();
+        assert(dest.size() == size);
+        divide(arr.data(), scalar, dest.data(), size);
+    }
+
 
     /**
         Divides the values of `lhs` by the values of `rhs`, and

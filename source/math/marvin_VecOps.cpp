@@ -18,6 +18,31 @@
 
 namespace marvin::math::vecops {
 #if defined(MARVIN_MACOS)
+    // =============================================================================================
+    // Out of place vector vector add
+    template <>
+    auto add<float>(const float* lhs, const float* rhs, float* dest, size_t size) noexcept -> void {
+        vDSP_vadd(lhs, 1, rhs, 1, dest, 1, size);
+    }
+
+    template <>
+    auto add<double>(const double* lhs, const double* rhs, double* dest, size_t size) noexcept -> void {
+        vDSP_vaddD(lhs, 1, rhs, 1, dest, 1, size);
+    }
+
+    // =============================================================================================
+    // Out of place vector scalar add
+    template <>
+    auto add<float>(const float* arr, float scalar, float* dest, size_t size) noexcept -> void {
+        vDSP_vsadd(arr, 1, &scalar, dest, 1, size);
+    }
+
+    template <>
+    auto add<double>(const double* arr, double scalar, double* dest, size_t size) noexcept -> void {
+        vDSP_vsaddD(arr, 1, &scalar, dest, 1, size);
+    }
+    // =============================================================================================
+    // In place vector vector add
     template <>
     void add<float>(float* lhs, const float* rhs, size_t size) noexcept {
         vDSP_vadd(lhs, 1, rhs, 1, lhs, 1, size);
@@ -26,7 +51,8 @@ namespace marvin::math::vecops {
     void add<double>(double* lhs, const double* rhs, size_t size) noexcept {
         vDSP_vaddD(lhs, 1, rhs, 1, lhs, 1, size);
     }
-
+    // =============================================================================================
+    // In place vector scalar add
     template <>
     void add<float>(float* arr, float scalar, size_t size) noexcept {
         vDSP_vsadd(arr, 1, &scalar, arr, 1, size);
@@ -36,6 +62,34 @@ namespace marvin::math::vecops {
     void add<double>(double* arr, double scalar, size_t size) noexcept {
         vDSP_vsaddD(arr, 1, &scalar, arr, 1, size);
     }
+    // =============================================================================================
+    // Out of place vector vector sub
+    template <>
+    auto subtract<float>(const float* lhs, const float* rhs, float* dest, size_t size) noexcept -> void {
+        vDSP_vsub(rhs, 1, lhs, 1, dest, 1, size);
+    }
+
+    template <>
+    auto subtract<double>(const double* lhs, const double* rhs, double* dest, size_t size) noexcept -> void {
+        vDSP_vsubD(rhs, 1, lhs, 1, dest, 1, size);
+    }
+
+    // =============================================================================================
+    // Out of place vector scalar sub
+    template <>
+    auto subtract<float>(const float* arr, float scalar, float* dest, size_t size) noexcept -> void {
+        const auto invertedScalar = -scalar;
+        add(arr, invertedScalar, dest, size);
+    }
+
+    template <>
+    auto subtract<double>(const double* arr, double scalar, double* dest, size_t size) noexcept -> void {
+        const auto invertedScalar = -scalar;
+        add(arr, invertedScalar, dest, size);
+    }
+
+    // =============================================================================================
+    // In place vector vector sub
 
     template <>
     void subtract<float>(float* lhs, const float* rhs, size_t size) noexcept {
@@ -47,6 +101,8 @@ namespace marvin::math::vecops {
         vDSP_vsubD(rhs, 1, lhs, 1, lhs, 1, size);
     }
 
+    // =============================================================================================
+    // In place vector scalar sub
     template <>
     void subtract<float>(float* arr, float scalar, size_t size) noexcept {
         const auto invertedScalar = -scalar;
@@ -59,6 +115,32 @@ namespace marvin::math::vecops {
         add(arr, invertedScalar, size);
     }
 
+    // =============================================================================================
+    // Out of place vector vector multiply
+    template <>
+    auto multiply<float>(const float* lhs, const float* rhs, float* dest, size_t size) noexcept -> void {
+        vDSP_vmul(lhs, 1, rhs, 1, dest, 1, size);
+    }
+
+    template <>
+    auto multiply<double>(const double* lhs, const double* rhs, double* dest, size_t size) noexcept -> void {
+        vDSP_vmulD(lhs, 1, rhs, 1, dest, 1, size);
+    }
+
+    // =============================================================================================
+    // Out of place vector scalar multiply
+    template <>
+    auto multiply<float>(const float* arr, float scalar, float* dest, size_t size) noexcept -> void {
+        vDSP_vsmul(arr, 1, &scalar, dest, 1, size);
+    }
+
+    template <>
+    auto multiply<double>(const double* arr, double scalar, double* dest, size_t size) noexcept -> void {
+        vDSP_vsmulD(arr, 1, &scalar, dest, 1, size);
+    }
+
+    // =============================================================================================
+    // In place vector vector multiply
     template <>
     void multiply<float>(float* lhs, const float* rhs, size_t size) noexcept {
         vDSP_vmul(lhs, 1, rhs, 1, lhs, 1, size);
@@ -69,6 +151,8 @@ namespace marvin::math::vecops {
         vDSP_vmulD(lhs, 1, rhs, 1, lhs, 1, size);
     }
 
+    // =============================================================================================
+    // In place vector scalar multiply
     template <>
     void multiply<float>(float* arr, float scalar, size_t size) noexcept {
         vDSP_vsmul(arr, 1, &scalar, arr, 1, size);
@@ -79,6 +163,31 @@ namespace marvin::math::vecops {
         vDSP_vsmulD(arr, 1, &scalar, arr, 1, size);
     }
 
+    // =============================================================================================
+    // Out of place vector vector div
+    template <>
+    auto divide<float>(const float* lhs, const float* rhs, float* dest, size_t size) noexcept -> void {
+        vDSP_vdiv(rhs, 1, lhs, 1, dest, 1, size);
+    }
+
+    template <>
+    auto divide<double>(const double* lhs, const double* rhs, double* dest, size_t size) noexcept -> void {
+        vDSP_vdivD(rhs, 1, lhs, 1, dest, 1, size);
+    }
+
+    // =============================================================================================
+    // Out of place vector scalar div
+    template <>
+    auto divide<float>(const float* arr, float scalar, float* dest, size_t size) noexcept -> void {
+        vDSP_vsdiv(arr, 1, &scalar, dest, 1, size);
+    }
+
+    template <>
+    auto divide<double>(const double* arr, double scalar, double* dest, size_t size) noexcept -> void {
+        vDSP_vsdivD(arr, 1, &scalar, dest, 1, size);
+    }
+    // =============================================================================================
+    // In place vector vector div
     template <>
     void divide<float>(float* lhs, const float* rhs, size_t size) noexcept {
         vDSP_vdiv(rhs, 1, lhs, 1, lhs, 1, size);
@@ -88,6 +197,8 @@ namespace marvin::math::vecops {
     void divide<double>(double* lhs, const double* rhs, size_t size) noexcept {
         vDSP_vdivD(rhs, 1, lhs, 1, lhs, 1, size);
     }
+    // =============================================================================================
+    // Out of place vector scalar div
 
     template <>
     void divide<float>(float* arr, float scalar, size_t size) noexcept {
@@ -99,6 +210,7 @@ namespace marvin::math::vecops {
         vDSP_vsdivD(arr, 1, &scalar, arr, 1, size);
     }
 
+    // =============================================================================================
 #elif defined(MARVIN_HAS_IPP)
     template <>
     void add<float>(float* lhs, const float* rhs, size_t size) noexcept {
